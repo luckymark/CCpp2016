@@ -10,6 +10,8 @@
 
 [Git远程操作详解 阮一峰](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
 
+[fork后如何跟上源repo的变化](https://segmentfault.com/q/1010000002590371)
+
 ### Markdown
 
 [Markdown入门指南](http://www.jianshu.com/p/1e402922ee32)
