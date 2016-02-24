@@ -1,5 +1,43 @@
 # CCpp2016
 
+## 基本操作流程
+
+1. 从 [https://github.com/luckymark/CCpp2016](https://github.com/luckymark/CCpp2016) fork 到你自己的github中
+2. 创建本地仓库：(如果用机房的电脑，则建议clone到U盘，便于携带)
+
+	```
+	git clone https://github.com/ **YourGithubAccount** /CCpp2016
+	cd CCpp2016
+	ls
+	
+	git config user.name=???
+	git config user.email=??? 
+	
+	git remote -v
+	git remote add upstream https://github.com/luckymark/CCpp2016
+	```
+	
+3. 修改、提交代码：
+
+	```
+	git status
+	git add .
+	git commit -m "完成了running letter"
+	git push
+	```	
+
+4. 从 https://github.com/luckymark/CCpp2016 获取更新
+
+	```
+	git fetch upstream
+	git merge upstream/master
+	```	
+	[在github网页上更新的方法](https://www.zhihu.com/question/20393785/answer/30725725)
+	
+	[fork后如何同步源的新更新](https://segmentfault.com/q/1010000002590371)
+	
+5. 请求老师review代码的方法：在github网页上发起一个PR（pull request）即可
+
 ## 参考
 
 ### GIT
