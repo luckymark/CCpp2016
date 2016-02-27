@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include <math.h>
 #define MAGIC_NUM 100
 
 unsigned long random_in(unsigned long range);
