@@ -13,7 +13,7 @@ int square(int a) {
     return a * a;
 }
 
-int expmod(int base, int expo, int m) {
+static int expmod(int base, int expo, int m) {
     if (expo == 0) {
         return 1;
     } else if (expo % 2 == 0) {
@@ -52,7 +52,7 @@ int random_in(int range) {
 }
 
 // sieve of Eratothenes
-int *filter(int a[], int length, int (*cond)(int)) {
+static int *filter(int a[], int length, int (*cond)(int)) {
     for (size_t i = 0; i < length; i++) {
         if (a[i] != 0 && !cond(a[i])) {
             a[i] = 0;
@@ -61,11 +61,11 @@ int *filter(int a[], int length, int (*cond)(int)) {
     return a;
 }
 
-int not_int_div(int x) {
+static inline int not_int_div(int x) {
     return x <= divider ? 1 : x % divider;
 }
 
-int (*gen_not_int_div(int n))(int) {
+static int (*gen_not_int_div(int n))(int) {
     divider = n;
     return not_int_div;
 }
@@ -79,7 +79,7 @@ int next(int a[], int init) {
     return a[p];
 }
 
-int last(int a[], int length) {
+static int last(int a[], int length) {
     static int p = -1;
     if (p == -1) {
         p = length;
@@ -90,7 +90,7 @@ int last(int a[], int length) {
 
 int *erasieve(int a[], int length) {
     for (int n = next(a, 1); n <= sqrt(last(a, length)); n = next(a, 0)) {
-        filter(a, length, gen_not_int_div(n));
+        filter((a++), length, gen_not_int_div(n));
     }
     return a;
 }
