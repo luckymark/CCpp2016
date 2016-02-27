@@ -27,7 +27,7 @@ int expmod(int base, int expo, int m) {
 }
 
 int is_prime(int p) {
-    if (p % 2 == 0) {
+    if (p % 2 == 0 && p != 2) {
         return 0;
     } else {
         int a;
