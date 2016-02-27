@@ -42,18 +42,6 @@ int is_prime(int p) {
     }
 }
 
-// Thank to god that we have such a "convient" random funtion in C so that
-// I have to rewrite all of these useless function to genertae just one tiny
-// number
-
-int random_in_dec(int range) {
-    if (range == 0) {
-        return rand() % 10;
-    } else {
-        return rand() % 10 + 10 * random_in_dec(range / 10);
-    }
-}
-
 int random_in(int range) {
     int random_num;
     while ((random_num = rand() % range) >= range || !random_num);
