@@ -62,11 +62,7 @@ int *filter(int a[], int length, int (*cond)(int)) {
 }
 
 int not_int_div(int x) {
-    if (x <= divider) {
-        return 1;
-    } else {
-        return x % divider;
-    }
+    return x <= divider ? 1 : x % divider;
 }
 
 int (*gen_not_int_div(int n))(int) {
@@ -76,7 +72,7 @@ int (*gen_not_int_div(int n))(int) {
 
 int next(int a[], int init) {
     static int p = -1;
-    if (init == -1) {
+    if (init == 1) {
         p = init;
     }
     while (a[++p] == 0);
@@ -93,7 +89,7 @@ int last(int a[], int length) {
 }
 
 int *erasieve(int a[], int length) {
-    for (int n = next(a, 0); n <= sqrt(last(a, length)); n = next(a, 0)) {
+    for (int n = next(a, 1); n <= sqrt(last(a, length)); n = next(a, 0)) {
         filter(a, length, gen_not_int_div(n));
     }
     return a;
