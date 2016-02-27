@@ -17,12 +17,11 @@ int main(int argc, char const *argv[]) {
     // Miller Rabin test
     clock_t start = 0, end = 0, during = 0;
     start = clock();
-    // for (size_t i = 2; i < 1000000; i++) {
-    //     printf("%lu\n", i);
-    //     if (is_prime(i)) {
-    //         printf("%lu\n", i);
-    //     }
-    // }
+    for (size_t i = 2; i < 1000; i++) {
+        if (is_prime(i)) {
+            printf("%lu\n", i);
+        }
+    }
     printf("is prime 99979 %d\n", is_prime(99979));
     end = clock();
     during = end - start;
