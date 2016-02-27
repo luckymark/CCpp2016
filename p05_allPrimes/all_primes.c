@@ -38,7 +38,7 @@ int main(int argc, char const *argv[]) {
     during = end - start;
     timecost[1] = (double) during / CLOCKS_PER_SEC;
     for (size_t i = 0; i < sizeof(timecost) / sizeof(timecost[0]); i++) {
-        printf("method %lu cost %lfb sec\n", i + 1, timecost[i]);
+        printf("method %lu cost %lf sec\n", i + 1, timecost[i]);
     }
     return 0;
 }
