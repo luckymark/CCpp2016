@@ -12,11 +12,13 @@ int main(int argc, char const *argv[]) {
     // Miller Rabin test
     printf("Miller Rabin test running\n");
     start = clock();
+
     for (size_t i = 2; i < RANGE; i++) {
         if (is_prime(i)) {
             printf("%lu\n", i);
         }
     }
+
     end = clock();
     during = end - start;
     timecost[0] = (double) during / CLOCKS_PER_SEC;
@@ -24,6 +26,7 @@ int main(int argc, char const *argv[]) {
     // sieve of Eratosthenes
     printf("sieve of Eratosthenes running\n");
     start = clock();
+
     int a[RANGE - 1];
     for (size_t i = 0; i < RANGE - 1; i++) {
         a[i] = i + 2;
@@ -34,6 +37,7 @@ int main(int argc, char const *argv[]) {
             printf("%d\n", a[i]);
         }
     }
+
     end = clock();
     during = end - start;
     timecost[1] = (double) during / CLOCKS_PER_SEC;
