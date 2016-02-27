@@ -11,6 +11,6 @@ void move_hanoi(int from, int to, int empty, int num) {
 }
 
 int main(int argc, char const *argv[]) {
-    move_hanoi(1, 2, 3, 10);
+    move_hanoi(1, 2, 3, 64);
     return 0;
 }
