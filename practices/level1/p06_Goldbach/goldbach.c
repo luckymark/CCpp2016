@@ -22,9 +22,6 @@ int main(int argc, char const *argv[]) {
         prime_list[i] = i + 2;
     }
     erasieve(prime_list, RANGE - 1);
-    for (size_t i = 0; i < 10; i++) {
-        printf("%d\n", prime_list[i]);
-    }
 
     for (int i = 4; i <= RANGE; i += 2) {
         int p = verified_num(i, prime_list);
