@@ -4,7 +4,7 @@
 #include <math.h>
 #include "prime.h"
 
-#define RANGE 100000
+#define RANGE 1000
 
 int divider = 0;
 
