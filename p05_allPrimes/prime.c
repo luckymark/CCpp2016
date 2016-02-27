@@ -42,8 +42,16 @@ int is_prime(int p) {
     }
 }
 
+int random_in_dec(int range) {
+    if (range == 0) {
+        return rand() % 10;
+    } else {
+        return rand() % 10 + 10 * random_in_dec(range / 10);
+    }
+}
+
 int random_in(int range) {
     int random_num;
-    while ((random_num = rand() % range) >= range || !random_num);
+    while ((random_num = random_in_dec(range)) >= range || !random_num);
     return random_num;
 }
