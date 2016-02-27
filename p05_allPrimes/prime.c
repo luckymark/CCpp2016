@@ -1,9 +1,12 @@
 #include "prime.h"
 #include <stdlib.h>
+#include <math.h>
 
-#define MAGIC_NUM 100
+#define MAGIC_NUM 40
 
+static int divider = 0;
 
+// Miller Rabin test
 int random_in(int range);
 
 int square(int a) {
@@ -46,4 +49,49 @@ int random_in(int range) {
     int random_num;
     while ((random_num = rand() % range) >= range || !random_num);
     return random_num;
+}
+
+// sieve of Eratothenes
+int *filter(int a[], int length, int (*cond)(int)) {
+    for (size_t i = 0; i < length; i++) {
+        if (a[i] != 0 && !cond(a[i])) {
+            a[i] = 0;
+        }
+    }
+    return a;
+}
+
+int not_int_div(int x) {
+    if (x <= divider) {
+        return 1;
+    } else {
+        return x % divider;
+    }
+}
+
+int (*gen_not_int_div(int n))(int) {
+    divider = n;
+    return not_int_div;
+}
+
+int next(int a[]) {
+    static int p = -1;
+    while (a[++p] == 0);
+    return a[p];
+}
+
+int last(int a[], int length) {
+    static int p = -1;
+    if (p == -1) {
+        p = length;
+    }
+    while (a[--p] == 0);
+    return a[p];
+}
+
+int *erasieve(int a[], int length) {
+    for (int n = next(a); n <= sqrt(last(a, length)); n = next(a)) {
+        filter(a, length, gen_not_int_div(n));
+    }
+    return a;
 }
