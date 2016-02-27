@@ -4,18 +4,18 @@
 #define MAGIC_NUM 100
 
 
-unsigned long random_in(unsigned long range);
+int random_in(int range);
 
-unsigned long square(unsigned long a) {
+int square(int a) {
     return a * a;
 }
 
-unsigned long expmod(unsigned long base, unsigned long expo, unsigned long m) {
+int expmod(int base, int expo, int m) {
     if (expo == 0) {
         return 1;
     } else if (expo % 2 == 0) {
-        unsigned long mod = expmod(base, expo / 2, m);
-        unsigned long sqmod = square(mod);
+        int mod = expmod(base, expo / 2, m);
+        int sqmod = square(mod);
         if (mod != 1 && mod != m - 1 && sqmod % m == 1) {
             return 0;
         } else {
@@ -26,11 +26,11 @@ unsigned long expmod(unsigned long base, unsigned long expo, unsigned long m) {
     }
 }
 
-int is_prime(unsigned long p) {
+int is_prime(int p) {
     if (p % 2 == 0) {
         return 0;
     } else {
-        unsigned long a;
+        int a;
         a = random_in(p);
         for (size_t i = 0; i < MAGIC_NUM; i++, a = random_in(p)) {
             int result = expmod(a, p - 1, p);
@@ -46,7 +46,7 @@ int is_prime(unsigned long p) {
 // I have to rewrite all of these useless function to genertae just one tiny
 // number
 
-unsigned long random_in_dec(unsigned long range) {
+int random_in_dec(int range) {
     if (range == 0) {
         return rand() % 10;
     } else {
@@ -54,8 +54,8 @@ unsigned long random_in_dec(unsigned long range) {
     }
 }
 
-unsigned long random_in(unsigned long range) {
-    unsigned long random_num;
+int random_in(int range) {
+    int random_num;
     while ((random_num = random_in_dec(range)) >= range || !random_num);
     return random_num;
 }

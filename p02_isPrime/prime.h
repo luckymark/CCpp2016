@@ -1,6 +1,6 @@
 #ifndef prime_h__
 #define prime_h__
 
-int is_prime(unsigned long p);
+int is_prime(int p);
 
 #endif

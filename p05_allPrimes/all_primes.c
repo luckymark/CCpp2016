@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 #include "prime.h"
 
 // int filter(int a[], int length, (int *(int)) cond) {
@@ -9,6 +10,7 @@
 // }
 
 int main(int argc, char const *argv[]) {
+    printf("%d\n", RAND_MAX);
     // Miller Rabin test
     clock_t start = 0, end = 0, during = 0;
     start = clock();
