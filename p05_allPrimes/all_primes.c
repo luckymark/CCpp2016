@@ -4,7 +4,7 @@
 #include <math.h>
 #include "prime.h"
 
-#define RANGE 10
+#define RANGE 100000
 
 int divider = 0;
 
@@ -15,16 +15,16 @@ int main(int argc, char const *argv[]) {
     double timecost[2];
 
     // Miller Rabin test
-    // printf("Miller Rabin test running\n");
-    // start = clock();
-    // for (size_t i = 2; i < RANGE; i++) {
-    //     if (is_prime(i)) {
-    //         printf("%lu\n", i);
-    //     }
-    // }
-    // end = clock();
-    // during = end - start;
-    // timecost[0] = (double) during / CLOCKS_PER_SEC;
+    printf("Miller Rabin test running\n");
+    start = clock();
+    for (size_t i = 2; i < RANGE; i++) {
+        if (is_prime(i)) {
+            printf("%lu\n", i);
+        }
+    }
+    end = clock();
+    during = end - start;
+    timecost[0] = (double) during / CLOCKS_PER_SEC;
 
     // sieve of Eratosthenes
     printf("sieve of Eratosthenes running\n");
@@ -77,8 +77,14 @@ int next(int a[]) {
     return a[p];
 }
 
+int last(int a[]) {
+    static int p = RANGE - 1;
+    while (a[--p] == 0);
+    return a[p];
+}
+
 int *erasieve(int a[], int length) {
-    for (int n = next(a); n <= sqrt(a[length - 1]); n = next(a)) {
+    for (int n = next(a); n <= sqrt(last(a)); n = next(a)) {
         filter(a, length, gen_not_int_div(n));
     }
     return a;
