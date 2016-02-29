@@ -1,0 +1,21 @@
+#ifndef linkedlist_h__
+#define linkedlist_h__
+
+typedef struct linkedlist {
+    struct linkedlist *next;
+    int value;
+} linkedlist;
+
+linkedlist *find(linkedlist *plist, int value);
+
+linkedlist *next(linkedlist *plist);
+
+int empty_list(linkedlist *plist);
+
+void reverse(linkedlist *plist);
+
+void print_list(linkedlist *plist);
+
+linkedlist *construct_with_array(int a[], int length);
+
+#endif
