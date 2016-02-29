@@ -27,8 +27,8 @@ linkedlist *find(linkedlist *plist, int value) {
     }
 }
 
-void reverse(linkedlist *plist) {
-    auxiliary_reverse(plist, plist);
+linkedlist *reverse(linkedlist *plist) {
+    return auxiliary_reverse(plist, plist);
 }
 
 linkedlist *next(linkedlist *plist) {
@@ -52,7 +52,14 @@ linkedlist *construct_with_array(int a[], int length) {
 
 void print_list(linkedlist *plist) {
     if (plist != NULL) {
-        printf("%d%s", plist->value, empty_list(next(plist)) ? "->" : "");
+        printf("%d%s", plist->value, empty_list(next(plist)) ? "->" : "\n");
         print_list(next(plist));
+    }
+}
+
+void free_list(linkedlist *plist) {
+    if (plist != NULL) {
+        free_list(plist->next);
+        free(plist);
     }
 }

@@ -12,7 +12,9 @@ linkedlist *next(linkedlist *plist);
 
 int empty_list(linkedlist *plist);
 
-void reverse(linkedlist *plist);
+linkedlist *reverse(linkedlist *plist);
+
+void free_list(linkedlist *plist);
 
 void print_list(linkedlist *plist);
 
