@@ -8,5 +8,6 @@ int main(int argc, char const *argv[]) {
     plist = reverse(plist);
     print_list(plist);
     printf("index of 2 is %d\n", find_index(plist, 2));
+    free_list(plist);
     return 0;
 }
