@@ -16,6 +16,8 @@ linkedlist *reverse(linkedlist *plist);
 
 void free_list(linkedlist *plist);
 
+int find_index(linkedlist *plist, int value);
+
 void print_list(linkedlist *plist);
 
 linkedlist *construct_with_array(int a[], int length);

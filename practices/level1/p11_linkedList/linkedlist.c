@@ -27,6 +27,17 @@ linkedlist *find(linkedlist *plist, int value) {
     }
 }
 
+int find_index(linkedlist *plist, int value) {
+    if (plist->value == value) {
+        return 0;
+    } else if (empty_list(plist)) {
+        return -1;
+    } else {
+        int subindex = find_index(plist->next, value);
+        return subindex == -1 ? -1 : 1 + subindex;
+    }
+}
+
 linkedlist *reverse(linkedlist *plist) {
     return auxiliary_reverse(plist, plist);
 }
@@ -36,7 +47,7 @@ linkedlist *next(linkedlist *plist) {
 }
 
 int empty_list(linkedlist *plist) {
-    return plist ? 1 : 0;
+    return (plist == NULL) ? 1 : 0;
 }
 
 linkedlist *construct_with_array(int a[], int length) {
@@ -52,7 +63,7 @@ linkedlist *construct_with_array(int a[], int length) {
 
 void print_list(linkedlist *plist) {
     if (plist != NULL) {
-        printf("%d%s", plist->value, empty_list(next(plist)) ? "->" : "\n");
+        printf("%d%s", plist->value, empty_list(next(plist)) ? "\n" : "->");
         print_list(next(plist));
     }
 }
