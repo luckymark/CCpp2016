@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1456908350 source:e:\gits\ccpp2016\practices\level1\wzq\isprime\isprime\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
