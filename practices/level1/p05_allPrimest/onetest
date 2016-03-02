@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long LL;
+int i,j,prime[1005],num,vis[1005];
+int main(){
+	for(i=2;i<=1000;++i){
+		if(vis[i])continue;
+		prime[num++]=i;
+		for(j=2;j*i<=1000;++j){
+			vis[j*i]=1;
+		}
+	}
+	for(i=0;i<num;++i)printf("%d%c",prime[i],(i==num-1)?'\n':' ');
+	printf("%dms",(int)clock());
+	return 0;
+}
