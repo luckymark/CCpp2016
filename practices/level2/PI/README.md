@@ -1,11 +1,11 @@
-### 题目：PI（2014级陈飞宇大神挖坑）
+### 题目：PI（2014级陈飞宇大神提交）
 
 ### 要求：
 
-1. 计算PI，精度>1万位（够黑啊！）
+1. 计算PI，精度>1万位
 2. 打印总时间
 3. 打印内存消耗的最大值
 
 ### 参考：
 
-[2014级柱神作品](https://github.com/holdzhu/uestc2015ccpp/tree/master/Pi) （做完本题后再看啊！！！）
+[2014级柱神作品](https://github.com/holdzhu/uestc2015ccpp/tree/master/Pi)
