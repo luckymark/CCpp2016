@@ -1,14 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "linkedlist.h"
+#include "linked_list.h"
 
-static linkedlist *auxiliary_reverse(linkedlist *plist, linkedlist *first) {
+static linked_list *auxiliary_reverse(linked_list *plist, linked_list *first) {
     if (plist->next == NULL) {
         return plist;
     } else {
-        linkedlist *pnext = plist->next;
-        linkedlist *last = auxiliary_reverse(pnext, first);
+        linked_list *pnext = plist->next;
+        linked_list *last = auxiliary_reverse(pnext, first);
         pnext->next = plist;
         if (first == plist) {
             plist->next = NULL;
@@ -17,7 +17,7 @@ static linkedlist *auxiliary_reverse(linkedlist *plist, linkedlist *first) {
     }
 }
 
-linkedlist *find(linkedlist *plist, int value) {
+linked_list *find(linked_list *plist, int value) {
     if (plist == NULL) {
         return NULL;
     } else if (plist->value == value) {
@@ -27,7 +27,7 @@ linkedlist *find(linkedlist *plist, int value) {
     }
 }
 
-int find_index(linkedlist *plist, int value) {
+int find_index(linked_list *plist, int value) {
     if (plist->value == value) {
         return 0;
     } else if (empty_list(plist)) {
@@ -38,37 +38,37 @@ int find_index(linkedlist *plist, int value) {
     }
 }
 
-linkedlist *reverse(linkedlist *plist) {
+linked_list *reverse(linked_list *plist) {
     return auxiliary_reverse(plist, plist);
 }
 
-linkedlist *next(linkedlist *plist) {
+linked_list *next(linked_list *plist) {
     return plist->next;
 }
 
-int empty_list(linkedlist *plist) {
+int empty_list(linked_list *plist) {
     return (plist == NULL) ? 1 : 0;
 }
 
-linkedlist *construct_with_array(int a[], int length) {
+linked_list *construct_with_array(int a[], int length) {
     if (length == 0) {
         return NULL;
     } else {
-        linkedlist *plist = (linkedlist*) malloc(sizeof(linkedlist));
+        linked_list *plist = (linked_list*) malloc(sizeof(linked_list));
         plist->next = construct_with_array(&a[1], length - 1);
         plist->value = a[0];
         return plist;
     }
 }
 
-void print_list(linkedlist *plist) {
+void print_list(linked_list *plist) {
     if (plist != NULL) {
         printf("%d%s", plist->value, empty_list(next(plist)) ? "\n" : "->");
         print_list(next(plist));
     }
 }
 
-void free_list(linkedlist *plist) {
+void free_list(linked_list *plist) {
     if (plist != NULL) {
         free_list(plist->next);
         free(plist);
