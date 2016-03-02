@@ -1,4 +1,4 @@
-// uestc_2.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// uestc_2.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
@@ -8,7 +8,7 @@ using namespace std;
 
 int n;
 
-int two(int r, int v)   //¿ìËÙÃİ
+int two(int r, int v)   //å¿«é€Ÿå¹‚
 {
 	if (v == 1) return r;
 	if ((v & 1) == 1)
@@ -26,11 +26,15 @@ int main()
 {
 	
 	scanf_s("%d", &n);
+	if (n<3) printf("No");
 	srand(time(0));
 	for (int i = 1; i <= 3; i++)
 	{
-		int r = rand()/100+11;
-		if (two(r, n - 1) != 1) //·ÑÂíĞ¡¶¨Àí
+		int r;
+			do {
+				r = rand() % n;
+			} while (r < 2);
+		if (two(r, n - 1) != 1) //è´¹é©¬å°å®šç†
 		{
 			printf("Not");
 			system("pause");
