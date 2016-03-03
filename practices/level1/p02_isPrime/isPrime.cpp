@@ -1,7 +1,8 @@
 #include<stdio.h>
+#include<math.h>
 int isPrime(int n){
     int flag = 1;
-    for(int i;i<n/2;i++){
+    for(int i;i<sqrt(n);i++){
         if(n%i==0){
             flag = 0;
             break;
