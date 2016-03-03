@@ -12,7 +12,7 @@ int main()
 	}
 	else
 	{
-		for(i=2;i<n;i++)
+		for(i=2;i<=sqrt(n);i++)
 		{
 			if(0==n%i)
 			{
