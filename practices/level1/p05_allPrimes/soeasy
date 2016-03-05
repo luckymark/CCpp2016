@@ -1,0 +1,17 @@
+#include <algorithm>
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <vector>
+#include <cmath>
+using namespace std;
+int i,use[1100],j;
+int main()
+{
+  for (i=2;i<=500;i++)
+  if (use[i]==0)
+  {
+   for (j=i+i;j<=1000;j+=i) use[j]=1;
+  }
+	   for (i=2;i<=1000;i++) if (use[i]==0) printf("%d\n",i);  
+}  
