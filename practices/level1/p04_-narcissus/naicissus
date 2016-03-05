@@ -1,0 +1,27 @@
+#include <algorithm>
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <vector>
+#include <cmath>
+using namespace std;
+int i;
+int mul(int a)
+{
+ return a*a*a;
+}
+bool can(int a)
+{
+ int all=0,i,b=a;
+ for (i=1;i<=3;i++)
+ {
+ 	 all+=mul(a%10);
+ 	 a=a/10;
+ }
+ if (all==b) return true;
+ return false;
+}
+int main()
+{
+  for (i=100;i<1000;i++) if (can(i)) printf("%d\n",i);
+}  
