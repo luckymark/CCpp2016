@@ -2,21 +2,20 @@
 #include<time.h>
 int main()
 {
-    int a;
+    int a[101];
+    memset(a,1,101*sizeof(int));
     clock_t t1=clock();
-    printf("2\n3\n");
-    for(int i=5;i<1001;i+=2)
+    printf("2\n");
+    for(int i=3;i<34;i+=2)
     {
-        int b=0;
-        for(int j=3;j<i;j+=2)
+        for(int j=3;i*j<101;j+=2)
         {
-            if(i%j==0)
-            {
-                b+=1;
-                break;
-            }
+            a[i*j]=0;
         }
-        if(b==0)
+    }
+    for(int i=3;i<101;i+=2)
+    {
+        if(a[i]!=0)
         {
             printf("%d\n",i);
         }
@@ -25,3 +24,4 @@ int main()
     printf("time:%d\n",t2-t1);
     return 0;
 }
+
