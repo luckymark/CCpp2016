@@ -4,12 +4,7 @@
 
 using namespace std;
 
-void draw(int offset) {
-    for (int i = 0; i < offset; ++i) {
-        cout << ' ';
-    }
-    cout << "Hello, World!";
-}
+void draw(int);
 
 #define WINDOW_SIZE 20
 
@@ -21,4 +16,11 @@ int main(int argc, char *argv[]) {
         }
     }
     return 0;
+}
+
+void draw(int offset) {
+    for (int i = 0; i < offset; ++i) {
+        cout << ' ';
+    }
+    cout << "Hello, World!";
 }

@@ -4,20 +4,7 @@
 
 using namespace std;
 
-inline long getCurrentTime() {
-    timeval tv;
-    gettimeofday(&tv, 0);
-    return tv.tv_sec * 1000 + tv.tv_usec / 1000;
-}
-
-inline bool isPrime(unsigned n) {
-    for (unsigned i = 2; i <= sqrt(n); ++i) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
+long getCurrentTime();
 
 int main(int argc, char *argv[]) {
     auto startT = getCurrentTime();
@@ -29,4 +16,10 @@ int main(int argc, char *argv[]) {
     auto endT = getCurrentTime();
     cout << "time(us): " << endT - startT;
     return 0;
+}
+
+long getCurrentTime() {
+    timeval tv;
+    gettimeofday(&tv, 0);
+    return tv.tv_sec * 1000 + tv.tv_usec / 1000;
 }
