@@ -1,23 +1,28 @@
 #include<stdio.h>
-int main()
+char *prime_judge(int a)
 {
-    int a,j=0;
-    scanf("%d",&a);
+    int flag=0;
     for(int i=2;i<a;i++)
     {
         if(a%i==0)
         {
-           j+=1;
+           flag+=1;
            break;
         }
     }
-    if(j==0)
+    if(flag==0)
     {
-        printf("YES\n");
+        return "Yes";
     }
     else
     {
-        printf("NO\n");
+        return "No";
     }
+}
+int main()
+{
+    int a;
+    scanf("%d",&a);
+    printf("%s",prime_judge(a));
     return 0;
 }
