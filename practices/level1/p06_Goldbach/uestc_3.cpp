@@ -1,7 +1,4 @@
-// uestc_3.cpp : 定义控制台应用程序的入口点。
-//
 
-#include "stdafx.h"
 #include "math.h"
 #include "iostream"
 
@@ -20,8 +17,9 @@ int main()
 		for (int j = 1; j < i; j++)
 		{
 			if (check(j) && check(i - j)) break;  //找到都是质数的直接break
-			if (j+1==i)	printf("Nope\n");  //找不到，输出NOPE
-				//return 0;
+			
+			if (j+1==i)  //遍历完了也找不到两个质数满足条件
+			  printf("Nope\n");  //找不到，输出NOPE
 
 		}
 	}
