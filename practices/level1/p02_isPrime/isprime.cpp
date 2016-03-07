@@ -1,20 +1,26 @@
 #include<stdio.h>
-#include<math.h>
+void prime(int input);
 int main()
 {
-	int n,i;
-	char flag;
+	int n;
+	
 	scanf("%d",&n);
-	flag=1;
-	if(2==n)
+	prime(n);
+	return 0;
+}
+void prime(int input)
+{
+	int i;
+	char flag=1;
+	if(2==input)
 	{
 		printf("yes");
 	}
 	else
 	{
-		for(i=2;i<=sqrt(n);i++)
+		for(i=2;i*i<=input;i++)
 		{
-			if(0==n%i)
+			if(0==input%i)
 			{
 				flag=0;
 			}
@@ -27,7 +33,5 @@ int main()
 		{
 			printf("no");
 		}
-		
 	}
-	return 0;
 }
