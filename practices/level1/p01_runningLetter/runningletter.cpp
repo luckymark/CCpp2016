@@ -4,8 +4,7 @@
 #define SIDE 100
 int main()
 {
-	int i;
-	for (i=2*SIDE;i>=0;i--)
+	for (int i=2*SIDE;i>=0;i--)
 	{
 		int space,j;
 		if (i>=SIDE){

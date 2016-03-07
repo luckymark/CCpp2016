@@ -3,13 +3,13 @@
 #include<time.h>
 int main()
 {
-	int n=2,j,i;
+	int n=2;
 	clock_t t1,t2;
 	t1=clock();
-	for (i=2;i<=1000;i++)
+	for (int i=2;i<=1000;i++)
 	{
 		int flag=1;
-		for (j=2;j<=sqrt(i);j++)
+		for (int j=2;j<=sqrt(i);j++)
 		{
 			if (i%j==0){
 				flag=0;
