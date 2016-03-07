@@ -11,7 +11,7 @@
 int ORDER[2][1000] = { 0 };	//常量数组 转化命令
 int maze[10][10][2] = { 0 };	//maze [0]0-空白，1-BLOCK，2-人， [1] 3-出口
 void initializationMaze(void);
-int checkOrder(char order);	//判断命令 过关返回0
+int checkOrder(char order);	//判断命令 过关返回1
 void showMaze(void);	//展示迷宫
 
 int locationRow, locationColumn;	//human-position
@@ -84,7 +84,7 @@ void showMaze(void)
 	{
 		for (int count2 = 0; count2 < 10; count2++)
 		{
-			if (maze[count1][count2][0] == 1)
+			/*if (maze[count1][count2][0] == 1)
 			{
 				printf("*");
 			}
@@ -95,6 +95,17 @@ void showMaze(void)
 			else
 			{
 				printf(" ");
+			}*/
+			switch(maze[count1][count2])
+			{
+				case 1:
+					printf("*");
+					break;
+				case 2:
+					printf("O");
+					break;
+				default:
+					printf(" ");
 			}
 		}
 		printf("\n");

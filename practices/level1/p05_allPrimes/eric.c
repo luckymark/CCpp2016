@@ -3,6 +3,21 @@
 #include <stdio.h>
 #include <time.h>
 #define MAX 1001
+void _allPrime(int *prime);
+void _printPrime(int prime[]);
+
+
+int main(void)
+{
+	int prime[1001] = { 0 };
+
+	_allPrime(prime);
+	_printPrime(prime);
+
+	printf("time:%f s", (double)clock() / CLOCKS_PER_SEC);
+	return 0;
+}
+
 void _allPrime(int *prime)
 {
 	for (int count = 2; count < MAX / 2; count++)
@@ -25,14 +40,4 @@ void _printPrime(int prime[])
 			printf("%d\n", count);
 		}
 	}
-}
-int main(void)
-{
-	int prime[1001] = { 0 };
-
-	_allPrime(prime);
-	_printPrime(prime);
-
-	printf("time:%f s", (double)clock() / CLOCKS_PER_SEC);
-	return 0;
 }
