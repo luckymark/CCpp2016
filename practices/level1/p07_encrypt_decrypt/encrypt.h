@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define CHARSET_SIZE 26
+
 int encrypt(char input[])
 {
     /*
@@ -15,23 +17,17 @@ int encrypt(char input[])
     for(int i = 0; i < len; ++i){
         key += input[i];
     }
-    key %= 26;
-    for(int i=0;i<len;++i){
-        if(input[i]<='z' && input[i] >='a'){
+    key %= CHARSET_SIZE;
+    for(int i = 0;i < len; ++i){
+        if(input[i] <='z' && input[i] >='a'){
             int offset = input[i] - 'a';
-
+            input[i] = 'A' + (offset + key) % CHARSET_SIZE;
+        }else{
+            int offset = input[i] - 'A';
+            input[i] = 'a' + (offset + key) % CHARSET_SIZE;
         }
-        input[i] = key;
     }
     return (int)key;
-}
-
-void printCryptString(char input[]){
-    int len = strlen(input);
-    for(int i = 0; i < len; ++i){
-        printf("%02d",input[i]);
-    }
-    printf("\n");
 }
 
 #endif // _ENCRYPT_H
