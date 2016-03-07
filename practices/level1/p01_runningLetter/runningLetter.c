@@ -2,11 +2,7 @@
 #include <stdio.h>
 #define WIDTH 58
 #define SLEEPTIME 100
-inline int abs(int num)
-{
-	return num>0?num:-num;
-}
-
+inline int abs(int num);
 int main(int argc, char const *argv[]) 
 {
 	for(int i=-WIDTH;i<=WIDTH;i++)
@@ -21,4 +17,8 @@ int main(int argc, char const *argv[])
 		system("cls");
 	}
 	return 0;
+}
+inline int abs(int num)
+{
+	return num>0?num:-num;
 }
