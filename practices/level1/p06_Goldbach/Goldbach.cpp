@@ -18,11 +18,6 @@ void selectAllPrime(bool primes[],int n) {
             primes[j] = 0;//because of i is a factor of j
         }
     }
-    /*for (int i = 1; i <= MAX; ++i) {
-        if (primes[i]) {
-            printf("%d ", i);//check
-        }
-    }*/
 }
 bool goldbach(bool primes[],int n) {
     int j;
