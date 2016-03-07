@@ -9,6 +9,7 @@
 
 例如:
 
+```
 struct funds
     
 {
@@ -19,6 +20,8 @@ struct funds
       double savefund;
   };
 
+```
+
 ---
 ###2.结构变量和其指针的定义和初始化
 
@@ -26,6 +29,8 @@ struct funds *pf,f,mf[10];//定义结构变量 结构指针 结构数组
 
 或者在声明时就定义
 
+
+```
 struct funds
     
 {
@@ -35,6 +40,9 @@ struct funds
       char save[100];
       double savefund;
   }f,*pf,mf[10];
+```
+
+
 
 ###初始化变量
 
@@ -66,6 +74,7 @@ mf[0].savingfund=0.0;
 
 例如:
 
+```
 struct name
 
 {
@@ -82,6 +91,7 @@ struct guy
     char favfood[100];
     ...
 };
+```
 
 ---
 
@@ -93,6 +103,7 @@ struct guy
 
 例如
 
+```
 double sum(double x,double y)
 
 {
@@ -107,23 +118,29 @@ int main()
     funds f1;
     sum(f1.bankfunds,f1.savingfunds);
 }
+```
+
 
 2.传递结构
 
+```
 double sum(struct funds f)
 
 {
     
     return funds.x+funds.y;
 }
+```
 
 3.传递结构地址
 
+```
 double sum(const struct funds *f)//最好加上const
 
 {
     return f->x+f->y;
 }
+```
 
 调用函数时
 
@@ -135,6 +152,7 @@ sum(&f);
 
 2.返回结构
 
+```
 struct funds(const struct funds f)
 
 {
@@ -142,6 +160,7 @@ struct funds(const struct funds f)
     .....
     return f;
 }
+```
 
 ---
 
@@ -161,6 +180,7 @@ struct funds(const struct funds f)
 
 例如
 
+```
 strust point
 
 {
@@ -188,6 +208,7 @@ int main()
     
     printf("%d",point::num);//此时num=10
 }
+```
 
 ---
 
@@ -197,6 +218,7 @@ int main()
 
 举个例子
 
+```
  #include<stdio.h>
 
  #include<stdlib.h>
@@ -229,6 +251,7 @@ int main()
     
     printf("%s",b.p);
 }
+```
 
 程序运行结果并不会出现hello
 
@@ -239,12 +262,13 @@ b=a;是“浅复制”仅仅将p中的内容即指向动态分配的内存的首
 
 想要“深复制”就应该这么写
 
+```
 b.num=a.num;
 
 b.p=(char *)malloc(n*sizeof(char));
 
-memset(b,a);
-
+strcpy(b,a);
+```
 
 
 ---
