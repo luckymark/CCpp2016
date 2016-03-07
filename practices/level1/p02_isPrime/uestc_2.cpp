@@ -3,7 +3,7 @@
 #include <ctime>
 using namespace std;
 
-int n;
+int n; //全局变量是为了在PowMod中取余用。
 
 int PowMod(int r, int v)   //快速幂
 {
@@ -29,13 +29,11 @@ int main()
 		if (PowMod(r, n - 1) != 1) //费马小定理,筛法的时间复杂度大于费马小定理
 		{
 			printf("Not");
-			system("pause");
 			return 0;
 		}
 		
 	}
 	printf("Yes");
-	system("pause");
     return 0;
 }
 
