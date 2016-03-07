@@ -1,29 +1,22 @@
-#include <bits/stdc++.h>
+#include <cstdio>
 #include <windows.h>
 using namespace std;
 const char s[]="display";
-const int MAX=70;
-const int dur=50;
+#define MAX 70
+#define DUR 50
 int main()
 {
-	int i,j;
 	while(1)
 	{
-		for(i=1;i<MAX;i++)
+		for(int i=1;i<MAX*2;i++)
 		{
 			system("cls");
-			for(j=1;j<i;j++)
+			for(int j=1;j<(i<MAX?i:2*MAX-i);j++)
+			{
 				printf(" ");
+			}
 			printf("%s",s);
-			Sleep(dur);
-		}
-		for(i=MAX;i>0;i--)
-		{
-			system("cls");
-			for(j=1;j<i;j++)
-				printf(" ");
-			printf("%s",s);
-			Sleep(dur);
+			Sleep(DUR);
 		}
 	}
 	return 0;
