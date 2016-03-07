@@ -2,8 +2,7 @@
 #include<math.h>
 int main()
 {
-	int kidage;
-	for (kidage=1;kidage<=100;kidage++)
+	for (int kidage=1;kidage<=100;kidage++)
 	{
 		float temp=kidage;
 		if (fabs(2*temp/6+2*temp/12+2*temp/7+9-temp)<0.0001){
