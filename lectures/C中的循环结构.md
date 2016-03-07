@@ -37,7 +37,7 @@ int main()
 * break可以跳出当前循环。
 * continue可以直接进入下一次循环。
 * goto什么的最好不好用，在有特殊需要的情况下，可以跳转到其他你想的地方。
->其实无聊的时候可以试试用if，goto来构造循环玩（误）
+> 其实无聊的时候可以试试用if，goto来构造循环玩（误）
 
 
 ##关于效率的一些玄学
@@ -47,9 +47,9 @@ int main()
 * [`int i=0;i<j;i++` || `int i=0,n=j;i<j;i++`](https://github.com/pzhxbz/learngit/blob/master/shangkeceshi31.cpp)
 ***
 关于循环效率的玄学很多，在此并不能例举完。但是，大多数关于循环效率的玄学，都无法在很大程度上提高程序的效率，重要的还是优化算法，或者采用其他技术进行优化。
->使程序并行化是不错的选择
+> 使程序并行化是不错的选择
 >
->[openmp了解](http://blog.csdn.net/netnote/article/details/3137563)
+> [openmp了解](http://blog.csdn.net/netnote/article/details/3137563)
 
 
 
