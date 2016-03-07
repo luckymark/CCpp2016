@@ -1,26 +1,18 @@
-// uestc_2.cpp : 定义控制台应用程序的入口点。
-//
 
-#include "stdafx.h"
-#include "iostream"
-#include "ctime"
+#include <iostream>
+#include <ctime>
 using namespace std;
 
 int n;
 
-int two(int r, int v)   //快速幂
+int PowMod(int r, int v)   //快速幂
 {
 	if (v == 1) return r;
+	int num = two(r, v / 2);
 	if ((v & 1) == 1)
-	{
-		int num = two(r, v / 2);
 		return (num*num*r) % n;
-	}
 	if ((v & 1) == 0)
-	{
-		int num = two(r, v / 2);
 		return (num*num) % n;
-	}
 }
 int main()
 {
@@ -31,10 +23,10 @@ int main()
 	for (int i = 1; i <= 3; i++)
 	{
 		int r;
-			do {
-				r = rand() % n;
-			} while (r < 2);
-		if (two(r, n - 1) != 1) //费马小定理
+		do {
+			r = rand() % n;
+		    } while (r < 2);
+		if (PowMod(r, n - 1) != 1) //费马小定理
 		{
 			printf("Not");
 			system("pause");
