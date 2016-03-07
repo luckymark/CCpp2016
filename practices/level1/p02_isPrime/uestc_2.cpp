@@ -8,7 +8,7 @@ int n;
 int PowMod(int r, int v)   //快速幂
 {
 	if (v == 1) return r;
-	int num = two(r, v / 2);
+	int num = PowMod(r, v >> 1);
 	if ((v & 1) == 1)
 		return (num*num*r) % n;
 	if ((v & 1) == 0)
@@ -26,7 +26,7 @@ int main()
 		do {
 			r = rand() % n;
 		    } while (r < 2);
-		if (PowMod(r, n - 1) != 1) //费马小定理
+		if (PowMod(r, n - 1) != 1) //费马小定理,筛法的时间复杂度大于费马小定理
 		{
 			printf("Not");
 			system("pause");
