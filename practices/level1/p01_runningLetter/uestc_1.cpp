@@ -1,29 +1,28 @@
-// uestc_1.cpp : 定义控制台应用程序的入口点。
-//
 
-#include "stdafx.h"
-#include "iostream"
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 int main()
 {
 	while (1)
 	{
-		char ch[2];
-		ch[0] = 'E'; ch[1] = 'T';
-		for (int i = 1; i <= 82; i++)
+		string st,sp;
+		st = "ETenal";
+		sp = "";
+		for (int i = 1; i <= 144; i++)
 		{
-			for (int j = 1; j <= i; j++)
-				printf(" ");
-			printf("%c%c", ch[0], ch[1]);
+			if (i<=72)
+				sp.append(" ");
+			else
+				sp.erase(sp.length()-1);
+			cout << sp<<st;
 			system("cls");
 		}
-		for (int i = 1; i <= 82; i++)
-		{
-			for (int j = 82; j >= i; j--)
-				printf(" ");
-			printf("%c%c", ch[0], ch[1]);
-			system("cls");
-		}
+	
 	}
     return 0;
 }
