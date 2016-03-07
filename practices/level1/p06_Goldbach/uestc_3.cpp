@@ -1,4 +1,4 @@
-// uestc_3.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// uestc_3.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
@@ -7,8 +7,9 @@
 
 bool check(int v)
 {
-	for (int i = 2; i < (int)sqrt(v); i++)
-		if (v / i*i == v) return false;
+	int num_sqrt=(int)sqrt(v);
+	for (int i = 2; i < num_sqrt; i++)
+		if (v / i*i == v) return false;   //è¿™ä¸€å¥æ˜¯çœ‹vèƒ½å¦è¢«iæ•´é™¤ï¼Œç´ æ•°åªèƒ½è¢«1å’Œè‡ªèº«æ•´é™¤ï¼Œå¦‚æœè¿™ä¸ªåˆ¤æ–­æˆç«‹ï¼Œå°±è¿”å›false
 	return true;
 }
 
@@ -18,8 +19,8 @@ int main()
 	{
 		for (int j = 1; j < i; j++)
 		{
-			if (check(j) && check(i - j)) break;  //ÕÒµ½¶¼ÊÇÖÊÊıµÄÖ±½Óbreak
-			if (j+1==i)	printf("Nope\n");  //ÕÒ²»µ½£¬Êä³öNOPE
+			if (check(j) && check(i - j)) break;  //æ‰¾åˆ°éƒ½æ˜¯è´¨æ•°çš„ç›´æ¥break
+			if (j+1==i)	printf("Nope\n");  //æ‰¾ä¸åˆ°ï¼Œè¾“å‡ºNOPE
 				//return 0;
 
 		}
