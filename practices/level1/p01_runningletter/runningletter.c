@@ -1,28 +1,18 @@
 #include<stdio.h>
+#include<stdlib.h>
 #define MAX 80
 int main()
 {
     char a='A';
-    int n,m;
-    for(n=0;n<MAX;n++)
+    for(int n=0;n<2*MAX;n++)
     {
-        for(m=0;m<n;m++)
+        for(int m=0;m<(MAX-abs(MAX-n));m++)
         {
             printf(" ");
         }
         printf("%c",a);
         system("cls");
     }
-    for(n=MAX-1;n>=0;n--)
-    {
-        for(m=0;m<n;m++)
-        {
-            printf(" ");
-        }
-        printf("%c",a);
-        system("cls");
-    }
-
     return 0;
 }
 
