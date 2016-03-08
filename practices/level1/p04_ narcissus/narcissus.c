@@ -10,6 +10,6 @@ int main()
         {
             printf("%d ",num);
         }
-     }
+    }
     return 0;
 }
