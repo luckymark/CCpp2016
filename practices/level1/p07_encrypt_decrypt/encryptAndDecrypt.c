@@ -3,17 +3,17 @@
 #include <time.h>
 #include <string.h>
 
-void Buildkey(char* key,int keylen);
-void Encrypt(void);
-void Decrypt();
+void buildkey(char* key,int keylen);
+void encrypt(void);
+void decrypt();
 int main()
 {
-    Encrypt();
-    Decrypt();
+    encrypt();
+    decrypt();
     return 0;
 }
 
-void Buildkey(char* key,int keylen){
+void buildkey(char* key,int keylen){
     srand((int)time(NULL));
     int i;
     for(i=0;i<10;i++){
@@ -22,11 +22,11 @@ void Buildkey(char* key,int keylen){
     printf("The key has been built as: %s\n",key);
 }
 
-void Encrypt(void){
+void encrypt(void){
     int i=0;
     char c;
     char key[10]={0};
-    Buildkey(key,10);
+    buildkey(key,10);
     printf("input the string to encrypt: ");
     c=getchar();
     do{
@@ -35,7 +35,7 @@ void Encrypt(void){
     }while((c=getchar())!='\n');
 }
 
-void Decrypt(void){
+void decrypt(void){
     char key[10];
     int i=0;
     int a;
