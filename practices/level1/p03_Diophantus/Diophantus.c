@@ -4,4 +4,7 @@ int main()
 {
 	int age=12;
 	for(;age<200;)
+	{
+
+	}
 }
