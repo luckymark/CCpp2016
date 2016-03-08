@@ -1,29 +1,46 @@
 #include<stdio.h>
+#include"prime.h"
+#define RANGE 101
+int judge;
 int add_judge(int b)
 {
-    int a[25]={2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
-    for(int k=0,l;k<26;k++)
+    for(int k=2,l;k<RANGE;k++)
         {
-            for(int l=0;l<26;l++)
+            for(int l=2;l<RANGE;l++)
             {
-                if(a[k]+a[l]==b)
+                if(is_prime(k)&&is_prime(l))
                 {
-                    printf("%d=%d+%d\n",b,a[k],a[l]);
-                    return 1;
+                     if(k+l==b)
+                     {
+                         if(judge)
+                         {
+                             printf("%d=%d+%d\n",b,k,l);
+                         }
+                         return 1;
+                     }
                 }
             }
         }
-    return 0;//��������ڣ��ͷ���0
+    return 0;//如果不存在，就返回0
 }
 int main()
 {
-    for(int i=4;i<101;i+=2)
+    int flag=0;
+    printf("是否需要看证明步骤？\n请输入1代表要看，输入0代表不看\n");
+    scanf("%d",&judge);
+    for(int i=4;i<RANGE;i+=2)
     {
-        if(add_judge(i)==0)
+        if(!add_judge(i))
         {
-            printf("������\n");
+            printf("哥德巴赫猜想在100以内不成立\n");
+            flag+=1;
             break;
         }
     }
+    if(!flag)
+    {
+        printf("哥德巴赫猜想在100以内成立\n");
+    }
     return 0;
 }
+
