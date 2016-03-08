@@ -1,21 +1,22 @@
 #include<stdio.h>
 #include<time.h>
+#define RANGE 101
 int main()
 {
-    int a[101];
-    memset(a,1,101*sizeof(int));
+    int a[RANGE];
+    memset(a,1,RANGE*sizeof(int));
     clock_t t1=clock();
-    printf("2\n");
-    for(int i=3;i<34;i+=2)
+    printf("2\n");//2是唯一是偶数的素数
+    for(int i=3;i<RANGE;i+=2)
     {
-        for(int j=3;i*j<101;j+=2)
+        for(int j=3;i*j<RANGE;j+=2)
         {
-            a[i*j]=0;
+            a[i*j]=0;//筛选
         }
     }
-    for(int i=3;i<101;i+=2)
+    for(int i=3;i<RANGE;i+=2)//直接排除偶数
     {
-        if(a[i]!=0)
+        if(a[i])
         {
             printf("%d\n",i);
         }
@@ -24,4 +25,3 @@ int main()
     printf("time:%d\n",t2-t1);
     return 0;
 }
-
