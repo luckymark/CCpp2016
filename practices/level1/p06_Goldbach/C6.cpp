@@ -38,5 +38,5 @@ int func(double n)
 }
 void print(double a, double b, double c)
 {
-		printf("%.0lf=%.0lf+%.0lf\n", a, b, c);
+	printf("%.0lf=%.0lf+%.0lf\n", a, b, c);
 }
