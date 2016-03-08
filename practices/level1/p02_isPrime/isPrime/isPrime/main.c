@@ -7,27 +7,38 @@
 //
 
 #include <stdio.h>
-
+void isPrime(int number);
 int main(int argc, const char * argv[]) {
     // insert code here...
-    int n,i;
-    printf("please enter your number:\n");
-    scanf("%d",&n);
-    for (i=2; i<=n; i++) {
-        if (n==1) {
+    
+    int n;
+    while (1) {
+        printf("please enter your number:\n");
+        scanf("%d",&n);
+        isPrime(n);
+    }
+    
+    
+    return 0;
+}
+
+void isPrime(int number)
+{
+    int i;
+    for (i=2; i<=number; i++) {
+        if (number==1) {
             break;
         }else{
-            if (n%i==0) {
+            if (number%i==0) {
                 break;
             }
         }
     }
-    if (n==i) {
-        printf("%d是素数\n",n);
+    if (number==i) {
+        printf("%d是素数\n",number);
     }
     else
     {
-        printf("%d不是素数\n",n);
+        printf("%d不是素数\n",number);
     }
-    return 0;
 }

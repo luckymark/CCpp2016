@@ -9,13 +9,14 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
+#define WIDTH 158
 int main()
 {
-    for (int i = 1; i <= 158; i++)
+    for (int i = 1; i <= WIDTH; i++)
     {
         printf("a");
         system("cls");
-        for (int q = 1; q <= (79-abs(79-i));q++)
+        for (int i = 1; i <= (WIDTH/2-abs(WIDTH/2-i));i++)
             printf(" ");
     }
     

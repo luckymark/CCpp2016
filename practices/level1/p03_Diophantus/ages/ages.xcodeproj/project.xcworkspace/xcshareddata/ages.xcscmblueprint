@@ -7,14 +7,14 @@
     "6D1941C4C19D87960F659063D59E1E184B68010E" : 0,
     "959BA5680F6BFB3219C708973BF5A06386FE5A54" : 0
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "68B4D0DA-0842-4712-A0FC-C7001CF3B7FD",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3CF5EBBB-5FAB-4278-9360-7F43A0E5E583",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "6D1941C4C19D87960F659063D59E1E184B68010E" : "CCpp2016\/",
     "959BA5680F6BFB3219C708973BF5A06386FE5A54" : ""
   },
-  "DVTSourceControlWorkspaceBlueprintNameKey" : "movingLetter",
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ages",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "practices\/level1\/p01_runningLetter\/movingLetter\/movingLetter.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "practices\/level1\/p03_Diophantus\/ages\/ages.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Caoxiann\/CCpp2016.git",
