@@ -23,7 +23,9 @@ int isPrime(int a)
     {
         y=a%b;
         if(y==0)
-        break;
+        {
+            break;
+        }
     }
     return y;
 }
