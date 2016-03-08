@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 int main()
 {
     for(float fage=20;fage<130;fage++)
