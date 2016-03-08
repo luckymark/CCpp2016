@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6D1941C4C19D87960F659063D59E1E184B68010E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6D1941C4C19D87960F659063D59E1E184B68010E" : 0,
+    "959BA5680F6BFB3219C708973BF5A06386FE5A54" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5A650713-6BD3-430C-AED2-DC976FE42B26",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6D1941C4C19D87960F659063D59E1E184B68010E" : "CCpp2016\/",
+    "959BA5680F6BFB3219C708973BF5A06386FE5A54" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Goldbach",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "practices\/level1\/p06_Goldbach\/Goldbach\/Goldbach.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Caoxiann\/CCpp2016.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6D1941C4C19D87960F659063D59E1E184B68010E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/luckymark\/CCpp2016",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "959BA5680F6BFB3219C708973BF5A06386FE5A54"
+    }
+  ]
+}
