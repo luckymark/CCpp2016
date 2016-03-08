@@ -9,7 +9,9 @@ int main()
         for(int n=2;n<=i/2;n++)
         {
             if(isPrime(n)&&isPrime(i-n))
+            {
                 printf("%d=%d+%d\n",i,n,i-n);
+            }
         }
     }
     printf("Goldbach is right.");
@@ -18,12 +20,13 @@ int main()
 
 int isPrime(int a)
 {
-    int b,y;
-    for(b=2;b<=sqrt(a);b++)
+    for(int b=2;b<=sqrt(a);b++)
     {
-       y=a%b;
+        int y=a%b;
         if(y==0)
+        {   
             return 0;
+        }
     }
     return 1;
 
