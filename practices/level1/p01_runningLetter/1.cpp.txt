@@ -1,0 +1,17 @@
+#include<stdio.h>	
+#include<stdlib.h>
+#include<math.h>
+#define X 158
+int main()
+{
+	for (int i = 1; i <= X; i++)
+	{
+		printf("a");
+		system("cls");
+		for (int j = 1; j <= (79-abs(79-i));j++)
+		printf(" ");
+	}
+
+	return 0;
+}
+
