@@ -6,6 +6,10 @@
 #include <iostream>
 
 #define MAX 10000
+#define AddPerson 1
+#define SearchPerson 2
+#define PrintAllPerson 3
+#define DelPerson 4
 using namespace std;
 int p = 0,head = 0;
 
@@ -15,7 +19,7 @@ struct data
 	int nex,pre;
 }person[MAX];
 
-void AddPersonInfo(string name, string tel) //创建链表
+void AddPersonInfomation(string name, string tel) //创建链表 .... 单词不缩写真的好长
 {
 	p++;
 	person[p].name = name;
@@ -38,7 +42,7 @@ void Search(string st)  //搜索
 		if (flag == false) printf("未查询到此人\n");
 }
 
-void PrintAllInfo() //打印全部
+void PrintAllInfomation() //打印全部
 {
 	for (int t = head; t; t = person[t].nex)
 		{
@@ -48,7 +52,7 @@ void PrintAllInfo() //打印全部
 	printf("\n打印完毕\n");
 }
 
-void Del(string st) //删除
+void Delete(string st) //删除
 {
 		for (int t = head; t; t = person[t].nex)
 			if (person[t].name == st || person[t].tel == st)
@@ -65,7 +69,7 @@ int main()
 	string name, tel, st;
 	while (1)
 	{
-		printf("\n\n输入指令:\n");
+		printf("\n\n输入指令序号:\n");
 		printf("1.添加\n");
 		printf("2.查询\n");
 		printf("3.列出所有信息\n");
@@ -73,25 +77,25 @@ int main()
 		cin >> n;
 		switch (n)
 		{
-		case 1:
+		case AddPerson:
 			printf("输入姓名:\n");
 			cin >> name;
 			printf("输入电话号码:\n");
 			cin >> tel;
-			AddPersonInfo(name, tel);
+			AddPersonInfomation(name, tel);
 			break;
-		case 2:
+		case SearchPerson:
 			printf("输入姓名或者号码\n");
 			cin >> st;
 			Search(st);
 			break;
-		case 3:
-			PrintAllInfo();
+		case PrintAllPerson:
+			PrintAllInfomation();
 			break;
-		case 4:
+		case DelPerson:
 			printf("输入你想删除人的信息(以姓名或者号码)\n");
 			cin >> st;
-			Del(st);
+			Delete(st);
 		default:
 			break;
 		}
