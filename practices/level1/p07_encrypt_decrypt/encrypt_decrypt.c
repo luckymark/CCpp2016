@@ -35,7 +35,7 @@ int main(int argc, char const *argv[]) {
 int rand_prime(int min) {
     int prime = min;
     prime = ((prime % 2 == 0) ? (prime + 1) : prime);
-    for (; !is_prime(prime, 30); prime -= 2);
+    for (; !is_prime(prime, 30); prime += 2);
     return prime;
 }
 
