@@ -1,6 +1,3 @@
-// hanoi.cpp : 定义控制台应用程序的入口点。
-//
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -11,6 +8,7 @@ int main()
 	scanf("%d",&n);
 	hanoi(n,'A','B','C');
 	system("pause");
+	return 0;
 }
 void hanoi(int n,char a,char b,char c)
 {
