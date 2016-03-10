@@ -10,6 +10,8 @@ int n;
 
 void movePlate(int from, int to, int num);
 
+char beautify(int n);
+
 int main()
 {
     cout << "Enter the number of plates: ";
@@ -28,6 +30,18 @@ void movePlate(int from, int to, int num) {
     movePlate(from, FREE_TOWER(from, to), num - 1);
     tows[to].push(tows[from].top());
     tows[from].pop();
-    cout << "from: " << from << " to: " << to << endl;
+    cout << "from: " << beautify(from) << " to: " << beautify(to) << endl;
     movePlate(FREE_TOWER(from, to), to, num - 1);
+}
+
+char beautify(int n) {
+    switch (n) {
+    case 0:
+        return 'A';
+    case 1:
+        return 'B';
+    case 2:
+        return 'C';
+    }
+    return '/';
 }
