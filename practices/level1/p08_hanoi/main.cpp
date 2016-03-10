@@ -19,7 +19,7 @@ int main()
     cout << "Enter the number of plates: ";
     cin >> n;
     for (int i = 0; i < n; ++i) {
-        tows[0].push(i);
+        tows[0].push(n - i);
     }
     cout << "Initial status: "<< endl;
     drawTows();
