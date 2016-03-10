@@ -8,9 +8,7 @@ inline int pow3(int num)
 }
 int main(void)
 {
-	int count_num;
-
-	for (count_num = 100; count_num < 1000; count_num++)
+	for (int count_num = 100; count_num < 1000; count_num++)
 	{
 		int total = pow3(count_num % 10) + pow3(count_num / 100) + pow3(count_num / 10 - count_num / 100 * 10);
 		if (total == count_num)
