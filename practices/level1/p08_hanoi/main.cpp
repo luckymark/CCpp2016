@@ -18,7 +18,8 @@ int main()
 {
     cout << "Enter the number of plates: ";
     cin >> n;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i)
+    {
         tows[0].push(n - i);
     }
     cout << "Initial status: "<< endl;
@@ -27,8 +28,10 @@ int main()
     return 0;
 }
 
-void movePlate(int from, int to, int num) {
-    if (num == 0) {
+void movePlate(int from, int to, int num)
+{
+    if (num == 0)
+    {
         return;
     }
     movePlate(from, FREE_TOWER(from, to), num - 1);
@@ -39,8 +42,10 @@ void movePlate(int from, int to, int num) {
     movePlate(FREE_TOWER(from, to), to, num - 1);
 }
 
-char beautify(int n) {
-    switch (n) {
+char beautify(int n)
+{
+    switch (n)
+    {
     case 0:
         return 'A';
     case 1:
@@ -51,44 +56,26 @@ char beautify(int n) {
     return '/';
 }
 
-void drawTows() {
+void drawTows()
+{
     stack<int> tmp;
     cout << "--------------------------------------" << endl;
-    cout << "A: ";
-    auto sz = tows[0].size();
-    for (int i = 0; i < sz; ++i) {
-        tmp.push(tows[0].top());
-        tows[0].pop();
+    for (int towI = 0; towI < 3; ++towI)
+    {
+        cout << beautify(towI) << ": ";
+        auto sz = tows[towI].size();
+        for (int i = 0; i < sz; ++i)
+        {
+            tmp.push(tows[towI].top());
+            tows[towI].pop();
+        }
+        for (int i = 0; i < sz; ++i)
+        {
+            cout << tmp.top() << ' ';
+            tows[towI].push(tmp.top());
+            tmp.pop();
+        }
+        cout << endl;
     }
-    for (int i = 0; i < sz; ++i) {
-        cout << tmp.top() << ' ';
-        tows[0].push(tmp.top());
-        tmp.pop();
-    }
-    cout << endl;
-    cout << "B: ";
-    sz = tows[1].size();
-    for (int i = 0; i < sz; ++i) {
-        tmp.push(tows[1].top());
-        tows[1].pop();
-    }
-    for (int i = 0; i < sz; ++i) {
-        cout << tmp.top() << ' ';
-        tows[1].push(tmp.top());
-        tmp.pop();
-    }
-    cout << endl;
-    cout << "C: ";
-    sz = tows[2].size();
-    for (int i = 0; i < sz; ++i) {
-        tmp.push(tows[2].top());
-        tows[2].pop();
-    }
-    for (int i = 0; i < sz; ++i) {
-        cout << tmp.top() << ' ';
-        tows[2].push(tmp.top());
-        tmp.pop();
-    }
-    cout << endl;
     cout << "--------------------------------------" << endl;
 }
