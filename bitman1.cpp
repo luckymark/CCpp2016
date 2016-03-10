@@ -1,19 +1,21 @@
-// bitman1.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// bitman1.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
 #include <string>
 #include <iostream>
 
+#define MAX 10000
 using namespace std;
 int p = 0,head = 0;
+
 struct data
 {
 	string name,tel;
 	int nex,pre;
-}person[1000];
+}person[MAX];
 
-void add(string name, string tel)
+void AddPersonInfo(string name, string tel) //åˆ›å»ºé“¾è¡¨
 {
 	p++;
 	person[p].name = name;
@@ -23,106 +25,73 @@ void add(string name, string tel)
 	head = p;
 }
 
-void search(int v, string st)
+void Search(string st)  //æœç´¢
 {
-	if (v == 1)
+	bool flag = false;
 		for (int t = head; t;t=person[t].nex)
-			if (person[t].name == st)
+			if (person[t].name == st || person[t].tel == st)
 			{
-				cout << "ĞÕÃû:" << person[t].name << endl;
-				cout << "ºÅÂë:" << person[t].tel << endl<< endl;
+				flag = true;
+				cout << "å§“å:" << person[t].name << endl;
+				cout << "å·ç :" << person[t].tel << endl<< endl;
 			}
-	if (v == 2)
-		for (int t = head; t; t = person[t].nex)
-			if (person[t].tel == st)
-			{
-				cout << "ĞÕÃû:" << person[t].name << endl;
-				cout << "ºÅÂë:" << person[t].tel << endl<< endl;
-			}
+		if (flag == false) printf("æœªæŸ¥è¯¢åˆ°æ­¤äºº\n");
 }
 
-void printall()
+void PrintAllInfo() //æ‰“å°å…¨éƒ¨
 {
 	for (int t = head; t; t = person[t].nex)
 		{
-			cout << "ĞÕÃû:" << person[t].name << endl;
-			cout << "ºÅÂë:" << person[t].tel << endl<<endl;
+			cout << "å§“å:" << person[t].name << endl;
+			cout << "å·ç :" << person[t].tel << endl<<endl;
 		}
+	printf("\næ‰“å°å®Œæ¯•\n");
 }
 
-void del(int v, string st)
+void Del(string st) //åˆ é™¤
 {
-	if (v == 1)
 		for (int t = head; t; t = person[t].nex)
-			if (person[t].name == st)
+			if (person[t].name == st || person[t].tel == st)
 			{
 				person[person[t].pre].nex = person[t].nex;
 				person[person[t].nex].pre = person[t].pre;
 			}
-	if (v == 2)
-		for (int t = head; t; t = person[t].nex)
-			if (person[t].tel == st)
-			{
-				person[person[t].pre].nex = person[t].nex;
-				person[person[t].nex].pre = person[t].pre;
-			}
+		printf("åˆ é™¤æˆåŠŸ\n");
 }
 
 int main()
 {
-	int n,o;
-	string name, tel;
+	int n;
+	string name, tel, st;
 	while (1)
 	{
-		printf("\n\nÊäÈëÖ¸Áî:\n");
-		printf("1.Ìí¼Ó\n");
-		printf("2.²éÑ¯\n");
-		printf("3.ÁĞ³öËùÓĞĞÅÏ¢\n");
-		printf("4.É¾³ı\n");
+		printf("\n\nè¾“å…¥æŒ‡ä»¤:\n");
+		printf("1.æ·»åŠ \n");
+		printf("2.æŸ¥è¯¢\n");
+		printf("3.åˆ—å‡ºæ‰€æœ‰ä¿¡æ¯\n");
+		printf("4.åˆ é™¤\n");
 		cin >> n;
 		switch (n)
 		{
 		case 1:
-			printf("ÊäÈëĞÕÃû:\n");
+			printf("è¾“å…¥å§“å:\n");
 			cin >> name;
-			printf("ÊäÈëµç»°ºÅÂë:\n");
+			printf("è¾“å…¥ç”µè¯å·ç :\n");
 			cin >> tel;
-			add(name, tel);
+			AddPersonInfo(name, tel);
 			break;
 		case 2:
-			printf("ÊäÈë1--ÒÔĞÕÃû²éÑ¯  2--ÒÔµç»°ºÅÂë²éÑ¯\n");
-			cin >> o;
-			if (o == 1)
-			{
-				printf("ÊäÈëĞÕÃû:\n");
-				cin >> name;
-				search(1,name);
-			}
-			if (o == 2)
-			{
-				printf("ÊäÈëºÅÂë:\n");
-				cin >> tel;
-				search(2,tel);
-			}
+			printf("è¾“å…¥å§“åæˆ–è€…å·ç \n");
+			cin >> st;
+			Search(st);
 			break;
 		case 3:
-			printall();
+			PrintAllInfo();
 			break;
 		case 4:
-			printf("ÊäÈëÄãÏëÉ¾³ıÈËµÄĞÅÏ¢ 1--ĞÕÃû·½Ê½ 2--ºÅÂë·½Ê½\n");
-			cin >> o;
-			if (o == 1)
-			{
-				printf("ÊäÈëĞÕÃû:\n");
-				cin >> name;
-				del(1, name);
-			}
-			if (o == 2)
-			{
-				printf("ÊäÈëºÅÂë:\n");
-				cin >> tel;
-				del(2, tel);
-			}
+			printf("è¾“å…¥ä½ æƒ³åˆ é™¤äººçš„ä¿¡æ¯(ä»¥å§“åæˆ–è€…å·ç )\n");
+			cin >> st;
+			Del(st);
 		default:
 			break;
 		}
