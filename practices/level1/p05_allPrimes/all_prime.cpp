@@ -7,9 +7,22 @@
 //
 #include <iostream>
 #include <time.h>
-#define maxn 1050
+#define MAXN 1050
 using namespace std;
-bool tag[maxn];
+bool tag[MAXN];
+void all_prime(int n);
+using namespace std;
+int main()
+{
+    clock_t cstart,cends;
+    cstart=clock();
+    int n = 1000;
+    all_prime(n);
+    cends=clock();
+    cout<<"使用时间:";
+    cout << cends-cstart << endl;
+    return 0;
+}
 void all_prime(int n)
 {
     for (int i = 2 ;i <= n ;i++)
@@ -29,16 +42,4 @@ void all_prime(int n)
         if (tag[i] == false)
             cout<<i<<" ";
     cout<<endl;
-}
-using namespace std;
-int main()
-{
-    clock_t cstart,cends;
-    cstart=clock();
-    int n = 1000;
-    all_prime(n);
-    cends=clock();
-    cout<<"使用时间:";
-    cout << cends-cstart << endl;
-    return 0;
 }
