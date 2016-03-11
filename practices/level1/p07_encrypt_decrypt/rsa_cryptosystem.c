@@ -85,8 +85,8 @@ void generate_keys(long long int public_key[], long long int private_key[]) {
     private_key[1] = x;
 }
 
-int string_encrypt(char *m, char *c, long long int public_key[]) {
-    for (size_t i = 0; m[i+1] != '\0'; i++) {
+int rsa_string_encrypt(char *m, int *c, long long int public_key[]) {
+    for (size_t i = 0; m[i-1] != '\0'; i++) {
         int result = rsa_encrypt(public_key, m[i]);
         if (result == -1) {
             return -1;
@@ -97,8 +97,8 @@ int string_encrypt(char *m, char *c, long long int public_key[]) {
     return 0;
 }
 
-int string_decode(char *c, char *m, long long int private_key[]) {
-    for (size_t i = 0; c[i+1] != '\0'; i++) {
+int rsa_string_decode(int *c, char *m, long long int private_key[]) {
+    for (size_t i = 0; c[i-1] != '\0'; i++) {
         int result = rsa_decode(private_key, c[i]);
         if (result == -1) {
             return -1;
