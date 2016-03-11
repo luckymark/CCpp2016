@@ -18,10 +18,6 @@ int expmod(int base, int expr, int m);
 
 void generate_keys(long long int public_key[], long long int private_key[]);
 
-int reciprocal_encrypt(char *m, char *c, int key);
-
-int reciprocal_decode(char *c, char *m, int key);
-
 int rsa_encrypt(long long int public_key[], int m);
 
 int rsa_decode(long long int private_key[], int c);
@@ -29,7 +25,6 @@ int rsa_decode(long long int private_key[], int c);
 int main(int argc, char const *argv[]) {
     long long int public_key[2], private_key[2];
     generate_keys(public_key, private_key);
-    printf("%lu\n");
     return 0;
 }
 
@@ -98,26 +93,29 @@ void generate_keys(long long int public_key[], long long int private_key[]) {
     private_key[1] = x;
 }
 
-int main_encrypt(char *m, char *c, int key, long long int public_key[]) {
-    reciprocal_encrypt(m, c, key);
-    int encrypted_key = rsa_encrypt(public_key, key);
-    return encrypted_key;
+int main_encrypt(char *m, char *c, long long int public_key[]) {
+    for (size_t i = 0; m[i] != 0; i++) {
+        int result = rsa_encrypt(public_key, m[i]);
+        if (result == -1) {
+            return -1;
+        } else {
+            c[i] = m[i];
+        }
+    }
+    return 0;
 }
 
-int main_decode(char *c, char *m, int encrypted_key, long long int private_key[]) {
-    int key = rsa_decode(private_key, encrypted_key);
-    reciprocal_decode(c, m, key);
-    return key;
+int main_decode(char *c, char *m, long long int private_key[]) {
+    for (size_t i = 0; c[i] != '\0'; i++) {
+        int result = rsa_decode(private_key, c[i]);
+        if (result == -1) {
+            return -1;
+        } else {
+            m[i] = result;
+        }
+    }
+    return 0;
 }
-
-int reciprocal_encrypt(char *m, char *c, int key) {
-    // 用对称加密算法加密长明文
-}
-
-int reciprocal_decode(char *c, char *m, int key) {
-
-}
-
 
 int rsa_encrypt(long long int public_key[], int m) {
     int n = public_key[0];
