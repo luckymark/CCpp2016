@@ -2,6 +2,7 @@
 #include "prime.h"
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 // 一个简单的 RSA 加密算法，＊＊千万不要真的使用它＊＊ (因为此版本的安全性也许还不如异或加密)
 
@@ -56,20 +57,23 @@ static int safe_rand(int min) {
     return rand_number;
 }
 
-int rsa_encrypt(long long int public_key[], int m) {
-    int n = public_key[0];
-    int e = public_key[1];
-    int c = expmod(m, e, n);
+static int rsa_general_operation(long long int key[], int x) {
+    if (x > key[0]) {
+        return -1;
+    }
+    int a = key[0];
+    int b = key[1];
+    int c = expmod(x, b, a);
     return c;
 }
 
-int rsa_decode(long long int private_key[], int c) {
-    int n = private_key[0];
-    int x = private_key[1];
-    int m = expmod(c, x, n);
-    return m;
+int rsa_encrypt(long long int public_key[], int m) {
+    return rsa_general_operation(public_key, m);
 }
 
+int rsa_decode(long long int private_key[], int c) {
+    return rsa_general_operation(private_key, c);
+}
 
 void generate_keys(long long int public_key[], long long int private_key[]) {
     int p = rand_prime(safe_rand(MAGIC_NUM));
@@ -83,6 +87,12 @@ void generate_keys(long long int public_key[], long long int private_key[]) {
     public_key[1] = e;
     private_key[0] = n;
     private_key[1] = x;
+}
+
+void array_of_char_to_int(char *a, int *b) {
+    for (size_t i = 0; i <= strlen(a); i++) {
+        b[i] = a[i];
+    }
 }
 
 int rsa_string_encrypt(char *m, int *c, long long int public_key[]) {
