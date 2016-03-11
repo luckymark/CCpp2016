@@ -2,7 +2,6 @@
 #include "prime.h"
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>
 
 // 一个简单的 RSA 加密算法，＊＊千万不要真的使用它＊＊ (因为此版本的安全性也许还不如异或加密)
 
@@ -87,12 +86,6 @@ void generate_keys(long long int public_key[], long long int private_key[]) {
     public_key[1] = e;
     private_key[0] = n;
     private_key[1] = x;
-}
-
-void array_of_char_to_int(char *a, int *b) {
-    for (size_t i = 0; i <= strlen(a); i++) {
-        b[i] = a[i];
-    }
 }
 
 int rsa_string_encrypt(char *m, int *c, long long int public_key[]) {
