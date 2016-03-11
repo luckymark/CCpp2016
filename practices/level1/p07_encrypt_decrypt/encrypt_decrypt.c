@@ -29,13 +29,14 @@ int rsa_decode(int private_key[], int c);
 int main(int argc, char const *argv[]) {
     int public_key[2], private_key[2];
     generate_keys(public_key, private_key);
+    printf("%lu\n");
     return 0;
 }
 
 int rand_prime(int min) {
-    int prime = min;
-    prime = ((prime % 2 == 0) ? (prime + 1) : prime);
-    for (; !is_prime(prime, 30); prime += 2);
+    long long int prime;
+    prime = ((min % 2 == 0) ? (min + 1) : min);
+    for (; !is_prime(prime, 10); prime += 2);
     return prime;
 }
 
@@ -83,7 +84,9 @@ int safe_rand(int min) {
 
 void generate_keys(int public_key[], int private_key[]) {
     int p = rand_prime(safe_rand(MAGIC_NUM));
+    printf("finish p = %d\n", p);
     int q = rand_prime(safe_rand(MAGIC_NUM));
+    printf("finish q = %d\n", q);
     int n = p * q;
     int phi = (p - 1) * (q - 1);
     int e = MAGIC_NUM;
