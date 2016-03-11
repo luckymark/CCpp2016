@@ -16,18 +16,18 @@ int exgcd(int a, int b, int *x, int *y);
 
 int expmod(int base, int expr, int m);
 
-void generate_keys(int public_key[], int private_key[]);
+void generate_keys(long long int public_key[], long long int private_key[]);
 
 int reciprocal_encrypt(char *m, char *c, int key);
 
 int reciprocal_decode(char *c, char *m, int key);
 
-int rsa_encrypt(int public_key[], int m);
+int rsa_encrypt(long long int public_key[], int m);
 
-int rsa_decode(int private_key[], int c);
+int rsa_decode(long long int private_key[], int c);
 
 int main(int argc, char const *argv[]) {
-    int public_key[2], private_key[2];
+    long long int public_key[2], private_key[2];
     generate_keys(public_key, private_key);
     printf("%lu\n");
     return 0;
@@ -82,13 +82,13 @@ int safe_rand(int min) {
     return rand_number;
 }
 
-void generate_keys(int public_key[], int private_key[]) {
+void generate_keys(long long int public_key[], long long int private_key[]) {
     int p = rand_prime(safe_rand(MAGIC_NUM));
     printf("finish p = %d\n", p);
     int q = rand_prime(safe_rand(MAGIC_NUM));
     printf("finish q = %d\n", q);
-    int n = p * q;
-    int phi = (p - 1) * (q - 1);
+    long long int n = p * q;
+    long long int phi = (p - 1) * (q - 1);
     int e = MAGIC_NUM;
     int x, y;
     exgcd(e, phi, &x, &y);
@@ -98,13 +98,13 @@ void generate_keys(int public_key[], int private_key[]) {
     private_key[1] = x;
 }
 
-int main_encrypt(char *m, char *c, int key, int public_key[]) {
+int main_encrypt(char *m, char *c, int key, long long int public_key[]) {
     reciprocal_encrypt(m, c, key);
     int encrypted_key = rsa_encrypt(public_key, key);
     return encrypted_key;
 }
 
-int main_decode(char *c, char *m, int encrypted_key, int private_key[]) {
+int main_decode(char *c, char *m, int encrypted_key, long long int private_key[]) {
     int key = rsa_decode(private_key, encrypted_key);
     reciprocal_decode(c, m, key);
     return key;
@@ -119,14 +119,14 @@ int reciprocal_decode(char *c, char *m, int key) {
 }
 
 
-int rsa_encrypt(int public_key[], int m) {
+int rsa_encrypt(long long int public_key[], int m) {
     int n = public_key[0];
     int e = public_key[1];
     int c = expmod(m, e, n);
     return c;
 }
 
-int rsa_decode(int private_key[], int c) {
+int rsa_decode(long long int private_key[], int c) {
     int n = private_key[0];
     int x = private_key[1];
     int m = expmod(c, x, n);
