@@ -1,11 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define max 50
+#define MAX 50
 int main()
 {
 	char s[max+1];
 	for (int i = 1; i < max; i++)
-		s[i] = ' ';
+		{
+			s[i] = ' ';
+		}
 	s[max] = '\0';
 	s[0] = 'a';
 	printf("%s", s);
