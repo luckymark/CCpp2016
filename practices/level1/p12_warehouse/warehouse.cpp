@@ -24,7 +24,7 @@ int main()
 	printf("                       welcome!!!                  \n");
 	system("pause");
 	system("cls");
-	if ((fp = fopen("D:\\project\\CÓïÑÔ¿ÎºóÏ°Ìâ\\CÓïÑÔ¿ÎºóµÚÊ®Ò»Ìâ\\myrepo.txt", "r+") )== NULL)
+	if ((fp = fopen("D:\\project\\Cè¯­è¨€è¯¾åä¹ é¢˜\\Cè¯­è¨€è¯¾åç¬¬åä¸€é¢˜\\myrepo.txt", "r+") )== NULL)
 	{
 		printf("error!!\n");
 		exit(0);
@@ -58,7 +58,7 @@ List * createlist(List * p, char info[], int n)
 		{
 			if (strcmp(info, p->good) == 0)
 			{
-				printf("²Ö¿âÖĞÒÑ¾­ÓĞ´ËÀà»õÎï!!!\n");
+				printf("ä»“åº“ä¸­å·²ç»æœ‰æ­¤ç±»è´§ç‰©!!!\n");
 				middle = 1;
 				break;
 			}
@@ -79,7 +79,7 @@ List * createlist(List * p, char info[], int n)
 			p->num++;
 		}
 	}
-	printf("Ìí¼Ó%s³É¹¦\n", info);
+	printf("æ·»åŠ %sæˆåŠŸ\n", info);
 	system("pause");
 	return head;
 }
@@ -90,46 +90,46 @@ struct List* menu(List *p)
 	char info[100];
 	system("cls");
 	printf("                                        * * * * * * * * * * * * * * * * * * *\n");
-	printf("                                        *            ÇëÊäÈëÑ¡Ïî£¡           *\n");
-	printf("                                        *              1.Èë¿â               *\n");
-	printf("                                        *             2.²éÕÒ¿â              *\n");
-	printf("                                        *              3.³ö¿â               *\n");
-	printf("                                        *             4.ÍË³ö²¢±£´æ          *\n");
-	printf("                                        *        ²»ÊÇ1,2,3,4ÔòÎªÎŞĞ§²Ù×÷    *\n");
+	printf("                                        *            è¯·è¾“å…¥é€‰é¡¹ï¼           *\n");
+	printf("                                        *              1.å…¥åº“               *\n");
+	printf("                                        *             2.æŸ¥æ‰¾åº“              *\n");
+	printf("                                        *              3.å‡ºåº“               *\n");
+	printf("                                        *             4.é€€å‡ºå¹¶ä¿å­˜          *\n");
+	printf("                                        *        ä¸æ˜¯1,2,3,4åˆ™ä¸ºæ— æ•ˆæ“ä½œ    *\n");
 	printf("                                        * * * * * * * * * * * * * * * * * * *\n");
 	scanf("%d", &n);
 	system("cls");
 	switch (n)
 	{
 	case 1:
-		printf("ÇëÊäÈë»õÎïĞÅÏ¢\n");
+		printf("è¯·è¾“å…¥è´§ç‰©ä¿¡æ¯\n");
 		setbuf(stdin, NULL);
 		gets_s(info);
-		printf("ÇëÊäÈë»õÎïÊıÁ¿\n");
+		printf("è¯·è¾“å…¥è´§ç‰©æ•°é‡\n");
 		setbuf(stdin, NULL);
 		scanf("%d", &n);
 		head = createlist(p, info, n);
 		return head;
 	case 2:
-		printf("ÇëÊäÈëÏëÒª²éÕÒµÄ»õÎïĞÅÏ¢\n");
+		printf("è¯·è¾“å…¥æƒ³è¦æŸ¥æ‰¾çš„è´§ç‰©ä¿¡æ¯\n");
 		setbuf(stdin, NULL);
 		gets_s(info);
 		showlist(p, info);
 		break;
 	case 3:
-		printf("ÇëÊäÈë»õÎïĞÅÏ¢\n");
+		printf("è¯·è¾“å…¥è´§ç‰©ä¿¡æ¯\n");
 		setbuf(stdin, NULL);
 		gets_s(info);
 		head=deletelist(p, info);
 		return head;
 	case 4:
-		if ((fwp = fopen("D:\\project\\CÓïÑÔ¿ÎºóÏ°Ìâ\\CÓïÑÔ¿ÎºóµÚÊ®Ò»Ìâ\\myrepo.txt", "w+")) == NULL)
+		if ((fwp = fopen("D:\\project\\Cè¯­è¨€è¯¾åä¹ é¢˜\\Cè¯­è¨€è¯¾åç¬¬åä¸€é¢˜\\myrepo.txt", "w+")) == NULL)
 		{
 			printf("error!!\n");
 			exit(0);
 		}
 		close(p,fwp,p->num);
-		printf("³ÌĞòÒÑÍË³ö!!!\n");
+		printf("ç¨‹åºå·²é€€å‡º!!!\n");
 		system("pause");
 		exit(0);
 	default:
@@ -184,7 +184,7 @@ void showlist(List * p, char info[])
 	int flag = 0;
 	if (p->num == 0)
 	{
-		printf("²Ö¿âÎª¿Õ!\n");
+		printf("ä»“åº“ä¸ºç©º!\n");
 		system("pause");
 	}
 	else
@@ -197,9 +197,9 @@ void showlist(List * p, char info[])
 				middle = p;
 				flag = 1;
 			}
-			printf("»õÎïÃû³Æ:   ");
+			printf("è´§ç‰©åç§°:   ");
 			printf("%s", p->good);
-			printf("       »õÎïÊıÁ¿:");
+			printf("       è´§ç‰©æ•°é‡:");
 			printf("%d", p->amount);
 			printf("\n");
 			p = p->next;
@@ -207,10 +207,10 @@ void showlist(List * p, char info[])
 		if (flag == 1)
 		{
 			printf("find!!!\n");
-			printf("±»ËÑË÷µÄĞÅÏ¢:\n");
-			printf("»õÎïÃû³Æ:   ");
+			printf("è¢«æœç´¢çš„ä¿¡æ¯:\n");
+			printf("è´§ç‰©åç§°:   ");
 			printf("%s", middle->good);
-			printf("       »õÎïÊıÁ¿:");
+			printf("       è´§ç‰©æ•°é‡:");
 			printf("%d", middle->amount);
 			printf("\n");
 		}
@@ -235,14 +235,14 @@ List* deletelist(List *p, char info[])
 	}
 	if (flag == 0)
 	{
-		printf("²Ö¿âÖĞÃ»ÓĞ´Ë»õÎïĞÅÏ¢:\n");
+		printf("ä»“åº“ä¸­æ²¡æœ‰æ­¤è´§ç‰©ä¿¡æ¯:\n");
 	}
 	else
 	{
 		middle->next = p->next;
 		p->num--;
 		free(p);
-		printf("É¾³ı%s³É¹¦\n", info);
+		printf("åˆ é™¤%sæˆåŠŸ\n", info);
 	}
 	return head;
 }
