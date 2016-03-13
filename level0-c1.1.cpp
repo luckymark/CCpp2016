@@ -11,18 +11,19 @@ int main(){
 		printf(">0 \n");
 		i=num%2;
 		if(i==0){
-		printf("yes");
+			printf("yes");
 		}
 		else
-		printf("no");
+			printf("no");
 	}
 	if(num<0){	
 		printf("<0\n");
 		if(abs(num)%2==0){
 			printf("yes");
 		}
-		else
-	printf("no");
+		else{
+			printf("no");
+		}
 	}
 	
 }

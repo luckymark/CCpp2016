@@ -1,6 +1,6 @@
 #include<stdio.h>
 //从3个整数中，找出最大的那个数
-main(){
+int main(){
 	int i,j,k,max;
 	scanf("%d %d %d",&i,&j,&k);
 	if((i>j)&&(i>k)){
