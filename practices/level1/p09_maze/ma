@@ -16,11 +16,11 @@ bool search(int x,int y)
  use[x][y]=1;
  for (i=0;i<=3;i++)
  {
- 	 newx=x+xx[i];
- 	 newy=y+yy[i];
- 	 if (map[newx][newy]==0) continue;
-	 if (map[newx][newy]==2) return true;
- 	 if (search(newx,newy)) return true;
+    newx=x+xx[i];
+    newy=y+yy[i];
+    if (map[newx][newy]==0) continue;
+    if (map[newx][newy]==2) return true;
+    if (search(newx,newy)) return true;
  }
  return false;
 }
@@ -31,8 +31,8 @@ int main()
  //x,y分表代表起始点坐标 
  for (i=1;i<=n;i++)
  {
- 	 gets(s);
- 	 for (j=1;j<=m;j++) map[i][j]=int(s[j-1])-48;
+   gets(s);
+   for (j=1;j<=m;j++) map[i][j]=int(s[j-1])-48;
  }
  if (search(x,y)) printf("YES\n"); else printf("NO\n");
 }  
