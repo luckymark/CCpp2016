@@ -39,7 +39,9 @@ int main()
 		p->next = NULL;
 	}
 	while (1)
+	{
 		head = menu(p);
+	}
 }
 List * createlist(List * p, char info[], int n)
 {
