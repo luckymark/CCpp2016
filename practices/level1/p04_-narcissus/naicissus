@@ -15,8 +15,8 @@ bool can(int a)
  int all=0,i,b=a;
  for (i=1;i<=3;i++)
  {
- 	 all+=mul(a%10);
- 	 a=a/10;
+    all+=mul(a%10);
+    a=a/10;
  }
  if (all==b) return true;
  return false;
