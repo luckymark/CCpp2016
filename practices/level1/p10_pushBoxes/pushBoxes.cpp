@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <cstdlib>
 using namespace std;
+#define GameTimes 3
 #define MAX 110
 #define KeyW 119
 #define KeyS 115
@@ -76,14 +77,7 @@ void FindStartPoint(const int &n,const int &m,const char mp[][MAX],int &StartX,i
 }
 bool CheckPoint(const int &dir,const int &n,const int &m,const int &x,const int &y)
 {
-    if(x>0 && x<=n && y>0 && y<=m)
-    {
-
-    }
-    else
-    {
-        return false;
-    }
+    return x>0 && x<=n && y>0 && y<=m;
 }
 void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX])
 {
