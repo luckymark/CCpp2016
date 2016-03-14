@@ -12,8 +12,6 @@
 #define DOWN 80
 #define LETF 75
 #define RIGHT 77
-const int directionX[]={-1,1,0,0};
-const int directionY[]={0,0,-1,1};
 using namespace std;
 struct Point {
     int x, y;
@@ -89,6 +87,8 @@ void createExit(Point &out,Point &hero,char MAZE,const int width) {
     maze[out.x][out.y] = 'E';
 }
 void moveHero(Point &hero,Point &out,char MAZE,int direction) {
+    const int directionX[] = {-1, 1, 0, 0};
+    const int directionY[] = {0, 0, -1, 1};
     hero.x += directionX[direction];
     hero.y += directionY[direction];
     if (hero == out) {
