@@ -15,11 +15,11 @@ void scrip(int a)
 }
 int main()
 {
-	freopen("C.in","r",stdin);
-	freopen("C.out","w",stdout);
+  freopen("C.in","r",stdin);
+  freopen("C.out","w",stdout);
   for (i=0;i<1100000;i++)  num[i]=rand()%mo;
   scanf("%d\n",&p); gets(s); l=strlen(s);
   if (p==1) scrip(1);  
-	if (p==2) scrip(-1);
+  if (p==2) scrip(-1);
   printf("%s\n",s);
-}  
+} 
