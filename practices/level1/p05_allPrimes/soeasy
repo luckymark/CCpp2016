@@ -13,5 +13,5 @@ int main()
   {
    for (j=i+i;j<=1000;j+=i) use[j]=1;
   }
-	   for (i=2;i<=1000;i++) if (use[i]==0) printf("%d\n",i);  
+  for (i=2;i<=1000;i++) if (use[i]==0) printf("%d\n",i);  
 }  
