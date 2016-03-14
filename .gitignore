@@ -1,5 +1,3 @@
-slides/.idea
-
 # Compiled Object files
 *.slo
 *.lo
@@ -29,3 +27,4 @@ slides/.idea
 *.out
 *.app
 *.db
+
