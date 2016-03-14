@@ -71,7 +71,7 @@ void createMaze(char MAZE,const int width) {
     }
 }
 void printMaze(char MAZE,const int width) {
-	system("cls");
+    system("cls");
     for (int i = 0; i <= width; ++i) {
         for (int j = 0; j <= width; ++j) {
             printf("%c", maze[i][j]);
@@ -92,7 +92,7 @@ void moveHero(Point &hero,Point &out,char MAZE,int direction) {
     hero.x += directionX[direction];
     hero.y += directionY[direction];
     if (hero == out) {
-    	system("cls");
+        system("cls");
         printf("You are Winner!!!\n");
         exit(0);
     }
@@ -105,7 +105,7 @@ void moveHero(Point &hero,Point &out,char MAZE,int direction) {
     maze[hero.x - directionX[direction]][hero.y - directionY[direction]] = ' ';
 }
 void game(Point &hero,Point &out,char MAZE,const int width) {
-	char op=getche();
+    char op = getche();
     while (op != QIUT) {
         switch (op) {
             case UP :
@@ -122,6 +122,6 @@ void game(Point &hero,Point &out,char MAZE,const int width) {
                 break;
         }
         printMaze(maze, width);
-        op=getche();
+        op = getche();
     }
 }
