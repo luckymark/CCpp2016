@@ -5,7 +5,7 @@
 int main()
 {
 	int i = MAX;
-	char s[MAX + 1];//这个真的可以编译的过
+	char s[MAX + 1];//脮芒赂枚脮忙碌脛驴脡脪脭卤脿脪毛碌脛鹿媒
 	for (int i = 1; i < MAX; i++)
 	{
 		s[i] = ' ';
@@ -24,12 +24,5 @@ int main()
 		printf("%s", s);
 		system("cls");
 	}
-	/*for (int i = max - 2; i > 1; i--)
-	{
-		s[i - 1] = s[i];
-		s[i] = ' ';
-		printf("%s", s);
-		system("cls");
-	}*/
 	system("pause");
 }
