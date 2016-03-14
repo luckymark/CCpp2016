@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-int func(double);
-void print(double, double, double);
+int va_goldbash(double n);
+void print(double a, double b, double c);
 int main()
 {
 	double i, j, k;
@@ -12,9 +12,11 @@ int main()
 		{
 			for (j = 2; j < i; j++)
 			{
-				if (func(j))
+				if (va_goldbash(j))
+				{
 					k = i - j;
-				if(func(k))
+				}
+				if(va_goldbash(k))
 				{	
 					print(i, j, k);
 					k = 4;
@@ -25,7 +27,7 @@ int main()
 	}
 	system("pause");
 }
-int func(double n)
+int va_goldbash(double n)
 {
 	if (n == 1 || n == 2)
 	{
@@ -33,7 +35,9 @@ int func(double n)
 	}
 	for (int i = 2; i <= sqrt(n); i++)
 		if ((int)n%i == 0)
+		{
 			return 0;
+		}
 	return 1;
 }
 void print(double a, double b, double c)
