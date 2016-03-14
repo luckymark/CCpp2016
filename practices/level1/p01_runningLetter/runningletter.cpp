@@ -5,7 +5,7 @@
 int main()
 {
 	int i = MAX;
-	char s[MAX + 1];//Õâ¸öÕæµÄ¿ÉÒÔ±àÒëµÄ¹ý
+	char s[MAX + 1];
 	for (int i = 1; i < MAX; i++)
 	{
 		s[i] = ' ';
