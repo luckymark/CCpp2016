@@ -11,10 +11,10 @@ int main()
 		double sonborn=child+sigle+teen+5.0;
 		double sondeath=i-4.0;
 		if((sondeath-sonborn)*2.0==i)
-        {
+		{
 			cout<<i-4<<endl;
 			break;
-        }
+		}
 	}
 	return 0;
 }
