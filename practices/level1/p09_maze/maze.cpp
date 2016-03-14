@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<conio.h>
 #define MAX 20
-char maze[MAX / 2][MAX] = { "*  * * * * * * * **",
+char maze[MAX / 2][MAX] = {                         "*  * * * * * * * **",
 						    "*  *              *",
 						    "*  *              *",
 						    "*  *              *",
@@ -24,7 +24,7 @@ int main()
 	a[0] = 9;
 	a[1] = 17;
 	print();
-	printf("ÇëÊäÈë³ö¿Ú×ø±ê:(°´ÕÕ(,)µÄ¸ñÊ½Êä³ö!)\n");
+	printf("è¯·è¾“å…¥å‡ºå£åæ ‡:(æŒ‰ç…§(,)çš„æ ¼å¼è¾“å‡º!)\n");
 	scanf("(%d,%d)", &l, &r);
 	system("cls");
 	setbuf(stdin, NULL);
@@ -130,7 +130,7 @@ void isVictor(int i,int j)
 {
 	if (maze[i - 1][j - 1] == 'H')
 	{
-		printf("VECTOR!!\n");
+		printf("VICTOR!!\n");
 		system("pause");
 		exit(0);
 	}
