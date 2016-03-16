@@ -1,4 +1,6 @@
 slides/.idea
-.out
+*.out
+*.dSYM/
+
 
 
