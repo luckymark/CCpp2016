@@ -6,7 +6,9 @@ int main()
     {
         float sage=fage-fage/6-fage/12-fage/7-5-4;
         if( fage==2*sage)
-        printf("Diophantus was %.0f when his son died.",fage-4);
+        {
+            printf("Diophantus was %.0f when his son died.",fage-4);
+        }
     }
     return 0;
 }
