@@ -1,11 +1,11 @@
 #include <iostream>
-#include <stack>
+#include <vector>
 
 using namespace std;
 
 #define FREE_TOWER(from, to) (from != 0 && to != 0 ? 0 : (from != 1 && to != 1 ? 1 : (from != 2 && to != 2 ? 2 : -1)))
 
-stack<int> tows[3];
+vector<int> tows[3];
 int n;
 
 void movePlate(int from, int to, int num);
@@ -20,7 +20,7 @@ int main()
     cin >> n;
     for (int i = 0; i < n; ++i)
     {
-        tows[0].push(n - i);
+        tows[0].push_back(0);
     }
     cout << "Initial status: "<< endl;
     drawTows();
@@ -35,8 +35,8 @@ void movePlate(int from, int to, int num)
         return;
     }
     movePlate(from, FREE_TOWER(from, to), num - 1);
-    tows[to].push(tows[from].top());
-    tows[from].pop();
+    tows[to].push_back(tows[from].top());
+    tows[from].pop_back();
     cout << "from: " << beautify(from) << " to: " << beautify(to) << endl;
     drawTows();
     movePlate(FREE_TOWER(from, to), to, num - 1);
@@ -58,22 +58,12 @@ char beautify(int n)
 
 void drawTows()
 {
-    stack<int> tmp;
     cout << "--------------------------------------" << endl;
     for (int towI = 0; towI < 3; ++towI)
     {
         cout << beautify(towI) << ": ";
-        auto sz = tows[towI].size();
-        for (int i = 0; i < sz; ++i)
-        {
-            tmp.push(tows[towI].top());
-            tows[towI].pop();
-        }
-        for (int i = 0; i < sz; ++i)
-        {
-            cout << tmp.top() << ' ';
-            tows[towI].push(tmp.top());
-            tmp.pop();
+        for (auto plate : tows[towI]) {
+            cout << plate;
         }
         cout << endl;
     }
