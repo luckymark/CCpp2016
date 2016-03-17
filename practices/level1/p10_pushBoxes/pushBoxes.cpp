@@ -19,6 +19,28 @@ using namespace std;
 #define Bar '*'
 #define ExceptEntry 'T'
 #define NowPoint 'X'
+bool Initmap(const int &n,const int &m,char mp[][MAX]);
+void Dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const char mp[][MAX],const bool isBox[][MAX],const int &stepNum);
+void FindStartPoint(const int &n,const int &m,char mp[][MAX],int &StartX,int &StartY,bool isBox[][MAX],int &boxNum);
+bool CheckPersonPoint(const int &n,const int &m,const int &x,const int &y,const char mp[][MAX],const bool isBox[][MAX]);
+bool CheckBoxPoint(const int &n,const int &m,const int &x,const int &y,const char mp[][MAX],const bool isBox[][MAX]);
+void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],bool isBox[][MAX],const int &boxNum);
+int main()
+{
+    freopen("map.txt","r",stdin);
+    int n,m;
+    char mp[MAX][MAX];
+    bool isBox[MAX][MAX];
+    while(Initmap(n,m,mp))
+    {
+        int StartX,StartY,boxNum=0;
+        memset(isBox,false,sizeof(isBox));
+        FindStartPoint(n,m,mp,StartX,StartY,isBox,boxNum);
+        Dispmap(n,m,StartX,StartY,mp,isBox,0);
+        GameStart(n,m,StartX,StartY,mp,isBox,boxNum);
+    }
+    return 0;
+}
 bool Initmap(const int &n,const int &m,char mp[][MAX])
 {
     if(scanf("%d%d\n",&n,&m) == 2)
@@ -38,7 +60,7 @@ bool Initmap(const int &n,const int &m,char mp[][MAX])
         return false;
     }
 }
-void Dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const char mp[][MAX],const bool isBox[][MAX])
+void Dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const char mp[][MAX],const bool isBox[][MAX],const int &stepNum)
 {
     system("cls");
     for(int i=1;i<=n;i++)
@@ -68,6 +90,7 @@ void Dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const cha
         }
         printf("\n");
     }
+    printf("Your step: %d\n",stepNum);
 }
 void FindStartPoint(const int &n,const int &m,char mp[][MAX],int &StartX,int &StartY,bool isBox[][MAX],int &boxNum)
 {
@@ -99,7 +122,7 @@ bool CheckBoxPoint(const int &n,const int &m,const int &x,const int &y,const cha
 }
 void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],bool isBox[][MAX],const int &boxNum)
 {
-    int NowX,NowY,CompleteBoxesNum=0;
+    int NowX,NowY,CompleteBoxesNum=0,stepNum=0;
     NowX=StartX,NowY=StartY;
     const int fx[]={-1,0,1,0};
     const int fy[]={0,1,0,-1};
@@ -154,7 +177,9 @@ void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],
             }
             NowX=TempX,NowY=TempY;
         }
-        Dispmap(n,m,NowX,NowY,mp,isBox);
+        ++stepNum;
+        Dispmap(n,m,NowX,NowY,mp,isBox,stepNum);
+
         if(CompleteBoxesNum==boxNum)
         {
             system("cls");
@@ -163,19 +188,4 @@ void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],
             return ;
         }
     }
-}
-int main()
-{
-        freopen("map.txt","r",stdin);
-    int n,m,StartX,StartY,boxNum=0;
-    char mp[MAX][MAX];
-    bool isBox[MAX][MAX];
-    while(Initmap(n,m,mp))
-    {
-        memset(isBox,false,sizeof(isBox));
-        FindStartPoint(n,m,mp,StartX,StartY,isBox,boxNum);
-        Dispmap(n,m,StartX,StartY,mp,isBox);
-        GameStart(n,m,StartX,StartY,mp,isBox,boxNum);
-    }
-    return 0;
 }
