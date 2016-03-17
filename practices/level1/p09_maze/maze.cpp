@@ -73,9 +73,9 @@ void FindStartPoint(const int &n,const int &m,const int mp[][MAX],int &StartX,in
         }
     }
 }
-bool CheckPoint(const int &n,const int &m,const int &x,const int &y)
+bool CheckPoint(const int &n,const int &m,const int &x,const int &y,const int mp[][MAX])
 {
-    return x>0 && x<=n && y>0 && y<=m;
+    return x>0 && x<=n && y>0 && y<=m && mp[x][y]!=Bar;
 }
 void GameStart(int &n,int &m,const int &StartX,const int &StartY,int mp[][MAX])
 {
@@ -108,7 +108,7 @@ void GameStart(int &n,int &m,const int &StartX,const int &StartY,int mp[][MAX])
         }
         int TempX=NowX+fx[dir];
         int TempY=NowY+fy[dir];
-        if(CheckPoint(n,m,TempX,TempY))
+        if(CheckPoint(n,m,TempX,TempY,mp))
         {
             if(mp[TempX][TempY]==3)
             {
