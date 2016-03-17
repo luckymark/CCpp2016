@@ -2,9 +2,10 @@
 #include <conio.h>
 #include <cstdlib>
 #include <windows.h>
-#define SleepTime 500
+#define SleepTime 3000
 #define GameTimes 3
 #define MAX 110
+#define KeyR 114
 #define KeyW 119
 #define KeyS 115
 #define KeyA 97
@@ -18,7 +19,7 @@
 #define Bar '*'
 #define ExceptEntry 'T'
 #define NowPoint 'X'
-bool Initmap(const int &n,const int &m,char mp[][MAX]);
+bool Initmap(int &n,int &m,char mp[][MAX]);
 void Dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const char mp[][MAX],const bool isBox[][MAX],const int &stepNum);
 void FindStartPoint(const int &n,const int &m,char mp[][MAX],int &StartX,int &StartY,bool isBox[][MAX],int &boxNum);
 bool CheckPersonPoint(const int &n,const int &m,const int &x,const int &y,const char mp[][MAX],const bool isBox[][MAX]);
@@ -35,12 +36,11 @@ int main()
         int StartX,StartY,boxNum=0;
         memset(isBox,false,sizeof(isBox));
         FindStartPoint(n,m,mp,StartX,StartY,isBox,boxNum);
-        Dispmap(n,m,StartX,StartY,mp,isBox,0);
         GameStart(n,m,StartX,StartY,mp,isBox,boxNum);
     }
     return 0;
 }
-bool Initmap(const int &n,const int &m,char mp[][MAX])
+bool Initmap(int &n,int &m,char mp[][MAX])
 {
     if(scanf("%d%d\n",&n,&m) == 2)
     {
@@ -90,6 +90,7 @@ void Dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const cha
         printf("\n");
     }
     printf("Your step: %d\n",stepNum);
+    printf("Press 'R' to restart this case.");
 }
 void FindStartPoint(const int &n,const int &m,char mp[][MAX],int &StartX,int &StartY,bool isBox[][MAX],int &boxNum)
 {
@@ -121,10 +122,30 @@ bool CheckBoxPoint(const int &n,const int &m,const int &x,const int &y,const cha
 }
 void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],bool isBox[][MAX],const int &boxNum)
 {
-    int NowX,NowY,CompleteBoxesNum=0,stepNum=0;
-    NowX=StartX,NowY=StartY;
     const int fx[]={-1,0,1,0};
     const int fy[]={0,1,0,-1};
+    char originMap[MAX][MAX];
+    int originisBox[MAX][MAX];
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=m;j++)
+        {
+            originMap[i][j]=mp[i][j];
+            originisBox[i][j]=isBox[i][j];
+        }
+    }
+    reset:
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=m;j++)
+        {
+            mp[i][j]=originMap[i][j];
+            isBox[i][j]=originisBox[i][j];
+        }
+    }
+    Dispmap(n,m,StartX,StartY,mp,isBox,0);
+    int NowX,NowY,CompleteBoxesNum=0,stepNum=0;
+    NowX=StartX,NowY=StartY;
     while(1)
     {
         int step=getch(),dir;
@@ -143,6 +164,10 @@ void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],
         else if(step==KeyRight || step==KeyD)
         {
             dir=1;
+        }
+        else if(step==KeyR)
+        {
+            goto reset;
         }
         else
         {
