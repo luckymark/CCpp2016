@@ -1,7 +1,7 @@
 #include <cstdio>
+void MoveBlocks(int BlockNum,int Start,int Temp,int End);
 int main()
 {
-    void MoveBlocks(int,int,int,int);
     int n;
     printf("Please input the number of blocks:\n");
     scanf("%d",&n);

@@ -1,7 +1,13 @@
 #include <cmath>
 #include <cstdio>
-using namespace std;
-bool checkprime(int v)
+bool isPrime(int v);
+void PrintPrimes();
+int main()
+{
+	PrintPrimes();
+	return 0;
+}
+bool isPrime(int v)
 {
 	for(int i=2;i<=sqrt(v);i++)
 		if(v%i==0)
@@ -11,11 +17,6 @@ bool checkprime(int v)
 void PrintPrimes()
 {
 	for(int i=2;i<=1000;i++)
-		if(checkprime(i))
+		if(isPrime(i))
 			printf("%d\n",i);
-}
-int main()
-{
-	PrintPrimes();
-	return 0;
 }

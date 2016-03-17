@@ -2,7 +2,6 @@
 #include <conio.h>
 #include <cstdlib>
 #include <windows.h>
-using namespace std;
 #define SleepTime 500
 #define GameTimes 3
 #define MAX 110

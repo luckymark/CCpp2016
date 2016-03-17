@@ -2,10 +2,10 @@
 #include <iostream>
 #define KEY 101
 using namespace std;
+void DcruptFunction(istream& In);
+void EcruptFunction(istream& In);
 int main()
 {
-    void EcruptFunction(istream&);
-    void DcruptFunction(istream&);
     printf("Ecrupt or Dcrupt?Input 1 or 2\n");
     int Oper;
     scanf("%d",&Oper);

@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <conio.h>
 #include <cstdlib>
-using namespace std;
 #define MAX 110
 #define KeyW 119
 #define KeyS 115
@@ -15,9 +14,24 @@ using namespace std;
 #define End 3
 #define EmptyBlock 0
 #define Bar 1
-void Initmap(const int &n,const int &m,int mp[][MAX])
+void Initmap(const int &n,const int &m,int mp[][MAX]);
+void Dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const int mp[][MAX]);
+void FindStartPoint(const int &n,const int &m,const int mp[][MAX],int &StartX,int &StartY);
+bool CheckPoint(const int &n,const int &m,const int &x,const int &y,const int mp[][MAX]);
+void GameStart(int &n,int &m,const int &StartX,const int &StartY,int mp[][MAX]);
+int main()
 {
     freopen("map.txt","r",stdin);
+    int n,m,StartX,StartY;
+    int mp[MAX][MAX];
+    Initmap(n,m,mp);
+    FindStartPoint(n,m,mp,StartX,StartY);
+    Dispmap(n,m,StartX,StartY,mp);
+    GameStart(n,m,StartX,StartY,mp);
+    return 0;
+}
+void Initmap(const int &n,const int &m,int mp[][MAX])
+{
     scanf("%d%d",&n,&m);
     for(int i=1;i<=n;i++)
     {
@@ -121,14 +135,4 @@ void GameStart(int &n,int &m,const int &StartX,const int &StartY,int mp[][MAX])
         system("cls");
         Dispmap(n,m,NowX,NowY,mp);
     }
-}
-int main()
-{
-    int n,m,StartX,StartY;
-    int mp[MAX][MAX];
-    Initmap(n,m,mp);
-    FindStartPoint(n,m,mp,StartX,StartY);
-    Dispmap(n,m,StartX,StartY,mp);
-    GameStart(n,m,StartX,StartY,mp);
-    return 0;
 }

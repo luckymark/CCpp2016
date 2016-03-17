@@ -1,9 +1,20 @@
 #include <cstdio>
 #include <cmath>
-using namespace std;
-const int maxn=101;
-bool tag[maxn];
-void FindPrimes()
+#include <cstdlib>
+#include <string.h>
+#define maxn 101
+void FindPrimes(bool tag[]);
+void work(int v,bool tag[]);
+void Goldbach(bool tag[]);
+int main()
+{
+    bool tag[maxn];
+    memset(tag,false,sizeof(tag));
+	FindPrimes(tag);
+	Goldbach(tag);
+	return 0;
+}
+void FindPrimes(bool tag[])
 {
 	for(int i=2;i<=maxn/2;i++)
 	{
@@ -16,7 +27,7 @@ void FindPrimes()
 		}
 	}
 }
-void work(int v)
+void work(int v,bool tag[])
 {
 	for(int i=2;i<=v;i++)
 		if(!tag[i] && !tag[v-i])
@@ -25,14 +36,8 @@ void work(int v)
 			return ;
 		}
 }
-void Goldbach()
+void Goldbach(bool tag[])
 {
 	for(int i=4;i<=100;i+=2)
-		work(i);
-}
-int main()
-{
-	FindPrimes();
-	Goldbach();
-	return 0;
+		work(i,tag);
 }
