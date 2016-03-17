@@ -120,6 +120,8 @@ void game(Point &hero,Point &out,char MAZE,const int width) {
             case RIGHT :
                 moveHero(hero, out, maze, 3);
                 break;
+            default:
+                break;
         }
         printMaze(maze, width);
         op = getche();
