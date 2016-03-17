@@ -1,6 +1,7 @@
 //wsad操作
 #include<stdio.h>
 #include<stdlib.h>
+#include<conio.h>
 //函数原型
 void print();
 void commond();
@@ -54,7 +55,7 @@ void print(){
 }
 void commond(){
     char direction = 0;
-    scanf("%c",&direction);
+    direction = getch();
     move(direction);
 }
 
