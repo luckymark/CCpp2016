@@ -4,5 +4,6 @@
 #include "maze_model.h"
 
 int display_maze(Maze *maze);
+int display_win_page();
 
 #endif

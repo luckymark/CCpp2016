@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "maze_model.h"
 
@@ -67,7 +66,6 @@ element type_of(Maze *maze, int x, int y) {
 condition move_player(Maze *maze, int dx, int dy) {
     int new_x = maze->player1.coordinate.x + dx;
     int new_y = maze->player1.coordinate.y + dy;
-    printf("newx=%d, newy=%d\n", new_x, new_y);
     switch (type_of(maze, new_x, new_y)) {
         case WALL:
             return FAIL;
