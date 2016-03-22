@@ -1,0 +1,64 @@
+#include<cstdio>
+#include<ctime>
+#include<cstdlib>
+#include<iostream>
+#include<cstring>
+#include<algorithm>
+struct pointer{
+    int v;
+    pointer *p;
+};
+pointer *p1;
+int n;
+void readbuild();
+void reverse();
+void query();
+int main()
+{
+    freopen("c.in","r",stdin);
+    freopen("c.out","w",stdout);
+    readbuild();
+    reverse();
+    query();
+}
+void readbuild()
+{
+    int i;
+    pointer *now,*y;
+    scanf("%d",&n);
+    for (i=0;i<n;i++)
+    {
+        now=new pointer; if (i==0) p1=now;
+        scanf("%d",&(*now).v);
+        if (i!=0) (*y).p=now;
+        if (i==n-1) (*now).p=now;
+        y=now;
+    }
+}
+void reverse()
+{
+    pointer *i,*pre,*y;
+    pre=p1; i=p1;
+    while ((*i).p!=i)
+    {
+        y=(*i).p;
+        (*i).p=pre;
+        pre=i;
+        i=y;
+    }
+    (*i).p=pre; p1=i;
+}
+void query()
+{
+    int now=1;
+    pointer *i;
+    i=p1;
+    while (i!=(*i).p)
+    {
+        if ((*i).v==5) printf("%d ",now);
+        i=(*i).p;
+        now++;
+    }
+    if ((*i).v==5) printf("%d ",now);
+    printf("-1\n");
+}
