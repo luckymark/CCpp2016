@@ -3,13 +3,15 @@
 #include<malloc.h>
 struct node{
     int x;
-    int* next = NULL;
+    node* next = NULL;
 };
 int main(){
-    struct node first;
+    node first;
+    node temp = first;
     for(int i = 0;i<100;i++){
-        struct node *p = (struct node *)malloc(sizeof(struct node));//int *p = (int *)malloc(sizeof(int)*10);
-        first.next = &(p -> x);
+        node *p = (node *)malloc(sizeof(node));//int *p = (int *)malloc(sizeof(int)*10);
+        temp.next = p;
         p -> x = i;
+        temp = *p;
     }
 }
