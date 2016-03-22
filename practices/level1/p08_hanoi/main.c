@@ -8,6 +8,16 @@
 
 #include <stdio.h>
 
+void hanoi(char A,char B,char C,int n);
+
+int main(int argc, const char * argv[]) {
+    int n;
+    printf("输入阶数：\n");
+    scanf("%d",&n);
+    hanoi('A','B','C',n);
+    return 0;
+}
+
 void hanoi(char A,char B,char C,int n)
 {
     if(n==1)
@@ -21,15 +31,6 @@ void hanoi(char A,char B,char C,int n)
         hanoi(B,A,C,n-1);
     }
 }
-
-int main(int argc, const char * argv[]) {
-    int n;
-    printf("输入阶数：\n");
-    scanf("%d",&n);
-    hanoi('A','B','C',n);
-    return 0;
-}
-
 
     
 
