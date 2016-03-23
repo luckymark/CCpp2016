@@ -34,6 +34,10 @@ void findStartPoint(const int &n,const int &m,char map[][MAX],int &StartX,int &S
 bool checkPersonPoint(const int &n,const int &m,const int &x,const int &y,const char map[][MAX],const bool isBox[][MAX]);
 bool checkBoxPoint(const int &n,const int &m,const int &x,const int &y,const char map[][MAX],const bool isBox[][MAX]);
 void gameStart(int &n,int &m,const int &StartX,const int &StartY,char map[][MAX],bool isBox[][MAX],const int &boxNum);
+int checkDir(int step);
+bool moveBoxes(const int &n,const int &m,const int &dir,int &NowX,int &NowY,int &ComapleteBoxesNum,int &stepNummap,char map[][MAX],bool isBox[][MAX]);
+void copyMap(const int &n,const int &m,char originMap[][MAX],char originisBox[][MAX],const char map[][MAX],const bool isBox[][MAX]);
+void recoverMap(const int &n,const int &m,char originMap[][MAX],char originisBox[][MAX],char map[][MAX],bool isBox[][MAX]);
 int main()
 {
     freopen("map.txt","r",stdin);
@@ -93,28 +97,10 @@ void dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const cha
                     case ExceptEntry:
                         printf("T");
                         break;
-                    case EmaptyBlock:
+                    default:
                         printf(" ");
-                        break;
                 }
             }
-            
-            // if(map[i][j]==Bar)
-            // {
-            //     printf("#");
-            // }
-            // else if(isBox[i][j])
-            // {
-            //     printf("o");
-            // }
-            // else if(map[i][j]==ExceptEntry)
-            // {
-            //     printf("T");
-            // }
-            // else
-            // {
-            //     printf(" ");
-            // }
         }
         printf("\n");
     }
@@ -151,10 +137,45 @@ bool checkBoxPoint(const int &n,const int &m,const int &x,const int &y,const cha
 }
 void gameStart(int &n,int &m,const int &StartX,const int &StartY,char map[][MAX],bool isBox[][MAX],const int &boxNum)
 {
-    const int fx[]={-1,0,1,0};
-    const int fy[]={0,1,0,-1};
     char originMap[MAX][MAX];
-    int originisBox[MAX][MAX];
+    char originisBox[MAX][MAX];
+    copyMap(n,m,originMap,originisBox,map,isBox);
+    while(1)
+    {
+        recoverMap(n,m,originMap,originisBox,map,isBox);
+        dispmap(n,m,StartX,StartY,map,isBox,0);
+        int NowX,NowY,ComapleteBoxesNum=0,stepNum=0;
+        NowX=StartX,NowY=StartY;
+        while(1)
+        {
+            int step=getch();
+            if(step==KeyR)
+            {
+                break;
+            }
+            int dir=checkDir(step);
+            if(!(dir>=0 && dir<4))
+            {
+                continue;
+            }
+            if(!moveBoxes(n,m,dir,NowX,NowY,ComapleteBoxesNum,stepNum,map,isBox))
+            {
+                continue;
+            }
+            ++stepNum;
+            dispmap(n,m,NowX,NowY,map,isBox,stepNum);
+            if(ComapleteBoxesNum==boxNum)
+            {
+                system("cls");
+                printf("You Win!\nLoading the next case...\n");
+                Sleep(SleepTime);
+                return ;
+            }
+        }
+    }
+}
+void copyMap(const int &n,const int &m,char originMap[][MAX],char originisBox[][MAX],const char map[][MAX],const bool isBox[][MAX])
+{
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=m;j++)
@@ -163,7 +184,9 @@ void gameStart(int &n,int &m,const int &StartX,const int &StartY,char map[][MAX]
             originisBox[i][j]=isBox[i][j];
         }
     }
-    reset:
+}
+void recoverMap(const int &n,const int &m,char originMap[][MAX],char originisBox[][MAX],char map[][MAX],bool isBox[][MAX])
+{
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=m;j++)
@@ -172,73 +195,61 @@ void gameStart(int &n,int &m,const int &StartX,const int &StartY,char map[][MAX]
             isBox[i][j]=originisBox[i][j];
         }
     }
-    dispmap(n,m,StartX,StartY,map,isBox,0);
-    int NowX,NowY,ComapleteBoxesNum=0,stepNum=0;
-    NowX=StartX,NowY=StartY;
-    while(1)
+}
+int checkDir(int step)
+{
+    int dir=10;
+    if(step==KeyUp || step==KeyW)
     {
-        int step=getch(),dir;
-        if(step==KeyUp || step==KeyW)
+        dir=0;
+    }
+    else if(step==KeyDown || step==KeyS)
+    {
+        dir=2;
+    }
+    else if(step==KeyLeft || step==KeyA)
+    {
+        dir=3;
+    }
+    else if(step==KeyRight || step==KeyD)
+    {
+        dir=1;
+    }
+    return dir;
+}
+bool moveBoxes(const int &n,const int &m,const int &dir,int &NowX,int &NowY,int &ComapleteBoxesNum,int &stepNummap,char map[][MAX],bool isBox[][MAX])
+{
+    const int fx[]={-1,0,1,0};
+    const int fy[]={0,1,0,-1};
+    int TemapX=NowX+fx[dir];
+    int TemapY=NowY+fy[dir];
+    if(checkPersonPoint(n,m,TemapX,TemapY,map,isBox))
+    {
+        if(isBox[TemapX][TemapY])
         {
-            dir=0;
-        }
-        else if(step==KeyDown || step==KeyS)
-        {
-            dir=2;
-        }
-        else if(step==KeyLeft || step==KeyA)
-        {
-            dir=3;
-        }
-        else if(step==KeyRight || step==KeyD)
-        {
-            dir=1;
-        }
-        else if(step==KeyR)
-        {
-            goto reset;
-        }
-        else
-        {
-            continue;
-        }
-        int TemapX=NowX+fx[dir];
-        int TemapY=NowY+fy[dir];
-        if(checkPersonPoint(n,m,TemapX,TemapY,map,isBox))
-        {
-            if(isBox[TemapX][TemapY])
+            
+            int BoxX=TemapX+fx[dir];
+            int BoxY=TemapY+fy[dir];
+            if(checkBoxPoint(n,m,BoxX,BoxY,map,isBox))
             {
-                int BoxX=TemapX+fx[dir];
-                int BoxY=TemapY+fy[dir];
-                if(checkBoxPoint(n,m,BoxX,BoxY,map,isBox))
+                isBox[BoxX][BoxY]=true;
+                isBox[TemapX][TemapY]=false;
+                if(map[BoxX][BoxY]==ExceptEntry)
                 {
-                    isBox[BoxX][BoxY]=true;
-                    isBox[TemapX][TemapY]=false;
-                    if(map[BoxX][BoxY]==ExceptEntry)
-                    {
-                        ++ComapleteBoxesNum;
-                    }
-                    if(map[TemapX][TemapY]==ExceptEntry)
-                    {
-                        --ComapleteBoxesNum;
-                    }
+                    ++ComapleteBoxesNum;
                 }
-                else
+                if(map[TemapX][TemapY]==ExceptEntry)
                 {
-                    continue;
+                    --ComapleteBoxesNum;
                 }
             }
-            NowX=TemapX,NowY=TemapY;
+            else
+            {
+                return false;
+            }
         }
-        ++stepNum;
-        dispmap(n,m,NowX,NowY,map,isBox,stepNum);
-
-        if(ComapleteBoxesNum==boxNum)
-        {
-            system("cls");
-            printf("You Win!\nLoading the next case...\n");
-            Sleep(SleepTime);
-            return ;
-        }
+        NowX=TemapX,NowY=TemapY;
+        return true;
     }
+    return false;
 }
