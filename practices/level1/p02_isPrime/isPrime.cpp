@@ -2,9 +2,10 @@
 #include <cmath>
 #include <iostream>
 using namespace std;
+bool isPrime(int v);
 int main()
 {
-	bool isPrime(int);
+	
 	int n;
 	while(scanf("%d",&n)==1)
 	{

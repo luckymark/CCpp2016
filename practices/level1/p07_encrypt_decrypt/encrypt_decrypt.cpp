@@ -1,42 +1,43 @@
 #include <cstdio>
 #include <iostream>
+#include <cstring>
 #define KEY 101
 using namespace std;
-void DcruptFunction(istream& In);
-void EcruptFunction(istream& In);
+void fcruptFunction(char *s,int len);
+void ecruptFunction(char *s,int len);
 int main()
 {
     printf("Ecrupt or Dcrupt?Input 1 or 2\n");
-    int Oper;
-    scanf("%d",&Oper);
-    if(Oper==1)
+    int oper;
+    char s[100];
+    scanf("%d",&oper);
+    if(oper==1)
     {
         printf("Please input the text which you want to Ecrupt:\n");
-        EcruptFunction(cin);
+        gets(s);
+        ecruptFunction(s,strlen(s));
     }
-    else if(Oper==2)
+    else if(oper==2)
     {
         printf("Please input the text which you want to Dcrupt:\n");
-        DcruptFunction(cin);
+        gets(s);
+        fcruptFunction(s,strlen(s));
     }
     return 0;
 }
-void EcruptFunction(istream& In)
+void ecruptFunction(char *s,int len)
 {
-    char c;
-    while(In>>c)
+    for(int i=0;i<len;i++)
     {
-        c^=KEY;
-        printf("%c",c);
+        s[i]^=KEY;
     }
-
+    puts(s);
 }
-void DcruptFunction(istream& In)
+void fcruptFunction(char *s,int len)
 {
-    char c;
-    while(In>>c)
+    for(int i=0;i<len;i++)
     {
-        c^=KEY;
-        printf("%c",c);
+        s[i]^=KEY;
     }
+    puts(s);
 }

@@ -2,21 +2,21 @@
 #include <cmath>
 #include <cstdlib>
 #include <string.h>
-#define maxn 101
-void FindPrimes(bool tag[]);
+#define MAXN 101
+void findPrimes(bool tag[]);
 void work(int v,bool tag[]);
-void Goldbach(bool tag[]);
+void goldbach(bool tag[]);
 int main()
 {
-    bool tag[maxn];
-    memset(tag,false,sizeof(tag));
-	FindPrimes(tag);
-	Goldbach(tag);
+	bool tag[MAXN];
+	memset(tag,false,sizeof(tag));
+	findPrimes(tag);
+	goldbach(tag);
 	return 0;
 }
-void FindPrimes(bool tag[])
+void findPrimes(bool tag[])
 {
-	for(int i=2;i<=maxn/2;i++)
+	for(int i=2;i<=MAXN/2;i++)
 	{
 		if(!tag[i])
 		{
@@ -30,14 +30,18 @@ void FindPrimes(bool tag[])
 void work(int v,bool tag[])
 {
 	for(int i=2;i<=v;i++)
+	{
 		if(!tag[i] && !tag[v-i])
 		{
 			printf("%d=%d+%d\n",v,i,v-i);
 			return ;
 		}
+	}
 }
-void Goldbach(bool tag[])
+void goldbach(bool tag[])
 {
 	for(int i=4;i<=100;i+=2)
+	{
 		work(i,tag);
+	}
 }

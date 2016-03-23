@@ -2,45 +2,54 @@
 #include <conio.h>
 #include <cstdlib>
 #include <windows.h>
-#define SleepTime 3000
-#define GameTimes 3
 #define MAX 110
-#define KeyR 114
-#define KeyW 119
-#define KeyS 115
-#define KeyA 97
-#define KeyD 100
-#define KeyUp 72
-#define KeyDown 80
-#define KeyLeft 75
-#define KeyRight 77
-#define Boxes 'o'
-#define EmptyBlock ' '
-#define Bar '*'
-#define ExceptEntry 'T'
-#define NowPoint 'X'
-bool Initmap(int &n,int &m,char mp[][MAX]);
-void Dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const char mp[][MAX],const bool isBox[][MAX],const int &stepNum);
-void FindStartPoint(const int &n,const int &m,char mp[][MAX],int &StartX,int &StartY,bool isBox[][MAX],int &boxNum);
-bool CheckPersonPoint(const int &n,const int &m,const int &x,const int &y,const char mp[][MAX],const bool isBox[][MAX]);
-bool CheckBoxPoint(const int &n,const int &m,const int &x,const int &y,const char mp[][MAX],const bool isBox[][MAX]);
-void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],bool isBox[][MAX],const int &boxNum);
+enum gameControl
+{
+    SleepTime=3000,
+    GameTimes=3
+};
+enum keyboard
+{
+    KeyR=114,
+    KeyW=119,
+    KeyS=115,
+    KeyA=97,
+    KeyD=100,
+    KeyUp=72,
+    KeyDown=80,
+    KeyLeft=75,
+    KeyRight=77
+};
+enum blocks
+{
+    Boxes='o',
+    EmaptyBlock=' ',
+    Bar='*',
+    ExceptEntry='T',
+    NowPoint='X'
+};
+bool initmap(int &n,int &m,char map[][MAX]);
+void dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const char map[][MAX],const bool isBox[][MAX],const int &stepNum);
+void findStartPoint(const int &n,const int &m,char map[][MAX],int &StartX,int &StartY,bool isBox[][MAX],int &boxNum);
+bool checkPersonPoint(const int &n,const int &m,const int &x,const int &y,const char map[][MAX],const bool isBox[][MAX]);
+bool checkBoxPoint(const int &n,const int &m,const int &x,const int &y,const char map[][MAX],const bool isBox[][MAX]);
+void gameStart(int &n,int &m,const int &StartX,const int &StartY,char map[][MAX],bool isBox[][MAX],const int &boxNum);
 int main()
 {
     freopen("map.txt","r",stdin);
     int n,m;
-    char mp[MAX][MAX];
+    char map[MAX][MAX];
     bool isBox[MAX][MAX];
-    while(Initmap(n,m,mp))
+    while(initmap(n,m,map))
     {
         int StartX,StartY,boxNum=0;
         memset(isBox,false,sizeof(isBox));
-        FindStartPoint(n,m,mp,StartX,StartY,isBox,boxNum);
-        GameStart(n,m,StartX,StartY,mp,isBox,boxNum);
+        findStartPoint(n,m,map,StartX,StartY,isBox,boxNum);
+        gameStart(n,m,StartX,StartY,map,isBox,boxNum);
     }
     return 0;
 }
-bool Initmap(int &n,int &m,char mp[][MAX])
+bool initmap(int &n,int &m,char map[][MAX])
 {
     if(scanf("%d%d\n",&n,&m) == 2)
     {
@@ -48,7 +57,7 @@ bool Initmap(int &n,int &m,char mp[][MAX])
         {
             for(int j=1;j<=m;j++)
             {
-                scanf("%c",&mp[i][j]);
+                scanf("%c",&map[i][j]);
             }
             scanf("\n");
         }
@@ -59,7 +68,7 @@ bool Initmap(int &n,int &m,char mp[][MAX])
         return false;
     }
 }
-void Dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const char mp[][MAX],const bool isBox[][MAX],const int &stepNum)
+void dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const char map[][MAX],const bool isBox[][MAX],const int &stepNum)
 {
     system("cls");
     for(int i=1;i<=n;i++)
@@ -70,57 +79,77 @@ void Dispmap(const int &n,const int &m,const int &NowX,const int &NowY,const cha
             {
                 printf("X");
             }
-            else if(mp[i][j]==Bar)
-            {
-                printf("#");
-            }
             else if(isBox[i][j])
             {
                 printf("o");
             }
-            else if(mp[i][j]==ExceptEntry)
-            {
-                printf("T");
-            }
             else
             {
-                printf(" ");
+                switch(map[i][j])
+                {
+                    case Bar:
+                        printf("#");
+                        break;
+                    case ExceptEntry:
+                        printf("T");
+                        break;
+                    case EmaptyBlock:
+                        printf(" ");
+                        break;
+                }
             }
+            
+            // if(map[i][j]==Bar)
+            // {
+            //     printf("#");
+            // }
+            // else if(isBox[i][j])
+            // {
+            //     printf("o");
+            // }
+            // else if(map[i][j]==ExceptEntry)
+            // {
+            //     printf("T");
+            // }
+            // else
+            // {
+            //     printf(" ");
+            // }
         }
         printf("\n");
     }
     printf("Your step: %d\n",stepNum);
     printf("Press 'R' to restart this case.");
 }
-void FindStartPoint(const int &n,const int &m,char mp[][MAX],int &StartX,int &StartY,bool isBox[][MAX],int &boxNum)
+void findStartPoint(const int &n,const int &m,char map[][MAX],int &StartX,int &StartY,bool isBox[][MAX],int &boxNum)
 {
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=m;j++)
         {
-            if(mp[i][j]==NowPoint)
+            if(map[i][j]==NowPoint)
             {
                 StartX=i;
                 StartY=j;
             }
-            if(mp[i][j]==Boxes)
+            if(map[i][j]==Boxes)
             {
                 ++boxNum;
-                mp[i][j]=EmptyBlock;
+                map[i][j]=EmaptyBlock;
                 isBox[i][j]=true;
             }
         }
     }
 }
-bool CheckPersonPoint(const int &n,const int &m,const int &x,const int &y,const char mp[][MAX],const bool isBox[][MAX])
+bool checkPersonPoint(const int &n,const int &m,const int &x,const int &y,const char map[][MAX],const bool isBox[][MAX])
 {
-    return x>0 && x<=n && y>0 && y<=m && mp[x][y]!=Bar;
+    return x>0 && x<=n && y>0 && y<=m && map[x][y]!=Bar;
 }
-bool CheckBoxPoint(const int &n,const int &m,const int &x,const int &y,const char mp[][MAX],const bool isBox[][MAX])
+bool checkBoxPoint(const int &n,const int &m,const int &x,const int &y,const char map[][MAX],const bool isBox[][MAX])
 {
-    return x>0 && x<=n && y>0 && y<=m && mp[x][y]!=Bar && !isBox[x][y];
+    return x>0 && x<=n && y>0 && y<=m && map[x][y]!=Bar && !isBox[x][y];
 }
-void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],bool isBox[][MAX],const int &boxNum)
+void gameStart(int &n,int &m,const int &StartX,const int &StartY,char map[][MAX],bool isBox[][MAX],const int &boxNum)
 {
     const int fx[]={-1,0,1,0};
     const int fy[]={0,1,0,-1};
@@ -130,7 +159,7 @@ void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],
     {
         for(int j=1;j<=m;j++)
         {
-            originMap[i][j]=mp[i][j];
+            originMap[i][j]=map[i][j];
             originisBox[i][j]=isBox[i][j];
         }
     }
@@ -139,12 +168,12 @@ void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],
     {
         for(int j=1;j<=m;j++)
         {
-            mp[i][j]=originMap[i][j];
+            map[i][j]=originMap[i][j];
             isBox[i][j]=originisBox[i][j];
         }
     }
-    Dispmap(n,m,StartX,StartY,mp,isBox,0);
-    int NowX,NowY,CompleteBoxesNum=0,stepNum=0;
+    dispmap(n,m,StartX,StartY,map,isBox,0);
+    int NowX,NowY,ComapleteBoxesNum=0,stepNum=0;
     NowX=StartX,NowY=StartY;
     while(1)
     {
@@ -173,25 +202,25 @@ void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],
         {
             continue;
         }
-        int TempX=NowX+fx[dir];
-        int TempY=NowY+fy[dir];
-        if(CheckPersonPoint(n,m,TempX,TempY,mp,isBox))
+        int TemapX=NowX+fx[dir];
+        int TemapY=NowY+fy[dir];
+        if(checkPersonPoint(n,m,TemapX,TemapY,map,isBox))
         {
-            if(isBox[TempX][TempY])
+            if(isBox[TemapX][TemapY])
             {
-                int BoxX=TempX+fx[dir];
-                int BoxY=TempY+fy[dir];
-                if(CheckBoxPoint(n,m,BoxX,BoxY,mp,isBox))
+                int BoxX=TemapX+fx[dir];
+                int BoxY=TemapY+fy[dir];
+                if(checkBoxPoint(n,m,BoxX,BoxY,map,isBox))
                 {
                     isBox[BoxX][BoxY]=true;
-                    isBox[TempX][TempY]=false;
-                    if(mp[BoxX][BoxY]==ExceptEntry)
+                    isBox[TemapX][TemapY]=false;
+                    if(map[BoxX][BoxY]==ExceptEntry)
                     {
-                        ++CompleteBoxesNum;
+                        ++ComapleteBoxesNum;
                     }
-                    if(mp[TempX][TempY]==ExceptEntry)
+                    if(map[TemapX][TemapY]==ExceptEntry)
                     {
-                        --CompleteBoxesNum;
+                        --ComapleteBoxesNum;
                     }
                 }
                 else
@@ -199,12 +228,12 @@ void GameStart(int &n,int &m,const int &StartX,const int &StartY,char mp[][MAX],
                     continue;
                 }
             }
-            NowX=TempX,NowY=TempY;
+            NowX=TemapX,NowY=TemapY;
         }
         ++stepNum;
-        Dispmap(n,m,NowX,NowY,mp,isBox,stepNum);
+        dispmap(n,m,NowX,NowY,map,isBox,stepNum);
 
-        if(CompleteBoxesNum==boxNum)
+        if(ComapleteBoxesNum==boxNum)
         {
             system("cls");
             printf("You Win!\nLoading the next case...\n");
