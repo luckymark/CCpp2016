@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 #include "warehouse_model.h"
-#include "warehouse_controller.h"
 #include "warehouse_view.h"
 
 void create_fake_ware(Warehouse *pwarehouse) {
