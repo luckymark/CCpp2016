@@ -1,4 +1,5 @@
 #include <string.h>
+#include <limits.h>
 #include "warehouse_model.h"
 
 void init_warehouse(Warehouse *pwarehouse) {
@@ -19,7 +20,7 @@ Good *look_up_good(Warehouse *pwarehouse, const char *type) {
 static int will_full(Warehouse *pwarehouse, const char *type, int amount) {
     Good *pgood = look_up_good(pwarehouse, type);
     if (pgood) {
-        return pgood->amount + amount > MAX_TYPE_LENGTH;
+        return pgood->amount + amount > INT_MAX;
     } else {
         return pwarehouse->amount + 1 > MAX_KIND_OF_TYPE;
     }
@@ -38,7 +39,7 @@ ware_state store_good(Warehouse *pwarehouse, const char *type, int amount) {
     Good *pgood = look_up_good(pwarehouse, type);
     if (will_full(pwarehouse, type, amount)) {
         return FULL_ERROR;
-    } else if (pgood) {
+    } else if (pgood != NULL) {
         pgood->amount += amount;
         return FINE;
     } else {
