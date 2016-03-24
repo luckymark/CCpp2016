@@ -75,15 +75,34 @@ void dispStorageList(vector<Product>cargo)
     {
         printf("%s %d\n",c.model.c_str(),c.total);
     }
-
 }
 void inCargo(vector<Product>&cargo)
 {
     string temp;
     int num;
-    while(cin>>temp>>num)
+    dispStorageList(cargo);
+    printf("Input cargo's model and number like XXX 10.End with a single #.\n");
+    while(cin>>temp)
     {
-        cargo.push_back({temp,num});
+        if(temp=="#")
+        {
+            break;
+        }
+        cin>>num;
+        bool isFind=false;
+        for(auto &c:cargo)
+        {
+            if(c.model==temp)
+            {
+                c.total+=num;
+                isFind=true;
+                break;
+            }
+        }
+        if(!isFind)
+        {
+            cargo.push_back({temp,num});
+        }
     }
 }
 void outCargo(vector<Product>&cargo)
@@ -91,9 +110,14 @@ void outCargo(vector<Product>&cargo)
     string temp;
     int num;
     dispStorageList(cargo);
-    printf("Input cargo's model and removal number like XXX 10");
-    while(cin>>temp>>num)
+    printf("Input cargo's model and number like XXX 10.End with a single #.\n");
+    while(cin>>temp)
     {
+        if(temp=="#")
+        {
+            return ;
+        }
+        cin>>num;
         for(auto iter=cargo.begin();iter!=cargo.end();iter++)
         {
             if(iter->model==temp)
