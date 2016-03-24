@@ -109,8 +109,6 @@ void paint(int x,int y)
         if (check_w_build(x + directions[i][0] * 2,y + directions[i][1] * 2))
         {
             map[x + directions[i][0]][y + directions[i][1]] = ' ';
-      //      showmaze(0,0,map);
-      //      printf("\n\n");
             paint(x + directions[i][0] * 2,y + directions[i][1] * 2);
         }
     }
