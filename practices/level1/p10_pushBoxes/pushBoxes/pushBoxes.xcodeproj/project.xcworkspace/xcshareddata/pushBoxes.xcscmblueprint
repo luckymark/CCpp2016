@@ -7,14 +7,14 @@
     "6D1941C4C19D87960F659063D59E1E184B68010E" : 0,
     "959BA5680F6BFB3219C708973BF5A06386FE5A54" : 0
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7827E3DF-F041-42FA-B6E3-A9D303E0CC2E",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "86EB4941-42D9-4DF4-A8E9-5CE9A1A1EB68",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "6D1941C4C19D87960F659063D59E1E184B68010E" : "CCpp2016\/",
     "959BA5680F6BFB3219C708973BF5A06386FE5A54" : ""
   },
-  "DVTSourceControlWorkspaceBlueprintNameKey" : "maze",
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "pushBoxes",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "practices\/level1\/p09_maze\/maze.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "practices\/level1\/p10_pushBoxes\/pushBoxes\/pushBoxes.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Caoxiann\/CCpp2016.git",
