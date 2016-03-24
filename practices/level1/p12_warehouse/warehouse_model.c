@@ -1,7 +1,11 @@
 #include <string.h>
 #include "warehouse_model.h"
 
-Good *look_up_type(Warehouse *pwarehouse, char *type) {
+void init_warehouse(Warehouse *pwarehouse) {
+    pwarehouse->amount = 0;
+}
+
+Good *look_up_type(Warehouse *pwarehouse, const char *type) {
     int length = pwarehouse->amount;
     for (int i = 0; i < length; i++) {
         Good *pgood = &(pwarehouse->good_list[i]);
@@ -12,7 +16,7 @@ Good *look_up_type(Warehouse *pwarehouse, char *type) {
     return NULL;
 }
 
-int will_full(Warehouse *pwarehouse, char *type, int amount) {
+static int will_full(Warehouse *pwarehouse, const char *type, int amount) {
     Good *pgood = look_up_type(pwarehouse, type);
     if (pgood) {
         return pgood->amount + amount > MAX_TYPE_LENGTH;
@@ -21,7 +25,7 @@ int will_full(Warehouse *pwarehouse, char *type, int amount) {
     }
 }
 
-int will_empty(Warehouse *pwarehouse, char *type, int amount) {
+static int will_empty(Warehouse *pwarehouse, const char *type, int amount) {
     Good *pgood = look_up_type(pwarehouse, type);
     if (pgood) {
         return pgood->amount - amount < 0;
@@ -30,7 +34,7 @@ int will_empty(Warehouse *pwarehouse, char *type, int amount) {
     }
 }
 
-ware_state store_good(Warehouse *pwarehouse, char *type, int amount) {
+ware_state store_good(Warehouse *pwarehouse, const char *type, int amount) {
     Good *pgood = look_up_type(pwarehouse, type);
     if (will_full(pwarehouse, type, amount)) {
         return FULL_ERROR;
@@ -45,7 +49,7 @@ ware_state store_good(Warehouse *pwarehouse, char *type, int amount) {
     }
 }
 
-ware_state discharge_good(Warehouse *pwarehouse, char *type, int amount) {
+ware_state discharge_good(Warehouse *pwarehouse, const char *type, int amount) {
     if (will_empty(pwarehouse, type, amount)) {
         return EMPTY_ERROR;
     } else {
