@@ -6,14 +6,18 @@
 #include <algorithm>
 #include <map>
 using namespace std;
+
 #define BUF_SIZE 1000
+
 map<string,int> goodslist;
+
 void readData();
 void saveData();
 void printList();
 void printMenu();
 void putIn();
 void getOut();
+
 int main(){
 	char sta ;
 	readData();
@@ -37,9 +41,10 @@ int main(){
 }
 
 void printMenu(){
-    system("cls");
+  system("cls");
 	printf("Please Input Your select\n1)Print List\n2)Put in\n3)Get out\n4)Exit\n\n");
 }
+
 void readData(){
 	FILE* ip = fopen("data.dat","r");
 	if(ip == NULL){ // Open File False
@@ -51,7 +56,7 @@ void readData(){
 	for(int i = 1; i <= number; ++i){
 		fscanf(ip,"%s %d",buf,&size);
 		if(size == 0)
-            continue;
+			continue;
 		goodslist[string(buf)] = size;
 	}
 	fclose(ip);
@@ -61,19 +66,21 @@ void saveData(){
 	map<string,int>::iterator it = goodslist.begin();
 	fprintf(op,"%d\n",goodslist.size());
 	for(;it != goodslist.end();++it){
-        if(it->second == 0)
-            continue;
+    if(it->second == 0)
+      continue;
 		fprintf(op,"%s %d\n",it->first.c_str(),it->second);
 	}
 }
+
 void printList(){
-    map<string,int>::iterator it = goodslist.begin();
+  map<string,int>::iterator it = goodslist.begin();
 	printf("Have %d type goods\n",goodslist.size());
 	for(;it != goodslist.end();++it){
 		printf("%s\t%d\n",it->first.c_str(),it->second);
 	}
 	getch();
 }
+
 void putIn(){
     char buf[BUF_SIZE];
     int temp;
@@ -85,6 +92,7 @@ void putIn(){
         goodslist[string(buf)] += temp;
     }
 }
+
 void getOut(){
     char buf[BUF_SIZE];
     int temp,numb;
@@ -111,6 +119,3 @@ void getOut(){
     }
     return ;
 }
-
-
-

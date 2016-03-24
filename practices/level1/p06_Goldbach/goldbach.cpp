@@ -6,6 +6,20 @@
 bool prime_vis[PRIME_SIZE + 10];
 int prime[PRIME_SIZE],prime_cnt;
 
+void getPrime();
+bool check(int prime[], bool prime_vis[], int prime_cnt);
+
+int main(){
+    getPrime();
+    bool result = check(prime, prime_vis, prime_cnt);
+    if(result){
+        printf("YES\n");
+    }else{
+        printf("NO\n");
+    }
+    return 0;
+}
+
 void getPrime(){
     memset(prime_vis, 0, sizeof(prime_vis));
     prime_cnt = 0;
@@ -33,15 +47,4 @@ bool check(int prime[], bool prime_vis[], int prime_cnt){
         }
     }
     return true;
-}
-
-int main(){
-    getPrime();
-    bool result = check(prime, prime_vis, prime_cnt);
-    if(result){
-        printf("YES\n");
-    }else{
-        printf("NO\n");
-    }
-    return 0;
 }
