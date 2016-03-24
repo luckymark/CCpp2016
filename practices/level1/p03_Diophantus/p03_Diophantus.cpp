@@ -1,9 +1,16 @@
 #include <iostream>
 using namespace std;
 
-int main() {
 
-	int Fage=0, Sage;
+void dio();
+int main() {
+	dio();
+	system("pause");
+	return 0;
+}
+
+void dio() {
+	int Fage = 0, Sage;
 	bool jump = false;
 
 	while (!jump) {
@@ -13,7 +20,5 @@ int main() {
 			if ((Sage >= 0) && (Sage - 4) == (Fage / 2.0)) jump = true;
 		}
 	}
-	cout << Fage-4<<endl;
-	system("pause");
-	return 0;
+	cout << Fage - 4 << endl;
 }

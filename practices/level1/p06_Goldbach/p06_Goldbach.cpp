@@ -5,6 +5,19 @@ using namespace std;
 const int mag = 100;
 bool fin[mag + 1];
 
+void PrimeSelect(bool fin[]);
+bool gold();
+void isTrue();
+
+int main() {
+	PrimeSelect(fin);
+	isTrue();
+
+	system("pause");
+	return 0;
+}
+
+
 void PrimeSelect(bool fin[]) {
 	int otmp, itmp;
 	fin[0] = fin[1] = false;
@@ -35,13 +48,4 @@ bool gold() {
 void isTrue() {
 	if (gold) cout << "is true";
 	else cout << "is false";
-}
-
-int main() {
-
-	PrimeSelect(fin);
-	isTrue();
-
-	system("pause");
-	return 0;
 }

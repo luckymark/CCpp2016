@@ -1,27 +1,37 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <stdlib.h>
 #include <time.h>
 #include <Windows.h>
-#include <math.h>
-#include <cmath>
 using namespace std;
 
 fstream fin, fout, pasW;
 string sta, fina = "";
-char turn;
+char ModeTurn;
+
+void ready();
+char BitEn(int ran, char mw);
+void en();
+void de();
+void StartIt();
+
+int main() {
+	ready();
+	StartIt();
+	system("pause");
+	return 0;
+}
 
 void ready() {
 	fin.open("from.from", ios_base::in);
 
-	turn = 't';
-	while (!(turn == 'f' || turn == 'c')) {
+	ModeTurn = 't';
+	while (!(ModeTurn == 'f' || ModeTurn == 'c')) {
 		cout << "do you want to input your data from file \"from.from\" or from console? (f/c): ";
-		cin >> turn;
+		cin >> ModeTurn;
 	}
 
-	if (turn == 'f') {
+	if (ModeTurn == 'f') {
 		fin >> sta;
 	}
 	else {
@@ -30,9 +40,9 @@ void ready() {
 	}
 
 	cout << endl;
-	while (!(turn == 'e' || turn == 'd')) {
+	while (!(ModeTurn == 'e' || ModeTurn == 'd')) {
 		cout << "do you want to encrypt or decrypt it?(e/d):  ";
-		cin >> turn;
+		cin >> ModeTurn;
 	}
 
 	fin.close();
@@ -65,8 +75,6 @@ void en() {
 	pasW.close();
 }
 
-
-
 void de() {
 	cout << "you have to make sure that the file pas.p is already exist and contains the key" << endl;
 	fout.open("to.to", ios_base::out);
@@ -95,19 +103,11 @@ void de() {
 	fout.close();
 	pasW.close();
 }
-
-void startit() {
-	if (turn == 'e') {
+void StartIt() {
+	if (ModeTurn == 'e') {
 		en();
 	}
-	else if (turn == 'd') {
+	else if (ModeTurn == 'd') {
 		de();
 	}
-}
-
-int main() {
-	ready();
-	startit();
-	system("pause");
-	return 0;
 }

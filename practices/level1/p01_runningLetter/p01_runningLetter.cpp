@@ -2,17 +2,24 @@
 #include <string>
 
 using namespace std;
-int main() {
+string Input;
+const int mgc=80;
+void run();
 
-	string Input;
-	int otmp, itmp;
-	system("mode con cols=180");
+int main() {
+	system("mode con cols=80");
 	cin >> Input;
-	int num = 0;
+	run();
+
+	return 0;
+}
+
+void run() {
+	int otmp, itmp;
 	bool turn = true;
 	while (1) {
 		if (turn) {
-			for (otmp = 0; otmp <= 180 - Input.length()-1; otmp++) {
+			for (otmp = 0; otmp <= mgc - Input.length() - 1; otmp++) {
 				for (itmp = 0; itmp <= otmp; itmp++) {
 					cout << ' ';
 				}
@@ -21,7 +28,7 @@ int main() {
 			}
 		}
 		else {
-			for (otmp = 180 - Input.length()-1; otmp >= 0; otmp--) {
+			for (otmp = mgc - Input.length() - 1; otmp >= 0; otmp--) {
 				for (itmp = 0; itmp <= otmp; itmp++) {
 					cout << ' ';
 				}
@@ -31,6 +38,4 @@ int main() {
 		}
 		turn = !turn;
 	}
-
-	return 0;
 }

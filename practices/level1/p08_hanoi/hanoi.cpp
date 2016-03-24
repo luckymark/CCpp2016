@@ -1,8 +1,24 @@
 #include <iostream>
 #include <Windows.h>
 using namespace std;
-long num=0;
 
+long num = 0;
+
+void move(char fm, char to);
+void hanoi(int n, char from, char base, char to);
+
+int main() {
+	int n;
+	DWORD StartTime = GetTickCount64();
+
+	cin >> n;
+	hanoi(n, 'A', 'B', 'C');
+	cout << "CalCount: " << num << endl;
+	DWORD EndTime = GetTickCount64();
+	cout << "time: " << EndTime - StartTime << " ms";
+	system("pause");
+	return 0;
+}
 
 void move(char fm, char to) {
 	num++;
@@ -15,21 +31,9 @@ void hanoi(int n, char from, char base, char to) {
 		return;
 	}
 	else {
-		hanoi(n - 1, from, to, base);	
+		hanoi(n - 1, from, to, base);
 		move(from, to);
 		hanoi(n - 1, base, from, to);
 	}
 
-}
-int main() {
-	int n;
-	DWORD StartTime = GetTickCount64();
-
-	cin >> n;
-	hanoi(n, 'A', 'B', 'C');
-	cout <<"CalCount: "<< num<<endl;
-	DWORD EndTime = GetTickCount64();
-	cout << "time: " << EndTime - StartTime<<" ms";
-	system("pause");
-	return 0;
 }

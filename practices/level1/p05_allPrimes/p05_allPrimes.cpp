@@ -5,6 +5,22 @@
 using namespace std;
 
 const int mag = 1000;
+void PrimeSelect(bool fin[]);
+
+
+int main() {
+	
+	DWORD start_time = GetTickCount();
+	bool fin[mag + 1];
+
+	PrimeSelect(fin);
+
+	DWORD End_time = GetTickCount();
+	cout << "The Time Is: " << End_time - start_time << endl;
+	system("pause");
+	return 0;
+}
+
 
 void PrimeSelect(bool fin[]) {
 	int otmp, itmp;
@@ -22,17 +38,4 @@ void PrimeSelect(bool fin[]) {
 	for (otmp = 0; otmp <= mag; otmp++) {
 		if (fin[otmp]) cout << otmp << endl;
 	}
-}
-
-int main() {
-	
-	DWORD start_time = GetTickCount();
-	bool fin[mag + 1];
-
-	PrimeSelect(fin);
-
-	DWORD End_time = GetTickCount();
-	cout << "The Time Is: " << End_time - start_time << endl;
-	system("pause");
-	return 0;
 }
