@@ -38,7 +38,7 @@ ware_state store_good(Warehouse *pwarehouse, char *type, int amount) {
         pgood->amount += amount;
         return FINE;
     } else {
-        Good *pnewgood = &pwarehouse->good_list[amount++];
+        Good *pnewgood = &pwarehouse->good_list[(pwarehouse->amount)++];
         pnewgood->amount += amount;
         strcpy(pnewgood->type, type);
         return FINE;
