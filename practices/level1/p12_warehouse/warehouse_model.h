@@ -3,6 +3,7 @@
 
 #define MAX_TYPE_LENGTH 100
 #define MAX_KIND_OF_TYPE 100
+#define FILENAME "saved_data"
 
 typedef enum _ware_state {
     FINE,
@@ -26,5 +27,9 @@ void init_warehouse(Warehouse *pwarehouse);
 ware_state discharge_good(Warehouse *pwarehouse, const char *type, int amount);
 
 ware_state store_good(Warehouse *pwarehouse, const char *type, int amount);
+
+void load_from_file(Warehouse *pwarehouse, const char *filename);
+
+void save_data(Warehouse *pwarehouse, const char *filename);
 
 #endif

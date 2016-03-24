@@ -3,12 +3,6 @@
 #include "warehouse_model.h"
 #include "warehouse_view.h"
 
-void create_fake_ware(Warehouse *pwarehouse) {
-    store_good(pwarehouse, "西瓜", 100);
-    store_good(pwarehouse, "香蕉", 100);
-    store_good(pwarehouse, "橘子", 100);
-}
-
 enum option {
     DISPLAY = 1,
     STORE,
@@ -23,7 +17,7 @@ int main(int argc, char const *argv[]) {
     int loop_state = 1;
     Warehouse warehouse;
     init_warehouse(&warehouse);
-    create_fake_ware(&warehouse);
+    load_from_file(&warehouse, FILENAME);
 
     while (loop_state) {
         display_help_info();
@@ -45,5 +39,7 @@ int main(int argc, char const *argv[]) {
                 break;
         }
     }
+    
+    save_data(&warehouse, FILENAME);
     return 0;
 }
