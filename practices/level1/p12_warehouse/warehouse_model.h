@@ -21,4 +21,10 @@ typedef struct _warehouse {
     int amount;
 } Warehouse;
 
+void init_warehouse(Warehouse *pwarehouse);
+
+ware_state discharge_good(Warehouse *pwarehouse, const char *type, int amount);
+
+ware_state store_good(Warehouse *pwarehouse, const char *type, int amount);
+
 #endif
