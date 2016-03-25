@@ -1,8 +1,5 @@
 #include <stdio.h>
-#define BOOL char
-#define TRUE 1
-#define FALSE 0
-
+#include "BOOL.h"
 #define SEARCH(x) allNum[x]
 #define MAXNUM 1000
 #define MAXROUND 32//1000开方为一个小数点前为31的小数，进一为32
@@ -51,14 +48,11 @@ void sievePrimes()
 }
 void showAllPrimers()
 {
-    int num=0;
     for(int i=2;i<MAXNUM;i++)
     {
         if(SEARCH(i)==TRUE)
         {
             printf("%d\n",i);
-            num++;
         }
     }
-    printf("%d\n",num);
 }
