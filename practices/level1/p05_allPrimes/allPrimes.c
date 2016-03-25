@@ -11,6 +11,10 @@ BOOL allNum[MAXNUM+1];//Dirty way. Laze way
 void initNums();
 void sievePrimes();
 void showAllPrimers();
+
+
+
+
 int main()
 {
     initNums();
@@ -18,6 +22,10 @@ int main()
     showAllPrimers();
     return 0;
 }
+
+
+
+
 void initNums()
 {
     for(int i=3;i<=MAXNUM;i++)
@@ -28,7 +36,6 @@ void initNums()
     allNum[2]=TRUE;
     return;
 }
-
 void sievePrimes()
 {
     for(int i=3;i<MAXROUND;i+=2)
