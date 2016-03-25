@@ -63,10 +63,10 @@ void display()
     printf("当前存货列表为\n");
     for(int i=0;i<num;i++)
     {
-         /*if(p->number==0)//库存为0，就当他不存在
+         if(p->number==0)//库存为0，就当他不存在
          {
              continue;
-         }*/
+         }
          printf("型号为:%s\t\t数量为:%d\n",p->model,p->number);
          p=p->next;
     }
@@ -125,8 +125,8 @@ void stock_out()
     char out[10];
     printf("请输入出库型号：");
     scanf("%s",out);
-    struct List *p=head,*p2=head;
-    while(p->next!=NULL)
+    struct List *p=head;
+    for(int i=0;i<num;i++)
     {
         if(!strcmp(p->model,out))
         {
@@ -142,7 +142,6 @@ void stock_out()
             printf("出货成功\n%s型号的剩余库存量为%d",p->model,p->number);
             return;
         }
-        p2=p;
         p=p->next;
     }
     printf("找不到\n");
@@ -162,4 +161,11 @@ void save()
         p=p->next;
     }
     fclose(fp);
+    p=head;
+    for(int i=0;i<num;i++)
+    {
+        struct List *p1=p->next;
+        free(p);
+        p=p1;
+    }
 }
