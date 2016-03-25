@@ -20,8 +20,6 @@ struct Maze {
 
 Maze *generateMaze(int width);
 
-void visit(Maze *maze, int x, int y);
-
 void printMaze(Maze *maze);
 
 bool movePlayer(Maze *maze, char direction);
@@ -56,27 +54,12 @@ int main(int argc, char *argv[]) {
 }
 
 Maze *generateMaze(int width) {
-    srand(time(0));
-    Maze *maze = (Maze *)malloc(sizeof(Maze));
-    maze->width = width;
-    maze->mazeMap = (char *)malloc(width * width);
-    memset(maze->mazeMap, '#', width * width);
-    maze->startX = rand() % width;
-    maze->startY = rand() % width;
-    maze->endX = rand() % width;
-    maze->endY = rand() % width;
-    maze->mazeMap[maze->startX + maze->startY * width] = maze->mazeMap[maze->endX + maze->endY * width] = ' ';
-    visit(maze, maze->startX, maze->startY);
-    clearPlayerState(maze);
-    return maze;
-    /*
-    // test vector
     static char m[] = {
         '#', '#', '#', '#', '#',
         '#', ' ', '#', '#', '#',
-        '#', ' ', ' ', '#', '#',
+        ' ', ' ', ' ', '#', '#',
         '#', '#', ' ', ' ', '#',
-        '#', '#', '#', '#', '#',
+        '#', '#', ' ', '#', '#',
         };
     Maze *maze = (Maze *)malloc(sizeof(Maze));
     maze->mazeMap = m;
@@ -87,46 +70,6 @@ Maze *generateMaze(int width) {
     maze->startY = 1;
     clearPlayerState(maze);
     return maze;
-    */
-}
-
-void visit(Maze *maze, int x, int y) {
-    vector<char> directions = {'w', 'a', 's', 'd'};
-    random_device rd;
-    mt19937 g(rd());
-    shuffle(directions.begin(), directions.end(), g);
-    for (char direction : directions) {
-        switch (direction) {
-        case 'w': // up
-            if (y - 2 >= 0 && maze->mazeMap[(y - 1) * maze->width + x] == '#') {
-                maze->mazeMap[(y - 1) * maze->width + x] = ' ';
-                maze->mazeMap[(y - 2) * maze->width + x] = ' ';
-                visit(maze, x, y - 2);
-            }
-            break;
-        case 'a': // left
-            if (x - 2 >= 0 && maze->mazeMap[(y) * maze->width + x - 1] == '#') {
-                maze->mazeMap[(y) * maze->width + x - 1] = ' ';
-                maze->mazeMap[(y) * maze->width + x - 2] = ' ';
-                visit(maze, x - 2, y);
-            }
-            break;
-        case 's': // down
-            if (y + 2 <= maze->width - 1 && maze->mazeMap[(y + 1) * maze->width + x] == '#') {
-                maze->mazeMap[(y + 1) * maze->width + x] = ' ';
-                maze->mazeMap[(y + 2) * maze->width + x] = ' ';
-                visit(maze, x, y + 2);
-            }
-            break;
-        case 'd': // right
-            if (x + 2 <= maze->width - 1 && maze->mazeMap[(y) * maze->width + x + 1] == '#') {
-                maze->mazeMap[(y) * maze->width + x + 1] = ' ';
-                maze->mazeMap[(y) * maze->width + x + 2] = ' ';
-                visit(maze, x + 2, y);
-            }
-            break;
-        }
-    }
 }
 
 void printMaze(Maze *maze) {
