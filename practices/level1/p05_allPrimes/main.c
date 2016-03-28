@@ -10,6 +10,7 @@ void primeOrNot(int a)
         if(k==0)
         {
             sum++;
+            if(sum>=1) break;
         }
     }
     if(sum==0)
