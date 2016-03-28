@@ -1,24 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+void primeOrNot(int a)
 {
-    int i,j;
-    for(i=2;i<=1000;i++)
+    int i,sum=0;
+    for(i=2;i<=a-1;i++)
     {
-        int sum=0;
-        for(j=2;j<=i-1;j++)
+        int k=a%i;
+        if(k==0)
         {
-            int k=i%j;
-            if(k==0)
-            {
-                sum++;
-            }
-        }
-        if(sum==0)
-        {
-            printf("%d\n",i);
+            sum++;
         }
     }
+    if(sum==0)
+    {
+        printf("%d\n",a);
+    }
+}
+int main()
+{
+    int i;
+    for(i=2;i<=1000;i++)
+        primeOrNot(i);
     return 0;
 }
+
