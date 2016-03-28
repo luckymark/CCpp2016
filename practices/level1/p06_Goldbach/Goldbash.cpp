@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-int func(double n);
+int isPrime(double n);
 void print(double a, double b, double c);
 int main()
 {
@@ -12,11 +12,11 @@ int main()
 		{
 			for (j = 2; j < i; j++)
 			{
-				if (func(j))
+				if (isPrime(j))
 				{
 					k = i - j;
 				}
-				if(func(k))
+				if(isPrime(k))
 				{	
 					print(i, j, k);
 					k = 4;
@@ -27,7 +27,7 @@ int main()
 	}
 	system("pause");
 }
-int func(double n)
+int isPrime(double n)
 {
 	if (n == 1 || n == 2)
 	{
