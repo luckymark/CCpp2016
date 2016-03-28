@@ -9,7 +9,7 @@ struct List
 struct List* createList(List *head, List *pn, int pNo, int pnum);
 void showList(List *p);
 struct List* turn(List *head,List *head1,List *p);
-void findnum(List *head,int num);
+void findNum(List *head,int num);
 int main()
 {
 	int No, num;
@@ -35,7 +35,7 @@ int main()
 	{
 		p2 = turn(head, head1, p2);
 	}
-	findnum(head1, 5);
+	findNum(head1, 5);
 	free(p1);
 	free(head1);
 	free(head);
@@ -94,7 +94,7 @@ List* turn(List *head, List *head1, List *p)
 	return p;
 }
 
-void findnum(List * head,int num)
+void findNum(List * head,int num)
 {
 	int flag = -1;
 	List *p;
