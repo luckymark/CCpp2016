@@ -1,49 +1,69 @@
 #include <cstdio>
 #include <cstdlib>
-void initDate(linkList *head);
-void ergodicinkList(linkList *head);
-void reverseLinkList(linkList **head);
-struct linkList
+#define wantTofind 5
+struct node
 {
     int value;
-    linkList *next;
+    node *next;
 };
+void initData(node *&head);
+void ergodicLinkList(node *head);
+void reverseLinkList(node *&head);
+int findValue(node *head,int exceptValue);
 int main()
 {
-    linkList *head=(linkList*)malloc(sizeof(linkList));
+    node *head=(node*)malloc(sizeof(node));
     initData(head);
     ergodicLinkList(head);
     reverseLinkList(head);
+    // int firstPos=findValue(head,wantTofind);
+    // printf("%d\n",firstPos);
+    // int nextPos=findValue(head+firstPos+1,wantTofind)+firstPos;
+    // printf("%d\n",nextPos);
 }
-void initDate(linkList *head)
+void initData(node *&head)
 {
     int temp;
     while(scanf("%d",&temp)==1)
     {
-        linkList *now=(linkList*)malloc(sizeof(linkList));
+        node *now=(node*)malloc(sizeof(node));
         now->value=temp;
         now->next=NULL;
         head->next=now;
         head=now;
     }
 }
-void ergodicinkList(linkList **head)
+void ergodicLinkList(node *head)
 {
     for(head=head->next;head!=NULL;head=head->next)
     {
-        // operation. For example:
         printf("value=%d\n",head->value);
     }
 }
-void reverseLinkList(linkList **head)
+void reverseLinkList(node *&head)
 {
-    linkList *now=*head->next,*pre=*head,*after=now->next;
-    while(now!=NULL)
+    node *now=head->next;
+    node *pre=head;
+    node *after=now->next;
+    while(after!=NULL)
     {
-        linkList *temp=after->next;
+        node *temp=after->next;
         now->next=pre;  after->next=now;
         pre=now; now=after; after=temp;
     }
-    *head->next=NULL;
-    *head=pre;
+    head->next=NULL;
+    head=pre;
+}
+int findValue(node *head,int exceptValue)
+{
+    int pos=0;
+    for(head=head->next;head!=NULL;head=head->next)
+    {
+        ++pos;
+        if(head->value==exceptValue)
+        {
+            return pos;
+        }
+    }
+    return -1;
 }
