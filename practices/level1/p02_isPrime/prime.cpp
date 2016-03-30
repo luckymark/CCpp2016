@@ -2,13 +2,13 @@
 #include<windows.h>
 int main()
 {
-	int a, b, c, i;
+	int a, b, c;
 	c = 1;
 	scanf_s("%d", &a);
 	if (a == 2&&a==3)
 		printf("YES");
 	else {
-		for (i = 2; i*i <= a; i++) {
+		for (int i = 2; i*i <= a; i++) {
 			b = a%i;
 			if (b == 0)
 			{

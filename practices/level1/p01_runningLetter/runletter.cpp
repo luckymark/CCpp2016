@@ -3,28 +3,28 @@
 #include<stdlib.h>
 int main()
 {
-	int i,j,g,h;
-	for (h = 0; h < 10000; h++) {
-		for (i = 0; i <= 78; i++) {
-			for (j = 0; j < i; j++)
+	int h;
+	for (int i = 0; i < 10000; i++) {
+		for (int j = 0; j <= 78; j++) {
+			for (int k = 0; k < i; k++)
 			{
 				printf(" ");
 			}
 			printf("L");
-			for (g = i; g <= 78; g++)
+			for (int k = j; k <= 78; k++)
 			{
 				printf(" ");
 			}
 			Sleep(30);
 			system("cls");
 		}
-		for (i = 78; i >= 1; i--) {
-			for (j = 0; j < i; j++)
+		for (int j = 78; j >= 1; j--) {
+			for (int k = 0; k < j; k++)
 			{
 				printf(" ");
 			}
 			printf("L");
-			for (g = i; g <= 78; g++)
+			for (int k = j; k <= 78; k++)
 			{
 				printf(" ");
 			}
