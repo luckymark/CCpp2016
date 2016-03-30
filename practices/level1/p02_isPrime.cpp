@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdbool.h>
-bool PrimeJudge(int num);
+bool isPrime(int num);
 int main()
 {
     int num;
     scanf("%d",&num);
-    if (PrimeJudge(num))
+    if (isPrime(num))
     {
         printf("yes");
     }
@@ -15,7 +15,7 @@ int main()
     }
     return 0;
 }
-bool PrimeJudge(int num)
+bool isPrime(int num)
 //第五题第六题也能用
 {
     if ((2==num)||(3==num))

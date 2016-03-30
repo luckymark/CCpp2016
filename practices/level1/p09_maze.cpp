@@ -1,7 +1,7 @@
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include<conio.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <conio.h>
 char map[12][12]=
 {
     '#','#','#','#','#','#','#','#','#','#','#','#',
@@ -17,35 +17,35 @@ char map[12][12]=
     '#','#','#','#','#','#','#','#','#','#',' ',' ',
     '#','#','#','#','#','#','#','#','#','#','#','#'
 };
-int ynum=1;
-int xnum=1;
+int manynum=1;
+int manxnum=1;
 //人的位置
-void ShowMap(void);
+void showMap(void);
 //显示地图
-void Judge(int ymove,int xmove);
+void moveJudge(int ynum,int xnum);
 //判断输入的影响
 void Move(void);
 //物体移动
-void GameStart(void);
+void gameStart(void);
 //游戏开始
 int main()
 {
-    GameStart();
+    gameStart();
     return 0;
 }
-void GameStart(void)
+void gameStart(void)
 {
     for (;;)
     {
         system("cls");
         printf("WSAD控制@代表的人物移动至出口处即胜利\n");
-        ShowMap();
+        showMap();
         Move();
-        if ((ynum==10)&&(xnum==11))
+        if ((manynum==10)&&(manxnum==11))
         {
             system("cls");
             printf("WSAD控制@代表的人物移动至出口处即胜利\n");
-            ShowMap();
+            showMap();
             break;
         }
     }
@@ -53,7 +53,7 @@ void GameStart(void)
     system("cls");
     printf("congratulations!");
 }
-void ShowMap(void)
+void showMap(void)
 {
     for (int i=0;i<=11;i++)
     {
@@ -71,26 +71,26 @@ void Move(void)
     switch (direction)
     {
         case 'w':
-        case 'W':Judge(-1,0);
+        case 'W':moveJudge(-1,0);
                  break;
         case 's':
-        case 'S':Judge(1,0);
+        case 'S':moveJudge(1,0);
                  break;
         case 'a':
-        case 'A':Judge(0,-1);
+        case 'A':moveJudge(0,-1);
                  break;
         case 'd':
-        case 'D':Judge(0,1);
+        case 'D':moveJudge(0,1);
                  break;
     }
 }
-void Judge(int ymove,int xmove)
+void moveJudge(int ynum,int xnum)
 {
-    if (' '==map[ynum+ymove][xnum+xmove])
+    if (' '==map[manynum+ynum][manxnum+xnum])
     {
-        map[ynum+ymove][xnum+xmove]='@';
-        map[ynum][xnum]=' ';
-        ynum=ynum+ymove;
-        xnum=xnum+xmove;
+        map[manynum+ynum][manxnum+xnum]='@';
+        map[manynum][manxnum]=' ';
+        manynum=manynum+ynum;
+        manxnum=manxnum+xnum;
     }
 }

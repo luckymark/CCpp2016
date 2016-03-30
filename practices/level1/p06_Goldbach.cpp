@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdbool.h>
 const int NUM=100;
-bool PrimeJudge(int j);
+bool isPrime(int j);
 void Goldbach(void);
 int main()
 {
     Goldbach();
     return 0;
 }
-bool PrimeJudge(int num)
+bool isPrime(int num)
 //第二题的
 {
     if ((2==num)||(3==num))
@@ -37,7 +37,7 @@ void Goldbach(void)
     for (int i=2;i<=NUM;i++)
     {
         num1[i]=false;
-        if (PrimeJudge(i))
+        if (isPrime(i))
         {
             num1[i]=true;
         }
