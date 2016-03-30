@@ -3,6 +3,8 @@
 #include<conio.h>
 #define ROW 5
 #define COLUMN 5
+#define ENDROW 4
+#define ENDCOLUMN 4
 void printmaze(char maze[ROW][COLUMN]);
 int main()
 {
@@ -12,7 +14,7 @@ int main()
 							' ','#',' ','#',' ',
 							' ',' ',' ',' ','V'};
 	int r=0,c=0;
-	while (r!=ROW-1||c!=COLUMN-1)
+	while (r!=ENDROW||c!=ENDCOLUMN)
 	{
 		printmaze(maze);
 		int move;
