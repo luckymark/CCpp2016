@@ -11,27 +11,7 @@ char fdecrypt(char operatorChar);
 void fstartOpeate(int enDeFlag);	//启动器
 int main(void)
 {
-	//int enDeFlag;
-
-	//printf("1.Encrypt 2.Decrypt 3.Quit: ");
-	//scanf("%d", &enDeFlag);
-
 	fstartOpeate(fshowGetOrder());
-	/*//重定向输入输出
-	freopen("out.txt", "w", stdout);
-	freopen("in.txt", "r", stdin);
-	*/
-
-	/*//while (getchar() != '\n');
-	if (enDeFlag == 1)
-	{
-		encrypt();
-	}
-	else
-	{
-		decrypt();
-	}*/
-
 	return 0;
 }
 
@@ -94,7 +74,6 @@ void fstartOpeate(int enDeFlag)
 		}
 	}
 }
-
 char fencrypt(char operatorChar)
 {
 	return operatorChar - 1;
@@ -103,35 +82,3 @@ char fdecrypt(char operatorChar)
 {
 	return operatorChar + 1;
 }
-/*void encrypt(void)
-{
-	char temp;
-	int count1 = 1;
-	while ((temp = getchar()) != EOF)
-	{
-		putchar(temp);
-		srand(clock());
-		for (int count2 = 0; count2 < count1; count2++)
-		{
-			putchar('a' + rand() % 24);
-		}
-		srand(count1);
-		count1 = rand() % 10 + 1;
-	}
-}
-
-void decrypt(void)
-{
-	int count1 = 1;
-	char temp;
-	while ((temp = getchar()) != EOF)
-	{
-		putchar(temp);
-		for (int count2 = 0; count2 < count1; count2++)
-		{
-			getchar();
-		}
-		srand(count1);
-		count1 = rand() % 10 + 1;
-	}
-}*/
