@@ -1,25 +1,37 @@
-#include <algorithm>
 #include <iostream>
 #include <cstdio>
+#include <algorithm>
 #include <cstring>
-#include <vector>
-#include <cmath>
-#include <ctime>
-int mo=131;
-int num[2100000],i,p,l;
-char s[210000];
-void scrip(int a)
-{
- int i;
- for (i=0;i<l;i++)  s[i]=(s[i]+mo+a*num[i])%mo;
-}
+
+#define Mo 131
+#define Maxn 200000
+
+int num[Maxn],i,l;
+char s[Maxn];
+
+void getrand();
+void read();
+void scrip(int );
+
 int main()
 {
-  freopen("C.in","r",stdin);
-  freopen("C.out","w",stdout);
-  for (i=0;i<1100000;i++)  num[i]=rand()%mo;
-  scanf("%d\n",&p); gets(s); l=strlen(s);
-  if (p==1) scrip(1);  
-  if (p==2) scrip(-1);
-  printf("%s\n",s);
-} 
+    getrand();
+    read();
+}
+void getrand()
+{
+    for (int i=0;i<Maxn;i++)  num[i]=rand()%Mo;
+}
+void read()
+{
+    int p;
+    scanf("%d\n",&p); gets(s); l=strlen(s);
+    if (p==1) scrip(1);
+    if (p==2) scrip(-1);
+    printf("%s\n",s);
+}
+void scrip(int a)
+{
+    int i;
+    for (i=0;i<l;i++)  s[i]=(s[i]+Mo+a*num[i])%Mo;
+}
