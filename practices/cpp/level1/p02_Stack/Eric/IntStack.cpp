@@ -1,11 +1,14 @@
 #include "IntStack.h"
 #include <iostream>
-
+int IntStack::showStackCapacity()
+{
+    return fullHead;
+}
 bool IntStack::push(int num)
 {
     if(!isFull())
     {
-        IntStack::num[++head] = num;
+        *(IntStack::num + (++head)) = num;
         return 0;
     }
     else
@@ -17,7 +20,7 @@ int IntStack::pop()
 {
     if(!isEmpty())
     {
-        return IntStack::num[head--];
+        return *(IntStack::num + (head--));
     }
     else
     {

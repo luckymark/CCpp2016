@@ -6,7 +6,7 @@
 
 int main()
 {
-    IntStack stack;
+    IntStack stack(1000);
     if(stack.isEmpty())
     {
         std::cout << "Stack is empty." << std::endl;
@@ -17,6 +17,6 @@ int main()
     }
     stack.push(100);
     std::cout << stack.pop() << std::endl;
-    
+    std::cout << "The capacity is" << stack.showStackCapacity() << std::endl;
     return 0;
 }
