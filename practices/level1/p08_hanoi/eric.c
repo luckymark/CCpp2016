@@ -1,16 +1,16 @@
 //Eric 2016-03-05
 //p08_hanoi
-//´Ó×óÖÁÓÒ ÒÀ´ÎÎª a b c
+//ä»å·¦è‡³å³ ä¾æ¬¡ä¸º a b c
 #include <stdio.h>
-//ÓÃÓÚ¼ÆËãÁíÒ»¸öÖù×Ó
-#define TOTAL 'a' + 'b' + 'c'
 
 void move(char base, char destination, int level);
+//è¿”å›å¦ä¸€ä¸ªæŸ±å­
+char anotherBar(char bar1, char bar2);
 
 int main(void)
 {
 	int numLevel;
-	printf("ÊäÈë²ãÊı£º");
+	printf("è¾“å…¥å±‚æ•°ï¼š");
 	scanf("%d", &numLevel);
 	move('a', 'c', numLevel);
 
@@ -24,8 +24,13 @@ void move(char base, char destination, int level)
 	}
 	else
 	{
-		move(base, TOTAL - base - destination, level - 1);
+		move(base, anotherBar(base, destination), level - 1);
 		printf("%c2%c\n", base, destination);
-		move(TOTAL - base - destination, destination, level - 1);
+		move(anotherBar(base, destination), destination, level - 1);
 	}
+}
+//è¿”å›å¦ä¸€ä¸ªæŸ±å­
+char anotherBar(char bar1, char bar2)
+{
+   return TOTAL - bar1 - bar2;
 }
