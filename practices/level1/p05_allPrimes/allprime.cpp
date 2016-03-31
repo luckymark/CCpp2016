@@ -4,9 +4,8 @@ int main()
 {
 	int q, t;
 	q = clock();
-	int i;
-	int a, b=0, c;
-	for ( i = 2; i < 1000; i++)
+	int b=0, c;
+	for (int i = 2; i < 1000; i++)
 	{
 		if (i==2||i==3)
 		{
@@ -14,9 +13,9 @@ int main()
 		}
 		else
 		{
-			for ( a = 2; a * a <= i ; a++)
+			for (int j = 2; j * j <= i ; j++)
 			{
-				if (i%a == 0) {
+				if (i%j == 0) {
 					b = 0;
 					break;
 				}

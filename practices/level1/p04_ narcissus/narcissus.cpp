@@ -2,18 +2,18 @@
 #include<Windows.h>
 int main()
 {
-	int n, a, b, c;
-	for ( n = 100; n < 1000; n++)
+	int a, b, c;
+	for ( i = 100; i < 1000; i++)
 	{
-		a = (float)n / 100;
-		b = (float)n / 10 - 10 * a;
-		c = (float)n - 100 * a - 10 * b;
+		a = (float)i / 100;
+		b = (float)i / 10 - 10 * a;
+		c = (float)i - 100 * a - 10 * b;
 		//debug
 		/*printf("%d %d %d\n", a, b, c);
 		Sleep(30);*/
-		if (n==a*a*a+b*b*b+c*c*c)
+		if (i==a*a*a+b*b*b+c*c*c)
 		{
-			printf("%d ", n);
+			printf("%d ", i);
 		}
 	}
 	getchar();

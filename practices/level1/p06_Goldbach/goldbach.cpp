@@ -4,16 +4,16 @@ int main()
 	int ans[25];
 	ans[0] = 2;
 	ans[1] = 3;
-	int i, j = 2, m, l;
-	int a, b = 0;
-	for (i = 2; i < 100; i++)
+	int k = 2, m, l;
+	int b = 0;
+	for (int i = 2; i < 100; i++)
 	{
 		if (i == 2 || i == 3);
 		else
 		{
-			for (a = 2; a * a <= i; a++)
+			for (j = 2; j * j <= i; j++)
 			{
-				if (i%a == 0) {
+				if (i%j == 0) {
 					b = 0;
 					break;
 				}
@@ -24,36 +24,32 @@ int main()
 			}
 			if (b == 1)
 			{
-				ans[j] = i;
-				j++;
+				ans[k] = i;
+				k++;
 			}
 		}
-	}/*
-	for (int d = 0; d < j; d++) {
-		printf("%d ", ans[d]);
 	}
-	printf("\n %d", j);*/
-	for (int k = 4; k < 101; k++)
+	for (int i = 4; i < 101; i++)
 	{
-		if (k % 2 == 0)
+		if (i % 2 == 0)
 		{
-			for (l = 0; l < j; l++)
+			for (l = 0; l < k; l++)
 			{
-				for (m = 0; m < j; m++)
+				for (m = 0; m < k; m++)
 				{
-					if (k == ans[l] + ans[m])
+					if (i == ans[l] + ans[m])
 					{
-						printf("%d=%d+%d\n", k, ans[l], ans[m]);
+						printf("%d=%d+%d\n", i, ans[l], ans[m]);
 						break;
 					}
 					else
-						if (ans[m] >= k)
+						if (ans[m] >= i)
 							break;
 				}
-				if (k == ans[l] + ans[m])
+				if (i == ans[l] + ans[m])
 					break;
 				else
-					if (ans[l] >= k)
+					if (ans[l] >= i)
 					{
 						break;
 					}
