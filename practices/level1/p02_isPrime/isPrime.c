@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<math.h>
-int isPrime(int a);
+#include<stdbool.h>
+bool isPrime(int a);
 int main()
 {
     int n;
@@ -16,14 +17,14 @@ int main()
     }
     return 0;
 }
-int isPrime(int a)
+bool isPrime(int a)
 {
     int b,y;
     for(b=2;b<sqrt(a);b++)
     {
         y=a%b;
         if(y==0)
-        break;
+        return false;
     }
-    return y;
+    return true;
 }
