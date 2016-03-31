@@ -6,6 +6,10 @@ class Stack
 {
     public:
         Stack(int capbility);
+        ~stack()
+        {
+            delete data;
+        }
         void push(int v);
         int pop();
         bool isFull();
