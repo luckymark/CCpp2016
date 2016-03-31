@@ -1,16 +1,17 @@
 #include "Stack.hpp"
+
 void Stack::push(int value){
-	data[top] = value;
-	top++;
+	data[_top] = value;
+	_top++;
 }
 bool Stack::empty(){
-	return top == 0;
+	return _top == 0;
 }
 int Stack::top(){
-	assert(top);
-	return data[top-1];
+	assert(!this->empty());
+	return data[_top-1];
 }
 void Stack::pop(){
-	assert(top);
-	--top;
+	assert(!this->empty());
+	--_top;
 }
