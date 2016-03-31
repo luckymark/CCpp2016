@@ -1,22 +1,19 @@
 #include<cstdio>
-#include<ctime>
-#include<cstdlib>
 #include<iostream>
-#include<cstring>
-#include<algorithm>
+using namespace std;
 struct pointer{
     int v;
     pointer *p;
 };
 pointer *p1;
 int n;
+
 void readbuild();
 void reverse();
 void query();
+
 int main()
 {
-    freopen("c.in","r",stdin);
-    freopen("c.out","w",stdout);
     readbuild();
     reverse();
     query();
