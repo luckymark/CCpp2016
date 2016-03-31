@@ -1,36 +1,47 @@
+/*
+warehouse.h v2.0
+author:Eric
+date 2016-03-17
+*/
 #ifndef _WAREHOUSE_H
 #define _WAREHOUSE_H
-//启动器 创建链表 创建/加载/储存记录
-void fstartWareHouse(void);
-//检查储存文件1存在 0 不存在
-int _checkIsFileExist(void);
-//创建文件
-int _createRecordFile(void);
-//加载文件
-int _loadRecord(pItemNode head);
-//储存文件
-int _saveRecord(pItemNode head);
-//储存文件函数
-int __saveRecordOutput(item toImple);
+
+#include "linkedlist.h"
+
+//文件名
+#define RECORD_FILE_NAME "recode.db"
+
+//启动器
+void fstartWarehouse(void);
+
+//==========================================启动器===================================
+//处理记录文件 加载 或者 新建
+int _operateRecordFile(const pItemNode head);
+//从文件加载记录
+int __reloadRecordFile(const pItemNode head);
+//保存到文件
+int _saveRecordFile(const pItemNode head);
+//输出节点到文件
+int __outputNode2File(_item *impleItem);
 //展示命令选单
 void _showCommandList(void);
-//获得命令调用相应函数 返回0为退出系统
-int _getCommandAndImplement(pItemNode head);
-//检查链表是否为空返回0为空 1非空
-int _checkIsEmpty(pItemNode head);
-//增加记录 入库
-int _addItem(pItemNode head);
-int __addItemExist(pItemNode head, pItemNode tempNode);
-int __addItemUnexist(pItemNode head, pItemNode tempNode);
+//功能函数启动器
+void _startFunction(char order, const pItemNode head);
+
+//========================================功能函数=====================================
+//展示货物列表
+void _showItemList(const pItemNode head);
+//输出货物信息到stdout
+int __showItemList(_item *item);
+//进库
+void _importItem(const pItemNode head);
+//进库比较函数
+int __compFuncImport(_item comItem1, _item comItem2);
+//进库合并节点
+int __returnItemNumber(_item *impleItem);
 //出库
-int _outItem(pItemNode head);
-//检查已有货物及信号是否存在 0 不存在 1 存在
-int __checkIsItemRecord(pItemNode head, item toCompare);
-//检查数量是否足够 0不够 1 够
-int __outItemNumIsEnough(pItemNode head, item toCheck);
-//显示货物记录
-int _showItemList(pItemNode head);
-//展示一个货物记录
-int __showItem(item toImple);
+void _exportItem(const pItemNode head);
+//出库比较函数
+int __compFuncExport(_item comItem1, _item comItem2);
 
 #endif

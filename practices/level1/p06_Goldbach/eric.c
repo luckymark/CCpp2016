@@ -2,12 +2,12 @@
 //p06_Goldbach
 
 #include <stdio.h>
-//#include <string.h>
-//#include <stblib.h>
 
 #define MAX 100
 void _findPrimes(int *prime);
 void _confirmPrimes(int prime[]);
+int _findTwoPrimes(int sourceEven);
+
 int main(void)
 {
 	int prime[MAX] = { 0 };
@@ -33,29 +33,34 @@ void _findPrimes(int *prime)
 }
 void _confirmPrimes(int prime[])
 {
-	for (int count1 = 4; count1 < 101; count1 += 2)
+	for (int count = 4; count < 101; count += 2)
 	{
-		for (int count2 = 2; count2 < count1; count2++)
+		if(_findTwoPrimes(count))
+		{
+            printf("%d Error\n", count);
+        }
+	}
+}
+int _findTwoPrimes(int sourceEven)
+{
+    for (int count1 = 2; count1 < sourceEven; count1++)
+	{
+		if (prime[count1] == 1)
+		{
+			continue;
+		}
+		for (int count2 = 2; count2 < sourceEven; count2++)
 		{
 			if (prime[count2] == 1)
 			{
 				continue;
 			}
-			for (int count3 = 2; count3 < count1; count3++)
+			if (sourceEven == count1 + count2)
 			{
-				if (prime[count3] == 1)
-				{
-					continue;
-				}
-				if (count1 == count2 + count3)
-				{
-					printf("%d = %d + %d\n", count1, count2, count3);
-					goto _break;	//请问老师，如果要跳出多重循环能不能不用goto?
-				}
+				printf("%d = %d + %d\n", sourceEven, count1, count2);
+				return 0;
 			}
-		}
-		printf("%d Error\n", count1);
-	_break:
-		;
 	}
+    //Goldbach is wrong
+    return 1;
 }

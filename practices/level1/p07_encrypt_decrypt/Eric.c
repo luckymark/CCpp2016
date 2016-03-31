@@ -1,6 +1,6 @@
 //Eric 2016-03-05
 //p07_encrypt_decrypt
-//°ÑÒª¼ÓÃÜ½âÃÜµÄÎÄ¼þÃüÃûÎªin.txt ½á¹ûÔÚout.txt
+//ï¿½ï¿½Òªï¿½ï¿½ï¿½Ü½ï¿½ï¿½Üµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Îªin.txt ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½out.txt
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -8,7 +8,7 @@
 int fshowGetOrder(void);
 char fencrypt(char operatorChar);
 char fdecrypt(char operatorChar);
-void fstartOpeate(int enDeFlag);	//Æô¶¯Æ÷
+void fstartOpeate(int enDeFlag);	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int main(void)
 {
 	fstartOpeate(fshowGetOrder());
@@ -21,7 +21,7 @@ int fshowGetOrder(void)
 	printf("1.Encrypt 2.Decrypt 3.Quit: ");
 	while (scanf("%d", &order) == 1)
 	{
-		//ÊäÈë´¦Àí
+		//ï¿½ï¿½ï¿½ë´¦ï¿½ï¿½
 		switch (order)
 		{
 		case 1:
@@ -39,14 +39,10 @@ void fstartOpeate(int enDeFlag)
 	char tempInput;
 	switch (enDeFlag)
 	{
-	case 3:
-		printf("Done.");
-		return;
 	case 1:
 	case 2:
 		pointerFileInput = fopen("in.txt", "r");
-		//freopen("in.txt", "r", stdin);
-		//ÅÐ¶Ïin.txtµÄ´æÔÚ
+		//ï¿½Ð¶ï¿½in.txtï¿½Ä´ï¿½ï¿½ï¿½
 		if (pointerFileInput == NULL)
 		{
 			printf("Error : File error.");
@@ -58,7 +54,7 @@ void fstartOpeate(int enDeFlag)
 		freopen("out.txt", "w", stdout);
 		while ((tempInput = getchar()) != EOF)
 		{
-			//Ñ¡Ôñ¼ÓÃÜ½âÃÜ
+			//Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ü½ï¿½ï¿½ï¿½
 			switch (enDeFlag)
 			{
 			case 1:
@@ -71,6 +67,12 @@ void fstartOpeate(int enDeFlag)
 				printf("Error : ed_switch error");
 				return;
 			}
+	case 3:
+		printf("Done.");
+		return;
+	default:
+		printf("ERROR : Wrong Command.\n");
+		return;
 		}
 	}
 }

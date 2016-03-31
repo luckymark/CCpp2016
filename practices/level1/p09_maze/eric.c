@@ -8,11 +8,11 @@
 #include <stdlib.h>
 //use system() function
 
-int ORDER[2][1000] = { 0 };	//³£Á¿Êý×é ×ª»¯ÃüÁî
-int maze[10][10][2] = { 0 };	//maze [0]0-¿Õ°×£¬1-BLOCK£¬2-ÈË£¬ [1] 3-³ö¿Ú
+int ORDER[2][1000] = { 0 };	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+int maze[10][10][2] = { 0 };	//maze [0]0-ï¿½Õ°×£ï¿½1-BLOCKï¿½ï¿½2-ï¿½Ë£ï¿½ [1] 3-ï¿½ï¿½ï¿½ï¿½
 void initializationMaze(void);
-int checkOrder(char order);	//ÅÐ¶ÏÃüÁî ¹ý¹Ø·µ»Ø1
-void showMaze(void);	//Õ¹Ê¾ÃÔ¹¬
+int checkOrder(char order);	//ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½1
+void showMaze(void);	//Õ¹Ê¾ï¿½Ô¹ï¿½
 
 int locationRow, locationColumn;	//human-position
 int main(void)
@@ -38,7 +38,7 @@ int main(void)
 }
 void initializationMaze(void)
 {
-	//ÖÆÔì±ß¿ò
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½
 	for (int count1 = 0; count1 < 10; count1++)
 	{
 		for (int count2 = 0; (count1 == 0 || count2 == 0) && count2 < 10; count2++)
@@ -46,7 +46,7 @@ void initializationMaze(void)
 			maze[count1][count2][0] = 1;
 		}
 	}
-	//ÖÆÔìbase exit
+	//ï¿½ï¿½ï¿½ï¿½base exit
 	maze[1][0][0] = 2;
 	locationRow = 1;
 	locationColumn = 0;
@@ -84,18 +84,6 @@ void showMaze(void)
 	{
 		for (int count2 = 0; count2 < 10; count2++)
 		{
-			/*if (maze[count1][count2][0] == 1)
-			{
-				printf("*");
-			}
-			else if (maze[count1][count2][0] == 2)
-			{
-				printf("O");
-			}
-			else
-			{
-				printf(" ");
-			}*/
 			switch(maze[count1][count2])
 			{
 				case 1:

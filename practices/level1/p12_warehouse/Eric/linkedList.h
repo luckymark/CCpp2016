@@ -1,46 +1,49 @@
-//Eric Linkedlist
-#ifndef _LINKEDLIST_H
-#define _LINKEDLIST_H
-
-#define CHARLENGTH 41
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
+//字符数组的长度
+#define CHAR_LENGTH 41
+//货物结构
 typedef struct {
-	char itemNames[CHARLENGTH];
-	char itemModel[CHARLENGTH];
+	char itemName[CHAR_LENGTH];
+	char itemModel[CHAR_LENGTH];
 	int itemNumber;
-} item;
-
+} _item;
+//链表节点
 typedef struct itemnode {
-	item itemExample;
+	_item item;
 	struct itemnode *next;
-}itemNode;
-
+} itemNode;
+//节点指针
 typedef itemNode * pItemNode;
 
-//初始化列表 返回头指针 失败返回NULL
-pItemNode finitialize(void);
-//向指定位置插入一个节点 0为末尾 return 1 when succeed insert
-//inputState 0 标准输入 1 从baseItem复制
-int finsertNode(pItemNode head, int num2insert, int inputState, item *baseItem);
-//删除指定节点 return 1 when succeed delete
-int fdeleteNode(pItemNode head, int num2delete);
-//查找相同的节点 返回节点序号 不存在返回0
-int ffindNode(pItemNode head, item compareItem);
-//比较函数 1 为相等
-int _compareFunc(item comItem1, item comItem2);
-//返回特定节点的Item 传入0，返回头Item
-item fshowNoItem(pItemNode head, int noOfItem);
-//对每个节点应用函数 被应用函数返回0打断执行 return 1 when succeed
-int fimplementFunc(pItemNode head, int(*impleFunc)(item toImple));
-//反转链表
-int freverseLinkedList(pItemNode head);
-//建立空节点所有值设为0或/0 成功返回地址 失败返回NULL
-pItemNode _setupNewItem(void);
-//获取信息写入节点 inputState = 0 标准输入输出 1 复制结构输入输出setup a new Node return NULL when fail
-pItemNode _getInfo2Node(pItemNode targetNode, int inputState, item *baseItem);
-//检查节点是否存在 num2check = 0 返回尾部节点的地址
-//return pointer when the item exist, return NULL when unexist
-pItemNode _checkIsNode(pItemNode head, int num2check);
-//返回尾部节点前一个节点的位置
-pItemNode _IsBottomForReverse(pItemNode head);
-
+//初始化链表
+pItemNode _initializeList(void);
+//初始化节点 返回参数
+pItemNode __initializeNode(pItemNode node);
+//插入节点（新货物）
+int _insertNodeFromStdin(const pItemNode head);
+//获取信息
+_item __getInfoFrom2TempNode(void);
+//插入节点（从文件）
+int _insertNodeFromFile(const pItemNode head, _item temp);
+//复制到目标节点
+int __copyNode(pItemNode targetItemNode, _item temp);
+//删除节点 特定节点
+int _deleteNode(const pItemNode head, int numOfNode);
+//删除节点 尾部节点
+int _deleteNode(const pItemNode head);
+//删除节点 指针所指
+int _deleteNode(const pItemNode head, pItemNode pItemNode2Delete);
+//检查目标结点是否存在
+pItemNode __isNodeExist(const pItemNode head, int numOfNode);
+//查找节点
+int _findNode(const pItemNode head, int(*compFunc)(_item comItem1, _item comItem2), _item comItem1);
+//应用函数
+int _impleFunction(const pItemNode head, int(*impleFunc)(_item *impleItem));
+//应用函数 特定节点
+int _impleFunction(const pItemNode head, int(*impleFunc)(_item *impleItem), int numOfNode);
+//删除链表
+int _freeLinkedList(const pItemNode head);
+//返回尾部节点指针
+pItemNode __bottomNode(const pItemNode head);
 #endif
