@@ -41,7 +41,7 @@ int main(){
 }
 
 void printMenu(){
-  system("cls");
+	system("cls");
 	printf("Please Input Your select\n1)Print List\n2)Put in\n3)Get out\n4)Exit\n\n");
 }
 
@@ -73,7 +73,7 @@ void saveData(){
 }
 
 void printList(){
-  map<string,int>::iterator it = goodslist.begin();
+	map<string,int>::iterator it = goodslist.begin();
 	printf("Have %d type goods\n",goodslist.size());
 	for(;it != goodslist.end();++it){
 		printf("%s\t%d\n",it->first.c_str(),it->second);
