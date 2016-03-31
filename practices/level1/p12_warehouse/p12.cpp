@@ -66,8 +66,8 @@ void saveData(){
 	map<string,int>::iterator it = goodslist.begin();
 	fprintf(op,"%d\n",goodslist.size());
 	for(;it != goodslist.end();++it){
-    if(it->second == 0)
-      continue;
+    	if(it->second == 0)
+    		continue;
 		fprintf(op,"%s %d\n",it->first.c_str(),it->second);
 	}
 }
