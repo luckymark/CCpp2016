@@ -2,7 +2,8 @@
 #include<time.h>
 #define MAX 1001
 int main()
-{   clock_t t1,t2;
+{
+    clock_t t1,t2;
     t1=clock();
     int num[MAX]={1,1};
     for(int i=2;i<MAX;i++)
