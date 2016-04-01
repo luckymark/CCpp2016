@@ -24,7 +24,9 @@ bool isPrime(int a)
     {
         y=a%b;
         if(y==0)
-        return false;
+        {
+            return false;
+        }
     }
     return true;
 }
