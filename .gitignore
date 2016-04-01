@@ -2,3 +2,5 @@ slides/.idea
 *.out
 *.db
 *.gch
+.vscode/
+.gitignore
