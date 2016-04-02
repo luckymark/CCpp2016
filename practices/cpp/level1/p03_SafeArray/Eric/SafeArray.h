@@ -6,15 +6,15 @@ class SafeArray
     SafeArray() = default;
     SafeArray(int arrayLengthSource)
     {
-        arrayMaxLocation = arrayLengthSource;
+        arrayMaxIndex = arrayLengthSource;
         array = new int[arrayLengthSource];
     }
-    int set(int number, int location);
-    int get(int location);
+    int set(int number, int index);
+    int get(int index);
     private:
-    bool isSafe(int location);
-    int arrayMaxLocation;
-    int arrayLessLocation = -1;
+    bool isSafe(int index);
+    int arrayMaxIndex;
+    int arrayLessIndex = -1;
     int *array;
 };
 #endif

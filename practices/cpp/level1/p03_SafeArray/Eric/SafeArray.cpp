@@ -1,11 +1,11 @@
 #include "SafeArray.h"
 #include <iostream>
 
-int SafeArray::set(int number, int location)
+int SafeArray::set(int number, int index)
 {
-    if(isSafe(location))
+    if(isSafe(index))
     {
-        *(array + location) = number;
+        *(array + index) = number;
         return 0;
     }
     else
@@ -14,11 +14,11 @@ int SafeArray::set(int number, int location)
         return 1;
     }
 }
-int SafeArray::get(int location)
+int SafeArray::get(int index)
 {
-    if(isSafe(location))
+    if(isSafe(index))
     {
-        return *(array + location);
+        return *(array + index);
     }
     else
     {
@@ -26,7 +26,7 @@ int SafeArray::get(int location)
         return -1;
     }
 }
-bool SafeArray::isSafe(int location)
+bool SafeArray::isSafe(int index)
 {
-    return location > arrayLessLocation && location < arrayMaxLocation;
+    return index > arrayLessIndex && index < arrayMaxIndex;
 }
