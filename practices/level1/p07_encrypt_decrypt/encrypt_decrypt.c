@@ -8,15 +8,15 @@ char decrypt(char);
 int main()
 {
     int command=0;
-    puts("1.¼ÓÃÜ");
-    puts("2.½âÃÜ");
+    puts("1.åŠ å¯†");
+    puts("2.è§£å¯†");
     while (command!='1'&&command!='2')
     {
-        puts("ÇëÊäÈë1»òÕß2½øĞĞ²Ù×÷");
+        puts("è¯·è¾“å…¥1æˆ–è€…2è¿›è¡Œæ“ä½œ");
         command=getchar();
     }
     char(*whatWantToDo)(char character);
-    puts("ÏÖÔÚÊäÈëÄãÒª¼ÓÃÜµÄÄÚÈİ°É");
+    puts("ç°åœ¨è¾“å…¥ä½ è¦åŠ å¯†çš„å†…å®¹å§");
     if(command=='1')
     {
         whatWantToDo=encrypt;
@@ -26,7 +26,7 @@ int main()
         whatWantToDo=decrypt;
     }
     char ch=0;
-    getchar();
+    fflush(stdin);//å¤„ç†ç”±äºenteré”®å€¼å¯¼è‡´çš„ç¼“å†²åŒºé—®é¢˜
     while ((ch=getchar())!='\n')
     {
         ch=whatWantToDo(ch);
