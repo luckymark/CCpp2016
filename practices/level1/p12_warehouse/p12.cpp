@@ -24,19 +24,15 @@ int main(){
 	while(1){
 		printMenu();
 		sta = getch();
-		if(sta == '1'){
-			printList();
-		}else if(sta == '2'){
-			putIn();
-		}else if(sta == '3'){
-			getOut();
-		}else if(sta == '4'){
-			break;
-		}else{
-			printf("Input ERROR,please Correct it\n");
+		switch(sta){
+			case 1:printList();break;
+			case 2:putIn();break;
+			case 3:getOut();break;
+			case 4:saveData();return 0;
+			default:printf("Input ERROR,please Correct it\n");
 		}
 	}
-	saveData();
+	
 	return 0;
 }
 
