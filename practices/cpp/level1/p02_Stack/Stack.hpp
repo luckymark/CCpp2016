@@ -8,7 +8,6 @@ public:
 	Stack(int maxSize){
 		data = new int[maxSize];
 		assert(maxSize < 1e7); // Memory is limit
-		_top = 0;
 	}
 	~Stack(){
 		delete [] data;
@@ -18,7 +17,7 @@ public:
 	int top();
 	void pop();
 private:
-	int *data,_top;
+	int *data,_top = 0;
 };
 
 #endif
