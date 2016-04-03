@@ -1,5 +1,5 @@
-#include "Stack.h"
+#include "Queue.h"
 int main() {
-    Stack myStack;
+    Queue MyQueue;
     return 0;
 }
