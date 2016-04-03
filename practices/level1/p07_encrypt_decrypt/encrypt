@@ -1,0 +1,25 @@
+#include <algorithm>
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <vector>
+#include <cmath>
+#include <ctime>
+int mo=131;
+int num[2100000],i,p,l;
+char s[210000];
+void scrip(int a)
+{
+ int i;
+ for (i=0;i<l;i++)  s[i]=(s[i]+mo+a*num[i])%mo;
+}
+int main()
+{
+  freopen("C.in","r",stdin);
+  freopen("C.out","w",stdout);
+  for (i=0;i<1100000;i++)  num[i]=rand()%mo;
+  scanf("%d\n",&p); gets(s); l=strlen(s);
+  if (p==1) scrip(1);  
+  if (p==2) scrip(-1);
+  printf("%s\n",s);
+} 

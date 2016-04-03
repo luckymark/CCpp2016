@@ -1,0 +1,71 @@
+#include <algorithm>
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <vector>
+#include <cmath>
+#include <ctime>
+using namespace std;
+struct nod{
+int x,y,v;
+};
+nod sor[5000];
+int map[60][60],use[60][60],n=50,m=50,k=5;
+int xx[4]={-1,0,1,0};
+int yy[4]={0,1,0,-1};
+bool search(int x,int y)
+{
+ int newx,newy,i;
+ if (use[x][y]==1) return false;
+ use[x][y]=1;
+ for (i=0;i<=3;i++)
+ {
+    newx=x+xx[i];
+    newy=y+yy[i];
+    if (map[newx][newy]==0) continue;
+    if (map[newx][newy]==2) return true;
+    if (search(newx,newy)) return true;
+ }
+ return false;
+}
+
+bool cmp(nod a,nod b)
+{
+  return a.v<b.v;
+}
+
+int main()
+{
+ //假设迷宫是个n*m的矩阵，0代表墙，1代表空地，2代表出口。
+ //x,y分表代表起始点坐标,k控制空地和墙的数量比
+ int i,j,x,y,p=0,nspace;
+ srand(time(NULL));
+ x=rand()%n+1; y=rand()%m+1; map[x][y]=2;
+
+ x=rand()%n+1; y=rand()%m+1;
+ while (map[x][y]==2)
+ {
+   x=rand()%n+1;
+   y=rand()%m+1;
+ }
+ map[x][y]=1;
+
+ for (i=1;i<=n;i++)
+   for (j=1;j<=m;j++)
+     if (map[i][j]==0)
+     {
+       sor[++p].x=i;
+       sor[p].y=j;
+       sor[p].v=rand()*rand()%10007;
+      }
+
+ nspace=n*m-2-n*m/k;
+ sort(sor+1,sor+n*m-1,cmp);
+ for (i=1;i<=nspace;i++) map[sor[i].x][sor[i].y]=1;
+ for (i=1;i<=n;i++)
+ {
+   for (j=1;j<=m;j++) printf("%d",map[i][j]);
+   printf("\n");
+ }
+ if (search(x,y)) printf("YES\n"); else printf("NO\n");
+}
