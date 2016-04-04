@@ -8,13 +8,14 @@ BY tsstss123
 
 #include <vector>
 #include <cstdlib>
+#include <cmath>
 
 struct MPNode{
 	double threshold; //阈值
 	double output; //输出值
 	std::vector<double> w; //连接权值
 	void init(int nextLayerSize){
-		threshold = random();
+		threshold = 1.0*rand()/RAND_MAX;
 		output = 0;
 		w.resize(nextLayerSize);
 	}
@@ -52,16 +53,13 @@ public:
 	}
 private:
 	double sigmoid(double x){
-		return 1.0/(1.0+std::exp(-x));
+		return 1.0/(1.0+exp(-x));
 	}
 	double f(double x){
-		return f(sigmoid(x));
+		return sigmoid(x);
 	}
 	//使用sigmoid作为激活函数
-	double random(){
-		return 1.0*rand()/RAND_MAX;
-	}
-	//生成(0,1)的随机数
+
 
 	void initMPNode(MPNode &nd,int nextLayerSize);
 	void spread(std::vector<int> &data);

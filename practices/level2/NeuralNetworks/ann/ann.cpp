@@ -3,6 +3,8 @@
 #include <assert.h>
 #include "ann.hpp"
 
+#define DEBUG 1
+
 void ANN::spread(std::vector<int> &data){
 	assert(data.size() == inputLayerSize);
 	for(int i = 0; i < inputLayerSize; ++i)
@@ -56,6 +58,13 @@ void ANN::bp(std::vector<int> &ans){
 void ANN::train(std::vector<int> &data,std::vector<int> &ans){
 	spread(data);
 	bp(ans);
+#ifdef DEBUG
+	double fa = 0;
+	for(int i = 0; i < outputLayerSize; ++i){
+		fa += (outputLayer[i].output - ans[i]) * (outputLayer[i].output - ans[i]);
+	}
+	printf("fa = %.6f\n" , fa / outputLayerSize);
+#endif
 }
 
 void ANN::setInput(std::vector<int> &data){
