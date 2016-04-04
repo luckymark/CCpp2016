@@ -7,6 +7,7 @@ BY tsstss123
 */
 
 #include <vector>
+#include <cstdlib>
 
 struct MPNode{
 	double threshold; //阈值
@@ -30,6 +31,8 @@ public:
 	void setInput(std::vector<int> &data);
 	std::vector<int> getOutput();
 	ANN(int is,int hs,int os,double rate){
+		srand(is*hs*os+1);
+		//初始化随机数
 		learningrate = rate;
 		inputLayerSize = is;
 		hiddenLayerSize = hs;
