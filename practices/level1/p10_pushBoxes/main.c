@@ -133,9 +133,7 @@ int game(int lev)
 }
 char move()
 {
-    char move;
-    move=getch();
-    return move;
+    return getch();
 }
 int move_judge(char move)
 {
