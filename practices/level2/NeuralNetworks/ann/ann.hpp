@@ -18,6 +18,8 @@ struct MPNode{
 		threshold = 1.0*rand()/RAND_MAX;
 		output = 0;
 		w.resize(nextLayerSize);
+		for(int i = 0; i < nextLayerSize; ++i)
+			w[i] = 1.0*rand()/RAND_MAX;
 	}
 };
 
@@ -28,7 +30,7 @@ public:
 	double learningrate;
 	std::vector<MPNode> inputLayer,hiddenLayer,outputLayer;
 
-	void train(std::vector<int> &data,std::vector<int> &ans);
+	double train(std::vector<int> &data,std::vector<int> &ans);
 	void setInput(std::vector<int> &data);
 	std::vector<int> getOutput();
 	ANN(int is,int hs,int os,double rate){
