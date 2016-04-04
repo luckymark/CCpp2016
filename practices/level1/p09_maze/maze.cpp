@@ -5,6 +5,11 @@
 #define COLUMN 5
 #define ENDROW 4
 #define ENDCOLUMN 4
+#define CONTROL 0xE0
+#define UP 72
+#define DOWN 80
+#define LEFT 75
+#define RIGHT 77
 void printmaze(char maze[ROW][COLUMN]);
 int main()
 {
@@ -21,10 +26,10 @@ int main()
 		move=getch();
 		switch (move)
 		{
-			case 0xE0:
+			case CONTROL:
 				switch (move=getch())
 				{
-					case 72:
+					case UP:
 						if (!r) break;
 						if (maze[r-1][c]!='#'){
 							maze[r][c]=' ';
@@ -32,7 +37,7 @@ int main()
 							maze[r][c]='*';
 						}
 						break;
-					case 80:
+					case DOWN:
 						if (r==ROW-1) break;
 						if (maze[r+1][c]!='#'){
 							maze[r][c]=' ';
@@ -40,7 +45,7 @@ int main()
 							maze[r][c]='*';
 						}
 						break;
-					case 75:
+					case LEFT:
 						if (!c) break;
 						if (maze[r][c-1]!='#'){
 							maze[r][c]=' ';
@@ -48,7 +53,7 @@ int main()
 							maze[r][c]='*';
 						}	
 						break;
-					case 77:
+					case RIGHT:
 						if (c==COLUMN-1) break;
 						if (maze[r][c+1]!='#'){
 							maze[r][c]=' ';
