@@ -65,6 +65,7 @@ double ANN::train(std::vector<std::vector<double> > &data,std::vector<std::vecto
 	assert(data.size() == ans.size());
 	assert(data.size() >= 1);
 	int dataCase = data.size();
+	double delta = 0 ,sigmaDelta = 0; //计算累计误差
 	std::vector<double> sigmaG(outputLayerSize,0),sigmaE(hiddenLayerSize,0),g(outputLayerSize),e(hiddenLayerSize);
 	for(int cas = 0; cas < dataCase; ++cas){
 		spread(data[cas]);
@@ -73,6 +74,10 @@ double ANN::train(std::vector<std::vector<double> > &data,std::vector<std::vecto
 			sigmaG[i] += g[i];
 		for(int i = 0; i < hiddenLayerSize; ++i)
 			sigmaE[i] += e[i];
+		for(int i = 0; i < outputLayerSize; ++i)
+			sigmaDelta += (outputLayer[i].output - ans[0][i]) * (outputLayer[i].output - ans[0][i]);
+		delta += sigmaDelta / outputLayerSize;
+		sigmaDelta = 0;
 	}
 
 	for(int i = 0; i < outputLayerSize; ++i)
@@ -83,12 +88,7 @@ double ANN::train(std::vector<std::vector<double> > &data,std::vector<std::vecto
 
 	bp(sigmaG,sigmaE);
 
-	//计算累计误差
-	double E = 0;
-	for(int i = 0; i < outputLayerSize; ++i){
-		E += (outputLayer[i].output - ans[0][i]) * (outputLayer[i].output - ans[0][i]);
-	}
-	return E / outputLayerSize;
+	return delta / dataCase;
 }
 
 void ANN::setInput(std::vector<double> &data){
@@ -98,7 +98,7 @@ void ANN::setInput(std::vector<double> &data){
 std::vector<double> ANN::getOutput(){
 	std::vector<double> ret(outputLayerSize);
 	for(int i = 0; i < outputLayerSize; ++i){
-		ret[i] = outputLayer[i].output > 0.5 ? 1 : 0;
+		ret[i] = outputLayer[i].output ;
 	}
 	return ret;
 }
