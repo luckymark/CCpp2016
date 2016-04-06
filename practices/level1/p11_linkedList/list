@@ -1,61 +1,67 @@
 #include<cstdio>
 #include<iostream>
 using namespace std;
-struct pointer{
+struct Pointer{
     int v;
-    pointer *p;
+    Pointer *p;
 };
-pointer *p1;
+Pointer *p1;
 int n;
 
-void readbuild();
+void readBuild();
 void reverse();
 void query();
 
 int main()
 {
-    readbuild();
+    readBuild();
     reverse();
     query();
 }
-void readbuild()
+void readBuild()
 {
     int i;
-    pointer *now,*y;
+    Pointer *now,*y;
     scanf("%d",&n);
     for (i=0;i<n;i++)
     {
-        now=new pointer; if (i==0) p1=now;
-        scanf("%d",&(*now).v);
-        if (i!=0) (*y).p=now;
-        if (i==n-1) (*now).p=now;
+        now=new Pointer;
+        if (i==0)
+            p1=now;
+        scanf("%d",&now->v);
+        if (i!=0)
+            y->p=now;
+        if (i==n-1)
+            now->p=now;
         y=now;
     }
 }
 void reverse()
 {
-    pointer *i,*pre,*y;
-    pre=p1; i=p1;
-    while ((*i).p!=i)
+    Pointer *i,*pre,*y;
+    pre=p1;
+    i=p1;
+    while (i->p!=i)
     {
-        y=(*i).p;
-        (*i).p=pre;
+        y=i->p;
+        i->p=pre;
         pre=i;
         i=y;
     }
-    (*i).p=pre; p1=i;
+    i->p=pre;
+    p1=i;
 }
 void query()
 {
     int now=1;
-    pointer *i;
+    Pointer *i;
     i=p1;
-    while (i!=(*i).p)
+    while (i!=i->p)
     {
-        if ((*i).v==5) printf("%d ",now);
-        i=(*i).p;
+        if (i->v==5) printf("%d ",now);
+        i=i->p;
         now++;
     }
-    if ((*i).v==5) printf("%d ",now);
+    if (i->v==5) printf("%d ",now);
     printf("-1\n");
 }
