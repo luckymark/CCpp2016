@@ -2,6 +2,7 @@
 #define CARGO_SYSTEM_DEF_H_INCLUDED
 
 #include <vector>
+#include <map>
 #include <string>
 #include <cstdlib>
 
@@ -19,8 +20,25 @@ public:
     }
 };
 
+class Persistence {
+private:
+    std::string fn;
+    std::map<std::string, std::string> cl;
+public:
+    Persistence(std::string fn);
+
+    std::string get(std::string key);
+    void set(std::string key, std::string value);
+};
+
 class CargoActionPool {
 public:
+    Persistence *cp;
+
+    CargoActionPool(std::string fn = "ps.dat") {
+        cp = new Persistence(fn);
+    }
+
     std::vector<CargoAction *> actions;
     void registerAction(CargoAction *action) {
         actions.push_back(action);
@@ -36,7 +54,7 @@ public:
     }
 };
 
-#define CARGO_SYSTEM_ACTION_META CargoActionPool __global__cargoActionPool;
+#define CARGO_SYSTEM_ACTION_META(fn) CargoActionPool __global__cargoActionPool(fn);
 
 #define CARGO_SYSTEM_ACTION(name, description) \
 class __CARGO__ACTION__##name : public CargoAction {\
@@ -47,21 +65,11 @@ public:\
 CargoActionRegister __CARGO_ACTION_REGISTER__##name(CargoActionFactory<__CARGO__ACTION__##name>().create());\
 void __CARGO__ACTION__##name::run()
 
-#define CARGO_SYSTEM_LOOP\
-{\
-    while (1) {\
-        std::cout << "Cargo Management System" << std::endl;\
-        std::cout << "Menu: " << std::endl;\
-        for (int __CG_i = 0; __CG_i < __global__cargoActionPool.actions.size(); ++__CG_i) {\
-            std::cout << __CG_i << ": " << __global__cargoActionPool.actions[__CG_i]->desc << std::endl;\
-        }\
-        int selected;\
-        std::cin >> selected;\
-        __global__cargoActionPool.actions[selected]->run();\
-        std::system("pause");\
-        std::system("cls");\
-    }\
-}
+#define CARGO_SYSTEM_PERSISTENCE_GET(key) __global__cargoActionPool.cp->get(key)
+#define CARGO_SYSTEM_PERSISTENCE_SET(key, value) __global__cargoActionPool.cp->set(key, value)
+
+
+void cargo_system_loop();
 
 
 #endif // CARGO_SYSTEM_DEF_H_INCLUDED
