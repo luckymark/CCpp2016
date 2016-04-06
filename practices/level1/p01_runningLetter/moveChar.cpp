@@ -3,7 +3,6 @@
 #include <algorithm>
 using namespace std;
 const int LEN = 80;
-
 void move(int ,int ,int );
 
 int main()
