@@ -33,6 +33,9 @@ Persistence::Persistence(std::string fn) {
 }
 
 string Persistence::get(string key) {
+    if (cl.find(key) == cl.end()) {
+        return "";
+    }
     return cl[key];
 }
 void Persistence::set(string key, string value) {
