@@ -14,8 +14,8 @@ typedef struct list{
 
 void addList(linkList *p);
 linkList* setLinkList(void);
-int serchfirst(int n,linkList* p);
-int serchSecond(int n,linkList* p);
+int searchFirst(int n,linkList* p);
+int searchSecond(int n,linkList* p);
 void resetLinkList(linkList *s);
 
 int main()
@@ -29,8 +29,8 @@ int main()
         s->last->a=x;
     }
     resetLinkList(s);
-    printf("%d\n",serchFirst(5,s));
-    printf("%d",serchSecond(5,s));
+    printf("%d\n",searchFirst(5,s));
+    printf("%d",searchSecond(5,s));
     return 0;
 }
 
@@ -72,7 +72,7 @@ linkList* setLinkList(void){
     return info;
 }
 
-int serchfirst(int n,linkList* p){
+int searchFirst(int n,linkList* p){
     point* x=p->head;
     int i=-1;
     do{
@@ -85,7 +85,7 @@ int serchfirst(int n,linkList* p){
     return i;
 }
 
-int serchSecond(int n,linkList* p){
+int searchSecond(int n,linkList* p){
     point* x=p->head;
     int i=-1,j=2;
     do{
