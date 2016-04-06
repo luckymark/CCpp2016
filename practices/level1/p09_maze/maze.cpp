@@ -16,7 +16,10 @@ int main()
 {
     srand(time(NULL));
     read();
-    if (search(x,y)) printf("YES\n"); else printf("NO\n");
+    if (search(x,y)) 
+        printf("YES\n");
+    else 
+        printf("NO\n");
 }
 
 void read()
@@ -27,7 +30,10 @@ void read()
     for (int i=1;i<=n;i++)
     {
         gets(s);
-        for (int j=1;j<=m;j++) map[i][j]=int(s[j-1])-48;
+        for (int j=1;j<=m;j++)
+        {
+            map[i][j]=int(s[j-1])-48;
+        }
     }
 }
 
