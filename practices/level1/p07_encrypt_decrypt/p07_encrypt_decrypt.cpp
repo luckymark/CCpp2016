@@ -5,82 +5,81 @@
 #include <Windows.h>
 using namespace std;
 
-fstream fin, fout, pasW;
-string sta, fina = "";
-char ModeTurn;
+fstream fin, fout, passwordFile;
+string stringTmpSave, finalResult = "";
+char modeTurn;
 
-void ready();
-char BitEn(int ran, char mw);
-void en();
-void de();
+void Input();
+char BitEncrypt(int ran, char bitChar);
+void Encrypt();
+void Decrypt();
 void StartIt();
 
 int main() {
-	ready();
+	Input();
 	StartIt();
 	system("pause");
 	return 0;
 }
 
-void ready() {
+void Input() {
 	fin.open("from.from", ios_base::in);
-
-	ModeTurn = 't';
-	while (!(ModeTurn == 'f' || ModeTurn == 'c')) {
-		cout << "do you want to input your data from file \"from.from\" or from console? (f/c): ";
-		cin >> ModeTurn;
+	modeTurn = 't';
+	while (!(modeTurn == 'f' || modeTurn == 'c')) {
+		cout << "do you want to Input your data from file \"from.from\" or from console? (f/c): ";
+		cin >> modeTurn;
 	}
 
-	if (ModeTurn == 'f') {
-		fin >> sta;
+	if (modeTurn == 'f') {
+		fin >> stringTmpSave;
 	}
 	else {
-		cout << "Please input your content: ";
-		cin >> sta;
+		cout << "Please Input your content: ";
+		cin >> stringTmpSave;
 	}
 
 	cout << endl;
-	while (!(ModeTurn == 'e' || ModeTurn == 'd')) {
+	while (!(modeTurn == 'e' || modeTurn == 'd')) {
 		cout << "do you want to encrypt or decrypt it?(e/d):  ";
-		cin >> ModeTurn;
+		cin >> modeTurn;
 	}
 
 	fin.close();
 }
 
-char BitEn(int ran, char mw) {
-	char mix = (char)(127 - (int)mw - floor(sqrt(ran)));
+char BitEncrypt(int ran, char bitChar) {
+	char mix = (char)(127 - (int)bitChar - floor(sqrt(ran)));
 	return mix;
 }
 
-void en() {
+void Encrypt() {
 	fout.open("to.to", ios_base::out);
-	pasW.open("pas.p", ios_base::out);
-	int length = sta.length();
+	passwordFile.open("pas.p", ios_base::out);
+	int length = stringTmpSave.length();
 	srand((unsigned)GetTickCount64());
 	for (int tmp = 0; tmp <= length - 1; tmp++) {
 		int ran = (int)(32 * rand() / (RAND_MAX + 1.0));
 		int RanInsCh = (int)(57 * rand() / (RAND_MAX + 1.0)) + 65;
 		cout << ran;
 		cout << (char)RanInsCh;
-		pasW << ran;
-		pasW << (char)RanInsCh;
-		fina.push_back((char)BitEn(ran, sta[tmp]));
+		passwordFile << ran;
+		passwordFile << (char)RanInsCh;
+		finalResult.push_back((char)BitEncrypt(ran, stringTmpSave[tmp]));
 	}
-	fout << fina;
+	fout << finalResult;
 	cout << endl;
-	cout << fina;
+	cout << finalResult;
 
 	fout.close();
-	pasW.close();
+	passwordFile.close();
 }
 
-void de() {
+void Decrypt() {
 	cout << "you have to make sure that the file pas.p is already exist and contains the key" << endl;
 	fout.open("to.to", ios_base::out);
-	pasW.open("pas.p", ios_base::in);
+	passwordFile.open("pas.p", ios_base::in);
 	string key;
-	pasW >> key;
+	passwordFile >> key;
 	int length = key.length();
 	int bit = 0, finkey = 0, fromP = 0;
 	char bitkey = '0';
@@ -91,7 +90,7 @@ void de() {
 		}
 		else {
 
-			char fin = BitEn(finkey, sta[fromP]);
+			char fin = BitEncrypt(finkey, stringTmpSave[fromP]);
 			fout << fin;
 			cout << fin;
 			fromP++;
@@ -101,13 +100,14 @@ void de() {
 	}
 
 	fout.close();
-	pasW.close();
+	passwordFile.close();
+
 }
 void StartIt() {
-	if (ModeTurn == 'e') {
-		en();
+	if (modeTurn == 'e') {
+		Encrypt();
 	}
-	else if (ModeTurn == 'd') {
-		de();
+	else if (modeTurn == 'd') {
+		Decrypt();
 	}
 }

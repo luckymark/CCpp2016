@@ -2,9 +2,9 @@
 #include <Windows.h>
 using namespace std;
 
-long num = 0;
+long countOfMove = 0;
 
-void move(char fm, char to);
+void move(char from, char to);
 void hanoi(int n, char from, char base, char to);
 
 int main() {
@@ -13,16 +13,16 @@ int main() {
 
 	cin >> n;
 	hanoi(n, 'A', 'B', 'C');
-	cout << "CalCount: " << num << endl;
+	cout << "CalCount: " << countOfMove << endl;
 	DWORD EndTime = GetTickCount64();
 	cout << "time: " << EndTime - StartTime << " ms";
 	system("pause");
 	return 0;
 }
 
-void move(char fm, char to) {
-	num++;
-	cout << "move from " << fm << " to " << to << endl;
+void move(char from, char to) {
+	countOfMove++;
+	cout << "move from " << from << " to " << to << endl;
 }
 
 void hanoi(int n, char from, char base, char to) {

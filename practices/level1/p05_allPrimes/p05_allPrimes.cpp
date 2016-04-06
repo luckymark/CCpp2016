@@ -4,16 +4,16 @@
 
 using namespace std;
 
-const int mag = 1000;
-void PrimeSelect(bool fin[]);
+const int destination = 1000;
+void SelectPrime(bool result[]);
 
 
 int main() {
-	
-	DWORD start_time = GetTickCount();
-	bool fin[mag + 1];
 
-	PrimeSelect(fin);
+	DWORD start_time = GetTickCount();
+	bool result[destination + 1];
+
+	SelectPrime(result);
 
 	DWORD End_time = GetTickCount();
 	cout << "The Time Is: " << End_time - start_time << endl;
@@ -22,20 +22,20 @@ int main() {
 }
 
 
-void PrimeSelect(bool fin[]) {
+void SelectPrime(bool result[]) {
 	int otmp, itmp;
-	fin[0] = fin[1] = false;
+	result[0] = result[1] = false;
 
-	for (otmp = 2; otmp <= mag; otmp++) fin[otmp] = true;
+	for (otmp = 2; otmp <= destination; otmp++) result[otmp] = true;
 	int end;
-	for (otmp = 2; otmp <= (sqrt(mag)); otmp++) {
-		end = floor((float)mag / otmp);
+	for (otmp = 2; otmp <= (sqrt(destination)); otmp++) {
+		end = floor((float)destination / otmp);
 		for (itmp = 2; itmp <= end; itmp++) {
-			if (otmp*itmp <= mag) fin[otmp*itmp] = false;
+			if (otmp*itmp <= destination) result[otmp*itmp] = false;
 		}
 	}
 
-	for (otmp = 0; otmp <= mag; otmp++) {
-		if (fin[otmp]) cout << otmp << endl;
+	for (otmp = 0; otmp <= destination; otmp++) {
+		if (result[otmp]) cout << otmp << endl;
 	}
 }

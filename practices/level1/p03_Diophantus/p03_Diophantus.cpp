@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 void dio();
 int main() {
 	dio();
@@ -10,15 +9,15 @@ int main() {
 }
 
 void dio() {
-	int Fage = 0, Sage;
-	bool jump = false;
+	int fatherAge = 0, sonAge;
+	bool finishThis = false;
 
-	while (!jump) {
-		Fage++;
-		if (Fage % 6 == 0 && Fage % 7 == 0) {
-			Sage = Fage - (1.0 / 6)*Fage - (1.0 / 12)*Fage - (1.0 / 7)*Fage - 5;
-			if ((Sage >= 0) && (Sage - 4) == (Fage / 2.0)) jump = true;
+	while (!finishThis) {
+		fatherAge++;
+		if (fatherAge % 6 == 0 && fatherAge % 7 == 0) {
+			sonAge = fatherAge - (1.0 / 6)*fatherAge - (1.0 / 12)*fatherAge - (1.0 / 7)*fatherAge - 5;
+			if ((sonAge >= 0) && (sonAge - 4) == (fatherAge / 2.0)) finishThis = true;
 		}
 	}
-	cout << Fage - 4 << endl;
+	cout << fatherAge - 4 << endl;
 }
