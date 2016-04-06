@@ -7,7 +7,10 @@ int  cube(int );
 
 int main()
 {
-    for (int i=100;i<=999;i++) if (can(i)) printf("%d\n",i);
+    for (int i=100;i<=999;i++)
+    {
+        if (can(i)) printf("%d\n",i);
+    }
 }
 int cube(int a)
 {
