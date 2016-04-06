@@ -9,29 +9,36 @@
 int num[Maxn],i,l;
 char s[Maxn];
 
-void getrand();
+void getRand();
 void read();
-void scrip(int );
+void en_de_crypt(int );
 
 int main()
 {
-    getrand();
+    getRand();
     read();
 }
-void getrand()
+void getRand()
 {
     for (int i=0;i<Maxn;i++)  num[i]=rand()%Mo;
 }
 void read()
 {
     int p;
-    scanf("%d\n",&p); gets(s); l=strlen(s);
-    if (p==1) scrip(1);
-    if (p==2) scrip(-1);
+    scanf("%d\n",&p);
+    gets(s);
+    l=strlen(s);
+    if (p==1)
+        en_de_crypt(1);
+    if (p==2) 
+        en_de_crypt(-1);
     printf("%s\n",s);
 }
-void scrip(int a)
+void en_de_crypt(int a)
 {
     int i;
-    for (i=0;i<l;i++)  s[i]=(s[i]+Mo+a*num[i])%Mo;
+    for (i=0;i<l;i++)
+    {
+        s[i]=(s[i]+Mo+a*num[i])%Mo;
+    }
 }
