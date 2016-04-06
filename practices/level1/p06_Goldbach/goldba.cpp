@@ -1,12 +1,14 @@
 #include <iostream>
 #include <cstdio>
-int i,j,use[110];
+#define Maxn 110
+#define Up 100
+int i,j,use[Maxn];
 bool no(int );
-void makeprime();
+void makePrime();
 int main()
 {
     makeprime();
-    for (i=4;i<=100;i+=2)
+    for (i=4;i<=Up;i+=2)
     if (no(i))
     {
         printf("%d\n",i);
@@ -15,19 +17,22 @@ int main()
     }
     printf("YES\n");
 }
-void makeprime()
+void makePrime()
 {
     int i,j;
     use[1]=1;
-    for (i=2;i<=50;i++)
+    for (i=2;i<=Up/2;i++)
     if (use[i]==0)
     {
-        for (j=i+i;j<=100;j+=i) use[j]=1;
+        for (j=i+i;j<=Up;j+=i) use[j]=1;
     }
 }
 bool no(int a)
 {
     int i;
-    for (i=2;i<a;i++)  if (use[i]==0 && use[a-i]==0) return false;
+    for (i=2;i<a;i++)
+    {
+        if (use[i]==0 && use[a-i]==0) return false;
+    }
     return true;
 }
