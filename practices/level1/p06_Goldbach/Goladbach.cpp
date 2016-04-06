@@ -1,16 +1,7 @@
 #include<stdio.h>
 #include<math.h>
+#include"../p02_isPrime/isPrimeFn.h"
 const int range = 100;
-int isPrime(int n){
-    int flag = 1;
-    for(int i = 2;i<=sqrt(n);i++){
-        if(n%i==0){
-            flag = 0;
-            break;
-        }
-    }
-    return flag;
-}
 int main(){
     for(int i = 3;i<=range;i++){
         if(!(i%2)){

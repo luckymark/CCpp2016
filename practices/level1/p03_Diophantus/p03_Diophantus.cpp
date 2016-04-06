@@ -12,6 +12,7 @@
                 int x = age - (4+age/6+age/12+age/7+5);
                 if(x==child){
                     printf("\n%d\n",age);
+                    break;
                 }
             }
         }

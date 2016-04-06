@@ -1,15 +1,5 @@
 #include<stdio.h>
-#include<math.h>
-int isPrime(int n){
-    int flag = 1;
-    for(int i;i<sqrt(n);i++){
-        if(n%i==0){
-            flag = 0;
-            break;
-        }
-    }
-    return flag;
-}
+#include"isPrimeFn.h"
 int main(){
     int n = 0;
     scanf("%d",&n);
