@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdio>
 
-void search(char a,char b,char c,int p);
+void search(char ,char ,char ,int );
 
 int main()
 {
