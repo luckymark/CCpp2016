@@ -4,10 +4,6 @@
 
 class Queue {
 public:
-    Queue() {
-        head = tail = 0;
-    }
-
     void push(int item);
 
     bool isEmpty();
@@ -18,7 +14,7 @@ public:
 
 private:
     int array[MAX];
-    int head, tail;//[head,tail)
+    int head = 0, tail = 0;//[head,tail)
 };
 
 
