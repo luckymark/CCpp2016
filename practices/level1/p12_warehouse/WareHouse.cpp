@@ -1,7 +1,6 @@
-// WareHouse.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// WareHouse.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <Windows.h>
@@ -39,11 +38,11 @@ int main()
 	{
 		Sleep(2000);
 		system("cls");
-		printf("ÊäÈë²Ù×÷Êı£º\n");
-		printf("1:ÏÔÊ¾´æ»õÁĞ±í\n");
-		printf("2:Èë¿â\n");
-		printf("3:³ö¿â\n");
-		printf("4:ÍË³ö³ÌĞò\n");
+		printf("è¾“å…¥æ“ä½œæ•°ï¼š\n");
+		printf("1:æ˜¾ç¤ºå­˜è´§åˆ—è¡¨\n");
+		printf("2:å…¥åº“\n");
+		printf("3:å‡ºåº“\n");
+		printf("4:é€€å‡ºç¨‹åº\n");
 		scanf_s("%d", &operand);
 		system("cls");
 		init(operand);
@@ -56,7 +55,7 @@ void readFromTxt()
 	freopen_s(&stream ,"WareHouse.txt", "r", stderr);
 	cargo = (struct data *)malloc(sizeof(struct data));
 	int num;
-	while (fscanf_s(stream, "%s", cargo->type,128)!=EOF)
+	while (fscanf_s(stream, "%s", cargo->type,128)!=EOF)   //ä»æ–‡ä»¶è¯»å…¥
 	{
 		fscanf_s(stream, "%d", &num);
 		cargo->num = num;
@@ -83,7 +82,7 @@ void init(int v_operand)
 		v_export();
 		break;
 	case EXIT:
-		freopen_s(&stream,"WareHouse.txt", "w", stderr);
+		freopen_s(&stream,"WareHouse.txt", "w", stderr);   //å†™å…¥æ–‡ä»¶
 		for (struct data *t = head; t != NULL; t = t->next)
 		{
 			fprintf(stream,"%s\n", t->type);
@@ -100,26 +99,26 @@ void init(int v_operand)
 void v_show_list()
 {
 	for (struct data *t = head; t != NULL; t = t->next)
-		printf("»õÎïĞÍºÅ£º%s  »õÎïÊıÁ¿£º%d\n",t->type,t->num);
+		printf("è´§ç‰©å‹å·ï¼š%s  è´§ç‰©æ•°é‡ï¼š%d\n",t->type,t->num);
 	printf("\n\n");
 }
 
 void v_import()
 {
 	cargo = (struct data *)malloc(sizeof(struct data));
-	printf("ÊäÈë»õÎïĞÍºÅ£º\n");
+	printf("è¾“å…¥è´§ç‰©å‹å·ï¼š\n");
 	scanf_s("%s", cargo->type,128);
-	printf("ÊäÈë»õÎïÊıÁ¿£º\n");
+	printf("è¾“å…¥è´§ç‰©æ•°é‡ï¼š\n");
 	scanf_s("%d", &cargo->num);
 	cargo->pre = cargo;
 	cargo->next = head;
 	if (head != NULL)
 		head->pre = cargo;
 	head = cargo;
-	printf("Èë¿â³É¹¦£¡\n\n");
+	printf("å…¥åº“æˆåŠŸï¼\n\n");
 }
 
-bool check(char *t1, char *t2,int len1,int len2)
+bool check(char *t1, char *t2,int len1,int len2)   //æ¯”è¾ƒæ˜¯å¦æ˜¯è¦å¯»æ‰¾çš„è´§ç‰©
 {
 	int tot = 0;
 	if (len1 != len2) return false;
@@ -134,28 +133,28 @@ bool check(char *t1, char *t2,int len1,int len2)
 void v_export()
 {
 	char type[128];
-	printf("ÊäÈë³ö¿â»õÎïĞÍºÅ£º\n");
+	printf("è¾“å…¥å‡ºåº“è´§ç‰©å‹å·ï¼š\n");
 	scanf_s("%s", &type,128);
 	for (struct data *t = head; t != NULL; t = t->next)
 		if (check(t->type,type,strlen(t->type),strlen(type)))
 		{
-			if (t == head)
+			if (t == head)   //ä¸¤è¾¹çš„èŠ‚ç‚¹åˆ é™¤éœ€è¦ç‰¹æ®Šå¤„ç†
 			{
 				head = t->next;
-				printf("³ö¿â³É¹¦£¡\n\n");
+				printf("å‡ºåº“æˆåŠŸï¼\n\n");
 				break;
 			}
 			if (t->next != NULL)
 			{
 				t->pre->next = t->next;
 				t->next->pre = t->pre;
-				printf("³ö¿â³É¹¦£¡\n\n");
+				printf("å‡ºåº“æˆåŠŸï¼\n\n");
 				break;
 			}
-			else
+			else    //ä¸¤è¾¹çš„èŠ‚ç‚¹åˆ é™¤éœ€è¦ç‰¹æ®Šå¤„ç†
 			{
 				t->pre->next= NULL;
-				printf("³ö¿â³É¹¦£¡\n\n");
+				printf("å‡ºåº“æˆåŠŸï¼\n\n");
 				break;
 			}
 			
