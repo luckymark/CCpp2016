@@ -15,6 +15,9 @@ bool can(int a)
 {
     int i,r=int(sqrt(a));
     if (a==1) return false;
-    for (i=2;i<=r;i++) if (a%i==0) return false;
+    for (i=2;i<=r;i++)
+    {
+        if (a%i==0) return false;
+    }
     return true;
 }
