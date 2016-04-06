@@ -4,3 +4,4 @@ slides/.idea
 *.gch
 .vscode/
 .gitignore
+/cppMyOwn
