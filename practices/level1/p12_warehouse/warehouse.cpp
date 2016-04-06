@@ -44,7 +44,3 @@ void add(FILE *fp){
     fseek(fp,0,SEEK_END);
     fputs(newtype,fp);
 }
-
-void del(FILE *fp){
-
-}
