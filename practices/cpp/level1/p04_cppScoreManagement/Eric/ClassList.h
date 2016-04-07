@@ -12,5 +12,5 @@ private:
 public:
     bool addStudent();
     bool inputScore(unsigned score);
-}
+};
 #endif

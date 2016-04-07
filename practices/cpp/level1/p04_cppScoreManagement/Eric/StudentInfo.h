@@ -13,5 +13,5 @@ public:
     SutdentInfo(unsigned id, std::string name) : StudentInfo::id(id), 
         StudentInfo::name(name), score(0){};
     bool inputScore(unsigned score);
-}
+};
 #endif

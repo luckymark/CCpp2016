@@ -5,8 +5,6 @@
 
 bool ClassList::addStudent()
 {
-    std::string 
-    StudentInfo newStudent;
     student.push_back()
 }
 bool inputScore(unsigned score);
