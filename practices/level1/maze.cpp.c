@@ -17,119 +17,99 @@ char position[10][11] = { "**********",
                           "******  o*" };
 int main()
 {
-
-
-	printf("w:ÏòÉÏ s:ÏòÏÂ a:Ïò×ó d:ÏòÓÒ\n oÎªÖÕµã´¦\n");
-	printf("°´ÏÂÈÎÒâ¼ü¿ªÊ¼ÓÎÏ·\n");
-	system("pause");
-	system("cls");
-	map();
-	move();
-
-
-
+    printf("w:å‘ä¸Š s:å‘ä¸‹ a:å‘å·¦ d:å‘å³\n oä¸ºç»ˆç‚¹å¤„\n")
+    printf("æŒ‰ä¸‹ä»»æ„é”®å¼€å§‹æ¸¸æˆ\n");
+    system("pause");
+    system("cls");
+    map();
+    move();
 }
 void map() {
-
-	for (int i = 0; i <= 10; i++) {
-		for (int j = 0; j <= 10; j++) {
-			printf("%c", position[i][j]);
-		}
-		printf("\n");
+    for (int i = 0; i <= 10; i++) {
+        for (int j = 0; j <= 10; j++) {
+	     printf("%c", position[i][j]);
 	}
-
+	printf("\n");
+    }
 }
 void move() {
-	char I;
-	int m = 1, n = 7;
-	while (1) {
-
-		I = getch();
-		switch (I) {
-
-		case 'w': {int y1 = judge(m - 1, n);
-			if (y1 != 0) {
-				position[m][n] = ' ';
-				m = m - 1;
-				position[m][n] = 'I';
-				system("cls");
-				map();
-				printf("w:ÏòÉÏ s:ÏòÏÂ a:Ïò×ó d:ÏòÓÒ\n oÎªÖÕµã´¦");
-
-			}
-			else {
-				break;
-			}
-			break;
+    char I;
+    int m = 1, n = 7;
+    while (1) {
+	I = getch();
+	switch (I) {
+	    case 'w': {int y1 = judge(m - 1, n);
+		if (y1 != 0) {
+		    position[m][n] = ' ';
+		    m = m - 1;
+		    position[m][n] = 'I';
+		    system("cls");
+		    map();
+		    printf("w:å‘ä¸Š s:å‘ä¸‹ a:å‘å·¦ d:å‘å³\n oä¸ºç»ˆç‚¹å¤„");
 		}
-
-		case 's': { int y2 = judge(m + 1, n);
-			if (y2 != 0) {
-
-				position[m][n] = ' ';
-				m = m + 1;
-				position[m][n] = 'I';
-				system("cls");
-				map();
-				printf("w:ÏòÉÏ s:ÏòÏÂ a:Ïò×ó d:ÏòÓÒ\n°´enterÈ·ÈÏÖ¸Áî oÎªÖÕµã´¦");
-
-			}
-			else {
-				break;
-			}
-			break;
+		else {
+		    break;
 		}
-		case 'a': { int y3 = judge(m, n - 1);
-			if (y3 != 0) {
+		break;
+	    }
 
-				position[m][n] = ' ';
-				n = n - 1;
-				position[m][n] = 'I';
-				system("cls");
-				map();
-				printf("w:ÏòÉÏ s:ÏòÏÂ a:Ïò×ó d:ÏòÓÒ\n°´enterÈ·ÈÏÖ¸Áî oÎªÖÕµã´¦");
-
-			}
-			else {
-				break;
-			}
-			break;
+	    case 's': { int y2 = judge(m + 1, n);
+		if (y2 != 0) {
+		    position[m][n] = ' ';
+		    m = m + 1;
+		    position[m][n] = 'I';
+		    system("cls");
+		    map();
+		    printf("w:å‘ä¸Š s:å‘ä¸‹ a:å‘å·¦ d:å‘å³\næŒ‰enterç¡®è®¤æŒ‡ä»¤ oä¸ºç»ˆç‚¹å¤„");
 		}
-		case 'd': { int y4 = judge(m, n + 1);
-			if (y4 != 0) {
-
-				position[m][n] = ' ';
-				n = n + 1;
-				position[m][n] = 'I';
-				system("cls");
-				map();
-				printf("w:ÏòÉÏ s:ÏòÏÂ a:Ïò×ó d:ÏòÓÒ\n°´enterÈ·ÈÏÖ¸Áî oÎªÖÕµã´¦");
-
+		else {
+		    break;
 			}
-			else {
-				break;
-			}
+		break;
+	    }
+	    case 'a': { int y3 = judge(m, n - 1);
+		if (y3 != 0) {
+		    position[m][n] = ' ';
+		    n = n - 1;
+		    position[m][n] = 'I';
+		    system("cls");
+		    map();
+		    printf("w:å‘ä¸Š s:å‘ä¸‹ a:å‘å·¦ d:å‘å³\næŒ‰enterç¡®è®¤æŒ‡ä»¤ oä¸ºç»ˆç‚¹å¤„");
+		}
+		else {
+		    break;
+		}
+		break;
+	    }
+	    case 'd': { int y4 = judge(m, n + 1);
+		if (y4 != 0) {
+		    position[m][n] = ' ';
+		    n = n + 1;
+		    position[m][n] = 'I';
+		    system("cls");
+		    map();
+		    printf("w:å‘ä¸Š s:å‘ä¸‹ a:å‘å·¦ d:å‘å³\næŒ‰enterç¡®è®¤æŒ‡ä»¤ oä¸ºç»ˆç‚¹å¤„");
+		    }
+		    else {
 			break;
+		 }
+		 break;
 		}
         default:
             break;
-		}
-
-
+	}
         victory(m,n);
-
 	}
 }
 int judge(int m, int n) {
-
-	if (position[m][n] == '*') {
-		return 0;
+    if (position[m][n] == '*') {
+    	return 0;
 	}
 }
 int victory(int m,int n){
     if(m==8,n==8){
         system("cls");
-        printf("victory!\n°´ÏÂÈÎÒâ¼üÍË³öÓÎÏ·");
+        printf("victory!\næŒ‰ä¸‹ä»»æ„é”®é€€å‡ºæ¸¸æˆ");
         exit(0);
     }
 }
