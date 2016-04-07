@@ -14,7 +14,7 @@
 		- 构造函数
 			- 初始化ID和姓名 成绩为0
 		- showId
-		- showAllInfo
+		- printAllInfo
 - 课程学生列表
 	- 属性
 		- vector
