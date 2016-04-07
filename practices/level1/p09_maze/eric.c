@@ -1,4 +1,4 @@
-//Eric 2016-03-06 00:44:35
+﻿//Eric 2016-03-06 00:44:35
 //p09_maze
 //windows
 
@@ -11,7 +11,7 @@
 int ORDER[2][1000] = { 0 };	//�������� ת������
 int maze[10][10][2] = { 0 };	//maze [0]0-�հף�1-BLOCK��2-�ˣ� [1] 3-����
 void initializationMaze(void);
-int checkOrder(char order);	//�ж����� ���ط���1
+int checkOrder(char order);	//过关返回1
 void showMaze(void);	//չʾ�Թ�
 
 int locationRow, locationColumn;	//human-position
