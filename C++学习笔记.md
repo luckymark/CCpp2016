@@ -9,4 +9,6 @@ Queue* Queue::append(Person *p)
 	return this;
 }
 ```
+#### 拷贝构造函数
+系统自带拷贝构造函数，用于赋值和初始化。
 # 看什么看！ 赶紧填坑啊！ 

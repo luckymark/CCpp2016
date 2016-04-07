@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstring>
-#define SIZE 1010
-#define DISPCNT 1000
+#define SIZE 10010
+#define DISPCNT 10000
 
 int main()
 {
@@ -11,7 +11,7 @@ int main()
     memset(ans,0,sizeof(ans));
     ans[1]=x[1]=2;
     int a=1,b=3,Run=1,Cnt=0;
-    while(Run && (++Cnt<2000))
+    while(Run && (++Cnt<200000000))
     {
         //x*=a
         int d=0,c;
@@ -40,9 +40,10 @@ int main()
         }
         a++;
         b+=2;
-        printf("Run=%d cnt=%d\n",Run,Cnt);
+       // printf("Run=%d cnt=%d\n",Run,Cnt);
     }
-    for(int i=1;i<=DISPCNT;i++)
+    printf("3.");
+    for(int i=2;i<=DISPCNT;i++)
     {
         printf("%d",ans[i]);
     }
