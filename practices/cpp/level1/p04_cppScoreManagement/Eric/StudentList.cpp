@@ -121,7 +121,6 @@ StudentInfo StudentList::getStudentInfo()
 	std::string sourceName;
 	unsigned sourceId;
 	std::cout << "student's name : ";
-	//std::getline(std::cin, sourceName);
 	std::cin >> sourceName;
 	std::cout << "student's id : ";
 	std::cin >> sourceId;
