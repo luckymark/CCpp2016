@@ -5,7 +5,7 @@
 
 //#define DEBUG 
 
-void ANN::spread(std::vector<int> &data){
+void ANN::spread(std::vector<double> &data){
 	assert(data.size() == inputLayerSize);
 	for(int i = 0; i < inputLayerSize; ++i)
 		inputLayer[i].output = data[i]; //输入数据
@@ -14,23 +14,23 @@ void ANN::spread(std::vector<int> &data){
 	for(int i = 0; i < outputLayerSize; ++i)
 		outputLayer[i].output = 0;
 	//清空当前网络输出初始值
-	for(int i = 0; i < hiddenLayerSize; ++i)
-		for(int j = 0; j < inputLayerSize; ++j){
+	for(int i = 0; i < hiddenLayerSize; ++i){
+		for(int j = 0; j < inputLayerSize; ++j)
 			hiddenLayer[i].output += inputLayer[j].output * inputLayer[j].w[i];
-			hiddenLayer[i].output = f(hiddenLayer[i].output - hiddenLayer[i].threshold);
-		}
+		hiddenLayer[i].output = f(hiddenLayer[i].output - hiddenLayer[i].threshold);
+	}
 	//输入层传播至隐藏层
 
-	for(int i = 0; i < outputLayerSize; ++i)
-		for(int j = 0; j < hiddenLayerSize; ++j){
+	for(int i = 0; i < outputLayerSize; ++i){
+		for(int j = 0; j < hiddenLayerSize; ++j)
 			outputLayer[i].output += hiddenLayer[j].output * hiddenLayer[j].w[i];
-			outputLayer[i].output = f(outputLayer[i].output - outputLayer[i].threshold);
-		}
+		outputLayer[i].output = f(outputLayer[i].output - outputLayer[i].threshold);
+	}
 	//隐藏层传播至输出层
 
 }
 
-void ANN::bp(std::vector<int> &ans){
+void ANN::bp(std::vector<double> &ans){
 	assert(ans.size() == outputLayerSize);
 	std::vector<double> g(outputLayerSize),e(hiddenLayerSize);
 	for(int i = 0; i < outputLayerSize; ++i){
@@ -55,7 +55,7 @@ void ANN::bp(std::vector<int> &ans){
 	}
 }
 
-double ANN::train(std::vector<int> &data,std::vector<int> &ans){
+double ANN::train(std::vector<double> &data,std::vector<double> &ans){
 	spread(data);
 	bp(ans);
 	double fa = 0;
@@ -65,14 +65,14 @@ double ANN::train(std::vector<int> &data,std::vector<int> &ans){
 	return fa / outputLayerSize;
 }
 
-void ANN::setInput(std::vector<int> &data){
+void ANN::setInput(std::vector<double> &data){
 	spread(data);
 }
 
-std::vector<int> ANN::getOutput(){
-	std::vector<int> ret(outputLayerSize);
+std::vector<double> ANN::getOutput(){
+	std::vector<double> ret(outputLayerSize);
 	for(int i = 0; i < outputLayerSize; ++i){
-		ret[i] = outputLayer[i].output > 0.5 ? 1 : 0;
+		ret[i] = outputLayer[i].output;
 	}
 	return ret;
 }

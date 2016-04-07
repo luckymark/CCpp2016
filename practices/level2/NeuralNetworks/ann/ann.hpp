@@ -30,9 +30,9 @@ public:
 	double learningrate;
 	std::vector<MPNode> inputLayer,hiddenLayer,outputLayer;
 
-	double train(std::vector<int> &data,std::vector<int> &ans);
-	void setInput(std::vector<int> &data);
-	std::vector<int> getOutput();
+	double train(std::vector<double> &data,std::vector<double> &ans);
+	void setInput(std::vector<double> &data);
+	std::vector<double> getOutput();
 	ANN(int is,int hs,int os,double rate){
 		srand(is*hs*os+1);
 		//初始化随机数
@@ -64,8 +64,8 @@ private:
 
 
 	void initMPNode(MPNode &nd,int nextLayerSize);
-	void spread(std::vector<int> &data);
-	void bp(std::vector<int> &ans);
+	void spread(std::vector<double> &data);
+	void bp(std::vector<double> &ans);
 
 };
 #endif
