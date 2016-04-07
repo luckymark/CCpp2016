@@ -5,7 +5,7 @@ int SafeArray::set(int number, int index)
 {
     if(isSafe(index))
     {
-        *(array + index) = number;
+        array[index] = number;
         return 0;
     }
     else
@@ -18,7 +18,7 @@ int SafeArray::get(int index)
 {
     if(isSafe(index))
     {
-        return *(array + index);
+        return array[index];
     }
     else
     {

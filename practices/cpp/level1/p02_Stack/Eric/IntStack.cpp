@@ -8,7 +8,7 @@ bool IntStack::push(int num)
 {
     if(!isFull())
     {
-        *(IntStack::num + (++head)) = num;
+        this->num[++head] = num;
         return 0;
     }
     else
@@ -20,7 +20,7 @@ int IntStack::pop()
 {
     if(!isEmpty())
     {
-        return *(IntStack::num + (head--));
+        return this->num[head--];
     }
     else
     {

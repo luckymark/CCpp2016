@@ -4,10 +4,10 @@ class IntStack
 {
 public:
     IntStack() = default;
-    IntStack(int stackCapacity)
+    IntStack(int capacity)
     {
-        num = new int[stackCapacity];
-        fullHead = stackCapacity;
+        num = new int[capacity];
+        fullHead = capacity;
     }
     ~IntStack()
     {
