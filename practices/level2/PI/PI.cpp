@@ -1,10 +1,13 @@
 #include <cstdio>
 #include <cstring>
+#include <time.h>
 #define SIZE 10010
 #define DISPCNT 10000
 
 int main()
 {
+	double start,finsh;
+	start=clock();
     freopen("out.txt","w",stdout);
     int x[SIZE],ans[SIZE];
     memset(x,0,sizeof(x));
@@ -47,5 +50,9 @@ int main()
     {
         printf("%d",ans[i]);
     }
+    printf("\n");
+    finsh=clock();
+    printf("Total time:%gms\n",finsh-start);
+    printf("Total memory:%db\n",sizeof(x)+sizeof(ans));
     return 0;
 }
