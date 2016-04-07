@@ -2,6 +2,31 @@
 #define _STACK_HPP
 
 #include <assert.h>
+#include <stdio.h>
+
+struct Node{
+    int value;
+    int *next;
+};
+
+class GeniusStack{
+public:
+    void push(int value);
+    int top();
+    void pop();
+    bool empty();
+
+    ~GeniusStack(){
+        while(data != NULL){
+            Node *nxt = data->next;
+            delete nxt;
+            data = nxt;
+        }
+    }
+private:
+    Node *data = NULL;
+    int size = 0;
+};
 
 class Stack{
 public:
