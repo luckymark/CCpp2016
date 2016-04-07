@@ -8,9 +8,9 @@
 class ClassList
 {
 private:
-    std::vector<StudentInfo> student;
+	std::vector<StudentInfo> student;
 public:
-    bool addStudent();
-    bool inputScore(unsigned score);
-}
+	bool addStudent();
+	bool inputScore(unsigned score);
+};
 #endif
