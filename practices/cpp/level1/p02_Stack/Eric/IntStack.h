@@ -8,7 +8,11 @@ public:
     {
         num = new int[stackCapacity];
         fullHead = stackCapacity;
-    } 
+    }
+    ~IntStack()
+    {
+        delete num;
+    }
     int showStackCapacity();
     bool push(int num);
     int pop();
