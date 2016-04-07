@@ -16,6 +16,7 @@ struct MPNode{
 	std::vector<double> w; //连接权值
 	void init(int nextLayerSize){
 		threshold = 1.0*rand()/RAND_MAX;
+		//threshold = 0;
 		output = 0;
 		w.resize(nextLayerSize);
 		for(int i = 0; i < nextLayerSize; ++i)
@@ -53,10 +54,10 @@ public:
 			outputLayer[i].init(0);
 		}
 	}
-private:
 	double sigmoid(double x){
 		return 1.0/(1.0+exp(-x));
 	}
+private:
 	double f(double x){
 		return sigmoid(x);
 	}

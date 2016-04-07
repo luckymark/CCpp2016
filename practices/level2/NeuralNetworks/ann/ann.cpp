@@ -13,20 +13,33 @@ void ANN::spread(std::vector<double> &data){
 		hiddenLayer[i].output = 0;
 	for(int i = 0; i < outputLayerSize; ++i)
 		outputLayer[i].output = 0;
+
 	//清空当前网络输出初始值
-	for(int i = 0; i < hiddenLayerSize; ++i)
+	for(int i = 0; i < hiddenLayerSize; ++i){
 		for(int j = 0; j < inputLayerSize; ++j){
 			hiddenLayer[i].output += inputLayer[j].output * inputLayer[j].w[i];
-			hiddenLayer[i].output = f(hiddenLayer[i].output - hiddenLayer[i].threshold);
 		}
+		hiddenLayer[i].output = f(hiddenLayer[i].output - hiddenLayer[i].threshold);
+	}
 	//输入层传播至隐藏层
 
-	for(int i = 0; i < outputLayerSize; ++i)
+	for(int i = 0; i < outputLayerSize; ++i){
 		for(int j = 0; j < hiddenLayerSize; ++j){
 			outputLayer[i].output += hiddenLayer[j].output * hiddenLayer[j].w[i];
-			outputLayer[i].output = f(outputLayer[i].output - outputLayer[i].threshold);
 		}
+		outputLayer[i].output = f(outputLayer[i].output - outputLayer[i].threshold);
+	}
 	//隐藏层传播至输出层
+
+#ifdef DEBUG
+	printf("In hiddenLayer:\n");
+	for(int i = 0; i < hiddenLayerSize; ++i)
+		printf("%.3f ",hiddenLayer[i].output);
+	printf("\nIn outputLayer\n");
+	for(int i = 0; i < outputLayerSize; ++i)
+		printf("%.3f ",outputLayer[i].output);
+	printf("\n");
+#endif
 
 }
 
@@ -75,7 +88,7 @@ double ANN::train(std::vector<std::vector<double> > &data,std::vector<std::vecto
 		for(int i = 0; i < hiddenLayerSize; ++i)
 			sigmaE[i] += e[i];
 		for(int i = 0; i < outputLayerSize; ++i)
-			sigmaDelta += (outputLayer[i].output - ans[0][i]) * (outputLayer[i].output - ans[0][i]);
+			sigmaDelta += (outputLayer[i].output - ans[cas][i]) * (outputLayer[i].output - ans[cas][i]);
 		delta += sigmaDelta / outputLayerSize;
 		sigmaDelta = 0;
 	}

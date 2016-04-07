@@ -4,37 +4,37 @@
 #include <vector>
 #include "ann/ann.hpp"
 
-/*
-
-测试一个数大于还是小于10
-
-*/
-
 using namespace std;
+
+typedef vector<double> vd;
+#define pb push_back
+
 const int trainNumber = 1000000;
 int main(){
-	ANN ann(1,100,1,0.1);
+	ANN ann(2,5,1,0.3);
 	double loss = 0.0;
-	for(int i = 1; i < trainNumber; ++i){
-		vector<int> data(1),ans(1);
-		data[0] = 1.0*rand()/RAND_MAX*(20);
-		ans[0] = data[0] < 10 ? 0 : 1;
+	vector<vector<double> > data,ans;
+	data.pb(vd{0,0});ans.pb(vd{0});
+	data.pb(vd{1,1});ans.pb(vd{0});
+	data.pb(vd{0,1});ans.pb(vd{1});
+	data.pb(vd{1,0});ans.pb(vd{1});
+	for(int i = 0; i < trainNumber; ++i){
 		double er = ann.train(data,ans);
 		const double m = 0.9;
 		loss = m * loss + (1.0 - m) * er;
-		if( i % 10000 == 0 ) {
+		if(i % 1000 == 0)
 			printf("%d :: er = %.5f loss = %.5f\n", i, er, loss);
-		}
 	}
-	cout << "Please Input Number" << endl;
+	cout << "Please Input(xy)" << endl;
 	while(1){
-		int d;
-		cin >> d;
-		vector<int> a(1);
-		a[0] = d;
+		int x,y;
+		cin >> x >> y;
+		vector<double> a(2);
+		a[0] = x;  a[1] = y;
 		ann.setInput(a);
-		vector<int> ans = ann.getOutput();
-		cout << (ans[0] ? " max ":" min ") << endl;
+		vector<double> ans = ann.getOutput();
+		cout << ans[0] << endl;
+		//cout << (ans[0] ? " max ":" min ") << endl;
 	}
 	return 0;
 }
