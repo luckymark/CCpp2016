@@ -14,6 +14,10 @@ public:
     {
         return id;
     }
+    void setScore(unsigned sourceScore)
+    {
+        score = sourceScore;
+    }
     void printAllInfo();
 private:
     unsigned id;
