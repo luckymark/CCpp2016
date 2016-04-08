@@ -37,17 +37,17 @@ struct node* createList(struct node*head)
     while((p1->data)!=-1)
     {
         if(head==NULL)
-            {
-                head=p1;
-            }
+        {
+            head=p1;
+        }
         else
-            {
-                p2->next=p1;
-            }
-            p2=p1;
-            p1=(struct node*)malloc(sizeof(struct node));
-            printf("输入节点的值(-1结束):");
-            scanf("%d",&p1->data);
+        {
+            p2->next=p1;
+        }
+        p2=p1;
+        p1=(struct node*)malloc(sizeof(struct node));
+        printf("输入节点的值(-1结束):");
+        scanf("%d",&p1->data);
     }
     free(p1);
     p1=NULL;
