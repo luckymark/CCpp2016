@@ -16,8 +16,6 @@ int main()
 {
 	int n;
 	int i=0;
-	//int *q;
-	//q=&i;
 	for(;;)
 	{
 		scanf("%d",&n);
