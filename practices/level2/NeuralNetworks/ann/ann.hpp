@@ -32,7 +32,7 @@ public:
 
 	double train(std::vector<double> &data,std::vector<double> &ans);
 	void setInput(std::vector<double> &data);
-	std::vector<double> getOutput();
+	void getOutput(std::vector<double> &ret);
 	ANN(int is,int hs,int os,double rate){
 		srand(is*hs*os+1);
 		//初始化随机数

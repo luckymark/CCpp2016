@@ -69,10 +69,9 @@ void ANN::setInput(std::vector<double> &data){
 	spread(data);
 }
 
-std::vector<double> ANN::getOutput(){
-	std::vector<double> ret(outputLayerSize);
+void ANN::getOutput(std::vector<double> &ret){
+	assert(ret.size() == outputLayerSize);
 	for(int i = 0; i < outputLayerSize; ++i){
 		ret[i] = outputLayer[i].output;
 	}
-	return ret;
 }
