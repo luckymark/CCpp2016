@@ -31,9 +31,10 @@ public:
 	double learningrate;
 	std::vector<MPNode> inputLayer,hiddenLayer,outputLayer;
 
-	double train(std::vector<std::vector<double> > &data,std::vector<std::vector<double> > &ans);
+	double train(std::vector<double> &data,std::vector<double> &ans);
 	void setInput(std::vector<double> &data);
-	std::vector<double> getOutput();
+	void getOutput(std::vector<double> &ret);
+
 	ANN(int is,int hs,int os,double rate){
 		srand(is*hs*os+1);
 		//初始化随机数
@@ -64,9 +65,15 @@ private:
 	//使用sigmoid作为激活函数
 
 
+<<<<<<< HEAD
 	void countXita(std::vector<double> &g,std::vector<double> &e,std::vector<double> &ans); //计算一组偏移量 
 	void spread(std::vector<double> &data); //正向传播
 	void bp(std::vector<double> &g,std::vector<double> &e); //反向更新
+=======
+	void initMPNode(MPNode &nd,int nextLayerSize);
+	void spread(std::vector<double> &data);
+	void bp(std::vector<double> &ans);
+>>>>>>> signalBP
 
 };
 #endif

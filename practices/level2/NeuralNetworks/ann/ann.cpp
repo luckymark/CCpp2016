@@ -16,17 +16,15 @@ void ANN::spread(std::vector<double> &data){
 
 	//清空当前网络输出初始值
 	for(int i = 0; i < hiddenLayerSize; ++i){
-		for(int j = 0; j < inputLayerSize; ++j){
+		for(int j = 0; j < inputLayerSize; ++j)
 			hiddenLayer[i].output += inputLayer[j].output * inputLayer[j].w[i];
-		}
 		hiddenLayer[i].output = f(hiddenLayer[i].output - hiddenLayer[i].threshold);
 	}
 	//输入层传播至隐藏层
 
 	for(int i = 0; i < outputLayerSize; ++i){
-		for(int j = 0; j < hiddenLayerSize; ++j){
+		for(int j = 0; j < hiddenLayerSize; ++j)
 			outputLayer[i].output += hiddenLayer[j].output * hiddenLayer[j].w[i];
-		}
 		outputLayer[i].output = f(outputLayer[i].output - outputLayer[i].threshold);
 	}
 	//隐藏层传播至输出层
@@ -43,9 +41,7 @@ void ANN::spread(std::vector<double> &data){
 
 }
 
-void ANN::countXita(std::vector<double> &g,std::vector<double> &e,std::vector<double> &ans){
-	assert(g.size() == outputLayerSize);
-	assert(e.size() == hiddenLayerSize);
+void ANN::bp(std::vector<double> &ans){
 	assert(ans.size() == outputLayerSize);
 	for(int i = 0; i < outputLayerSize; ++i){
 		double op = outputLayer[i].output;
@@ -74,23 +70,12 @@ void ANN::bp(std::vector<double> &g,std::vector<double> &e){
 	}
 }
 
-double ANN::train(std::vector<std::vector<double> > &data,std::vector<std::vector<double> > &ans){
-	assert(data.size() == ans.size());
-	assert(data.size() >= 1);
-	int dataCase = data.size();
-	double delta = 0 ,sigmaDelta = 0; //计算累计误差
-	std::vector<double> sigmaG(outputLayerSize,0),sigmaE(hiddenLayerSize,0),g(outputLayerSize),e(hiddenLayerSize);
-	for(int cas = 0; cas < dataCase; ++cas){
-		spread(data[cas]);
-		countXita(g,e,ans[cas]);
-		for(int i = 0; i < outputLayerSize; ++i)
-			sigmaG[i] += g[i];
-		for(int i = 0; i < hiddenLayerSize; ++i)
-			sigmaE[i] += e[i];
-		for(int i = 0; i < outputLayerSize; ++i)
-			sigmaDelta += (outputLayer[i].output - ans[cas][i]) * (outputLayer[i].output - ans[cas][i]);
-		delta += sigmaDelta / outputLayerSize;
-		sigmaDelta = 0;
+double ANN::train(std::vector<double> &data,std::vector<double> &ans){
+	spread(data);
+	bp(ans);
+	double fa = 0;
+	for(int i = 0; i < outputLayerSize; ++i){
+		fa += (outputLayer[i].output - ans[i]) * (outputLayer[i].output - ans[i]);
 	}
 
 	for(int i = 0; i < outputLayerSize; ++i)
@@ -108,10 +93,9 @@ void ANN::setInput(std::vector<double> &data){
 	spread(data);
 }
 
-std::vector<double> ANN::getOutput(){
-	std::vector<double> ret(outputLayerSize);
+void ANN::getOutput(std::vector<double> &ret){
+	assert(ret.size() == outputLayerSize);
 	for(int i = 0; i < outputLayerSize; ++i){
-		ret[i] = outputLayer[i].output ;
+		ret[i] = outputLayer[i].output;
 	}
-	return ret;
 }
