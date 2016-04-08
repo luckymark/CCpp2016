@@ -64,16 +64,9 @@ private:
 	}
 	//使用sigmoid作为激活函数
 
-
-<<<<<<< HEAD
-	void countXita(std::vector<double> &g,std::vector<double> &e,std::vector<double> &ans); //计算一组偏移量 
-	void spread(std::vector<double> &data); //正向传播
-	void bp(std::vector<double> &g,std::vector<double> &e); //反向更新
-=======
 	void initMPNode(MPNode &nd,int nextLayerSize);
 	void spread(std::vector<double> &data);
 	void bp(std::vector<double> &ans);
->>>>>>> signalBP
 
 };
 #endif
