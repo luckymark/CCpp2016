@@ -11,7 +11,6 @@ void in_list();
 void reverse_list();
 void print_list();
 int search_list(int *q);
-int search_list_next(int *q);
 int main()
 {
 	int n;
