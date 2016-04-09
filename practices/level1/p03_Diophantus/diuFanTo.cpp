@@ -16,9 +16,18 @@ int main()
 bool can(int a)
 {
     int b;
-    if (a%6 || a%12 || a%7) return false;
+    if (a%6 || a%12 || a%7)
+    {
+        return false;
+    }
     b=a-a/6-a/12-a/7-9;
-    if (b<=0) return false;
-    if (a%b==0 && a/b==2) return true;
+    if (b<=0)
+    {
+        return false;
+    }
+    if (a%b==0 && a/b==2)
+    {
+        return true;
+    }
     return false;
 }
