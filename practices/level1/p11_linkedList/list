@@ -1,0 +1,79 @@
+#include<cstdio>
+#include<iostream>
+using namespace std;
+struct Pointer{
+    int v;
+    Pointer *p;
+};
+Pointer *p1;
+int n;
+
+void readBuild();
+void reverse();
+void query();
+
+int main()
+{
+    readBuild();
+    reverse();
+    query();
+}
+void readBuild()
+{
+    int i;
+    Pointer *now,*y;
+    scanf("%d",&n);
+    for (i=0;i<n;i++)
+    {
+        now=new Pointer;
+        if (i==0)
+        {
+            p1=now;
+        }
+        scanf("%d",&now->v);
+        if (i!=0)
+        {
+            y->p=now;
+        }
+        if (i==n-1)
+        {
+            now->p=now;
+        }
+        y=now;
+    }
+}
+void reverse()
+{
+    Pointer *i,*pre,*y;
+    pre=p1;
+    i=p1;
+    while (i->p!=i)
+    {
+        y=i->p;
+        i->p=pre;
+        pre=i;
+        i=y;
+    }
+    i->p=pre;
+    p1=i;
+}
+void query()
+{
+    int now=1;
+    Pointer *i;
+    i=p1;
+    while (i!=i->p)
+    {
+        if (i->v==5) 
+        {
+            printf("%d ",now);
+        }
+        i=i->p;
+        now++;
+    }
+    if (i->v==5)
+    {
+        printf("%d ",now);
+    }
+    printf("-1\n");
+}
