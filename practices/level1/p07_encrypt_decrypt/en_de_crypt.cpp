@@ -20,7 +20,10 @@ int main()
 }
 void getRand()
 {
-    for (int i=0;i<Maxn;i++)  num[i]=rand()%Mo;
+    for (int i=0;i<Maxn;i++)
+    {
+        num[i]=rand()%Mo;
+    }
 }
 void read()
 {
@@ -29,9 +32,13 @@ void read()
     gets(s);
     l=strlen(s);
     if (p==1)
+    {
         en_de_crypt(1);
-    if (p==2) 
+    }
+    if (p==2)
+    {
         en_de_crypt(-1);
+    }
     printf("%s\n",s);
 }
 void en_de_crypt(int a)
