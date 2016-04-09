@@ -24,7 +24,10 @@ void makePrime()
     for (i=2;i<=Up/2;i++)
     if (use[i]==0)
     {
-        for (j=i+i;j<=Up;j+=i) use[j]=1;
+        for (j=i+i;j<=Up;j+=i) 
+        {
+            use[j]=1；
+        }
     }
 }
 bool no(int a)
@@ -32,7 +35,10 @@ bool no(int a)
     int i;
     for (i=2;i<a;i++)
     {
-        if (use[i]==0 && use[a-i]==0) return false;
+        if (use[i]==0 && use[a-i]==0)
+        {
+            return false；
+        }
     }
     return true;
 }
