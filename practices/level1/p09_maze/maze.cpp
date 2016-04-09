@@ -16,10 +16,14 @@ int main()
 {
     srand(time(NULL));
     read();
-    if (search(x,y)) 
+    if (search(x,y))
+    {
         printf("YES\n");
+    }
     else 
-        printf("NO\n");
+    {
+        printf("NO\n")；
+    }
 }
 
 void read()
@@ -46,9 +50,18 @@ bool search(int x,int y)
     {
         newx=x+xx[i];
         newy=y+yy[i];
-        if (map[newx][newy]==0) continue;
-        if (map[newx][newy]==2) return true;
-        if (search(newx,newy)) return true;
+        if (map[newx][newy]==0)
+        {
+            continue;
+        }
+        if (map[newx][newy]==2) 
+        {
+            return true;
+        }
+        if (search(newx,newy))
+        {
+            return true;
+        }
     }
     return false;
 }
