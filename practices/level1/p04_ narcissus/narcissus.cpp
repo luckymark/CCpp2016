@@ -27,6 +27,9 @@ bool can(int a)
         all+=cube(a%10);
         a=a/10;
     }
-    if (all==y) return true;
+    if (all==y)
+    {
+        return true;
+    }
     return false;
 }
