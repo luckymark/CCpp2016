@@ -27,12 +27,18 @@ void readBuild()
     {
         now=new Pointer;
         if (i==0)
+        {
             p1=now;
+        }
         scanf("%d",&now->v);
         if (i!=0)
+        {
             y->p=now;
+        }
         if (i==n-1)
+        {
             now->p=now;
+        }
         y=now;
     }
 }
@@ -58,10 +64,16 @@ void query()
     i=p1;
     while (i!=i->p)
     {
-        if (i->v==5) printf("%d ",now);
+        if (i->v==5) 
+        {
+            printf("%d ",now);
+        }
         i=i->p;
         now++;
     }
-    if (i->v==5) printf("%d ",now);
+    if (i->v==5)
+    {
+        printf("%d ",now);
+    }
     printf("-1\n");
 }
