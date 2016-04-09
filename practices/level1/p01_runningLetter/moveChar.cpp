@@ -19,7 +19,10 @@ void move (int l,int r,int a)
     int i,j;
     for (i = l;i != r;i += a)
     {
-        for (j = 1;j <= i; j++) printf(" ");
+        for (j = 1;j <= i; j++)
+        {
+            printf(" ");
+        }
         printf("A");
         system("cls");
     }
