@@ -1,23 +1,27 @@
 #ifndef STACK_H
 #define STACK_H
 
+struct unit{
+      unit* next;
+      unit* last;
+      int value;
+      int number;
+};
+
 
 class Stack
 {
     public:
-        bool isFull();
         bool isEmpty();
         void push(int item);
         int pop();
-        Stack(int n);
         Stack();
         virtual ~Stack();
 
     protected:
 
     private:
-        int*data;
-        int head=0;
+        unit* top;
 };
 
 #endif // STACK_H
