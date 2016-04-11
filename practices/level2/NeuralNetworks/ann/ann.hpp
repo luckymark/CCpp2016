@@ -16,6 +16,7 @@ struct MPNode{
 	std::vector<double> w; //连接权值
 	void init(int nextLayerSize){
 		threshold = 1.0*rand()/RAND_MAX;
+		//threshold = 0;
 		output = 0;
 		w.resize(nextLayerSize);
 		for(int i = 0; i < nextLayerSize; ++i)
@@ -32,7 +33,8 @@ public:
 
 	double train(std::vector<double> &data,std::vector<double> &ans);
 	void setInput(std::vector<double> &data);
-	std::vector<double> getOutput();
+	void getOutput(std::vector<double> &ret);
+
 	ANN(int is,int hs,int os,double rate){
 		srand(is*hs*os+1);
 		//初始化随机数
@@ -53,15 +55,14 @@ public:
 			outputLayer[i].init(0);
 		}
 	}
-private:
 	double sigmoid(double x){
 		return 1.0/(1.0+exp(-x));
 	}
+private:
 	double f(double x){
 		return sigmoid(x);
 	}
 	//使用sigmoid作为激活函数
-
 
 	void initMPNode(MPNode &nd,int nextLayerSize);
 	void spread(std::vector<double> &data);
