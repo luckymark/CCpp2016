@@ -9,12 +9,23 @@ class SafeArray
         arrayMaxIndex = arrayLengthSource;
         array = new int[arrayLengthSource];
     }
-    int set(int number, int index);
-    int get(int index);
+	int &operator[](int index)
+	{
+		if(isSafe(index))
+		{
+			return array[index];
+		}
+		else
+		{
+			std::cerr << "FLOW!!!" << std::endl;
+			return flowReturn;
+		}
+	}
     private:
     bool isSafe(int index);
     int arrayMaxIndex;
-    int arrayLessIndex = -1;
+	int arrayLessIndex = -1;
     int *array;
+	int flowReturn;
 };
 #endif
