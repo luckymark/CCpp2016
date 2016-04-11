@@ -5,11 +5,20 @@
 
 class Employee
 {
-private:
+protected:
 	std::string name;
 	unsigned age;
-	int rank = 0;
+	int rank = 1;
 	int baseSalary;
 	int totalSalary;
-}
+	void calBaseSalary();
+public:
+	Employee(std::string name, unsigned age, int rank) : name(name), age(age), rank(rank)
+	{
+		calBaseSalary();
+	}
+	virtual void showInfo();
+	void setRank(int newRank);
+	virtual void calSalary();
+};
 #endif
