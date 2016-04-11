@@ -2,13 +2,13 @@
 int main()
 {
     int x;
-    printf("ÇëÊäÈëÒ»¸öÕûÊı\n");
+    printf("è¯·è¾“å…¥ä¸€ä¸ªæ•´æ•°\n");
     scanf("%d",&x);
     if(x<0)
-        printf("¸ÃÊıÎª¸ºÊı");
-        else printf("¸ÃÊıÎªÕıÊı");
+        printf("è¯¥æ•°ä¸ºè´Ÿæ•°");
+        else printf("è¯¥æ•°ä¸ºæ­£æ•°");
     if(x%2==0)
-        printf("ÇÒÎªÅ¼Êı\n");
-    else printf("ÇÒÎªÆæÊı\n");
+        printf("ä¸”ä¸ºå¶æ•°\n");
+        else printf("ä¸”ä¸ºå¥‡æ•°\n");
         return 0;
 }
