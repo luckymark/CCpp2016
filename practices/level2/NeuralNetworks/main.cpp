@@ -37,7 +37,7 @@ void training(ANN &ann,int datasize,double eps){
 			//printf("  %.6f \n",er);
 			loss = m * loss + (1.0 - m) * er;
 		}
-		printf("Times = %d , loss = %.5f\n",++times,loss,);
+		printf("Times = %d , loss = %.5f\n",++times,loss);
 		int t1 = time(0);
 	}while(loss > eps);
 	// 精度达到要求
