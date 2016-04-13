@@ -6,3 +6,4 @@ slides/.idea
 .gitignore
 /cppMyOwn
 *.sh
+*.sh~
