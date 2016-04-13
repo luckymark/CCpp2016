@@ -7,3 +7,4 @@ slides/.idea
 /cppMyOwn
 *.sh
 *.sh~
+*.o
