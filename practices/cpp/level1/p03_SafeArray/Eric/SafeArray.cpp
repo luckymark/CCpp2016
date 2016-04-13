@@ -1,5 +1,7 @@
 #include "SafeArray.h"
-bool SafeArray::isSafe(int index)
+
+// SafeArray::SafeArray(const SafeArray &source)
+bool SafeArray::isSafe(int index) const
 {
-    return index > arrayLessIndex && index < arrayMaxIndex;
+	return (index < capacity) && (index >= LEAST_INDEX);
 }

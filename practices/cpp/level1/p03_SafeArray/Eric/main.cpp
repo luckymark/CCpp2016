@@ -1,15 +1,15 @@
-//p03_SafeArray
-//author : Eric
-
 #include <iostream>
 #include "SafeArray.h"
 
 int main()
 {
-    SafeArray safeArray(100);
-    safeArray[0] = 100;
-	safeArray[100] = 200;
-    std::cout << "The index.1 " << safeArray[0] << std::endl;
-    std::cout << "The index.100(wrong)" << safeArray[100] << std::endl;
-    return 0;
+	SafeArray safeArray1(100);
+	std::cout << "1[1] = 100    ";
+	safeArray1[1] = 100;
+	std::cout << safeArray1[1] << std::endl;
+	std::cout << "const 2[1] = 100";
+	const SafeArray safeArray2(safeArray1);
+	std::cout << safeArray2[1] << std::endl;
+	
+	return 0;
 }
