@@ -1,32 +1,20 @@
 #include "SafeArray.h"
-#include <iostream>
 
-int SafeArray::set(int number, int index)
+SafeArray::SafeArray(const SafeArray &source)
 {
-    if(isSafe(index))
-    {
-        array[index] = number;
-        return 0;
-    }
-    else
-    {
-        std::cout << "ERROR : FLOW." << std::endl;
-        return 1;
-    }
+	auto temp = new int[source.capacity];
+	for(int count = 0; count != source.capacity; count++)
+	{
+		*(temp + count) = *(source.array + count);
+	}
+	if(array != nullptr)
+	{
+		delete array;
+	}
+	array = temp;
+	capacity = source.capacity;
 }
-int SafeArray::get(int index)
+bool SafeArray::isSafe(int index) const
 {
-    if(isSafe(index))
-    {
-        return array[index];
-    }
-    else
-    {
-        std::cout << "ERROR : FLOW." << std::endl;
-        return -1;
-    }
-}
-bool SafeArray::isSafe(int index)
-{
-    return index > arrayLessIndex && index < arrayMaxIndex;
+	return (index < capacity) && (index >= LEAST_INDEX);
 }

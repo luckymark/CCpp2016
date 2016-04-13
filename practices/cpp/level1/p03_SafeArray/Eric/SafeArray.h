@@ -1,20 +1,42 @@
 #ifndef SAFE_ARRAY_H
 #define SAFE_ARRAY_H
+
+#include <iostream>
+
+#define LEAST_INDEX 0
 class SafeArray
 {
-    public:
-    SafeArray() = default;
-    SafeArray(int arrayLengthSource)
-    {
-        arrayMaxIndex = arrayLengthSource;
-        array = new int[arrayLengthSource];
-    }
-    int set(int number, int index);
-    int get(int index);
-    private:
-    bool isSafe(int index);
-    int arrayMaxIndex;
-    int arrayLessIndex = -1;
-    int *array;
+private:
+	int *array = nullptr;
+	int capacity = 0;
+	int wrongIndexReturn;
+	bool isSafe(int index) const;
+public:
+	SafeArray(int cap) : capacity(cap), array(new int[cap]){}
+	SafeArray(const SafeArray &source);
+	int &operator[](int index)
+	{
+		if(isSafe(index))
+		{
+			return *(array + index);
+		}
+		else
+		{
+			std::cerr << "wrong index" << std::endl;
+			return wrongIndexReturn;
+		}
+	}
+	const int &operator[](int index) const
+	{
+		if(isSafe(index))
+		{
+			return array[index];
+		}
+		else
+		{
+			std::cerr << "wrong index" << std::endl;
+			return wrongIndexReturn;
+		}
+	}
 };
 #endif
