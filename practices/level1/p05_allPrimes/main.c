@@ -1,7 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void primeOrNot(int a)
+void IsPrime(int a);
+int main()
+{
+    int i;
+    for(i=2;i<=1000;i++)
+        IsPrime(i);
+    return 0;
+}
+void IsPrime(int a)
 {
     int i,sum=0;
     for(i=2;i<=a-1;i++)
@@ -10,19 +18,11 @@ void primeOrNot(int a)
         if(k==0)
         {
             sum++;
-            if(sum>=1) break;
         }
     }
     if(sum==0)
     {
         printf("%d\n",a);
     }
-}
-int main()
-{
-    int i;
-    for(i=2;i<=1000;i++)
-        primeOrNot(i);
-    return 0;
 }
 
