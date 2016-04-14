@@ -19,7 +19,7 @@ int main(){
 		for(j=1;j<=100;j++){
 		    if(a[i]+a[j]==num){
 		        sign++;
-				}
+		    }
 			}	
 		}
 	}
