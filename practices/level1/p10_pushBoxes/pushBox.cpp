@@ -1,4 +1,4 @@
-// Maze.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// Maze.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
@@ -38,17 +38,17 @@ int main()
 
 		while (direction == 4)
 		{
-			printf("ÇëÊäÈë·½Ïò£º");
+			printf("è¯·è¾“å…¥æ–¹å‘ï¼š");
 			scanf_s("%c", &ch, 1);
 			direction = transform(ch);
-			if (direction == 4) printf("\n´íÎóµÄÊäÈë!\n");
+			if (direction == 4) printf("\né”™è¯¯çš„è¾“å…¥!\n");
 		}
 		system("cls");
 		int mx = x + cx[direction];
 		int my = y + cy[direction];
 		if (valid(mx, my, mx + cx[direction], my + cy[direction]))
 		{
-			if (flag)
+			if (flag)   //èµ°è¿‡ç®±å­ç»ˆç‚¹ï¼Œéœ€è¦è¿˜åŸåŸæ¥çš„æ ‡å¿—
 			{
 				map[x][y] = '1';
 				flag = false;
@@ -84,13 +84,13 @@ bool valid(int x, int y,int cx,int cy)
 	{
 		if (map[cx][cy] == 'O' || map[cx][cy] == '#')
 			return false;
-		if (map[cx][cy] == '1')
+		if (map[cx][cy] == '1')  //ç®±å­å½’ä½
 		{
 			map[cx][cy] = 'T';
 			tot++;
 			return true;
 		}
-		if (map[cx][cy] == ' ')
+		if (map[cx][cy] == ' ')  //æ¨ç®±å­
 		{
 			map[cx][cy] = 'O';
 			return true;
@@ -99,7 +99,7 @@ bool valid(int x, int y,int cx,int cy)
 
 	if (map[x][y] == '#')
 	{
-		printf("Äã×²Ç½ÁË£¡£¡\n");
+		printf("ä½ æ’å¢™äº†ï¼ï¼\n");
 		return false;
 	}
 	return true;
