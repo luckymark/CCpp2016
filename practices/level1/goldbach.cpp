@@ -26,8 +26,9 @@ int main(){
 	if(sign==0){
             printf("no");
 	}
-	else
-	    printf("yes");	
+	else{
+	    printf("yes");
+	}
 }
 
 	
