@@ -7,38 +7,81 @@
 //
 
 #include <stdio.h>
-
-
-
+struct slist{
+    int value;
+    
+    struct slist *next;
+};
+struct slist *head,*current;
+void initSlistForLength(int length);
+void reverseSlist();
+int findTheValue(int valueToSearch);
 int main(int argc, const char * argv[]) {
     // insert code here...
     printf("Hello, World!\n");
-//    struct slist{
-//        int info;
-//        struct slist*next;
-//    };
-//    
-//    struct slist *head,*p,*q;
-//    head=p;
-//    p->info=20;
-//    p->next=q;
-//    q->info=50;
-//    q->next='\0';
-//    
-    
-    int a,*p,*q;
-    a=10;
-    p=&a;
-    q=p;
-    
-    printf("a:%d\n*p:%d\n",a,*p);
-    int data[10];
-    int *d;
-    d=data;
-    *d=100;
-    *(d+1)=200;
-    printf("data1:%d\ndata2:%d\n",data[0],*(d+1));
+ 
+    initSlistForLength(10);
+    reverseSlist();
+    current=head;
+    int indexOfFive;
+    while ((indexOfFive=findTheValue(5))!=-1) {
+        printf("index:%d\n",indexOfFive);
+    }
+    printf("index:%d\n",indexOfFive);
     
     
     return 0;
+}
+
+void initSlistForLength(int length){
+    struct slist *p,*q;
+    p=(struct slist *)malloc(sizeof(struct slist));
+    for (int i=0; i<=length; i++){
+        
+        if (i==0) {
+            head=p;
+            
+        }
+        
+        p->value=5*i;
+        printf("value:%d\n",p->value);
+        q=(struct slist *)malloc(sizeof(struct slist));
+        
+        p->next=q;
+        p=q;
+        
+        if (i==length+1) {
+            p->next='\0';
+        }
+    }
+}
+
+
+void reverseSlist(){
+    struct slist *p,*q = NULL,*temp = NULL;
+    p=head;
+    
+    while (p) {
+        q=p->next;
+        p->next=temp;
+        temp=p;
+        p=q;
+    }
+    head=temp;
+}
+
+int findTheValue(int valueToSearch){
+    struct slist *p,*q=NULL;
+    p=current->next;
+    int i=1;
+    for (; p; i++) {
+        if (p->value==valueToSearch) {
+            current=p;
+            return i;
+        }
+        q=p->next;
+        p=q;
+    }
+    
+    return -1;
 }
