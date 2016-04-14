@@ -9,6 +9,8 @@ BY tsstss123
 #include <vector>
 #include <cstdlib>
 #include <cmath>
+#include <cstdio>
+#include <string>
 
 struct MPNode{
 	double threshold; //阈值
@@ -53,6 +55,7 @@ public:
 			outputLayer[i].init(0);
 		}
 	}
+	void outputANN(std::string fileName);
 private:
 	double sigmoid(double x){
 		return 1.0/(1.0+exp(-x));

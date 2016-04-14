@@ -73,5 +73,10 @@ int main(){
 	getData("digitstest.txt",test,testans,TESTSIZE);// 读取测试数据
 	training(ann,DATASIZE,eps);
 	printf("Corret rate = %2.1f%%\n",testing(ann,TESTSIZE)*100);
+	printf("Write the data??\n");
+	char buf[10];
+	scanf("%s",buf);
+	if(*buf == 'Y' || *buf == 'y')
+        ann.outputANN("AnnData.txt");
 	return 0;
 }
