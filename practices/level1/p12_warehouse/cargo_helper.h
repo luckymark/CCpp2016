@@ -20,7 +20,7 @@ inline std::string formatCargoModels(std::vector<std::string> models) {
     for (auto i : models) {
         res += i + " ";
     }
-    return res.substr(res.length() - 1);
+    return res.empty() ? "" : res.substr(res.length() - 1);
 }
 
 

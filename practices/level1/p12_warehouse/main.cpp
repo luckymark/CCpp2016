@@ -3,7 +3,7 @@
 
 using namespace std;
 
-CARGO_SYSTEM_ACTION_META("ps.dat")
+//CARGO_SYSTEM_ACTION_META("ps.dat")
 
 int main()
 {

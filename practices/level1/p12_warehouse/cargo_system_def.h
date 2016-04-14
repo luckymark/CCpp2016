@@ -54,8 +54,6 @@ public:
     }
 };
 
-#define CARGO_SYSTEM_ACTION_META(fn) CargoActionPool __global__cargoActionPool(fn);
-
 #define CARGO_SYSTEM_ACTION(name, description) \
 class __CARGO__ACTION__##name : public CargoAction {\
 public:\
