@@ -1,13 +1,13 @@
 #ifndef RECT_H
 #define RECT_H
 #include <iostream>
-#include "Sharp.h"
+#include "Shape.h"
 
-class Rect : public Sharp
+class Rect : public Shape
 {
 public:
 	Rect() = default;
-	Rect(int x, int y, int len, int wid) : Sharp(x, y), width(wid), length(len){}
+	Rect(int x, int y, int len, int wid) : Shape(x, y), width(wid), length(len){}
 	void print() const override;
 private:
 	int length = 0;
