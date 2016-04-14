@@ -4,12 +4,13 @@
 #include <string>
 #include <iostream>
 
+#include "cargo_helper.h"
+
 using namespace std;
 
-vector<string> cargos;
-
 CARGO_SYSTEM_ACTION(cargo_list, "Display Cargos") {
-    for (auto c : cargos) {
-        cout << c << endl;
+    vector<string> models = retrieveFormatedCargoModels(CARGO_SYSTEM_PERSISTENCE_GET("models"));
+    for (auto i : models) {
+        cout << i << " : " << CARGO_SYSTEM_PERSISTENCE_GET("model " + i) << endl;
     }
 }

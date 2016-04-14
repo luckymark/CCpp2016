@@ -15,7 +15,9 @@ CARGO_SYSTEM_ACTION(cargo_push, "Push Cargos") {
     cout << "Amount: " << endl;
     int amount;
     cin >> amount;
-    for (int i = 0; i < amount; ++i) {
-        cargos.push_back(model);
+    vector<string> models = retrieveFormatedCargoModels(CARGO_SYSTEM_PERSISTENCE_GET("models"));
+    if (find(models.begin(), models.end(), model) == models.end()) {
+        models.push_back(model);
+        CARGO_SYSTEM_PERSISTENCE_SET("models", formatCargoModels(models));
     }
 }

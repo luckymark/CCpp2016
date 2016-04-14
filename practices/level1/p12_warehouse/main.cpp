@@ -3,10 +3,10 @@
 
 using namespace std;
 
-CARGO_SYSTEM_ACTION_META
+CARGO_SYSTEM_ACTION_META("ps.dat")
 
 int main()
 {
-    CARGO_SYSTEM_LOOP
+    cargo_system_loop();
     return 0;
 }
