@@ -15,7 +15,7 @@ void hanoi(int n,char from,char by,char to){
     hanoi(n-1,from,to,by);
     move(from,to);
     hanoi(n-1,by,from,to);
-    }
+}
 void move(char from,char to){
     printf("%c->%c \n",from,to);
 }
