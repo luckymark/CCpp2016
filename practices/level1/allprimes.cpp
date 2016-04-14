@@ -9,8 +9,8 @@ int main(){
 	int sign=0;
 	for(j=2;j<i;j++){
             k=i%j;
-		if(k==0){
-		     sign=sign+1;
+	    if(k==0){
+		     sign++;
 		}
 		else{
 		     break;
