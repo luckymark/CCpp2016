@@ -112,11 +112,7 @@ bool movePlayer(Maze *maze, char direction) {
         }
         break;
     }
-    if (maze->playerX == maze->endX && maze->playerY == maze->endY) {
-        return true;
-    } else {
-        return false;
-    }
+    return maze->playerX == maze->endX && maze->playerY == maze->endY;
 }
 
 void clearPlayerState(Maze *maze) {
