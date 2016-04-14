@@ -34,7 +34,7 @@ public:
 	void setInput(std::vector<double> &data);
 	void getOutput(std::vector<double> &ret);
 	ANN(int is,int hs,int os,double rate){
-		srand(is*hs*os+1);
+		srand(is*hs*os+10);
 		//初始化随机数
 		learningrate = rate;
 		inputLayerSize = is;
