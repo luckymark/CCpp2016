@@ -8,14 +8,14 @@ int judge(int num);
 
 int main(void) {
 	for (int i = 2; i <= 1000; i++)
-		if (judge(i)) {
+		if (isPrime(i)) {
 			printf("%d\n", i);
 		}
 
 	return 0;
 }
 
-int judge(int num) {
+int isPrime(int num) {
 	int i;
 
 	for (i = 2; i < num; i++){
