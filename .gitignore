@@ -1,2 +1,10 @@
 slides/.idea
-
+*.out
+*.db
+*.gch
+.vscode/
+.gitignore
+/cppMyOwn
+*.sh
+*.sh~
+*.o
