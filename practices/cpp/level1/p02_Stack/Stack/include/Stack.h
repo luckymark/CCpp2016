@@ -1,23 +1,29 @@
 #ifndef STACK_H
 #define STACK_H
-
-
+struct node
+{
+    int value;
+    node *next,*pre;
+};
 class Stack
 {
     public:
-        Stack(int capbility);
-        ~stack()
+        Stack();
+        ~Stack()
         {
-            delete data;
+            while(head!=NULL)
+            {
+                head=head->next;
+                delete head->pre;
+            }
         }
         void push(int v);
         int pop();
-        bool isFull();
+        int getTop();
         bool isEmpty();
     private:
-        int capbility;
         int top;
-        int *data;
+        node *head;
 };
 
 #endif // STACK_H

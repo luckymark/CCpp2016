@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1460596406 source:d:\ccpp2016\practices\cpp\level1\p02_stack\stack\main.cpp
+	"Stack.h"
+	<stdio.h>
+
+1460596406 source:d:\ccpp2016\practices\cpp\level1\p02_stack\stack\src\stack.cpp
+	"Stack.h"
+
