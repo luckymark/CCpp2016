@@ -4,24 +4,25 @@
 
 #include <stdio.h>
 
-int judge(int num);
+int isPrime(int num);
 
 int main(void) {
-	for (int i = 2; i <= 1000; i++)
-		if (isPrime(i)) {
-			printf("%d\n", i);
-		}
+    for (int i = 2; i <= 1000; i++) {
+        if (isPrime(i)) {
+            printf("%d\n", i);
+        }
+    }
 
-	return 0;
+    return 0;
 }
 
 int isPrime(int num) {
-	int i;
+    int i;
 
-	for (i = 2; i < num; i++){
-		if (num % i == 0)
-			return 0;
-	}
+    for (i = 2; i < num; i++) {
+        if (num % i == 0)
+            return 0;
+    }
 
-	return 1;
+    return 1;
 }
