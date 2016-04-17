@@ -3,8 +3,6 @@
 
 using namespace std;
 
-#define FREE_TOWER(from, to) (from != 0 && to != 0 ? 0 : (from != 1 && to != 1 ? 1 : (from != 2 && to != 2 ? 2 : -1)))
-
 vector<int> tows[3];
 int n;
 
@@ -20,26 +18,26 @@ int main()
     cin >> n;
     for (int i = 0; i < n; ++i)
     {
-        tows[0].push_back(0);
+        tows[0].push_back(i);
     }
     cout << "Initial status: "<< endl;
     drawTows();
-    movePlate(0, 2, n);
+    movePlate(0, 2, 1, n);
     return 0;
 }
 
-void movePlate(int from, int to, int num)
+void movePlate(int from, int to, int mid, int num)
 {
     if (num == 0)
     {
         return;
     }
-    movePlate(from, FREE_TOWER(from, to), num - 1);
+    movePlate(from, mid, to, num - 1);
     tows[to].push_back(tows[from].top());
     tows[from].pop_back();
     cout << "from: " << beautify(from) << " to: " << beautify(to) << endl;
     drawTows();
-    movePlate(FREE_TOWER(from, to), to, num - 1);
+    movePlate(mid, to, from, num - 1);
 }
 
 char beautify(int n)
