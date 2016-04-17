@@ -22,7 +22,7 @@ int main(void) {
             scanf(" %d",&move);
             decrypt(move);
             break;
-        }
+    }
     return 0;
 }
 
@@ -32,14 +32,15 @@ int encrypt(int move) {
     char q[100];
 
     printf("请输入想加密的字符串。\n");
-    while ((p[count] =(char)getchar()) != '\n') {
+    while ((p[count] =(char)getchar()) != '\n')
+    {
         count++;
     };
     for(int i=0;i<count;i++){
         if(int(p[i])>=65 && int(p[i])<=(90-move) ) {
-        q[i]=char(p[i]+move);
-        printf("%c",q[i]);
-    }
+            q[i]=char(p[i]+move);
+            printf("%c",q[i]);
+        }
         else if(int(p[i])>(90-move)) {
             q[i]=char(p[i]+move-26);
             printf("%c",q[i]);
