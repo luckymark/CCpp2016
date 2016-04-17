@@ -1,20 +1,18 @@
 #include <stdio.h>
 
-void moving(char a, char b, char c);
-
 void brain(int n, char a, char b, char c);
 
 int main(void) {
     char a = 'A', b = 'B', c = 'C';
-    int piles = 64;
+    int piles = 3;
 
     brain(piles, a, b, c);
     return 0;
 }
 
 void brain(int n, char a, char b, char c) {
-    if (n == 3) {
-        moving(a, b, c);
+    if (n == 1) {
+        printf("%c -> %c\n", a, c);
 
     }
     else {
@@ -22,11 +20,4 @@ void brain(int n, char a, char b, char c) {
         printf("%c -> %c\n", a, c);
         brain(n - 1, b, a, c);//上面n-1层B-C
     }
-}
-
-//本函数完成两层从A-C的归位
-void moving(char a, char b, char c) {
-    printf("%c -> %c\n", a, b);
-    printf("%c -> %c\n", a, c);
-    printf("%c -> %c\n", b, c);
 }
