@@ -26,8 +26,8 @@ int two(int r, int v,int n)   //快速幂
 }
 int main()
 {
-	SYSTEMTIME sys1,sys2;
-	GetLocalTime(&sys1);
+	SYSTEMTIME StartTime,EndTime;
+	GetLocalTime(&StartTime);
 	int t1 = time(0);
 	srand(t1);
 	for (n = 3; n <= 1000; n++)
@@ -51,8 +51,8 @@ int main()
 
 		}
 	}
-	GetLocalTime(&sys2);
-	printf("milliseconds:%d", sys2.wMilliseconds - sys1.wMilliseconds);
+	GetLocalTime(&EndTime);
+	printf("milliseconds:%d", StartTIme.wMilliseconds - EndTIme.wMilliseconds);
 	system("pause");
 	return 0;
 }
