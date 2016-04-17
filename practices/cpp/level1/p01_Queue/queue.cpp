@@ -3,13 +3,13 @@
 void Queue::append(int item)
 {
     data[head]=item;
-    head=(head+1)%100;
+    head=(head+1)%MAX;
 }
 
 int Queue::pop()
 {
-    tail=(tail+1)%100;
-    return data[(tail+99)%100];
+    tail=(tail+1)%MAX;
+    return data[(tail+MAX-1)%MAX];
 }
 
 bool Queue::isEmpty()
@@ -19,5 +19,5 @@ bool Queue::isEmpty()
 
 bool Queue::isFull()
 {
-    return ((head+1)%100==tail);
+    return ((head+1)%MAX==tail);
 }

@@ -1,6 +1,6 @@
 #ifndef QUEUE_H
 #define QUEUE_H
-
+#define MAX 100
 
 class Queue
 {
@@ -14,7 +14,7 @@ class Queue
     protected:
 
     private:
-        int data[100];
+        int data[MAX];
         int head=0;
         int tail=0;
 };
