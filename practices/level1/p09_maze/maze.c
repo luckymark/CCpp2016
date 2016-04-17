@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <conio.h>
-#include <windows.h>
-#include <time.h>
 #include <stdlib.h>
 #define Wall 1
 #define Road 0
@@ -18,12 +16,15 @@
 int player_x=2,player_y=1;
 int map[Height+2][Width+2];
 char key;
+void create();
+void paint(int x,int y);
+void game();
+void judge_move();
 void create(int x,int y) //随机生成迷宫
 {
 	int c[4][2]={0,1,1,0,0,-1,-1,0}; //四个方向
 	int i,j,t;
-		//将方向打乱
-	for(i=0;i<4;i++)
+	for(i=0;i<4;i++)//将方向打乱
 	{
 		j=rand()%4;
 		t=c[i][0];c[i][0]=c[j][0];c[j][0]=t;
@@ -59,9 +60,9 @@ void paint(int x,int y) //画迷宫
 }
 void game()
 {
-    key=getch();
-    while(judge_move())
+    while(1)
     {
+        judge_move();
         system("cls");
         for(int i=1;i<=Height;i++)
         {
@@ -70,95 +71,54 @@ void game()
                 paint(i,j);
             }
         }
-        key=getch();
+        if(player_x==Height-1&&player_y==Width)
+        {
+            return;
+        }
     }
 }
-int judge_move()
+void judge_move()
 {
+    key=getch();
     switch(key)
     {
         case 'w':
-            if(map[player_x-1][player_y]==Wall)
-            {
-                return 1;
-            }
-            else if(map[player_x-1][player_y]==Road)
+            if(map[player_x-1][player_y]==Road||map[player_x-1][player_y]==End)
             {
                 map[player_x-1][player_y]=Player;
                 map[player_x][player_y]=Road;
                 player_x--;
-                return 1;
-            }
-            else if(map[player_x-1][player_y]==End)
-            {
-                map[player_x-1][player_y]=Player;
-                map[player_x][player_y]=Road;
-                player_x--;
-                return 0;
+                return;
             }
             break;
         case 's':
-            if(map[player_x+1][player_y]==Wall)
-            {
-                return 1;
-            }
-            else if(map[player_x+1][player_y]==Road)
+            if(map[player_x+1][player_y]==Road||map[player_x+1][player_y]==End)
             {
                 map[player_x+1][player_y]=Player;
                 map[player_x][player_y]=Road;
                 player_x++;
-                return 1;
-            }
-            else if(map[player_x+1][player_y]==End)
-            {
-                map[player_x+1][player_y]=Player;
-                map[player_x][player_y]=Road;
-                player_x++;
-                return 0;
+                return;
             }
             break;
         case 'd':
-            if(map[player_x][player_y+1]==Wall)
-            {
-                return 1;
-            }
-            else if(map[player_x][player_y+1]==Road)
+            if(map[player_x][player_y+1]==Road||map[player_x][player_y+1]==End)
             {
                 map[player_x][player_y+1]=Player;
                 map[player_x][player_y]=Road;
                 player_y++;
-                return 1;
-            }
-            else if(map[player_x][player_y+1]==End)
-            {
-                map[player_x][player_y+1]=Player;
-                map[player_x][player_y]=Road;
-                player_x++;
-                return 0;
+                return;
             }
             break;
         case 'a':
-            if(map[player_x][player_y-1]==Wall)
-            {
-                return 1;
-            }
-            else if(map[player_x][player_y-1]==Road)
+            if(map[player_x][player_y-1]==Road||map[player_x][player_y-1]==End)
             {
                 map[player_x][player_y-1]=Player;
                 map[player_x][player_y]=Road;
                 player_y--;
-                return 1;
-            }
-            else if(map[player_x][player_y-1]==End)
-            {
-                map[player_x][player_y-1]=Player;
-                map[player_x][player_y]=Road;
-                player_x--;
-                return 0;
+                return;
             }
             break;
     }
-    return 1;
 }
 int main()
 {
