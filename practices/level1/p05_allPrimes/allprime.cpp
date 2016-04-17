@@ -3,12 +3,7 @@
 #include<ctime>
 #include<cmath>
 using namespace std;
-inline bool isPrime(int x)
-{
-	for(int i=2;i<=sqrt(x);i++)
-		if(x%i==0) return 0;
-	return 1;
-}
+bool isPrime(int x);
 int main()
 {
 	int a,b,c;
@@ -20,4 +15,10 @@ int main()
 	t2=clock();
 	printf("time:%d",t2-t1);
 	return 0;
+}
+bool isPrime(int x)
+{
+	for(int i=2;i<=sqrt(x);i++)
+		if(x%i==0) return 0;
+	return 1;
 }

@@ -9,18 +9,7 @@ struct list
 	struct list *next;
 };
 struct list *head,*tail,*mid;
-inline void print(struct list *n)
-{
-	struct list *cp;
-	cp=n;
-	while(cp!=NULL)
-	{
-		printf("%d ",cp->info);
-		cp=cp->next;
-	}
-	printf("\n");
-	return;
-}
+void print(struct list *n);
 int main()
 {
 	int n;
@@ -56,4 +45,16 @@ int main()
 		p=p->next;
 	}
 	return 0;
+}
+void print(struct list *n)
+{
+	struct list *cp;
+	cp=n;
+	while(cp!=NULL)
+	{
+		printf("%d ",cp->info);
+		cp=cp->next;
+	}
+	printf("\n");
+	return;
 }
