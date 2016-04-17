@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+void move()
 int main(int argc,char const *argv[])
 {
     move(1,2,3,64);
