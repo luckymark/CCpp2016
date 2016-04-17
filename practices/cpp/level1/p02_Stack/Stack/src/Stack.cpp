@@ -1,26 +1,31 @@
 #include "Stack.h"
 
-Stack::Stack(int capbility)
+Stack::Stack()
 {
-    data=new int[capbility];
-    top=0;
-    this->capbility=capbility;
+    head=new node;
+    head->pre=nullptr;
 }
 void Stack::push(int v)
 {
-    data[top]=v;
-    top=(top+1)%capbility;
+    top++;
+    node *now=new node;
+    now->value=v;
+    head->next=now;
+    now->pre=head;
+    head=head->next;
 }
 int Stack::pop()
 {
     top--;
+    head=head->pre;
+    delete head->next;
     return top;
-}
-bool Stack::isFull()
-{
-    return top==capbility-1;
 }
 bool Stack::isEmpty()
 {
     return top==0;
+}
+int Stack::getTop()
+{
+    return head->value;
 }
