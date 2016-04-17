@@ -1,6 +1,6 @@
 
 //
-#include "stdafx.h"  //VS2015ÏÂ¿ØÖÆÌ¨³ÌĞò±ØĞë°üº¬Õâ¸öÍ·£¬·ñÔò»á±¨´í
+#include "stdafx.h"  //VS2015ä¸‹æ§åˆ¶å°ç¨‹åºå¿…é¡»åŒ…å«è¿™ä¸ªå¤´ï¼Œå¦åˆ™ä¼šæŠ¥é”™
 #include <iostream>
 #include <string>
 
@@ -16,9 +16,13 @@ int main()
 		for (int i = 1; i <= 144; i++)
 		{
 			if (i<=72)
+			{
 				sp.append(" ");
+			}
 			else
+			{
 				sp.erase(sp.length()-1);
+			}
 			cout << sp<<st;
 			system("cls");
 		}
