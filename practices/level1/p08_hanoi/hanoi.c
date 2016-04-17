@@ -1,10 +1,12 @@
 #include <stdio.h>
 void move()
+
 int main(int argc,char const *argv[])
 {
     move(1,2,3,64);
     return 0;
 }
+
 void move(int from,int to,int empty,int num)
 {
     if (num==1)
