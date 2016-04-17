@@ -56,6 +56,7 @@ public:
 		}
 	}
 	void outputANN(std::string fileName);
+	bool readANN(std::string fileName);
 private:
 	double sigmoid(double x){
 		return 1.0/(1.0+exp(-x));

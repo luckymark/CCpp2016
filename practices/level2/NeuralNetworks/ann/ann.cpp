@@ -95,4 +95,31 @@ void ANN::outputANN(std::string fileName){
     for(int i = 0; i < outputLayerSize; ++i){
         fprintf(fp,"%.10lf\n",outputLayer[i].threshold);
     }
+    fclose(fp);
+}
+bool ANN::readANN(std::string fileName){
+    FILE* fp = fopen(fileName.c_str(),"r");
+    if(fp == NULL){
+        return false;
+    }
+    int t1,t2,t3;
+    fscanf(fp,"%d%d%d",&t1,&t2,&t3);
+    if(inputLayerSize != t1 || hiddenLayerSize != t2 || outputLayerSize != t3){
+        fclose(fp);
+        return false;
+    }
+    for(int i = 0; i < inputLayerSize; ++i){
+        fscanf(fp,"%lf",&inputLayer[i].threshold);
+        for(int j = 0; j < hiddenLayerSize; ++j)
+            fscanf(fp,"%lf",&inputLayer[i].w[j]);
+    }
+    for(int i = 0; i < hiddenLayerSize; ++i){
+        fscanf(fp,"%lf\n",&hiddenLayer[i].threshold);
+        for(int j = 0; j < outputLayerSize; ++j)
+            fscanf(fp,"%lf",&hiddenLayer[i].w[j]);
+    }
+    for(int i = 0; i < outputLayerSize; ++i){
+        fscanf(fp,"%lf",&outputLayer[i].threshold);
+    }
+    return true;
 }

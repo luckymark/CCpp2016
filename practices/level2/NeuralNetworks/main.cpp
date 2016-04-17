@@ -68,15 +68,19 @@ double testing(ANN &ann,int datasize){
 	return (datasize - err)*1.0 / datasize;
 }
 int main(){
+    bool readFlag = false;
 	ANN ann(64,20,10,0.3); //创建神经网络
 	getData("digitstra.txt",data,dataans,DATASIZE);// 读取训练数据
 	getData("digitstest.txt",test,testans,TESTSIZE);// 读取测试数据
-	training(ann,DATASIZE,eps);
+	if(!(readFlag = ann.readANN("AnnData.txt"))){
+        printf("Read AnnData False, Try Training!!!\n");
+        training(ann,DATASIZE,eps);
+	}
 	printf("Corret rate = %2.1f%%\n",testing(ann,TESTSIZE)*100);
-	printf("Write the data??\n");
+	printf("Write the data??(Y/N)\n");
 	char buf[10];
 	scanf("%s",buf);
-	if(*buf == 'Y' || *buf == 'y')
+	if(!readFlag && (*buf == 'Y' || *buf == 'y'))
         ann.outputANN("AnnData.txt");
 	return 0;
 }
