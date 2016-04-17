@@ -8,7 +8,7 @@ int main()
     {
         for(j=1;j<=i;j++)
         {
-        printf("%d*%d=%d\t",j,i,i*j);
+            printf("%d*%d=%d\t",j,i,i*j);
         }
         printf("\n");
     }
