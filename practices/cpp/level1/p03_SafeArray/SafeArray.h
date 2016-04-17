@@ -8,7 +8,6 @@ class SafeArray
         SafeArray();
         SafeArray(int n);
         virtual ~SafeArray();
-        bool result(int n);
         void write(int n,int x);
         int read(int n);
 
@@ -17,6 +16,7 @@ class SafeArray
     private:
         int* data;
         int maxsize;
+        bool result(int n);
 };
 
 #endif // SAFEARRAY_H
