@@ -17,7 +17,7 @@ char position[10][11] = { "**********",
                           "******  o*" };
 int main()
 {
-    printf("w:向上 s:向下 a:向左 d:向右\n o为终点处\n")
+    printf("w:向上 s:向下 a:向左 d:向右\n o为终点处\n");
     printf("按下任意键开始游戏\n");
     system("pause");
     system("cls");
@@ -47,9 +47,6 @@ void move() {
 		    map();
 		    printf("w:向上 s:向下 a:向左 d:向右\n o为终点处");
 		}
-		else {
-		    break;
-		}
 		break;
 	    }
 
@@ -62,9 +59,6 @@ void move() {
 		    map();
 		    printf("w:向上 s:向下 a:向左 d:向右\n按enter确认指令 o为终点处");
 		}
-		else {
-		    break;
-			}
 		break;
 	    }
 	    case 'a': { int y3 = judge(m, n - 1);
@@ -76,9 +70,6 @@ void move() {
 		    map();
 		    printf("w:向上 s:向下 a:向左 d:向右\n按enter确认指令 o为终点处");
 		}
-		else {
-		    break;
-		}
 		break;
 	    }
 	    case 'd': { int y4 = judge(m, n + 1);
@@ -89,22 +80,19 @@ void move() {
 		    system("cls");
 		    map();
 		    printf("w:向上 s:向下 a:向左 d:向右\n按enter确认指令 o为终点处");
-		    }
-		    else {
-			break;
-		 }
-		 break;
 		}
+	        break;
+            }
         default:
             break;
 	}
         victory(m,n);
-	}
+    }
 }
 int judge(int m, int n) {
     if (position[m][n] == '*') {
     	return 0;
-	}
+    }
 }
 int victory(int m,int n){
     if(m==8,n==8){
