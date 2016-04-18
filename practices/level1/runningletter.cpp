@@ -3,25 +3,22 @@
 #define Width 78
 #include<stdlib.h>
 int main(){
-	printf("输入一个字符ch：");
-	char ch;
-	scanf("%c",&ch);
-	int i,j;
-	for(i=0;i<=2*Width;i++){
-		if(i<=Width){
-			for(j=0;j<=i;j++){
-				printf(" ");
-			}	
-		}
-		if(i>Width){
-			for(j=0;j<=abs(i-2*Width);j++){
-				printf(" ");
-			}	
-		}
-		
-		printf("%c",ch);
-	    system("cls");
+    printf("脢盲脠毛脪禄赂枚脳脰路没ch拢潞");
+    char ch;
+    scanf("%c",&ch);
+    int i,j;
+    for(i=0;i<=2*Width;i++){
+	if(i<=Width){
+	    for(j=0;j<=i;j++){
+		printf(" ");
+	    }	
+        }
+	if(i>Width){
+	    for(j=0;j<=abs(i-2*Width);j++){
+		printf(" ");
+	    }	
 	}
-	
-	
+	printf("%c",ch);
+	system("cls");
+    }
 }
