@@ -3,13 +3,13 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cstdlib>
 #include <assert.h>
 #define DISPLAY 1
 #define INBOUND 2
 #define OUTBOUND 3
 #define QUIT 4
-#define EMPTY 0
-#define MyLocalFilePosition "/Users/mac/Desktop/test.in"
+#define MyLocalFilePosition "stock.txt"
 using namespace std;
 struct Machine {
     string name = "";
@@ -68,6 +68,7 @@ void menu() {
     }
 }
 void displayMenu() {
+	system("cls");
     puts("1. Display your stocks");
     puts("2. Inbound");
     puts("3. Outbound");
@@ -100,13 +101,13 @@ void displayStock() {
     for (int i = 0; i < stock.size(); ++i) {
         cout << "Name:" << stock[i].name << " Number:" << stock[i].number << endl;
     }
-    //system("pause");
+    system("pause");
 }
 void updateStock(vector<Machine> stock) {
     ofstream out(MyLocalFilePosition);
     bool flag = 1;
     for (int i = 0; i < stock.size(); ++i) {
-        if (stock[i].number == EMPTY)continue;
+        if (stock[i].number == 0)continue;
         if (flag) {
             flag = 0;
         } else {
@@ -115,7 +116,8 @@ void updateStock(vector<Machine> stock) {
         out << stock[i].name << endl;
         out << stock[i].number;
     }
-    cout << "Finish" << endl;
+    cout << "Finish!" << endl;
+    system("pause");
     out.close();
 }
 void inBound() {
