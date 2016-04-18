@@ -8,13 +8,14 @@
 
 class Stack {
 public:
+    Stack(int capbility);
     void push(int item);
     int pop();
     bool isEmpty();
     bool isFull();
 
 private:
-    int data[100];
+    int *data;
     int top = 0;;
 };
 

@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    Stack stack;
+    Stack stack(10000);
     int n;
     if(!stack.isEmpty()) {
         n= stack.pop();
