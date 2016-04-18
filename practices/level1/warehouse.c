@@ -20,49 +20,46 @@ int main()
 void print(){
 
     system("cls");
-    printf("´æ»õÁĞ±í\n");
-    printf("ÎïÆ·a %d \t ÎïÆ·b %d\n",m,n);
-    printf("°´ÈÎÒâ¼ü·µ»Ø");
+    printf("å­˜è´§åˆ—è¡¨\n");
+    printf("ç‰©å“a %d \t ç‰©å“b %d\n",m,n);
+    printf("æŒ‰ä»»æ„é”®è¿”å›");
     getch();
 
 }
 void input(){
     int a,b;
     system("cls");
-    printf("ÊäÈëÉÌÆ·Êı\n");
-    printf("ÉÌÆ·a: ");
+    printf("è¾“å…¥å•†å“æ•°\n");
+    printf("å•†å“a: ");
     scanf("%d",&a);
     m=m+a;
-    printf("ÉÌÆ·b: ");
+    printf("å•†å“b: ");
     scanf("%d",&b);
     n=n+b;
-    printf("°´ÈÎÒâ¼ü·µ»Ø");
+    printf("æŒ‰ä»»æ„é”®è¿”å›");
     getch();
 
 }
 void output(){
     int i,j;
     system("cls");
-    printf("Êä³öÉÌÆ·\n");
-    printf("Êä³öÉÌÆ·a: ");
+    printf("è¾“å‡ºå•†å“\n");
+    printf("è¾“å‡ºå•†å“a: ");
     scanf("%d",&i);
     m=n-i;
-    printf("Êä³ö´°¿Úb: ");
+    printf("è¾“å‡ºçª—å£b: ");
     scanf("%d",&j);
     n=n-j;
-    printf("°´ÈÎÒâ¼ü·µ»Ø");
+    printf("æŒ‰ä»»æ„é”®è¿”å›");
     getch();
 }
 void menu(){
     int key;
-
-
-
         while(1){
             system("cls");
-            printf("ÉÌÆ·Çåµ¥\n");
-            printf("ÊäÈë±àºÅ¿ªÊ¼²Ù×÷\n");
-            printf("1.ÏÔÊ¾ÁĞ±í\n2.ÊäÈëÎïÆ·\n3.Êä³öÉÌÆ·\n4.ÍË³öÏµÍ³\n");
+            printf("å•†å“æ¸…å•\n");
+            printf("è¾“å…¥ç¼–å·å¼€å§‹æ“ä½œ\n");
+            printf("1.æ˜¾ç¤ºåˆ—è¡¨\n2.è¾“å…¥ç‰©å“\n3.è¾“å‡ºå•†å“\n4.é€€å‡ºç³»ç»Ÿ\n");
             scanf("%d",&key);
             switch(key){
                  case 1:
@@ -77,17 +74,13 @@ void menu(){
                  case 4:
                         end();
                  default: break;
-    }
+            }
 
         }
-
-
-
-
 }
 void end(){
     FILE *fpt;
-    fpt = fopen("d:\\house.txt","w+");//´ò¿ªÎÄµµ£¬Ğ´Èë
+    fpt = fopen("d:\\house.txt","w+");//æ‰“å¼€æ–‡æ¡£ï¼Œå†™å…¥
     fprintf(fpt,"%d\n",m);
     fprintf(fpt,"%d",n);
     fclose(fpt);
