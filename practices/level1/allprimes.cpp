@@ -11,11 +11,11 @@ int main(){
             k=i%j;
 	    if(k==0){
 		     sign++;
-		}
-		else{
-		     break;
-		}
-	}
+	    }
+	    else{
+	        break;
+	    }
+        }
 	if(sign==0){
 	    printf("%d \n",i);
 	}
