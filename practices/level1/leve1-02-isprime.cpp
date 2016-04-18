@@ -4,18 +4,18 @@ int main(){
     scanf("%d",&num);
     if(num<=1){
 	printf("no");
-	}
-	else{
+    }
+    else{
 	for(i=2;i<num;i++){
             if((num%i!=0)){
 		sign++;
 	    }
 	}
-	    if(sign==0){
-		printf("yes");
-	    }
-	    else{
-		printf("no");
-		}
+	if(sign==0){
+            printf("yes");
 	}
+	else{
+	    printf("no");
+	}
+    }
 }
