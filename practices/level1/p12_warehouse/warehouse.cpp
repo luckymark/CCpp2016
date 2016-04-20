@@ -68,7 +68,7 @@ void menu() {
     }
 }
 void displayMenu() {
-	system("cls");
+    system("cls");
     puts("1. Display your stocks");
     puts("2. Inbound");
     puts("3. Outbound");
