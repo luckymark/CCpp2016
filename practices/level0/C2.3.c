@@ -8,8 +8,9 @@ int main()
         if(i!=0 && i%7==0 || i%10==7)
         {
             printf("%d\n",i);
-            sum=sum+i;
+            sum+=i;
         }
     }
     printf("%d\n",sum);
+    return 0;
 }
