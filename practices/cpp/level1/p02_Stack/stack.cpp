@@ -1,15 +1,15 @@
 #include"stack.h"
 void Stack::push(int item) {
-	data[head] = item;
-	head++;
+    data[head] = item;
+    head++;
 }
 int Stack::pop() {
-	tail--;
-	return data[tail + 1];
+    tail--;
+    return data[tail + 1];
 }
 bool Stack::isEmpty() {
-	return tail == 0;
+    return tail == 0;
 }
 bool Stack::isFull(int num) {
-	return head ==num+1;
+    return head ==num+1;
 }
