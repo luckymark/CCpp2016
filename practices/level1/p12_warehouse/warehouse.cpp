@@ -9,7 +9,7 @@
 #define INBOUND 2
 #define OUTBOUND 3
 #define QUIT 4
-#define MyLocalFilePosition "stock.txt"
+#define MY_LOCAL_FILE_POSITION "stock.txt"
 using namespace std;
 struct Machine {
     string name = "";
@@ -104,7 +104,7 @@ void displayStock() {
     system("pause");
 }
 void updateStock(vector<Machine> stock) {
-    ofstream out(MyLocalFilePosition);
+    ofstream out(MY_LOCAL_FILE_POSITION);
     bool flag = 1;
     for (int i = 0; i < stock.size(); ++i) {
         if (stock[i].number == 0)continue;
