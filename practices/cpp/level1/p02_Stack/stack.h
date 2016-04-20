@@ -7,10 +7,10 @@ public:
     ~Stack() {
     	delete[]data;
     }
-	void push(int item);
-	int pop();
-	bool isFull(int num);
-	bool isEmpty();
+    void push(int item);
+    int pop();
+    bool isFull(int num);
+    bool isEmpty();
 private:
     int head = 0;
     int tail;
