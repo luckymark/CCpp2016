@@ -95,7 +95,7 @@ int judge(int m, int n) {
     }
 }
 int victory(int m,int n){
-    if(m==8,n==8){
+    if(m==8&&n==8){
         system("cls");
         printf("victory!\n按下任意键退出游戏");
         exit(0);
