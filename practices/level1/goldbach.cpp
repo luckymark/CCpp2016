@@ -7,12 +7,12 @@ int main(){
 		sign++;
 	    }
 	}
-	    if(sign==0){
-		a[i-1]=num;
-	    }
-	    else{
-		continue;
-	    }
+	if(sign==0){
+	    a[i-1]=num;
+	}
+	else{
+	    continue;
+	}
     }
     for(num=1;num<=100;num++){
 	for(i=1;i<=100;i++){
