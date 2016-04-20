@@ -30,12 +30,5 @@ int IsPrime(int a)
             sum++;
         }
     }
-    if(sum==0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return sum==0?1:0;
 }
