@@ -12,7 +12,28 @@ const int fx[5]={-1,0,1,0};
 const int fy[5]={0,1,0,-1};
 struct zb{int x;int y;int s;};
   zb route[50000];
-inline void buildmaze()
+void buildmaze();
+void bfsmap();
+void printmaze();
+void oper();
+int main()
+{
+    len=10000;
+    buildmaze();  //自动生成迷宫 
+    bfsmap();
+    while(len==10000) {buildmaze(); bfsmap();}  //对生成迷宫进行检验 
+    printmaze();
+    myx=1; myy=1;
+    while((myx!=30)||(myy!=30))
+    {
+    	oper();  //输入方向键 
+    	system("cls");
+    	printmaze();
+	}
+	printf("You win!");
+    return 0;
+} 		  
+void buildmaze()
 {
 	int k;
 	srand(time(0));
@@ -26,7 +47,7 @@ inline void buildmaze()
 	map[1][1]=3;
 	map[30][30]=4;
 }
-inline void bfsmap()
+void bfsmap()
 {
      int i,j,x,y,head,tail;   
      memset(way,0,sizeof(way));       
@@ -61,7 +82,7 @@ inline void bfsmap()
        }
      }
 }
-inline void printmaze()
+void printmaze()
 {
 	int i,j;
 	for(i=0;i<=31;i++)
@@ -80,7 +101,7 @@ inline void printmaze()
 	    printf("\n");
     }
 }
-inline void oper()
+void oper()
 {
 	int x,y;
 	char a,b;
@@ -102,20 +123,3 @@ inline void oper()
 	   b=1;
     }
 }
-int main()
-{
-    len=10000;
-    buildmaze();  //自动生成迷宫 
-    bfsmap();
-    while(len==10000) {buildmaze(); bfsmap();}  //对生成迷宫进行检验 
-    printmaze();
-    myx=1; myy=1;
-    while((myx!=30)||(myy!=30))
-    {
-    	oper();  //输入方向键 
-    	system("cls");
-    	printmaze();
-	}
-	printf("You win!");
-    return 0;
-} 		  
