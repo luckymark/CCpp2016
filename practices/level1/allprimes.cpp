@@ -8,7 +8,7 @@ int main(){
     for(i=2;i<=1000;i++){
 	int sign=0;
 	for(j=2;j<i;j++){
-           k=i%j;
+            k=i%j;
 	    if(k==0){
 		     sign++;
 	    }
