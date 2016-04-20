@@ -4,7 +4,7 @@
 using namespace std;
 
 const int DATASIZE = 3500 , TESTSIZE = 1500;
-const double eps = 1e-4;
+const double eps = 3*1e-4;
 
 vector<double> data[DATASIZE],dataans[DATASIZE];
 vector<double> test[TESTSIZE],testans[TESTSIZE];
@@ -21,7 +21,7 @@ void getData(string fileName,vector<double> data[],vector<double> ans[],int size
 		traindata >> bit;
 		ans[cas].resize(10);
 		for(int i = 0; i < 10; ++i)
-			ans[cas][i] = (i == bit ? 1 : 0); 
+			ans[cas][i] = (i == bit ? 1 : 0);
 	}
 	traindata.close();
 }
@@ -68,10 +68,19 @@ double testing(ANN &ann,int datasize){
 	return (datasize - err)*1.0 / datasize;
 }
 int main(){
-	ANN ann(64,20,10,0.1); //创建神经网络
+    bool readFlag = false;
+	ANN ann(64,20,10,0.3); //创建神经网络
 	getData("digitstra.txt",data,dataans,DATASIZE);// 读取训练数据
 	getData("digitstest.txt",test,testans,TESTSIZE);// 读取测试数据
-	training(ann,DATASIZE,eps);
+	if(!(readFlag = ann.readANN("AnnData.txt"))){
+        printf("Read AnnData False, Try Training!!!\n");
+        training(ann,DATASIZE,eps);
+	}
 	printf("Corret rate = %2.1f%%\n",testing(ann,TESTSIZE)*100);
+	printf("Write the data??(Y/N)\n");
+	char buf[10];
+	scanf("%s",buf);
+	if(!readFlag && (*buf == 'Y' || *buf == 'y'))
+        ann.outputANN("AnnData.txt");
 	return 0;
 }
