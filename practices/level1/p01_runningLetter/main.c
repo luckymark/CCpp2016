@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define consoleWidth 119
+#define CONSOLE_WIDTH 119
 
 int main()
 {
     int i,j;
-    for(i=0;i<=consoleWidth-1;i++)
+    for(i=0;i<=CONSOLE_WIDTH-1;i++)
     {
         for(j=0;j<=i;j++)
         {
@@ -14,7 +14,7 @@ int main()
         printf("A");
         system("cls");
     }
-    for(i=consoleWidth-2;i>=0;i--)
+    for(i=CONSOLE_WIDTH-2;i>=0;i--)
     {
         for(j=0;j<=i;j++)
         {
