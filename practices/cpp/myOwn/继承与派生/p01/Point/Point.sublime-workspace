@@ -1,0 +1,567 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"p",
+				"ParenthesesDiv2Medium"
+			],
+			[
+				"si",
+				"sitOnoWindow"
+			],
+			[
+				"re",
+				"relation"
+			],
+			[
+				"fist",
+				"firstPos"
+			],
+			[
+				"int",
+				"integral"
+			],
+			[
+				"inge",
+				"integral"
+			],
+			[
+				"ta",
+				"triangleArea"
+			],
+			[
+				"Ra",
+				"Rank"
+			],
+			[
+				"ne",
+				"nextPos"
+			],
+			[
+				"o",
+				"originMap"
+			],
+			[
+				"ori",
+				"originisBox"
+			],
+			[
+				"c",
+				"checkPos"
+			],
+			[
+				"wi",
+				"weight1"
+			],
+			[
+				"we",
+				"weight1"
+			],
+			[
+				"tot",
+				"totalRight"
+			],
+			[
+				"or",
+				"originisBox"
+			],
+			[
+				"dc",
+				"DcruptFunction"
+			],
+			[
+				"out",
+				"output"
+			],
+			[
+				"a",
+				"atLeast"
+			],
+			[
+				"pu",
+				"push_back"
+			],
+			[
+				"y",
+				"Year"
+			],
+			[
+				"Cu",
+				"CurrentMonth"
+			],
+			[
+				"sp",
+				"spfa_last"
+			],
+			[
+				"print",
+				"Print"
+			],
+			[
+				"ans",
+				"AnsLen"
+			],
+			[
+				"mx",
+				"MaxHeight"
+			],
+			[
+				"AN",
+				"AnsHeight"
+			],
+			[
+				"di",
+				"Dijkstra"
+			],
+			[
+				"ma",
+				"MaxTot"
+			],
+			[
+				"In",
+				"InStack"
+			],
+			[
+				"cur",
+				"CurrSub"
+			],
+			[
+				"B",
+				"Bank"
+			],
+			[
+				"j",
+				"j-i-1"
+			],
+			[
+				"fal",
+				"flag"
+			],
+			[
+				"Dete",
+				"Delete"
+			],
+			[
+				"it",
+				"iterator"
+			],
+			[
+				"mu",
+				"multiply"
+			],
+			[
+				"is",
+				"istream"
+			],
+			[
+				"r",
+				"rand"
+			],
+			[
+				"pri",
+				"print"
+			],
+			[
+				"er",
+				"ErrCode"
+			],
+			[
+				"l",
+				"lmax"
+			],
+			[
+				"ch",
+				"check"
+			],
+			[
+				"b",
+				"begin"
+			],
+			[
+				"co",
+				"const_cast"
+			],
+			[
+				"q",
+				"query"
+			],
+			[
+				"Push",
+				"PushUp"
+			],
+			[
+				"Pu",
+				"PushDown"
+			],
+			[
+				"en",
+				"End"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package→安装插件"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package→安装插件"
+			],
+			[
+				"install ",
+				"Package Control: Install Package→安装插件"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package→安装插件"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package→安装插件"
+			],
+			[
+				"",
+				"Set Syntax: C++"
+			]
+		],
+		"width": 608.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Admin/Desktop/B.in",
+		"/C/Users/Admin/Desktop/B.cpp",
+		"/C/Users/Admin/Desktop/A.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-17-2016/Problem-B/B.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-17-2016/Problem-B/B.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-17-2016/Problem-B/B.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-17-2016/Problem-A/A.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-17-2016/Problem-A/A.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-17-2016/Problem-A/A.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-25-2016/Problem-A/A.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-25-2016/Problem-B/B.cpp",
+		"/C/Users/Admin/Documents/tcPro/ParenthesesDiv2Medium.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-25-2016/Problem-C/C.cpp",
+		"/C/Users/Admin/Documents/tcPro/ParenthesesDiv2Hard.cpp",
+		"/C/Users/Admin/Documents/tcPro/ParenthesesDiv2Easy.cpp",
+		"/C/Users/Admin/Desktop/a.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-D/D.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-C/C.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-B/B.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-A/A.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-D/D.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-D/D.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-D/D.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-C/C.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-C/C.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-C/C.cpp",
+		"/e/p/giaw/src/pkg/mingwrt-4.0.3-1-mingw32-src/mingwrt-4.0.3-1-mingw32-src/src/libcrt/crt/main.c",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-B/B.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-B/B.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-B/B.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-A/A.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-A/A.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Apr-08-2016/Problem-A/A.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-25-2016/Problem-A/A.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-25-2016/Problem-A/A.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-D/D.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-D/D.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-25-2016/Problem-D/D.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level2/PI/PI.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-C/C.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-B/B.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-A/A.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level2/NeuralNetworks/test.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level2/NeuralNetworks/ann/ann.cpp",
+		"/C/Users/Admin/Documents/ACM/模版/其他/完全高精度/kb.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-C/C.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-C/C.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-D/D.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-D/D.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-D/D.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-B/B.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-B/B.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-A/A.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-A/A.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-C/C.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-31-2016/Problem-C/C.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-B/B.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-B/B.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/15年11月7日/树链剖分/spoj375.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-A/A.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-29-2016/Problem-A/A.in",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p12_warehouse/warehouse.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p11_linkedList/linkedList.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-26-2016/Problem-H/H.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-26-2016/Problem-H/H.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-26-2016/Problem-H/H.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-26-2016/Problem-H/D.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-26-2016/Problem-H/D.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-26-2016/Problem-H/D.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-26-2016/Problem-B/B.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-26-2016/Problem-E/E.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-26-2016/Problem-E/E.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-26-2016/Problem-E/E.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-25-2016/Problem-C/C.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-25-2016/Problem-C/C.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-25-2016/Problem-B/B.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-25-2016/Problem-B/B.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-B/B.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-C/C.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-D/D.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-A/A.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-D/D.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-D/D.in",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p09_maze/maze.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p10_pushBoxes/pushBoxes.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Dec-28-2015/spoj3273/spoj3273.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p08_hanoi/hanoi.cpp",
+		"/C/Users/Admin/Desktop/test.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p04_ narcissus/narcissus.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p02_isPrime/p02.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p07_encrypt_decrypt/encrypt_decrypt.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p05_allPrimes/allPrimes.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p06_Goldbach/Goldbach.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-C/C.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-C/C.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/D题/D.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/C题/C.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/A题/A.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/B题/B.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/15年9月8日/poj1273.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/D题/D.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/D题/D.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/C题/C.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/C题/C.in",
+		"/E/Git/xionglinlin/cf/C.cpp",
+		"/C/Users/Admin/Documents/tcPro/RGBTree.cpp",
+		"/C/Users/Admin/Documents/tcPro/DoubleWeights.cpp",
+		"/C/Users/Admin/Documents/tcPro/MultiplicationTable2Easy.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/B题/B.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/B题/B.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/A题/A.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf-653/A题/A.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf 653/A题/A.cpp",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf 653/A题/A.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/cf 653/A题/A.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-B/B.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-B/B.in",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-A/A.out",
+		"/C/Users/Admin/Documents/ACM/题目/date-based/Mar-19-2016/Problem-A/A.in",
+		"/E/SFML-2.3.2/examples/window/Window.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p10_pushBoxes/test.cpp",
+		"/E/sublime/Sublime Text 3/Data/Packages/User/New-C++11.sublime-build",
+		"/C/Users/Admin/Desktop/刘晖的作业/数的计算5.cpp",
+		"/C/Users/Admin/Desktop/刘晖的作业/a除b的余数.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p07_encrypt_decrypt/p07.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p03_Diophantus/p03.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p04_ narcissus/p04.cpp",
+		"/C/Users/Admin/Documents/ccpp2016/CCpp2016/practices/level1/p08_hanoi/p08.cpp"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"possible",
+			"NO",
+			"YES",
+			"a",
+			"this->",
+			"*this.a",
+			"num_c",
+			"num_b",
+			"num_a",
+			"len1",
+			"cr",
+			"()));\n",
+			"y2",
+			"y1",
+			"cr",
+			"f",
+			"reverseLinkList(node **head)",
+			"initDate(node *head)",
+			"linkList",
+			"moveBlocks",
+			"mp",
+			"GameStart",
+			"CheckBoxPoint",
+			"CheckPersonPoint",
+			"FindStartPoint",
+			"Dispmap",
+			"{\n",
+			"\n    ",
+			"Initmap",
+			"#define",
+			"mp",
+			"GameStart",
+			"CheckPoint",
+			"FindStartPoint",
+			"Dispmap",
+			"Initmap",
+			"#define",
+			"MoveBlocks",
+			"Oper",
+			"i<strlen(s)",
+			"(char *s)",
+			"char *s",
+			"void fcruptFunction(char *s)",
+			"EcruptFunction",
+			"{\n",
+			"DcruptFunction",
+			"Goldbach",
+			"FindPrimes",
+			"maxn",
+			"site-description",
+			"<div class=\"post-header\">",
+			"toc_list_number",
+			"st",
+			"creatmid",
+			"mouth",
+			"craetmid",
+			"craemid",
+			"int",
+			"double"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"et",
+			"month",
+			"creatmid",
+			"long long",
+			"long double"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 37.0
+	},
+	"input":
+	{
+		"height": 43.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "Point.sublime-project",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1461163285 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\main.cpp
+	<iostream>
+	"Person.h"
+	"date.h"
+	"Student.h"
+	"Teacher.h"
+	"StuTech.h"
+
+1461162716 c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\include\person.h
+	"date.h"
+	<string>
+	<iostream>
+
+1461161583 c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\include\date.h
+	<cstdio>
+
+1461161676 c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\include\student.h
+	"Person.h"
+	"date.h"
+	<string>
+	<iostream>
+
+1461161971 c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\include\teacher.h
+	"Person.h"
+	"date.h"
+	<string>
+	<iostream>
+
+1461163245 c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\include\stutech.h
+	"Student.h"
+	"Teacher.h"
+	"date.h"
+	<string>
+	<iostream>
+
+1461162084 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\src\date.cpp
+	"date.h"
+
+1461162314 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\src\person.cpp
+	"Person.h"
+	<string>
+
+1461162742 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\src\student.cpp
+	"Student.h"
+	<string>
+
+1461163135 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\src\stutech.cpp
+	"StuTech.h"
+
+1461162348 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p03\person\src\teacher.cpp
+	"Teacher.h"
+
