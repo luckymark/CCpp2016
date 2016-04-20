@@ -10,7 +10,7 @@ int main(){
 	for(j=2;j<i;j++){
             k=i%j;
 	    if(k==0){
-		     sign++;
+	        sign++;
 	    }
 	    else{
 	        break;
