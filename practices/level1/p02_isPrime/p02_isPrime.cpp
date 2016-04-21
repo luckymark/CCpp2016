@@ -34,13 +34,14 @@ int64_t change(string StrTmp) {
 	char charTmp;
 	for (tmp = 0; tmp <= len - 1; tmp++) {
 		charTmp = StrTmp[tmp];
-		if (charToNum(charTmp) != -1) changedNum = 10 * changedNum + charToNum(charTmp);
+		if (charToNum(charTmp) != -1) {
+			changedNum = 10 * changedNum + charToNum(charTmp);
+		}
 		else {                                          //½Ã´í»úÖÆ
 			cout << "Please cout a true number!!!" << endl;
 			cout << endl;
 			inputIsRight = false;
 			return -1;
-			break;
 		}
 
 	}
@@ -73,11 +74,15 @@ void judgeRepeat() {
 	while (1) {
 		cout << "Please input an number with your keyboard.(exit to close this program)" << endl;
 		cin >> StrTmp;
-		if (StrTmp == "exit") return;
+		if (StrTmp == "exit") {
+			return;
+		}
 		num = change(StrTmp);
 		ans = judge(num);
 
-		if (inputIsRight) cout << boolalpha << ans << endl;
+		if (inputIsRight) {
+			cout << boolalpha << ans << endl;
+		}
 		cout << endl;
 	}
 }

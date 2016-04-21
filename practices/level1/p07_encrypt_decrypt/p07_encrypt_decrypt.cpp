@@ -9,24 +9,24 @@ fstream fin, fout, passwordFile;
 string stringTmpSave, finalResult = "";
 char modeTurn;
 
-void Input();
-char BitEncrypt(int ran, char bitChar);
-void Encrypt();
-void Decrypt();
-void StartIt();
+void input();
+char bitEncrypt(int ran, char bitChar);
+void encrypt();
+void decrypt();
+void startIt();
 
 int main() {
-	Input();
-	StartIt();
+	input();
+	startIt();
 	system("pause");
 	return 0;
 }
 
-void Input() {
+void input() {
 	fin.open("from.from", ios_base::in);
 	modeTurn = 't';
 	while (!(modeTurn == 'f' || modeTurn == 'c')) {
-		cout << "do you want to Input your data from file \"from.from\" or from console? (f/c): ";
+		cout << "do you want to input your data from file \"from.from\" or from console? (f/c): ";
 		cin >> modeTurn;
 	}
 
@@ -34,7 +34,7 @@ void Input() {
 		fin >> stringTmpSave;
 	}
 	else {
-		cout << "Please Input your content: ";
+		cout << "Please input your content: ";
 		cin >> stringTmpSave;
 	}
 
@@ -47,12 +47,12 @@ void Input() {
 	fin.close();
 }
 
-char BitEncrypt(int ran, char bitChar) {
+char bitEncrypt(int ran, char bitChar) {
 	char mix = (char)(127 - (int)bitChar - floor(sqrt(ran)));
 	return mix;
 }
 
-void Encrypt() {
+void encrypt() {
 	fout.open("to.to", ios_base::out);
 	passwordFile.open("pas.p", ios_base::out);
 	int length = stringTmpSave.length();
@@ -64,7 +64,7 @@ void Encrypt() {
 		cout << (char)RanInsCh;
 		passwordFile << ran;
 		passwordFile << (char)RanInsCh;
-		finalResult.push_back((char)BitEncrypt(ran, stringTmpSave[tmp]));
+		finalResult.push_back((char)bitEncrypt(ran, stringTmpSave[tmp]));
 	}
 	fout << finalResult;
 	cout << endl;
@@ -74,7 +74,7 @@ void Encrypt() {
 	passwordFile.close();
 }
 
-void Decrypt() {
+void decrypt() {
 	cout << "you have to make sure that the file pas.p is already exist and contains the key" << endl;
 	fout.open("to.to", ios_base::out);
 	passwordFile.open("pas.p", ios_base::in);
@@ -90,7 +90,7 @@ void Decrypt() {
 		}
 		else {
 
-			char fin = BitEncrypt(finkey, stringTmpSave[fromP]);
+			char fin = bitEncrypt(finkey, stringTmpSave[fromP]);
 			fout << fin;
 			cout << fin;
 			fromP++;
@@ -103,11 +103,11 @@ void Decrypt() {
 	passwordFile.close();
 
 }
-void StartIt() {
+void startIt() {
 	if (modeTurn == 'e') {
-		Encrypt();
+		encrypt();
 	}
 	else if (modeTurn == 'd') {
-		Decrypt();
+		decrypt();
 	}
 }

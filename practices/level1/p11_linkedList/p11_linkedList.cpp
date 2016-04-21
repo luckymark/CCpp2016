@@ -10,23 +10,23 @@ struct node
 node *head = NULL, *p, *q = NULL, *t = NULL;
 int length;
 
-void LinkBuild();
+void linkBuild();
 void output();
-void Reverse();
-void FindFive();
+void reverse();
+void findFive();
 
 int main() {
-	LinkBuild();
+	linkBuild();
 	output();
 	cout << endl;
-	FindFive();
-	Reverse();
+	findFive();
+	reverse();
 	output();
 
 	system("pause");
 	return 0;
 }
-void FindFive() {
+void findFive() {
 	int Fin = 0, FinTwo = 0;;
 	int count = 0;
 	node *t = head;
@@ -52,7 +52,7 @@ void FindFive() {
 	}
 }
 
-void Reverse() {
+void reverse() {
 	struct node *pre = NULL, *next = NULL;
 	next = head->next;
 	while (head->next != NULL) {
@@ -64,7 +64,7 @@ void Reverse() {
 	head->next = pre;
 }
 
-void LinkBuild() {
+void linkBuild() {
 	float input;
 	int  otmp;
 

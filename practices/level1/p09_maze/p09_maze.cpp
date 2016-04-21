@@ -17,18 +17,18 @@ const char MAZE_SAVE[SIZE][SIZE] = {
 	'#','#','#','#','#','#','#','#','#','#'
 };
 
-void MazeGene();
-void GetKey();
-void Move(char dir);
+void mazeGene();
+void getKey();
+void move(char dir);
 
 int main() {
-	MazeGene();
-	GetKey();
+	mazeGene();
+	getKey();
 	system("pause");
 	return 0;
 }
 
-void MazeGene() {
+void mazeGene() {
 	system("cls");
 	for (int tmpo = 0; tmpo <= 9; tmpo++) {
 		for (int tmpi = 0; tmpi <= 9; tmpi++) {
@@ -44,14 +44,14 @@ void MazeGene() {
 
 }
 
-void GetKey() {
+void getKey() {
 	char dir;
 	while (1) {
 		if (_kbhit() != 0) {
 			dir = _getch();
 			if (dir == 'w' || dir == 'a' || dir == 's' || dir == 'd') {
-				Move(dir);
-				MazeGene();
+				move(dir);
+				mazeGene();
 				if (MAZE_SAVE[y][x] == '@') {
 					cout << "you had win";
 					return;
@@ -61,7 +61,7 @@ void GetKey() {
 	}
 }
 
-void Move(char dir) {
+void move(char dir) {
 	switch (dir)
 	{
 	case 'a': {

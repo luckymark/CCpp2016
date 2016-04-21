@@ -16,7 +16,9 @@ void dio() {
 		fatherAge++;
 		if (fatherAge % 6 == 0 && fatherAge % 7 == 0) {
 			sonAge = fatherAge - (1.0 / 6)*fatherAge - (1.0 / 12)*fatherAge - (1.0 / 7)*fatherAge - 5;
-			if ((sonAge >= 0) && (sonAge - 4) == (fatherAge / 2.0)) finishThis = true;
+			if ((sonAge >= 0) && (sonAge - 4) == (fatherAge / 2.0)) {
+				finishThis = true;
+			}
 		}
 	}
 	cout << fatherAge - 4 << endl;
