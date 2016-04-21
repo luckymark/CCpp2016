@@ -3,12 +3,12 @@
 #define MAX 100
 class SafeArray{
 public:
-    SafeArray(int maximun);
+    SafeArray(int max);
     ~SafeArray();
     bool check(int n);
     void clone(int n,int item);
 private:
-    int *data;
-    int maximun=MAX;
+    int * data;
+    int max=MAX;
 };
 #endif // SAFEARRAY_H

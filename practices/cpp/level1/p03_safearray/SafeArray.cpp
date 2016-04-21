@@ -1,7 +1,7 @@
 #include "SafeArray.h"
-SafeArray::SafeArray(int maximun):maximun(maximun)
+SafeArray::SafeArray(int max):max(max)
 {
-    data=new int[maximun];
+    data=new int[max];
 }
 SafeArray::~SafeArray()
 {
@@ -9,7 +9,7 @@ SafeArray::~SafeArray()
 }
 bool SafeArray::check(int n)
 {
-    return (n<maximun);
+    return (n<max);
 }
 void SafeArray::clone(int n,int item)
 {

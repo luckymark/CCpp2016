@@ -4,11 +4,11 @@
 using namespace std;
 int main()
 {
-    SafeArray a(MAX);
+    SafeArray m(MAX);
     int n,item;
     cin >> n,item;
-    if (a.check(n)){
-        a.clone(n,item);
+    if (m.check(n)){
+        m.clone(n,item);
     }
     else{
         cout << "error!" << endl;
