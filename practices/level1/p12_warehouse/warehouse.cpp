@@ -48,7 +48,7 @@ goods paser(char buffer[40]) {
             if(sbuffer[i]==(':')) {
                 break;
             }
-            temp.name+=sbuffer[i];
+            temp.name+=sbuffer[i];//解析名字
             i++;
         }
         while(true) {
@@ -56,7 +56,7 @@ goods paser(char buffer[40]) {
                 break;
             }
             if(sbuffer[i]!=' ') {
-                temp.num = atoi(sbuffer.substr(i+1,sbuffer.length()).c_str());
+                temp.num = atoi(sbuffer.substr(i+1,sbuffer.length()).c_str());//解析为int便于后续处理
                 break;
             }
         }
@@ -76,7 +76,7 @@ int readFile(ifstream &file) {
     }
     return i;
 }
-//打印数据
+//打印仓库
 void showList(ifstream &file) {
     cout<<"-------------------"<<endl;
     for(int i = 0;i<numOfGoods;i++){
@@ -93,7 +93,7 @@ void addToWare(ifstream &file) {
     cin>>newGood.num;
     for(int i = 0;i<=numOfGoods;i++) {
         if(data[i].name == newGood.name){
-            data[i].num += newGood.num;//已存在则数量增加
+            data[i].num += newGood.num;//已存在则增加数量
         }else{
             data[numOfGoods] = newGood;//未存在则新建
             numOfGoods++;
@@ -122,7 +122,7 @@ void outWare(ifstream &file) {
 }
 //退出时写入文件，库存为0则抛弃；
 void  exitProgram() {
-    ofstream fileout("data.txt",ios::out | ios::trunc);
+    ofstream fileout("data.txt",ios::out | ios::trunc);//trunc表示删除原来文件，重新创建
     for(int i = 0;i<numOfGoods;i++) {
             if(data[i].num != 0){
             fileout<<data[i].name<<":"<<data[i].num<<"\n";
