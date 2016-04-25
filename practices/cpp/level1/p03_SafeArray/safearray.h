@@ -1,14 +1,14 @@
 class safearray {
 public:
-	safearray(int num) {
-		data = new int[num];
-	}
-	~safearray() {
-		delete[]data;
-	}
-	void putin(int item);
-	bool safe(int item);
+    safearray(int num) {
+        data = new int[num];
+    }
+    ~safearray() {
+	delete[]data;
+    }
+    void putin(int item);
+    bool safe(int item);
 private:
-	int *data;
-	int i = 0;
+    int *data;
+    int i = 0;
 };
