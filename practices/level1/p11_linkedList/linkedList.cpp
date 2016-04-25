@@ -2,18 +2,19 @@
 #include<stdlib.h>
 #include<malloc.h>
 #include<time.h>
-//结构体
+//----------------
 struct node{
     int x;
     node* next = NULL;
 };
-//函数原型
+//-----------------
 void printnode(node *head);
 node *appendnode(node *p);
 node *reverse(node *first);
+void findvalue(node *head,int value);
 
-//程序主体
-int main(){
+//----------------------
+int main() {
     node *first = (node *)malloc(sizeof(node));
     node *last = first;
     for(int i = 0;i<100;i++){
@@ -26,20 +27,20 @@ int main(){
     return 0;
 }
 
-node *appendnode(node *previous){
+node *appendnode(node *previous) {
         node *p = (node *)malloc(sizeof(node));//int *p = (int *)malloc(sizeof(int)*10);
         previous -> next = p;
         return p;
 }
 
-void printnode(node *head){
+void printnode(node *head) {
     while(head ->next != NULL){
         printf("%d\n",head -> x);
         head = head -> next;
     }
 }
 
-node *reverse(node *first){
+node *reverse(node *first) {
     node *previous = first;
     node *after = first -> next;
     previous -> next = NULL;
@@ -52,6 +53,20 @@ node *reverse(node *first){
             after = after -> next;
             first -> next = previous;
             previous = first;
+        }
+    }
+}
+void findvalue(node *head,int value) {
+    int x = 1;
+    while(true){
+        if(head -> x == value){
+            printf("%d\n",x);
+        }
+        x++;
+        head = head -> next;
+        if(head ->next != NULL){
+            printf("%d",-1);
+            break;
         }
     }
 }

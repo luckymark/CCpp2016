@@ -1,10 +1,12 @@
 #include<stdio.h>
 #include<string.h>
 void showList(FILE *fp);
-void add(FILE *fp);
-void del(FILE *fp);
+void addToWare(FILE *fp);
+void outWare(FILE *fp);
+void getIn(FILE *fp);
+char data[1000];
 //---------------------
-int main(){
+int main() {
     int chioce;
     FILE *fp;
     fp = fopen("D:\\Repository\\CCpp2016\\practices\\level1\\p12_warehouse\\data.txt", "r+");
@@ -13,8 +15,8 @@ int main(){
         scanf("%d",&chioce);
         switch (chioce) {
             case 1: showList(fp); break;
-            case 2: add(fp); break;
-            case 3: del(fp); break;
+            case 2: addToWare(fp); break;
+            case 3: outWare(fp); break;
             case 4: fclose(fp); return 0; break;
             default: printf("error");
         }
@@ -22,8 +24,9 @@ int main(){
     }
 }
 
-void showList(FILE *fp){
+void showList(FILE *fp) {
     char ch;
+    fseek(fp,0,SEEK_SET);
     ch=fgetc(fp);
     while(ch!= EOF){
         putchar(ch);
@@ -31,16 +34,34 @@ void showList(FILE *fp){
     }
 }
 
-void add(FILE *fp){
+void addToWare(FILE *fp) {
     char newtype[50];
     char newnum[50];
+    getIn(fp);
     printf("type: ");
     scanf("%s",newtype);
     printf("number: ");
     scanf("%s",newnum);
     strcat(newtype,": ");
     strcat(newtype,newnum);
-    strcat(newtype,"\n");
+    strcat(newtype,"\n\0");
     fseek(fp,0,SEEK_END);
     fputs(newtype,fp);
+}
+void outWare(FILE *fp) {
+    getIn(fp);
+
+}
+void getIn(FILE *fp) {
+    char ch;
+    memset(data,'\0',sizeof(data)/data[0]);
+    fseek(fp,0,SEEK_SET);
+    while(true){
+        ch=fgetc(fp);
+        strcat(data,ch+"");
+        if(ch!=EOF){
+            strcat(data,"\0");
+            break;
+        }
+    }
 }
