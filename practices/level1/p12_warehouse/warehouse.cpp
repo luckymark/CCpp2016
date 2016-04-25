@@ -33,14 +33,16 @@ int main() {
             case 2:addToWare(file);break;
             case 3:outWare(file);break;
             case 4:file.close();exitProgram();return 0;break;
-            default:cout<<"wrong input"<<endl;
+            default:cout<<"wrong input  please retry"<<endl;return 0;
         }
     }
     return 0;
 }
+//解析文件为所需结构
 goods paser(char buffer[40]) {
     goods temp;
     string sbuffer = buffer;
+    sbuffer += '\0';
     int i = 0;
         while(true){
             if(sbuffer[i]==(':')) {
@@ -54,49 +56,53 @@ goods paser(char buffer[40]) {
                 break;
             }
             if(sbuffer[i]!=' ') {
-                istringstream stream1;
-                stream1.str(sbuffer.substr(i,sbuffer.length()));
-                int i;
-                stream1 >> i;
+                temp.num = atoi(sbuffer.substr(i+1,sbuffer.length()).c_str());
                 break;
             }
-            i++;
         }
     return temp;
 }
+//文件读入
 int readFile(ifstream &file) {
-    char buffer[40];
     int i = 0;
-    while(!file.eof()) {
+    while(true) {
+        char buffer[40];
         file.getline(buffer,30);
+        if(file.eof()){
+            break;
+        }
         data[i] = paser(buffer);
         i++;
     }
     return i;
 }
+//打印数据
 void showList(ifstream &file) {
-    char buffer[40];
-    while(!file.eof()){
-        file.getline(buffer,30);
-        cout<<buffer<<endl;
+    cout<<"-------------------"<<endl;
+    for(int i = 0;i<numOfGoods;i++){
+        cout<<data[i].name<<":"<<data[i].num<<endl;
     }
+    cout<<"-------------------"<<endl;
 }
+//入库
 void addToWare(ifstream &file) {
     goods newGood;
     cout<<"type name: ";
     cin>>newGood.name;
     cout<<"add amount: ";
     cin>>newGood.num;
-    for(int i = 0;i<numOfGoods;i++) {
+    for(int i = 0;i<=numOfGoods;i++) {
         if(data[i].name == newGood.name){
-            data[i].num += newGood.num;
+            data[i].num += newGood.num;//已存在则数量增加
         }else{
-            data[numOfGoods] = newGood;
+            data[numOfGoods] = newGood;//未存在则新建
             numOfGoods++;
         }
         break;
     }
+    cout<<"-------------------"<<endl;
 }
+//出库
 void outWare(ifstream &file) {
     goods outGoods;
     cout<<"which one you want to get out Warehouse?"<<endl;
@@ -105,10 +111,16 @@ void outWare(ifstream &file) {
     cin>>outGoods.num;
     for(int i = 0;i<numOfGoods;i++) {
         if(data[i].name == outGoods.name) {
+            if(data[i].num < outGoods.num) {
+                cout<<"there are only "<<data[i].num<<",not enough please retry";//货存不够
+                break;
+            }
             data[i].num -= outGoods.num;
         }
     }
+    cout<<"-------------------"<<endl;
 }
+//退出时写入文件，库存为0则抛弃；
 void  exitProgram() {
     ofstream fileout("data.txt",ios::out | ios::trunc);
     for(int i = 0;i<numOfGoods;i++) {
