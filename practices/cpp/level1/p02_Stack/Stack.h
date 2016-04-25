@@ -4,12 +4,14 @@
 class Stack {
 
 public:
-	Stack();
+	Stack(int cap);
 	~Stack();
 	bool isEmpty();
 	int pop();
 	void append(int num);
+	bool isFull();
 private:
+	int size, length;
 	struct node
 	{
 		int data;

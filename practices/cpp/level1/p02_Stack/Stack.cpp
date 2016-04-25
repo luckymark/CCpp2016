@@ -1,9 +1,10 @@
 #include "Stack.h"
 #include <iostream>
 using namespace std;
-Stack::Stack()
+Stack::Stack(int cap)
 {
-
+	this->size = cap;
+	length = 0;
 }
 
 Stack::~Stack() {
@@ -27,16 +28,17 @@ int Stack::pop() {
 	int pop = p->data;
 	if (p != head) {
 		q->next = NULL;
-		delete[] p;
+		delete p;
 	}
 	else {
 		p->data = NULL;
 	}
+	length--;
 	return pop;
 }
 
 void Stack::append(int num) {
-	p = (node *)malloc(sizeof(node));
+	p = new node;
 	p->data = num;
 	p->next = NULL;
 	if (head == NULL) {
@@ -46,4 +48,9 @@ void Stack::append(int num) {
 		q->next = p;
 	}
 	q = p;
+	length++;
+}
+
+bool Stack::isFull() {
+	return (length == size);
 }

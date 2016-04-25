@@ -5,9 +5,8 @@ using namespace std;
 int main() {
 	int num, cap;
 	cin >> cap;
-	Stack stack;
-
-	for (int tmp = 0; tmp <= cap - 1; tmp++) {
+	Stack stack(cap);
+	while (!stack.isFull()) {
 		cin >> num;
 		stack.append(num);
 	}
