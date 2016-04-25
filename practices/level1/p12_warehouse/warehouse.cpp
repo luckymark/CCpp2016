@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+//c unfinished edition
 void showList(FILE *fp);
 void addToWare(FILE *fp);
 void outWare(FILE *fp);
