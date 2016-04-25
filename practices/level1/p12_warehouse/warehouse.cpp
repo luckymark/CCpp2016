@@ -1,68 +1,120 @@
-#include<stdio.h>
-#include<string.h>
-//c unfinished edition
-void showList(FILE *fp);
-void addToWare(FILE *fp);
-void outWare(FILE *fp);
-void getIn(FILE *fp);
-char data[1000];
-//---------------------
+#include<iostream>
+#include<fstream>
+#include<cstdlib>
+#include<string>
+#include <sstream>
+using namespace std;
+//--------------------------------------
+struct goods{
+    string name;
+    int num;
+};
+
+goods data[1000];
+int numOfGoods = 0;
+//----------------------------------------
+void showList(ifstream &file);
+void addToWare(ifstream &file);
+void outWare(ifstream &file);
+int readFile(ifstream &file);
+void exitProgram();
+goods paser(char buffer[40]);
+//--------------------------------------
 int main() {
-    int chioce;
-    FILE *fp;
-    fp = fopen("D:\\Repository\\CCpp2016\\practices\\level1\\p12_warehouse\\data.txt", "r+");
-    while(true){
-        printf("1.showList\n2.add\n3.out\n4.exit\n");
-        scanf("%d",&chioce);
-        switch (chioce) {
-            case 1: showList(fp); break;
-            case 2: addToWare(fp); break;
-            case 3: outWare(fp); break;
-            case 4: fclose(fp); return 0; break;
-            default: printf("error");
-        }
-        printf("success\n");
-    }
-}
-
-void showList(FILE *fp) {
-    char ch;
-    fseek(fp,0,SEEK_SET);
-    ch=fgetc(fp);
-    while(ch!= EOF){
-        putchar(ch);
-        ch=fgetc(fp);
-    }
-}
-
-void addToWare(FILE *fp) {
-    char newtype[50];
-    char newnum[50];
-    getIn(fp);
-    printf("type: ");
-    scanf("%s",newtype);
-    printf("number: ");
-    scanf("%s",newnum);
-    strcat(newtype,": ");
-    strcat(newtype,newnum);
-    strcat(newtype,"\n\0");
-    fseek(fp,0,SEEK_END);
-    fputs(newtype,fp);
-}
-void outWare(FILE *fp) {
-    getIn(fp);
-
-}
-void getIn(FILE *fp) {
-    char ch;
-    memset(data,'\0',sizeof(data)/data[0]);
-    fseek(fp,0,SEEK_SET);
-    while(true){
-        ch=fgetc(fp);
-        strcat(data,ch+"");
-        if(ch!=EOF){
-            strcat(data,"\0");
-            break;
+    int option;
+    ifstream file;
+    file.open("data.txt",ios::in);
+    numOfGoods = readFile(file);
+    while (true) {
+        cout<<"1.showList\n2.add goods\n3.out warehouse\n4.exit"<<endl;
+        cin>>option;
+        switch (option) {
+            case 1:showList(file);break;
+            case 2:addToWare(file);break;
+            case 3:outWare(file);break;
+            case 4:file.close();exitProgram();return 0;break;
+            default:cout<<"wrong input"<<endl;
         }
     }
+    return 0;
+}
+goods paser(char buffer[40]) {
+    goods temp;
+    string sbuffer = buffer;
+    int i = 0;
+        while(true){
+            if(sbuffer[i]==(':')) {
+                break;
+            }
+            temp.name+=sbuffer[i];
+            i++;
+        }
+        while(true) {
+            if(sbuffer[i]==('\n'|'\0')) {
+                break;
+            }
+            if(sbuffer[i]!=' ') {
+                istringstream stream1;
+                stream1.str(sbuffer.substr(i,sbuffer.length()));
+                int i;
+                stream1 >> i;
+                break;
+            }
+            i++;
+        }
+    return temp;
+}
+int readFile(ifstream &file) {
+    char buffer[40];
+    int i = 0;
+    while(!file.eof()) {
+        file.getline(buffer,30);
+        data[i] = paser(buffer);
+        i++;
+    }
+    return i;
+}
+void showList(ifstream &file) {
+    char buffer[40];
+    while(!file.eof()){
+        file.getline(buffer,30);
+        cout<<buffer<<endl;
+    }
+}
+void addToWare(ifstream &file) {
+    goods newGood;
+    cout<<"type name: ";
+    cin>>newGood.name;
+    cout<<"add amount: ";
+    cin>>newGood.num;
+    for(int i = 0;i<numOfGoods;i++) {
+        if(data[i].name == newGood.name){
+            data[i].num += newGood.num;
+        }else{
+            data[numOfGoods] = newGood;
+            numOfGoods++;
+        }
+        break;
+    }
+}
+void outWare(ifstream &file) {
+    goods outGoods;
+    cout<<"which one you want to get out Warehouse?"<<endl;
+    cin>>outGoods.name;
+    cout<<"how much?"<<endl;
+    cin>>outGoods.num;
+    for(int i = 0;i<numOfGoods;i++) {
+        if(data[i].name == outGoods.name) {
+            data[i].num -= outGoods.num;
+        }
+    }
+}
+void  exitProgram() {
+    ofstream fileout("data.txt",ios::out | ios::trunc);
+    for(int i = 0;i<numOfGoods;i++) {
+            if(data[i].num != 0){
+            fileout<<data[i].name<<":"<<data[i].num<<"\n";
+        }
+    }
+    fileout.close();
 }
