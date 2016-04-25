@@ -1,5 +1,5 @@
 #include "Rect.h"
 void Rect::print() const
 {
-	std::cout << "Rect " << locationX << "," << locationY << " length : " << length << " width : " << width << std::endl;
+	std::cout << "Rect " << leftTop.getX() << "," << leftTop.getY() << " length : " << length << " width : " << width << std::endl;
 }

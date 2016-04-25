@@ -3,5 +3,5 @@
 
 void Circle::print() const
 {
-	std::cout << "Circle " << locationX << "," << locationY << " R = " << radius << std::endl;
+	std::cout << "Circle " << centerPoint.getX() << "," << centerPoint.getY() << " R = " << radius << std::endl;
 }
