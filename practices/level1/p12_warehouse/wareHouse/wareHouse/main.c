@@ -54,8 +54,6 @@ void printMenu(){
         printf("请输入对应数字进入该功能\n");
         
         scanf("%d",&whichToDo);
-        
-        
         judgeWhitchToDo(whichToDo);
     }
 }
@@ -84,8 +82,8 @@ void displayCargoList(){
     }else{
 //        char name[20],number[20];
 //        int quantity;
-        printf("商品名称   \t\t编号  \t\t   数量\n");
-        printf("**************************************\n");
+        printf("商品名称\t\t编号  \t\t数量\n");
+        printf("**********************************\n");
         
 //        while (fscanf(fp, "%s %s %d",name,number,&quantity)!=EOF) {
 //            printf("%-10s\t\t%-10s\t\t%d",name,number,quantity);
@@ -94,7 +92,7 @@ void displayCargoList(){
         readAllFormFile();
         struct Cargo *p=head;
         while (p->next!=NULL) {
-            printf("%-10s\t\t %-10s\t\t %d",p->name,p->id,p->quantity);
+            printf("%-10s\t\t%-10s\t\t%d",p->name,p->id,p->quantity);
             printf("\n");
             p=p->next;
         }
@@ -124,7 +122,6 @@ void depositCargo(){
         while (p->next!=NULL) {
             if (i==n) {
                 p->quantity=p->quantity+cg.quantity;
-                printf("%s 的数量增加了 %d",p->name,p->quantity);
             }
             fprintf(fw,"%s %s %d\n",p->name,p->id,p->quantity);
             p=p->next;
@@ -174,14 +171,12 @@ void takeOutCargo(){
         printf("要出库的商品不存在\n");
         
     }
-    backToMenu();
 }
 
 void backToMenu(){
     printf("\n按0回到目录\n");
-    int option;
+    int option=1;
     scanf("%d",&option);
-    printf("option:%d\n",option);
     if (option==0) {
         system("clear");
     }else{
