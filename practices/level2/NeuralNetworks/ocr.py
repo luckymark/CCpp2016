@@ -39,8 +39,7 @@ def main():
     dataset, labels = load_data('optdigits.tra')
     input_array = load_img('input.png')
     results = knn(input_array, dataset, labels, 5)
-    total = results[0][1] if len(results) == 1 else reduce(
-        lambda x, y: x + y[1], results, 0)
+    total = reduce(lambda x, y: x + y[1], results, 0)
     for r in results:
         print('The number is %r with %r %% posibility.' %
               (r[0], r[1] / total * 100))
