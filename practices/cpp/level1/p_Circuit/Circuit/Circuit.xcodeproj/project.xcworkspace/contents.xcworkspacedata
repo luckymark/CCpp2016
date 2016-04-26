@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:movingLetter.xcodeproj">
+      location = "self:Circuit.xcodeproj">
    </FileRef>
 </Workspace>
