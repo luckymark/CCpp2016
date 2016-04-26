@@ -23,6 +23,7 @@ public:
 	Node *showParentNode();
 #ifdef DEBUG
 	void printAllValue();
+	//access child Node
 	Node &showChild();
 #endif
 };

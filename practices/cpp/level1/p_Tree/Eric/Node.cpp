@@ -1,7 +1,5 @@
 #include "Node.h"
 
-#include <iostream>
-
 Node::Node(bool isRoot)
 {
 	parentNode = nullptr;
@@ -63,7 +61,6 @@ Node &Node::showChild()
 	else
 	{
 		return *this;
-		
 	}
 }
 #endif
