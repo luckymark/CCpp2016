@@ -35,7 +35,7 @@ int main()
             {
                 maze[x-1][y]='O';
                 maze[x][y]=' ';
-                x--;ssssssss
+                x--;
             }
         }
         if(input=='s')
