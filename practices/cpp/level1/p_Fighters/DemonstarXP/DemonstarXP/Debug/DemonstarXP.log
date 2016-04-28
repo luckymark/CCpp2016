@@ -1,0 +1,31 @@
+﻿生成启动时间为 2016/4/28 13:00:28。
+     1>项目“D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\DemonstarXP\DemonstarXP.vcxproj”在节点 2 上(build 个目标)。
+     1>PrepareForBuild:
+         正在创建目录“D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\Debug\”。
+       InitializeBuildStatus:
+         正在创建“Debug\DemonstarXP.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"D:\Softwares\SFML-2.3.2\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+       ManifestResourceCompile:
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\DemonstarXP.exe.embed.manifest.res" Debug\DemonstarXP_manifest.rc 
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\Debug\DemonstarXP.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\Softwares\SFML-2.3.2\lib" "sfml-graphics-d.lib" "sfml-window-d.lib" "sfml-audio-d.lib" "sfml-network-d.lib" "sfml-system-d.lib" "sfml-main-d.lib" opengl32.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\DemonstarXP.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\Debug\DemonstarXP.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\Debug\DemonstarXP.lib" /MACHINE:X86 Debug\DemonstarXP.exe.embed.manifest.res
+         Debug\main.obj
+     1>sfml-main-d.lib(MainWin32.cpp.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“sfml-main-d.lib(MainWin32.cpp.obj)”或在“D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\Debug\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+       Manifest:
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\DemonstarXP.exe.embed.manifest" /manifest Debug\DemonstarXP.exe.intermediate.manifest
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\DemonstarXP.exe.embed.manifest.res" Debug\DemonstarXP_manifest.rc 
+       LinkEmbedManifest:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\Debug\DemonstarXP.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\Softwares\SFML-2.3.2\lib" "sfml-graphics-d.lib" "sfml-window-d.lib" "sfml-audio-d.lib" "sfml-network-d.lib" "sfml-system-d.lib" "sfml-main-d.lib" opengl32.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\DemonstarXP.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\Debug\DemonstarXP.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\Debug\DemonstarXP.lib" /MACHINE:X86 Debug\DemonstarXP.exe.embed.manifest.res
+         Debug\main.obj
+     1>sfml-main-d.lib(MainWin32.cpp.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“sfml-main-d.lib(MainWin32.cpp.obj)”或在“D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\Debug\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+         DemonstarXP.vcxproj -> D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\Debug\DemonstarXP.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\DemonstarXP.unsuccessfulbuild”。
+         正在对“Debug\DemonstarXP.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\Softwares\CCpp\CCpp2016\practices\cpp\level1\p_Fighters\demonstar\DemonstarXP\DemonstarXP.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.82
