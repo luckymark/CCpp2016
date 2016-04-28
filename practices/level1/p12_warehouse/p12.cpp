@@ -3,7 +3,8 @@
 #include <string.h>
 #define NAMELEN 25
 struct list
-{   int number;
+{   
+	int number;
 	char name[NAMELEN+1];
 	struct list *next;
 };
@@ -40,31 +41,31 @@ int main()
 }
 void choose()
 {
-	FILE *fp;
+    FILE *fp;
     fp=fopen("D:\\list.txt","r");
-	int n;
-	printf("1.ÏÔÊ¾»õ´æ£»2.Èë¿â3.³ö¿â4.ÍË³ö³ÌĞò\n");
+    int n;
+    printf("1.æ˜¾ç¤ºè´§å­˜ï¼›2.å…¥åº“3.å‡ºåº“4.é€€å‡ºç¨‹åº\n");
     scanf("%d",&n);
     switch(n)
     {
     	case 1:
     		ShowList();
-    	break;
+    	        break;
     	case 2:
-    		printf("ÇëÊäÈë»õÎïĞÍºÅÓëÊıÁ¿");
+    		printf("è¯·è¾“å…¥è´§ç‰©å‹å·ä¸æ•°é‡");
         	char name[NAMELEN+1];
         	int change;
         	scanf("%s %d",name,&change);
         	Insert(name,change);
         	break;
         case 3:
-        	printf("ÇëÊäÈë³ö¿âĞÍºÅ£º");
+        	printf("è¯·è¾“å…¥å‡ºåº“å‹å·ï¼š");
         	OutList();
         	break;
         case 4:
         	fclose(fp);
-            Save();
-            exit(1);
+                Save();
+                exit(1);
     }
 }
 void ShowList()
@@ -128,20 +129,20 @@ void OutList()
         if(!strcmp(p->name,out))
         {
             int Out;
-            printf("\n%s\n:%d\n£º",p->name,p->number);
+            printf("\n%s\n:%d\nï¼š",p->name,p->number);
             scanf("%d",&Out);
             if(Out>p->number)
             {
-                printf("»õ´æ²»×ã\n");
+                printf("è´§å­˜ä¸è¶³\n");
                 return;
             }
             p->number-=Out;
-            printf("³ö»õ³É¹¦\n%sĞÍºÅµÄÊ£Óà»õ´æÁ¿Îª%d",p->name,p->number);
+            printf("å‡ºè´§æˆåŠŸ\n%så‹å·çš„å‰©ä½™è´§å­˜é‡ä¸º%d",p->name,p->number);
             return;
         }
         p=p->next;
     }
-    printf("²»´æÔÚ\n");
+    printf("ä¸å­˜åœ¨\n");
     return;
 }
 void Save()
