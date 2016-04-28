@@ -8,3 +8,5 @@ slides/.idea
 *.sh
 *.sh~
 *.o
+makefile
+Makefile
