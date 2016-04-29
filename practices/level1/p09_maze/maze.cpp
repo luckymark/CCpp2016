@@ -59,14 +59,14 @@ void move(char direction)
         case('d'):
             x++;
             break;
-        defaule:
-			return;
+        default:
+	    return;
 
     }
     if(hitwall(maze[y][x])==1)
-	{
+    {
 		maze[y][x]='I';
-	};
+    };
     clean();
     if(finishmaze()==1)
     {
