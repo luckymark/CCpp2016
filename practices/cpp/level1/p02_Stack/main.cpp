@@ -9,13 +9,13 @@ int main()
     cin>>capbility;
     Stack stack(capbility);
     while (!stack.isFull(capbility)) 
-	{
+    {
     	stack.push(RANGE);
     }
     while (!stack.isEmpty()) 
-	{
+    {
     	int num;
     	num= stack.pop();
-	    cout<<num<<endl;
+	cout<<num<<endl;
     }
 }
