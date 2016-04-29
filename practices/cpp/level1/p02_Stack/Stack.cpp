@@ -1,12 +1,12 @@
 #include "Stack.h"
 Stack::Stack(int capbility)
 {
-	data=new int[capbility];
-	last=capbility;
+    data=new int[capbility];
+    last=capbility;
 }
 Stack::Stack()
 {
-	delete[]data;
+    delete[]data;
 }
 void Stack::push(int item) 
 {
