@@ -22,7 +22,7 @@ int main()
 	char direction;
 	while(0==finish)
 	{
-		scanf("%c",&direction);
+	        scanf("%c",&direction);
 		move(direction);
 		
 	}
@@ -44,7 +44,7 @@ void showmaze()
 }
 void move(char direction)
 {
-	maze[y][x]=' ';
+    maze[y][x]=' ';
     switch(direction)
     {
         case('w'):
