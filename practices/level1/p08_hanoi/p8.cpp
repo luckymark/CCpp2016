@@ -1,0 +1,18 @@
+#include<stdio.h>
+long hh(int n);
+int main() {
+	long s = 0;
+	s = hh(64);
+	printf("%lld", s);
+	return 0;
+}
+long hh(int n) {
+	long a;
+	if (n > 1)
+		a = (2 * hh(n - 1) + 1);
+	else
+		a = 1;
+	return a;
+
+
+}
