@@ -1,5 +1,6 @@
 #include "safearray.h"
 #include <cstdio>
+using namespace std;
 SafeArray::SafeArray(int capility){
     data=new int[capility];
     all=capility;
