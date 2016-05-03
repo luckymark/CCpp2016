@@ -5,9 +5,9 @@ int main(){
     int p,a;
     SafeArray data(100);
 
-    scanf("%d%d",&p,&a);
+    cin>>p>>a;
     data.getIn(p,a);
 
-    scanf("%d",&p);
-    printf("%d\n",data.getOut(p));
+    cin>>p;
+    cout>>data.getOut(p)>>endl;
 }
