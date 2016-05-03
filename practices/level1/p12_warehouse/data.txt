@@ -1,0 +1,2 @@
+tenda:1000
+tplink:100
