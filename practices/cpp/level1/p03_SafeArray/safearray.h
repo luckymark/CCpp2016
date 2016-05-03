@@ -1,4 +1,4 @@
-class safearray {
+class Safearray {
 public:
     safearray(int num) {
         data = new int[num];
