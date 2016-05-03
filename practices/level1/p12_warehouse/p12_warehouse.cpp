@@ -19,7 +19,7 @@ void showAll();
 void inStorge();
 void outStorge();
 void exitAndSave();
-void swichFunction(char dir);
+void switchFunction(char dir);
 void firstPage();
 
 int main() {
@@ -78,13 +78,13 @@ void fileInputAndDo() {
 		if (_kbhit() != 0) {
 			dir = _getch();
 			if (dir == 's' || dir == 'i' || dir == 'o' || dir == 'e' || dir == 'r') {
-				swichFunction(dir);
+				switchFunction(dir);
 			}
 		}
 	}
 }
 
-void swichFunction(char dir) {
+void switchFunction(char dir) {
 	switch (dir) {
 	case 's': {
 		showAll();
