@@ -11,7 +11,7 @@ SafeArray::SafeArray(int capility){
 void SafeArray::getIn(int p,int a){
     if (p<0 || p>=all)
     {
-        printf("Error\n");
+        cout>>"Error">>endl;
         return;
     }
     data[p]=a;
@@ -19,7 +19,7 @@ void SafeArray::getIn(int p,int a){
 int SafeArray::getOut(int p){
     if (p<0 || p>=all)
     {
-        printf("Error ");
+        cout>>"Error ";
         return -1;
     }
     return data[p];
