@@ -1,8 +1,8 @@
 #include"safearray.h"
-void safearray::putin(int item) {
+void Safearray::putin(int item) {
     data[i] = item;
     i++;
 }
-bool safearray::safe(int item) {
+bool Safearray::safe(int item) {
     return i <= item;
 }
