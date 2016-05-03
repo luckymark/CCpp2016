@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include "safearray.h"
+using namespace std;
 int main(){
     int p,a;
     SafeArray data(100);
