@@ -3,7 +3,7 @@
 using namespace std;
 int main()
 {
-    Stack stack(321);
+    Stack stack(123);
     for(int i=1;!stack.is_full();i++)
     {
         stack.push(i);

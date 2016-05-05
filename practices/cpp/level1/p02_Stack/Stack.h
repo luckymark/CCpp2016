@@ -16,7 +16,7 @@ class Stack
         int *data;
         int tail=0;
         int head=0;
-        int num;
+        int capbility;
 };
 
 #endif // STACK_H

@@ -2,12 +2,12 @@
 Stack::Stack(int capbility)
 {
     data=new int[capbility];
-    num=capbility;
+    this->capbility=capbility;
 }
 Stack::Stack()
 {
     data=new int[100];
-    num=100;
+    capbility=100;
 }
 bool Stack::is_empty()
 {
@@ -15,7 +15,7 @@ bool Stack::is_empty()
 }
 bool Stack::is_full()
 {
-    return (head==num-1);
+    return (head==capbility-1);
 }
 void Stack::push(int a)
 {
