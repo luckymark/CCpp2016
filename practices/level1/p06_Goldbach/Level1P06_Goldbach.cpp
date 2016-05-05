@@ -13,7 +13,7 @@ int main()
 	{
 		findTwoPrime(i);
 	}
-    return 0;
+	return 0;
 }
 
 int isPrime(int num) {

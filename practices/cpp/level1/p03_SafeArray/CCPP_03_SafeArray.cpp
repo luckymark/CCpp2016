@@ -17,7 +17,7 @@ int main()
 	cin >> size;
 	safeArray = new SafeArray(size);
 	menu();
-    return 0;
+	return 0;
 }
 
 void menu() {

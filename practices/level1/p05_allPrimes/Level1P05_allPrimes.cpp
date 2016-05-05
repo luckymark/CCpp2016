@@ -14,7 +14,7 @@ int main()
 {
 	findPrime(20000);
 	printPrime();
-    return 0;
+	return 0;
 }
 
 void findPrime(int max) {

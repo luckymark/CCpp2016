@@ -15,7 +15,7 @@ int main()
 	cin >> size;
 	stack = new Stack(size);
 	menu();
-    return 0;
+	return 0;
 }
 
 void menu() {

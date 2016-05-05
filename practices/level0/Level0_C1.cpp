@@ -96,7 +96,7 @@ void judge2() {
 		printf("%d不是13的倍数\n",num);
 	}
 	finish();
-	}
+}
 
 void judge3() {
 	int num;

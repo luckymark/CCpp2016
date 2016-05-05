@@ -14,7 +14,7 @@ int test(int goodHave,int type);
 int main()
 {	
 	showMenu();
-    return 0;
+	return 0;
 }
 
 int test(int goodHave,int type) {
@@ -52,9 +52,10 @@ int test(int goodHave,int type) {
 		}
 		break;
 	default:
+		
 		break;
-		return 0;
 	}
+	return 0;
 }
 
 void showMenu() {
@@ -142,11 +143,11 @@ void change(int type) {
 			cout << "<没有该货物，将返回菜单>\n" << endl;
 			showMenu();
 			return;
-			break;
 		case 4:
 			goodSum = test(tempGoods,2);
 			break;
 		default:
+			
 			break;
 	}
 

@@ -17,7 +17,7 @@ int main()
 	{
 		printf("%d不是一个质数\n", num);
 	}
-    return 0;
+	return 0;
 }
 
 int isPrime(int num) {
