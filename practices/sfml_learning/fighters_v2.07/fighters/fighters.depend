@@ -1,8 +1,7 @@
 # depslib dependency file v1.0
-1462763671 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\fighters_v2.07\fighters\main.cpp
+1462983758 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\fighters_v2.07\fighters\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
-	<cstdio>
 
 1365233432 e:\sfml-2.0\include\sfml\graphics.hpp
 	<SFML/Window.hpp>

@@ -2,6 +2,8 @@
 #include <SFML/Audio.hpp>
 #define RecHero 0, 99, 102, 126
 #define RecBullet 1004, 987, 9, 21
+
+sf::Sprite makeBullet(sf::Sprite aBullet,sf::Vector2f bulletRec);
 int main()
 {
     const int gameWidth=800;
@@ -20,12 +22,14 @@ int main()
         return -1;
 
     shoot.setSmooth(true);
-    sf::Sprite heroSprite(shoot),BulletSprite(shoot);
+    sf::Sprite heroSprite(shoot),singleBullet(shoot);
+    std::vector<sf::Sprite>Bullets;
     heroSprite.setTextureRect(sf::IntRect(RecHero));
-    BulletSprite.setTextureRect(sf::IntRect(RecBullet));
+    singleBullet.setTextureRect(sf::IntRect(RecBullet));
+    //singleBullet.setColor(sf::Color::Blue);
     heroSprite.setColor(sf::Color::Red);
     heroSprite.setPosition(sf::Vector2f(400,500));
-    sf::Clock clock;
+    sf::Clock clock,PressSpace;
     while(window.isOpen())
     {
         sf::Event event;
@@ -36,7 +40,9 @@ int main()
         }
         sf::FloatRect nowPosition=heroSprite.getGlobalBounds();
         float left=nowPosition.left,right=left+nowPosition.width,top=nowPosition.top,bottom=top+nowPosition.height;
+
         float detalTime=clock.restart().asSeconds();
+
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && left>0)
             heroSprite.move(-flightSpeed*detalTime,0);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && right<800)
@@ -45,9 +51,33 @@ int main()
             heroSprite.move(0,-flightSpeed*detalTime);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && bottom<600)
             heroSprite.move(0,flightSpeed*detalTime);
+        float centerX=(left+right)/2.f;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+        {
+            sf::Clock temp(PressSpace);
+            float detalPressSpace=temp.restart().asSeconds();
+            if(detalPressSpace>0.2f)
+            {
+                PressSpace.restart();
+                Bullets.push_back(makeBullet(singleBullet,sf::Vector2f(centerX,top)));
+            }
+
+        }
+
         window.clear(sf::Color::Black);
+        for(auto &c:Bullets)
+        {
+            c.move(0,-flightSpeed*detalTime);
+            window.draw(c);
+        }
         window.draw(heroSprite);
         window.display();
     }
     return 0;
+}
+sf::Sprite makeBullet(sf::Sprite aBullet,const sf::Vector2f bulletRec)
+{
+    sf::Sprite tarBullet(aBullet);
+    tarBullet.setPosition(bulletRec);
+    return tarBullet;
 }
