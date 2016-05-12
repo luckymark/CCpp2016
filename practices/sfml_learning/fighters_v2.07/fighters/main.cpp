@@ -1,14 +1,22 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <list>
+#include <iostream>
+#include <ctime>
 #define RecHero 0, 99, 102, 126
 #define RecBullet 1004, 987, 9, 21
-
+#define RecEnemy 534, 612, 57, 43
 sf::Sprite makeBullet(sf::Sprite aBullet,sf::Vector2f bulletRec);
+void creatEnemyFlighters(sf::Sprite aEnemy,std::list<sf::Sprite>& EnemyFlighters);
+void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters);
+const int gameWidth=800;
+const int gameHeight=600;
+const float flightSpeed=400.f;
+const float HerobulletSpeed=600.f;
+const float EnemySpeed = 100.f;
 int main()
 {
-    const int gameWidth=800;
-    const int gameHeight=600;
-    const float flightSpeed=400.f;
+    std::srand(static_cast<unsigned int>(std::time(NULL)));
     sf::RenderWindow window(sf::VideoMode(gameWidth,gameHeight),"My window");
     window.setVerticalSyncEnabled(true);
     sf::Music music;
@@ -22,14 +30,16 @@ int main()
         return -1;
 
     shoot.setSmooth(true);
-    sf::Sprite heroSprite(shoot),singleBullet(shoot);
-    std::vector<sf::Sprite>Bullets;
+    sf::Sprite heroSprite(shoot),singleBullet(shoot),singleEnemy(shoot);
+    std::list<sf::Sprite>Bullets;
+    std::list<sf::Sprite>EnemyFlighters;
     heroSprite.setTextureRect(sf::IntRect(RecHero));
     singleBullet.setTextureRect(sf::IntRect(RecBullet));
+    singleEnemy.setTextureRect(sf::IntRect(RecEnemy));
     //singleBullet.setColor(sf::Color::Blue);
     heroSprite.setColor(sf::Color::Red);
     heroSprite.setPosition(sf::Vector2f(400,500));
-    sf::Clock clock,PressSpace;
+    sf::Clock clock,PressSpace,creatEnemy;
     while(window.isOpen())
     {
         sf::Event event;
@@ -63,12 +73,43 @@ int main()
             }
 
         }
-
-        window.clear(sf::Color::Black);
-        for(auto &c:Bullets)
+        if(true)
         {
-            c.move(0,-flightSpeed*detalTime);
-            window.draw(c);
+
+            sf::Clock temp(creatEnemy);
+            float detalCreatEnemy=temp.restart().asSeconds();
+            if(detalCreatEnemy>3.f)
+            {
+                creatEnemy.restart();
+                creatEnemyFlighters(singleEnemy,EnemyFlighters);
+            }
+        }
+        window.clear(sf::Color::Black);
+        checkCollision(Bullets,EnemyFlighters);
+        for(auto it=Bullets.begin();it!=Bullets.end();++it)
+        {
+            //detalTime = clock.restart().asSeconds();
+           // std::cout<<"The total bullets "<<Bullets.size()<<std::endl;
+            if(it->getGlobalBounds().top>5.f)
+            {
+                it->move(0,-detalTime*HerobulletSpeed);
+                window.draw(*it);
+            }
+            else
+                it=Bullets.erase(it);
+        }
+
+        for(auto it=EnemyFlighters.begin();it!=EnemyFlighters.end();++it)
+        {
+            //detalTime = clock.restart().asSeconds();
+            //std::cout<<"The total bullets "<<Bullets.size()<<std::endl;
+            if(it->getGlobalBounds().top<gameHeight)
+            {
+                it->move(0,detalTime*EnemySpeed);
+                window.draw(*it);
+            }
+            else
+                it=Bullets.erase(it);
         }
         window.draw(heroSprite);
         window.display();
@@ -80,4 +121,19 @@ sf::Sprite makeBullet(sf::Sprite aBullet,const sf::Vector2f bulletRec)
     sf::Sprite tarBullet(aBullet);
     tarBullet.setPosition(bulletRec);
     return tarBullet;
+}
+void creatEnemyFlighters(sf::Sprite aEnemy,std::list<sf::Sprite>& EnemyFlighters)
+{
+
+    int isCreat=std::rand()%10;
+    if(isCreat>3)
+        return ;
+    sf::Sprite tarEnemy(aEnemy);
+    tarEnemy.setPosition(sf::Vector2f(std::rand()%gameWidth,0.f));
+    EnemyFlighters.push_back(tarEnemy);
+    std::cout<<"creat successfuly!"<<std::endl;
+}
+void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters)
+{
+
 }
