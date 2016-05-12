@@ -6,6 +6,10 @@
 #define RecHero 0, 99, 102, 126
 #define RecBullet 1004, 987, 9, 21
 #define RecEnemy 534, 612, 57, 43
+#define RecEnemyBomb1 267, 347, 57, 51
+#define RecEnemyBomb2 873, 697, 57, 51
+#define RecEnemyBomb3 267, 296, 57, 51
+#define RecEnemyBomb4 930, 697, 57, 51
 sf::Sprite makeBullet(sf::Sprite aBullet,sf::Vector2f bulletRec);
 void creatEnemyFlighters(sf::Sprite aEnemy,std::list<sf::Sprite>& EnemyFlighters);
 void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters);
@@ -135,5 +139,14 @@ void creatEnemyFlighters(sf::Sprite aEnemy,std::list<sf::Sprite>& EnemyFlighters
 }
 void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters)
 {
+    for(auto itBullets=Bullets.begin();itBullets!=Bullets.end();itBullets++)
+    {
+        for(auto itEnemy=EnemyFlighters.begin();itEnemy!=EnemyFlighters.end();itEnemy++)
+            if(itBullets->getGlobalBounds().intersects(itEnemy->getGlobalBounds()))
+            {
+                itBullets=Bullets.erase(itBullets);
+                itEnemy=EnemyFlighters.erase(itEnemy);
 
+            }
+    }
 }
