@@ -12,7 +12,8 @@
 #define RecEnemyBomb4 930, 697, 57, 51
 sf::Sprite makeBullet(sf::Sprite aBullet,sf::Vector2f bulletRec);
 void creatEnemyFlighters(sf::Sprite aEnemy,std::list<sf::Sprite>& EnemyFlighters);
-void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters);
+void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters,std::list<sf::sprite> &EnemyBombImage);
+void showCollision(std::list<)
 const int gameWidth=800;
 const int gameHeight=600;
 const float flightSpeed=400.f;
@@ -34,9 +35,10 @@ int main()
         return -1;
 
     shoot.setSmooth(true);
-    sf::Sprite heroSprite(shoot),singleBullet(shoot),singleEnemy(shoot);
+    sf::Sprite heroSprite(shoot),singleBullet(shoot),singleEnemy(shoot),bomb1(shoot),bomb2(shoot),bomb3(shoot);
     std::list<sf::Sprite>Bullets;
     std::list<sf::Sprite>EnemyFlighters;
+    std::list<sf::Sprite>EnemyBombImage;
     heroSprite.setTextureRect(sf::IntRect(RecHero));
     singleBullet.setTextureRect(sf::IntRect(RecBullet));
     singleEnemy.setTextureRect(sf::IntRect(RecEnemy));
@@ -137,7 +139,7 @@ void creatEnemyFlighters(sf::Sprite aEnemy,std::list<sf::Sprite>& EnemyFlighters
     EnemyFlighters.push_back(tarEnemy);
     std::cout<<"creat successfuly!"<<std::endl;
 }
-void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters)
+void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters,std::list<sf::sprite> &EnemyBombImage)
 {
     for(auto itBullets=Bullets.begin();itBullets!=Bullets.end();itBullets++)
     {
@@ -146,7 +148,7 @@ void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFl
             {
                 itBullets=Bullets.erase(itBullets);
                 itEnemy=EnemyFlighters.erase(itEnemy);
-
+                showCollision(EnemyBombImage);
             }
     }
 }
