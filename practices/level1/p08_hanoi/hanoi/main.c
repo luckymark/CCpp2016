@@ -10,11 +10,11 @@
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-        int n;
-        void honi(int n,char one, char two, char three);
-        printf("please enter numbers of disks\n");
-        scanf("%d",&n);
-        honi(n, 'A', 'B', 'C');
+    int n;
+    void honi(int n,char one, char two, char three);
+    printf("please enter numbers of disks\n");
+    scanf("%d",&n);
+    honi(n, 'A', 'B', 'C');
     return 0;
 }
 
@@ -25,9 +25,9 @@ void honi(int n,char one, char two, char three)
     if (n==1) {
         steps(one, three);
     }else{
-    honi(n-1,one, three, two);
-    steps(one, three);
-    honi(n-1, two, one, three);
+        honi(n-1,one, three, two);
+        steps(one, three);
+        honi(n-1, two, one, three);
     }
 }
 

@@ -42,7 +42,6 @@ int main(int argc, const char * argv[]) {
     while (finished==0) {
         scanf("%c",&step);
         run(step);
-        
     }
     return 0;
 }
@@ -50,8 +49,6 @@ int main(int argc, const char * argv[]) {
 
 void printWall()
 {
-    
-    
     for (int i=0; i<HEIGHT; i++) {
         for (int j=0;j<WIDTH ; j++) {
             printf("%c",map[i][j]);
@@ -66,13 +63,11 @@ void printWall()
 void run(char direction){
     char temp=map[y][x];
     if (direction=='d'||direction=='D') {
-        
         if (ifHitTheWall(map[y][x+1])==1) {
             map[y][x]=map[y][x+1];
             map[y][x+1]=temp;
             x++;
             go();
-            
         }
         
     }else if (direction=='w'||direction=='W'){

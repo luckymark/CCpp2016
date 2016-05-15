@@ -11,41 +11,24 @@
 Stack::Stack (int capbility){
     element=new int(capbility);
     cap=capbility;
-    
+    current=0;
 }
 
 bool Stack::isFull(){
-    if (element[cap-1]!='\0') {
-        return 1;
-    }else {
-        return 0;
-    }
-    
+    return element[cap-1]!='\0';
 }
 
 
 
 bool Stack::isEmpty(){
-    if (element[0]=='\0') {
-        return 1;
-    }else{
-        return 0;
-    }
+    return element[0]!='\0';
 }
 
 void Stack::push(int item){
-    for (int i=0;i<cap ; i++) {
-        if (element[i]==0) {
-            element[i]=item;
-            break;
-        }
-    }
+    element[current]=item;
+    current++;
 }
 void Stack::pop(){
-    for (int i=0; i<cap; i++) {
-        if (element[i]==0) {
-            element[i-1]=0;
-            break;
-        }
-    }
+    element[current]='\0';
+    current--;
 }

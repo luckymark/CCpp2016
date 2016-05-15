@@ -29,5 +29,5 @@ public:
 private:
     int cap;
     int *element;
-    
+    int current;
 };
