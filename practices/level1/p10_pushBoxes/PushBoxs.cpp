@@ -162,22 +162,34 @@ bool Move(char direction, char map[][21], int * x, int * y)
 		system("pause");
 		break;
 	}
-	if (map[*x+i][*y+j]==' ')//1.1
+	switch (map[*x + i][*y + j])
 	{
-		map[*x+i][*y+j] = 'I';
-		if (map[*x][*y]=='T')
+	case ' ':
+		map[*x + i][*y + j] = 'I';
+		if (map[*x][*y] == 'T')
 			map[*x][*y] = 'X';
 		else
 			map[*x][*y] = ' ';
 		*x = *x + i;
 		*y = *y + j;
-	}
-	else
-	{
-		if (map[*x + i][*y + j] == 'B')//1.3
-			if (map[*x + i + i][*y + j + j] == ' ')//1.3.1
+		break;
+	case 'B':
+		if (map[*x + i + i][*y + j + j] == ' ')//1.3.1
+		{
+			map[*x + i + i][*y + j + j] = 'B';
+			map[*x + i][*y + j] = 'I';
+			if (map[*x][*y] == 'T')
+				map[*x][*y] = 'X';
+			else
+				map[*x][*y] = ' ';
+			*x = *x + i;
+			*y = *y + j;
+		}
+		else
+		{
+			if (map[*x + i + i][*y + j + j] == 'X')//1.3.2
 			{
-				map[*x + i + i][*y + j + j] = 'B';
+				map[*x + i + i][*y + j + j] = 'R';
 				map[*x + i][*y + j] = 'I';
 				if (map[*x][*y] == 'T')
 					map[*x][*y] = 'X';
@@ -186,24 +198,25 @@ bool Move(char direction, char map[][21], int * x, int * y)
 				*x = *x + i;
 				*y = *y + j;
 			}
-			else
-			{
-				if (map[*x + i + i][*y + j + j] == 'X')//1.3.2
-				{
-					map[*x + i + i][*y + j + j] = 'R';
-					map[*x + i][*y + j] = 'I';
-					if (map[*x][*y] == 'T')
-						map[*x][*y] = 'X';
-					else
-						map[*x][*y] = ' ';
-					*x = *x + i;
-					*y = *y + j;
-				}
-			}
-		else
+		}
+		break;
+	case 'X':
+		if (map[*x + i][*y + j] == 'X')//1.2
 		{
-			if (map[*x + i][*y + j] == 'X')//1.2
+			map[*x + i][*y + j] = 'T';
+			if (map[*x][*y] == 'T')
+				map[*x][*y] = 'X';
+			else
+				map[*x][*y] = ' ';
+			*x = *x + i;
+			*y = *y + j;
+		}
+		break;
+	case 'R':
+		if (map[*x + i][*y + j] == 'R')//1.4
+			if (map[*x + i + i][*y + j + j] == ' ')//1.4.1
 			{
+				map[*x + i + i][*y + j + j] = 'B';
 				map[*x + i][*y + j] = 'T';
 				if (map[*x][*y] == 'T')
 					map[*x][*y] = 'X';
@@ -214,34 +227,20 @@ bool Move(char direction, char map[][21], int * x, int * y)
 			}
 			else
 			{
-				if (map[*x + i][*y + j] == 'R')//1.4
-					if (map[*x + i + i][*y + j + j] == ' ')//1.4.1
-					{
-						map[*x + i + i][*y + j + j] = 'B';
-						map[*x + i][*y + j] = 'T';
-						if (map[*x][*y] == 'T')
-							map[*x][*y] = 'X';
-						else
-							map[*x][*y] = ' ';
-						*x = *x + i;
-						*y = *y + j;
-					}
+				if (map[*x + i + i][*y + j + j] == 'X')//1.4.2
+				{
+					map[*x + i + i][*y + j + j] = 'R';
+					map[*x + i][*y + j] = 'T';
+					if (map[*x][*y] == 'T')
+						map[*x][*y] = 'X';
 					else
-					{
-						if (map[*x + i + i][*y + j + j] == 'X')//1.4.2
-						{
-							map[*x + i + i][*y + j + j] = 'R';
-							map[*x + i][*y + j] = 'T';
-							if (map[*x][*y] == 'T')
-								map[*x][*y] = 'X';
-							else
-								map[*x][*y] = ' ';
-							*x = *x + i;
-							*y = *y + j;
-						}
-					}
+						map[*x][*y] = ' ';
+					*x = *x + i;
+					*y = *y + j;
+				}
 			}
-		}
+	default:
+		break;
 	}
 	system("cls");
 	int end = 0;//2.
