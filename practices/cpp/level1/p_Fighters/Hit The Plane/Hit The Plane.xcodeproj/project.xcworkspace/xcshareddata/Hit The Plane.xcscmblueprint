@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6D1941C4C19D87960F659063D59E1E184B68010E+++7646C8B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6D1941C4C19D87960F659063D59E1E184B68010E+++7646C8B" : 0,
+    "6D1941C4C19D87960F659063D59E1E184B68010E+++F31A9D3" : 0,
+    "6D1941C4C19D87960F659063D59E1E184B68010E+++6DFBB02" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C5DC2EE4-289D-43F6-8172-E820E0723EB2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6D1941C4C19D87960F659063D59E1E184B68010E+++7646C8B" : "CCpp2016\/",
+    "6D1941C4C19D87960F659063D59E1E184B68010E+++F31A9D3" : "",
+    "6D1941C4C19D87960F659063D59E1E184B68010E+++6DFBB02" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Hit The Plane",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "practices\/cpp\/level1\/p_Fighters\/Hit The Plane\/Hit The Plane.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/luckymark\/CCpp2016",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6D1941C4C19D87960F659063D59E1E184B68010E+++6DFBB02"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Caoxiann\/CCpp2016.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6D1941C4C19D87960F659063D59E1E184B68010E+++7646C8B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Caoxiann\/CCpp2016.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6D1941C4C19D87960F659063D59E1E184B68010E+++F31A9D3"
+    }
+  ]
+}
