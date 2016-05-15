@@ -3,7 +3,7 @@
 #include <cstdio>
 int Stack::pop()
 {
-	head--;
+    head--;
     return data[head+1];
 }
 void Stack::push(int item)
