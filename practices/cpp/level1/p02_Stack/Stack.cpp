@@ -8,7 +8,7 @@ int Stack::pop()
 }
 void Stack::push(int item)
 {
-	head++;
+    head++;
     data[head]=item;
 }
 bool Stack::is_full()

@@ -3,9 +3,9 @@
 class Stack
 {
  public:
- 	void push(int item);
+    void push(int item);
     int pop();
-   	bool is_empty();
+    bool is_empty();
     bool is_full();
 
  private:
