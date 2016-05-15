@@ -59,9 +59,11 @@ void openMap(int mapold[][21],char choose)
 	{
 	case '1':
 		file.open("1.txt");
+		system("cls");
 		break;
 	case '2':
 		file.open("2.txt");
+		system("cls");
 		break;
 	default:
 		cout << "error!";
@@ -86,32 +88,29 @@ void changeType(int mapold[][21], char map[][21],int *w,int *z)//将地图的格式由i
 	{
 		for (size_t j = 0; j < 21; j++)
 		{
-			if (mapold[i][j] == 8)
+			switch (mapold[i][j])
 			{
+			case 8:
 				map[i][j] = '#';
-				continue;
-			}
-			if (mapold[i][j] == 4)
-			{
+				break;
+			case 4:
 				map[i][j] = ' ';
-				continue;
-			}
-			if (mapold[i][j] == 3)
-			{
+				break;
+			case 3:
 				map[i][j] = 'B';
-				continue;
-			}
-			if (mapold[i][j] == 2)
-			{
+				break;
+			case 2:
 				map[i][j] = 'X';
-				continue;
-			}
-			if (mapold[i][j] == 1)
-			{
+				break;
+			case 1:
 				map[i][j] = 'I';
 				*w = i;
 				*z = j;
+				break;
+			default:
+				break;
 			}
+
 		}
 	}
 };
