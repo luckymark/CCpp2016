@@ -126,7 +126,6 @@ void showMap(char map[][21]) {
 	}
 	cout << "Please input 'w','s','a','d' to move yourself:";
 }
-//为什么不能直接输出一行? cout << map[i]; ?
 
 int Scores()
 {
