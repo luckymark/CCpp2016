@@ -170,8 +170,8 @@ bool Move(char direction, char map[][21], int * x, int * y)
 			map[*x][*y] = 'X';
 		else
 			map[*x][*y] = ' ';
-		*x = *x + i;
-		*y = *y + j;
+		*x += i;
+		*y += j;
 		break;
 	case 'B':
 		if (map[*x + i + i][*y + j + j] == ' ')//1.3.1
@@ -182,8 +182,8 @@ bool Move(char direction, char map[][21], int * x, int * y)
 				map[*x][*y] = 'X';
 			else
 				map[*x][*y] = ' ';
-			*x = *x + i;
-			*y = *y + j;
+			*x += i;
+			*y += j;
 		}
 		else
 		{
@@ -195,8 +195,8 @@ bool Move(char direction, char map[][21], int * x, int * y)
 					map[*x][*y] = 'X';
 				else
 					map[*x][*y] = ' ';
-				*x = *x + i;
-				*y = *y + j;
+				*x += i;
+				*y += j;
 			}
 		}
 		break;
@@ -208,8 +208,8 @@ bool Move(char direction, char map[][21], int * x, int * y)
 				map[*x][*y] = 'X';
 			else
 				map[*x][*y] = ' ';
-			*x = *x + i;
-			*y = *y + j;
+			*x += i;
+			*y += j;
 		}
 		break;
 	case 'R':
@@ -222,8 +222,8 @@ bool Move(char direction, char map[][21], int * x, int * y)
 					map[*x][*y] = 'X';
 				else
 					map[*x][*y] = ' ';
-				*x = *x + i;
-				*y = *y + j;
+				*x += i;
+				*y += j;
 			}
 			else
 			{
@@ -235,8 +235,8 @@ bool Move(char direction, char map[][21], int * x, int * y)
 						map[*x][*y] = 'X';
 					else
 						map[*x][*y] = ' ';
-					*x = *x + i;
-					*y = *y + j;
+					*x += i;
+					*y += j;
 				}
 			}
 	default:
