@@ -5,13 +5,9 @@ class Circle
 {
 private:
   Point center;
-  //a point on border
-  Point border;
+  int radius;
 public:
-  Circle(int x, int y, int r) : center(x, y), border(x, y + r)
-  {
-    center.bind(border.toBind());
-  };
+  Circle(int x, int y, int r) : center(x, y), radius(r) {}
   void move(int deltaX, int deltaY);
 #ifdef DEBUG
   void printStatus();

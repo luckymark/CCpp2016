@@ -4,12 +4,11 @@
 #endif
 void Circle::move(int deltaX, int deltaY)
 {
-  center.move(deltaX, deltaY, BY_HUMAN);
+  center.move(deltaX, deltaY);
 }
 #ifdef DEBUG
 void Circle::printStatus()
 {
   center.printStatus();
-  border.printStatus();
 }
 #endif
