@@ -12,8 +12,8 @@
 #define RecEnemyBomb4 930, 697, 57, 51
 sf::Sprite makeBullet(sf::Sprite aBullet,sf::Vector2f bulletRec);
 void creatEnemyFlighters(sf::Sprite aEnemy,std::list<sf::Sprite>& EnemyFlighters);
-void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters,std::list<sf::sprite> &EnemyBombImage);
-void showCollision(std::list<)
+//void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters,std::list<sf::Sprite> &EnemyBombImage);
+//void showCollision(std::list<)
 const int gameWidth=800;
 const int gameHeight=600;
 const float flightSpeed=400.f;
@@ -22,7 +22,9 @@ const float EnemySpeed = 100.f;
 int main()
 {
     std::srand(static_cast<unsigned int>(std::time(NULL)));
-    sf::RenderWindow window(sf::VideoMode(gameWidth,gameHeight),"My window");
+    //sf::RenderWindow window(sf::VideoMode(gameWidth,gameHeight),"My window");
+    sf::RenderWindow window;
+    window.create(sf::VideoMode(gameWidth,gameHeight),"My window");
     window.setVerticalSyncEnabled(true);
     sf::Music music;
     if(!music.openFromFile("resources/music/bgm/th07_01.ogg"))
@@ -91,7 +93,7 @@ int main()
             }
         }
         window.clear(sf::Color::Black);
-        checkCollision(Bullets,EnemyFlighters);
+        //checkCollision(Bullets,EnemyFlighters);
         for(auto it=Bullets.begin();it!=Bullets.end();++it)
         {
             //detalTime = clock.restart().asSeconds();
@@ -139,6 +141,7 @@ void creatEnemyFlighters(sf::Sprite aEnemy,std::list<sf::Sprite>& EnemyFlighters
     EnemyFlighters.push_back(tarEnemy);
     std::cout<<"creat successfuly!"<<std::endl;
 }
+/*
 void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFlighters,std::list<sf::sprite> &EnemyBombImage)
 {
     for(auto itBullets=Bullets.begin();itBullets!=Bullets.end();itBullets++)
@@ -148,7 +151,8 @@ void checkCollision(std::list<sf::Sprite>&Bullets,std::list<sf::Sprite>& EnemyFl
             {
                 itBullets=Bullets.erase(itBullets);
                 itEnemy=EnemyFlighters.erase(itEnemy);
-                showCollision(EnemyBombImage);
+               // showCollision(EnemyBombImage);
             }
     }
 }
+*/
