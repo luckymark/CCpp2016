@@ -44,22 +44,23 @@ void Game::GameStart() {
             if(event.type == sf::Event::Closed)
                 GameOver();
         }
-        if(refreshClock->getElapsedTime() > minElapsedTime)
-        //{
-        float detalTime = refreshClock->restart().asSeconds();
+
+        float detalTime = gameClock->restart().asSeconds();
         getKeyBoard(detalTime);
         creatEnemy();
         checkCollison();
         refresh(detalTime);
-        draw();
-        //refreshClock->restart();
-        window->display();
-       // }
-
+        if(refreshClock->getElapsedTime() > minElapsedTime)
+        {
+            draw();
+            window->display();
+            refreshClock->restart();
+        }
     }
 }
 void Game::loadTime()
 {
+    gameClock    = new sf::Clock;
     refreshClock = new sf::Clock;
     heroShootClock    = new sf::Clock;
     makeEnemyClock = new sf::Clock;
