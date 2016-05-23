@@ -71,4 +71,7 @@ void Hero::initializeLife()
 {
     life = 3;
 }
-
+Plane* Hero::clone()
+{
+    return new Hero(*this);
+}

@@ -4,7 +4,7 @@
 #include "SFML/Graphics.hpp"
 #include <cmath>
 sf::Vector2f Copter::_iniPosition = sf::Vector2f(GameWindow::iniWidth,0.f);
-sf::Vector2f Copter::_iniDirection =sf::Vector2f(0.1,1.f);
+sf::Vector2f Copter::_iniDirection =sf::Vector2f(0.f,1.f);
 const float sqrt_3=sqrt(3.0);
 Copter::Copter(sf::Vector2f iniPosition,sf::Vector2f iniDirection)
 {
@@ -19,7 +19,7 @@ void Copter::initializeSprite()
 }
 void Copter::initializeShootElapsed()
 {
-    shootElapsed=0.6f;
+    shootElapsed= 50;
 }
 void Copter::initializeLife()
 {
@@ -27,14 +27,20 @@ void Copter::initializeLife()
 }
 void Copter::initializeSpeed()
 {
-    speed = 300.f;
+    speed = 100.f;
 }
 void Copter::refresh(float detalTime)
 {
+    ++limit;
     //float detalTime = clock->restart().asSeconds();
     move(Direction*speed*detalTime);
     //window->draw(getSprite());
 }
 void Copter::fire() {
+
     return;
+}
+Plane* Copter::clone()
+{
+    return new Copter(*this);
 }

@@ -4,7 +4,7 @@
 #include "GameSprite.h"
 #include "SFML/Graphics.hpp"
 sf::Vector2f Warship::_iniPosition = sf::Vector2f(GameWindow::iniWidth,0.f);
-sf::Vector2f Warship::_iniDirection =sf::Vector2f(0.1,1.f);
+sf::Vector2f Warship::_iniDirection =sf::Vector2f(0.f,1.f);
 Warship::Warship(sf::Vector2f iniPosition,sf::Vector2f iniDirection)
 {
     initializePlane(iniPosition,iniDirection);
@@ -26,7 +26,7 @@ void Warship::initializeLife()
 }
 void Warship::initializeSpeed()
 {
-    speed = 200.f;
+    speed = 60.f;
 }
 void Warship::refresh(float detalTime)
 {
@@ -36,4 +36,8 @@ void Warship::refresh(float detalTime)
 }
 void Warship::fire() {
     return;
+}
+Plane* Warship::clone()
+{
+    return new Warship(*this);
 }

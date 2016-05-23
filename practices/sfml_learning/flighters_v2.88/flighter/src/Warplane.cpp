@@ -4,7 +4,7 @@
 #include "GameSprite.h"
 #include "SFML/Graphics.hpp"
 sf::Vector2f Warplane::_iniPosition = sf::Vector2f(GameWindow::iniWidth,0.f);
-sf::Vector2f Warplane::_iniDirection =sf::Vector2f(0.1,1.f);
+sf::Vector2f Warplane::_iniDirection =sf::Vector2f(0.f,1.f);
 Warplane::Warplane(sf::Vector2f iniPosition,sf::Vector2f iniDirection)
 {
     initializePlane(iniPosition,iniDirection);
@@ -25,7 +25,7 @@ void Warplane::initializeLife()
 }
 void Warplane::initializeSpeed()
 {
-    speed = 400.f;
+    speed = 110.f;
 }
 void Warplane::refresh(float detalTime)
 {
@@ -35,4 +35,8 @@ void Warplane::refresh(float detalTime)
 }
 void Warplane::fire() {
     return;
+}
+Plane* Warplane::clone()
+{
+    return new Warplane(*this);
 }

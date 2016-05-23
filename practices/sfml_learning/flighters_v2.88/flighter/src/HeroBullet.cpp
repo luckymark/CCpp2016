@@ -28,6 +28,10 @@ void HeroBullet::initializeSprite()
 {
     planeSprite.push_back(GameSprite::HeroBullet);
 }
+Plane* HeroBullet::clone()
+{
+    return new HeroBullet(*this);
+}
 void HeroBullet::initializeShootElapsed()
 {
 

@@ -24,6 +24,8 @@ public:
     void initializeShootElapsed();
 
     void refresh(float);
+
+    Plane* clone();
 private:
     static sf::Vector2f _iniPosition;
     static sf::Vector2f _iniDirection;

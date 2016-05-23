@@ -26,6 +26,8 @@ public:
     virtual void initializeShootElapsed();
 
     virtual void draw();
+
+    virtual Plane* clone();
 };
 
 #endif //_HEROBULLET_H

@@ -90,12 +90,14 @@ public:
     virtual void initializeLife() = 0;
 
     virtual void draw();
+
+    virtual Plane* clone() = 0;
 protected:
     GameWindow* window;
     std::vector<sf::Sprite>planeSprite;
     int status,life;
     float speed;
-    int shootElapsed;
+    int shootElapsed,limit=0;
     sf::Vector2f position,Direction;
 };
 

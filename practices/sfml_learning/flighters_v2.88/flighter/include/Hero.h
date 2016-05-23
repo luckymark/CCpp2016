@@ -34,6 +34,8 @@ public:
     virtual void initializeSprite();
 
     virtual void initializeShootElapsed();
+
+    virtual Plane* clone();
 protected:
     Hero(const sf::Vector2f&);
 private:

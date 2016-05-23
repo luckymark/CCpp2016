@@ -66,6 +66,7 @@ private:
     Plane* hero;
     GameMusic* BGM;
     sf::Clock* refreshClock;
+    sf::Clock* gameClock;
     sf::Clock* heroShootClock;
     sf::Clock* makeEnemyClock;
     sf::Time minElapsedTime;

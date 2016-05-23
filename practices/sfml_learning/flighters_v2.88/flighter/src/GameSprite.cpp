@@ -39,7 +39,7 @@ void GameSprite::load()
         c.setColor(sf::Color::Red);
 
     HeroBullet= sf::Sprite(GameTexture::shoot,sf::IntRect(1004, 987, 9, 21));
-    //HeroBullet.setColor(sf::Color::Blue);
+    HeroBullet.setColor(sf::Color::Red);
 
     EnemyBullet= sf::Sprite(GameTexture::shoot,sf::IntRect(69, 78, 9, 21));
     EnemyBullet.setColor(sf::Color::Blue);
@@ -56,7 +56,7 @@ void GameSprite::load()
         c.setColor(sf::Color::Blue);
 
     Warplane= sf::Sprite(GameTexture::shoot,sf::IntRect( 534, 612, 57, 43));
-    Warplane.setColor(sf::Color::Red);
+    Warplane.setColor(sf::Color::Blue);
     WarplaneBomb.push_back( sf::Sprite(GameTexture::shoot,sf::IntRect(267, 347, 57, 51)));
     WarplaneBomb.push_back( sf::Sprite(GameTexture::shoot,sf::IntRect(873, 697, 57, 51)));
     WarplaneBomb.push_back( sf::Sprite(GameTexture::shoot,sf::IntRect(267, 297, 57, 51)));

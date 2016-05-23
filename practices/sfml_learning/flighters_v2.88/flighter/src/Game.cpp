@@ -45,16 +45,17 @@ void Game::GameStart() {
                 GameOver();
         }
         if(refreshClock->getElapsedTime() > minElapsedTime)
-        {
-            float detalTime = refreshClock->restart().asSeconds();
-            getKeyBoard(detalTime);
-            creatEnemy();
-            checkCollison();
-            refresh(detalTime);
-            draw();
-            window->display();
-            refreshClock->restart();
-        }
+        //{
+        float detalTime = refreshClock->restart().asSeconds();
+        getKeyBoard(detalTime);
+        creatEnemy();
+        checkCollison();
+        refresh(detalTime);
+        draw();
+        //refreshClock->restart();
+        window->display();
+       // }
+
     }
 }
 void Game::loadTime()
@@ -63,7 +64,7 @@ void Game::loadTime()
     heroShootClock    = new sf::Clock;
     makeEnemyClock = new sf::Clock;
     minElapsedTime = sf::seconds(0.01f);
-    detalMakeEnemy = sf::seconds(1.5f);
+    detalMakeEnemy = sf::seconds(5.f);
     heroShootElapsed = sf::seconds(0.2f);
 }
 void Game::GameOver() {
@@ -89,8 +90,8 @@ void Game::getKeyBoard(float detalTime)
 void Game::refresh(float detalTime)
 {
    // if(refreshClock->getElapsedTime() < minElapsedTime) return ;
-    window->clear(sf::Color::Black);
-    background->refresh(detalTime);
+
+    //background->refresh(detalTime);
     hero->refresh(detalTime);
     /*
     for(auto& it:enemyBullet)
@@ -106,7 +107,8 @@ void Game::refresh(float detalTime)
 }
 void Game::draw()
 {
-    background -> draw();
+    window->clear();
+    //background -> draw();
     hero ->draw();
     for(auto& itp:existEnemyPlane)
         itp->draw();
@@ -151,9 +153,11 @@ void Game::creatEnemy()
     if(makeEnemyClock -> getElapsedTime() > detalMakeEnemy)
     {
         int type=getRandomType();
-        sf::Vector2f nowPosition = getRandomPosition();
-        sf::Vector2f nowDirection = getRandomDirection();
-        existEnemyPlane.push_back(originEnemyPlane[type]);
+        printf("creat %dth plane\n",type);
+        //sf::Vector2f nowPosition = getRandomPosition();
+       // sf::Vector2f nowDirection = getRandomDirection();
+        existEnemyPlane.push_back(originEnemyPlane[type]->clone());
+        makeEnemyClock->restart();
     }
 }
 int Game::getRandomType()
