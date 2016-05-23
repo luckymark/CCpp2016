@@ -9,7 +9,7 @@
 	"GameMusic.h"
 	<list>
 
-1463989679 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\background.cpp
+1464004717 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\background.cpp
 	"BackGround.h"
 	"GameTexture.h"
 	<SFML/Window.hpp>
@@ -19,7 +19,7 @@
 	<SFML/Graphics.hpp>
 	"GameWindow.h"
 
-1464003853 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\game.cpp
+1464004633 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\game.cpp
 	"Game.h"
 	<SFML/Audio.hpp>
 	<SFML/Graphics.hpp>

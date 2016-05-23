@@ -92,7 +92,7 @@ void Game::refresh(float detalTime)
 {
    // if(refreshClock->getElapsedTime() < minElapsedTime) return ;
 
-    //background->refresh(detalTime);
+   // background->refresh(detalTime);
     hero->refresh(detalTime);
     /*
     for(auto& it:enemyBullet)
@@ -109,7 +109,7 @@ void Game::refresh(float detalTime)
 void Game::draw()
 {
     window->clear();
-    //background -> draw();
+   // background -> draw();
     hero ->draw();
     for(auto& itp:existEnemyPlane)
         itp->draw();

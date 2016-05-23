@@ -24,8 +24,8 @@ void BackGround::refresh(float detalTime) {
     if(partline < 0)
         partline+=GameWindow::windowHeight;
     //topBackGround.setTextureRect(0.f,)
-    topBackGround.setPosition(sf::Vector2f(0.f,-partline));
-    bottomBackGround.setPosition(sf::Vector2f(0.f,GameWindow::windowHeight-partline));
+    topBackGround.move(sf::Vector2f(0.f,-partline));
+    bottomBackGround.move(sf::Vector2f(0.f,GameWindow::windowHeight-partline));
 }
 void BackGround::draw()
 {
