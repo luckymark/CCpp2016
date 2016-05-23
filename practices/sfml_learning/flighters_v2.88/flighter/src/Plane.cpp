@@ -45,10 +45,6 @@ sf::Sprite& Plane::getSprite()
 }
 bool Plane::isAlive()
 {
-    if(life >0)
-    {
-        status = 0;
-    }
     return (life > 0);
 }
 bool Plane::isBombing()
@@ -176,6 +172,7 @@ void Plane::shootBullet()
 void Plane::beHited()
 {
     --life;
+    isBeHited=true;
 }
 void Plane::fire()
 {

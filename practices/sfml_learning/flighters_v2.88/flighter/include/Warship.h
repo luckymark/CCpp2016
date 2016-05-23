@@ -26,6 +26,10 @@ public:
     void refresh(float);
 
     Plane* clone();
+
+    void changeStatus();
+
+    void draw();
 private:
     static sf::Vector2f _iniPosition;
     static sf::Vector2f _iniDirection;

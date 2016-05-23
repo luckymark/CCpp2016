@@ -57,6 +57,8 @@ public:
     int getRandomType();
 
     void draw();
+
+    void checkInside();
 protected:
     Game();
 private:

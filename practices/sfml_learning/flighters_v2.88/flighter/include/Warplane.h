@@ -25,6 +25,8 @@ public:
 
     void refresh(float);
 
+    void shootBullet();
+
     Plane* clone();
 private:
     static sf::Vector2f _iniPosition;

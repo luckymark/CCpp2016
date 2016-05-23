@@ -3,7 +3,7 @@
 #include "GameWindow.h"
 #include "GameSprite.h"
 #include "SFML/Graphics.hpp"
-sf::Vector2f Warplane::_iniPosition = sf::Vector2f(GameWindow::iniWidth,0.f);
+sf::Vector2f Warplane::_iniPosition = sf::Vector2f(GameWindow::iniWidth,-43.f);
 sf::Vector2f Warplane::_iniDirection =sf::Vector2f(0.f,1.f);
 Warplane::Warplane(sf::Vector2f iniPosition,sf::Vector2f iniDirection)
 {
@@ -29,14 +29,18 @@ void Warplane::initializeSpeed()
 }
 void Warplane::refresh(float detalTime)
 {
-    //float detalTime = clock->restart().asSeconds();
-    move(Direction*speed*detalTime);
-    //window->draw(getSprite());
+    if(isAlive())
+        move(Direction*speed*detalTime);
 }
 void Warplane::fire() {
+    shootBullet();
     return;
 }
 Plane* Warplane::clone()
 {
     return new Warplane(*this);
+}
+void Warplane::shootBullet()
+{
+
 }

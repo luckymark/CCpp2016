@@ -49,6 +49,7 @@ void Game::GameStart() {
         getKeyBoard(detalTime);
         creatEnemy();
         checkCollison();
+        checkInside();
         refresh(detalTime);
         if(refreshClock->getElapsedTime() > minElapsedTime)
         {
@@ -108,7 +109,7 @@ void Game::refresh(float detalTime)
 }
 void Game::draw()
 {
-    window->clear();
+    window->clear(sf::Color::White);
    // background -> draw();
     hero ->draw();
     for(auto& itp:existEnemyPlane)
@@ -175,12 +176,40 @@ sf::Vector2f Game::getRandomDirection()
 }
 void Game::checkCollison()
 {
+    for(auto ithb=heroBullet.begin();ithb!=heroBullet.end();ithb++)
+    {
+        bool isHit=false;
+        for(auto itep=existEnemyPlane.begin();itep!=existEnemyPlane.end();itep++)
+            if((*ithb) -> intersects((*itep)->getSprite()))
+            {
+                printf("beHited!\n");
+                isHit=true;
+                (*itep)->beHited();
+                if(!(*itep) -> isAlive())
+                {
+                    bombingPlane.push_back((*itep)->clone());
+                    itep=existEnemyPlane.erase(itep);
+                }
+                break;
+            }
+        if(isHit)
+            ithb=heroBullet.erase(ithb);
+    }
 
 }
 Game* Game::instance() {
     if(_instance==0)
         _instance=new Game;
     return _instance;
+}
+void Game::checkInside()
+{
+    for(auto it=existEnemyPlane.begin();it!=existEnemyPlane.end();it++)
+        if((*it)->getTop() > GameWindow::windowHeight)
+            it=existEnemyPlane.erase(it);
+    for(auto it=heroBullet.begin();it!=heroBullet.end();it++)
+        if((*it)->getTop() > GameWindow::windowHeight)
+            it=heroBullet.erase(it);
 }
 Game::Game()
 {

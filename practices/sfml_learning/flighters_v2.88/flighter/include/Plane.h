@@ -95,6 +95,7 @@ public:
 protected:
     GameWindow* window;
     std::vector<sf::Sprite>planeSprite;
+    bool isBeHited=false;
     int status,life;
     float speed;
     int shootElapsed,limit=0;

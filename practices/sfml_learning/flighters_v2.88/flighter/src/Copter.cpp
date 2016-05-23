@@ -3,7 +3,7 @@
 #include "GameSprite.h"
 #include "SFML/Graphics.hpp"
 #include <cmath>
-sf::Vector2f Copter::_iniPosition = sf::Vector2f(GameWindow::iniWidth,0.f);
+sf::Vector2f Copter::_iniPosition = sf::Vector2f(GameWindow::iniWidth,-99.f);
 sf::Vector2f Copter::_iniDirection =sf::Vector2f(0.f,1.f);
 const float sqrt_3=sqrt(3.0);
 Copter::Copter(sf::Vector2f iniPosition,sf::Vector2f iniDirection)
@@ -32,9 +32,8 @@ void Copter::initializeSpeed()
 void Copter::refresh(float detalTime)
 {
     ++limit;
-    //float detalTime = clock->restart().asSeconds();
+
     move(Direction*speed*detalTime);
-    //window->draw(getSprite());
 }
 void Copter::fire() {
 
@@ -43,4 +42,14 @@ void Copter::fire() {
 Plane* Copter::clone()
 {
     return new Copter(*this);
+}
+void Copter::draw()
+{
+    if(isBeHited)
+    {
+        status = 1;
+        isBeHited = false;
+    }
+    else status = 0;
+    window->draw(getSprite());
 }

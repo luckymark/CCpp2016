@@ -1,9 +1,8 @@
-
 #include "Warship.h"
 #include "GameWindow.h"
 #include "GameSprite.h"
 #include "SFML/Graphics.hpp"
-sf::Vector2f Warship::_iniPosition = sf::Vector2f(GameWindow::iniWidth,0.f);
+sf::Vector2f Warship::_iniPosition = sf::Vector2f(GameWindow::iniWidth,-258.f);
 sf::Vector2f Warship::_iniDirection =sf::Vector2f(0.f,1.f);
 Warship::Warship(sf::Vector2f iniPosition,sf::Vector2f iniDirection)
 {
@@ -22,7 +21,7 @@ void Warship::initializeShootElapsed()
 }
 void Warship::initializeLife()
 {
-    life=1;
+    life=3;
 }
 void Warship::initializeSpeed()
 {
@@ -30,9 +29,8 @@ void Warship::initializeSpeed()
 }
 void Warship::refresh(float detalTime)
 {
-    //float detalTime = clock->restart().asSeconds();
+
     move(Direction*speed*detalTime);
-    //window->draw(getSprite());
 }
 void Warship::fire() {
     return;
@@ -40,4 +38,29 @@ void Warship::fire() {
 Plane* Warship::clone()
 {
     return new Warship(*this);
+}
+void Warship::changeStatus()
+{
+    switch(status)
+    {
+        case 0:
+            ++status;
+            break;
+        case 1:
+            --status;
+            break;
+        case 2:
+            status = 0;
+            break;
+    }
+}
+void Warship::draw()
+{
+    if(isBeHited)
+    {
+        status = 2;
+        isBeHited = false;
+    }
+    else changeStatus();
+    window->draw(getSprite());
 }
