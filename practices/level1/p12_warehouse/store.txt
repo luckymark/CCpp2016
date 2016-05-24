@@ -1,0 +1,5 @@
+4
+fish 14
+meat 11
+beef 54
+rice 25
