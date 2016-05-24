@@ -4,6 +4,7 @@
 #include "SFML/Graphics.hpp"
 sf::Vector2f Warship::_iniPosition = sf::Vector2f(GameWindow::iniWidth,-258.f);
 sf::Vector2f Warship::_iniDirection =sf::Vector2f(0.f,1.f);
+bool Warship::isPlayFlyingSound=false;
 Warship::Warship(sf::Vector2f iniPosition,sf::Vector2f iniDirection)
 {
     initializePlane(iniPosition,iniDirection);
@@ -21,7 +22,7 @@ void Warship::initializeShootElapsed()
 }
 void Warship::initializeLife()
 {
-    life=3;
+    life=10;
 }
 void Warship::initializeSpeed()
 {
@@ -29,7 +30,7 @@ void Warship::initializeSpeed()
 }
 void Warship::refresh(float detalTime)
 {
-
+    playFlyingSound();
     move(Direction*speed*detalTime);
 }
 void Warship::fire() {
@@ -56,11 +57,22 @@ void Warship::changeStatus()
 }
 void Warship::draw()
 {
-    if(isBeHited)
+    if(isAlive())
     {
-        status = 2;
-        isBeHited = false;
+        if(isBeHited)
+        {
+            status = 2;
+            isBeHited = false;
+        }
+        else changeStatus();
     }
-    else changeStatus();
     window->draw(getSprite());
+}
+void Warship::playFlyingSound()
+{
+    music->playWarshipFlying();
+}
+void Warship::playBombSound()
+{
+    music->playWarshipBomb();
 }

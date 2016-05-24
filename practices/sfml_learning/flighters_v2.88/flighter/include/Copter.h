@@ -28,6 +28,8 @@ public:
     Plane* clone();
 
     void draw();
+
+    void playBombSound();
 private:
     static sf::Vector2f _iniPosition;
     static sf::Vector2f _iniDirection;

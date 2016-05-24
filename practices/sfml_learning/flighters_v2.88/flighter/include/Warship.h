@@ -30,9 +30,14 @@ public:
     void changeStatus();
 
     void draw();
+
+    void playFlyingSound();
+
+    void playBombSound();
 private:
     static sf::Vector2f _iniPosition;
     static sf::Vector2f _iniDirection;
+    static bool isPlayFlyingSound;
 };
 
 #endif //_WARSHIP_H

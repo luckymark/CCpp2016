@@ -23,7 +23,7 @@ void Copter::initializeShootElapsed()
 }
 void Copter::initializeLife()
 {
-    life=2;
+    life=6;
 }
 void Copter::initializeSpeed()
 {
@@ -32,7 +32,6 @@ void Copter::initializeSpeed()
 void Copter::refresh(float detalTime)
 {
     ++limit;
-
     move(Direction*speed*detalTime);
 }
 void Copter::fire() {
@@ -43,13 +42,20 @@ Plane* Copter::clone()
 {
     return new Copter(*this);
 }
+void Copter::playBombSound()
+{
+    music->playCopterBomb();
+}
 void Copter::draw()
 {
-    if(isBeHited)
+    if(isAlive())
     {
-        status = 1;
-        isBeHited = false;
+        if(isBeHited)
+        {
+            status = 1;
+            isBeHited = false;
+        }
+        else status = 0;
     }
-    else status = 0;
     window->draw(getSprite());
 }

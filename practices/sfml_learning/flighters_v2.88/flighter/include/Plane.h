@@ -2,6 +2,7 @@
 #define _PLANE_H
 #include <SFML/Graphics.hpp>
 #include "GameWindow.h"
+#include "GameMusic.h"
 class Plane {
 public:
 
@@ -73,11 +74,17 @@ public:
 
     virtual int getStatus();
 
+    virtual void initializeSound();
+
     virtual void setShootElapsed(int);
 
     virtual int getShootElapsed();
 
     virtual void initializeTime();
+
+    virtual void draw();
+
+    virtual void playFlyingSound();
 
     virtual void refresh(float) = 0;
 
@@ -89,9 +96,10 @@ public:
 
     virtual void initializeLife() = 0;
 
-    virtual void draw();
-
     virtual Plane* clone() = 0;
+
+    virtual void playBombSound() = 0;
+
 protected:
     GameWindow* window;
     std::vector<sf::Sprite>planeSprite;
@@ -100,6 +108,7 @@ protected:
     float speed;
     int shootElapsed,limit=0;
     sf::Vector2f position,Direction;
+    GameMusic* music;
 };
 
 #endif //_PLANE_H

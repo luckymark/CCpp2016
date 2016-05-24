@@ -66,7 +66,7 @@ private:
     GameWindow* window;
     BackGround* background;
     Plane* hero;
-    GameMusic* BGM;
+    GameMusic* music;
     sf::Clock* refreshClock;
     sf::Clock* gameClock;
     sf::Clock* heroShootClock;

@@ -85,6 +85,7 @@ void Game::getKeyBoard(float detalTime)
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::X) && heroShootClock->getElapsedTime() > heroShootElapsed)
     {
         hero->fire();
+        music->playShoot();
         heroShootClock->restart();
     }
 
@@ -104,8 +105,6 @@ void Game::refresh(float detalTime)
     for(auto& itb:heroBullet)
         itb->refresh(detalTime);
 
-
-
 }
 void Game::draw()
 {
@@ -116,6 +115,11 @@ void Game::draw()
         itp->draw();
     for(auto& itb:heroBullet)
         itb->draw();
+    for(auto itbp=bombingPlane.begin();itbp!=bombingPlane.end();itbp++)
+        if(!(*itbp)->isBombing())
+            itbp=bombingPlane.erase(itbp);
+    for(auto& itbp:bombingPlane)
+        itbp->draw();
 }
 void Game::loadBackGround()
 {
@@ -124,8 +128,8 @@ void Game::loadBackGround()
 }
 void Game::loadBGM()
 {
-    BGM=GameMusic::instance();
-    BGM->load();
+    music=GameMusic::instance();
+    music->load();
 }
 void Game::loadEnemyFlighter()
 {
@@ -185,9 +189,12 @@ void Game::checkCollison()
                 printf("beHited!\n");
                 isHit=true;
                 (*itep)->beHited();
+                music->playBeHited();
                 if(!(*itep) -> isAlive())
                 {
+                    printf("Add a Plane\n");
                     bombingPlane.push_back((*itep)->clone());
+                    (*itep)->playBombSound();
                     itep=existEnemyPlane.erase(itep);
                 }
                 break;
@@ -208,7 +215,7 @@ void Game::checkInside()
         if((*it)->getTop() > GameWindow::windowHeight)
             it=existEnemyPlane.erase(it);
     for(auto it=heroBullet.begin();it!=heroBullet.end();it++)
-        if((*it)->getTop() > GameWindow::windowHeight)
+        if((*it)->getBottom() < 0.f)
             it=heroBullet.erase(it);
 }
 Game::Game()

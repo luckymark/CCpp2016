@@ -40,6 +40,10 @@ Plane* Warplane::clone()
 {
     return new Warplane(*this);
 }
+void Warplane::playBombSound()
+{
+    music->playWarPlaneBomb();
+}
 void Warplane::shootBullet()
 {
 

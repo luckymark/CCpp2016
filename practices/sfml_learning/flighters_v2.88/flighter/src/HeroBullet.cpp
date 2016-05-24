@@ -40,3 +40,7 @@ void HeroBullet::initializeLife()
 {
 
 }
+void HeroBullet::playBombSound()
+{
+
+}

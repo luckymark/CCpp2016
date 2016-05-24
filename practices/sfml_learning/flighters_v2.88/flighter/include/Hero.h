@@ -36,6 +36,8 @@ public:
     virtual void initializeShootElapsed();
 
     virtual Plane* clone();
+
+    virtual void playBombSound();
 protected:
     Hero(const sf::Vector2f&);
 private:

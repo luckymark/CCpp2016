@@ -28,6 +28,9 @@ public:
     virtual void draw();
 
     virtual Plane* clone();
+
+    virtual void playBombSound();
+
 };
 
 #endif //_HEROBULLET_H

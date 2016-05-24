@@ -49,11 +49,9 @@ bool Plane::isAlive()
 }
 bool Plane::isBombing()
 {
-    ++status;
     int u=planeSprite.size();
     if(status<u)
     {
-        //BombSsound
         ++status;
     }
     return (status<u);
@@ -117,6 +115,7 @@ void Plane::initializePlane(const sf::Vector2f& nowPosition,const sf::Vector2f& 
 {
     initializeWindow();
     initializeSprite();
+    initializeSound();
     setPosition(nowPosition);
     setDirection(nowDirection);
     initializeLife();
@@ -173,6 +172,14 @@ void Plane::beHited()
 {
     --life;
     isBeHited=true;
+}
+void Plane::initializeSound()
+{
+    music = GameMusic::instance();
+}
+void Plane::playFlyingSound()
+{
+
 }
 void Plane::fire()
 {

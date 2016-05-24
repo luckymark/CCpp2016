@@ -75,3 +75,7 @@ Plane* Hero::clone()
 {
     return new Hero(*this);
 }
+void Hero::playBombSound()
+{
+    music->playHeroBomb();
+}
