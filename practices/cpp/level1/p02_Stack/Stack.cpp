@@ -21,3 +21,7 @@ bool Stack::isEmpty() {
 bool Stack::isFull() {
     return(top==99);
 }
+
+Stack::Stack(int capbility) {
+    data = new int[capbility];
+}
