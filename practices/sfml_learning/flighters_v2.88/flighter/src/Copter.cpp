@@ -31,11 +31,13 @@ void Copter::initializeSpeed()
 }
 void Copter::refresh(float detalTime)
 {
-    ++limit;
     move(Direction*speed*detalTime);
 }
 void Copter::fire() {
+    if(limit>shootElapsed)
+    {
 
+    }
     return;
 }
 Plane* Copter::clone()
@@ -48,6 +50,7 @@ void Copter::playBombSound()
 }
 void Copter::draw()
 {
+    ++limit;
     if(isAlive())
     {
         if(isBeHited)

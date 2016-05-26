@@ -2,6 +2,8 @@
 #include "Warplane.h"
 #include "GameWindow.h"
 #include "GameSprite.h"
+#include "EnemyBullet.h"
+#include "Game.h"
 #include "SFML/Graphics.hpp"
 sf::Vector2f Warplane::_iniPosition = sf::Vector2f(GameWindow::iniWidth,-43.f);
 sf::Vector2f Warplane::_iniDirection =sf::Vector2f(0.f,1.f);
@@ -17,7 +19,7 @@ void Warplane::initializeSprite()
 }
 void Warplane::initializeShootElapsed()
 {
-    shootElapsed=0.6f;
+    shootElapsed=30000;
 }
 void Warplane::initializeLife()
 {
@@ -29,11 +31,17 @@ void Warplane::initializeSpeed()
 }
 void Warplane::refresh(float detalTime)
 {
+    fire();
     if(isAlive())
         move(Direction*speed*detalTime);
 }
 void Warplane::fire() {
-    shootBullet();
+    if(limit>shootElapsed)
+    {
+        shootBullet();
+        limit = 0;
+    }
+    else ++limit;
     return;
 }
 Plane* Warplane::clone()
@@ -46,5 +54,5 @@ void Warplane::playBombSound()
 }
 void Warplane::shootBullet()
 {
-
+    Game::enemyBullet.push_back(new EnemyBullet(sf::Vector2f(getX(),getBottom())));
 }

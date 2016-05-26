@@ -51,6 +51,11 @@ void Game::GameStart() {
         checkCollison();
         checkInside();
         refresh(detalTime);
+        if(playFlyingSound->getElapsedTime() > detalPlayFlyingSound)
+        {
+            doPlayFlyingSound();
+            playFlyingSound->restart();
+        }
         if(refreshClock->getElapsedTime() > minElapsedTime)
         {
             draw();
@@ -65,9 +70,13 @@ void Game::loadTime()
     refreshClock = new sf::Clock;
     heroShootClock    = new sf::Clock;
     makeEnemyClock = new sf::Clock;
+    playFlyingSound = new sf::Clock;
+    flashClock   = new sf::Clock;
     minElapsedTime = sf::seconds(0.01f);
     detalMakeEnemy = sf::seconds(5.f);
     heroShootElapsed = sf::seconds(0.2f);
+    detalPlayFlyingSound = sf::seconds(2.5f);
+    flashTime    = sf::seconds(2.5f);
 }
 void Game::GameOver() {
     window->close();
@@ -90,6 +99,11 @@ void Game::getKeyBoard(float detalTime)
     }
 
 }
+void Game::doPlayFlyingSound()
+{
+    for(auto& c:existEnemyPlane)
+        c->playFlyingSound();
+}
 void Game::refresh(float detalTime)
 {
    // if(refreshClock->getElapsedTime() < minElapsedTime) return ;
@@ -100,6 +114,8 @@ void Game::refresh(float detalTime)
     for(auto& it:enemyBullet)
         it->refresh(detalTime);
         */
+    for(auto& itb:enemyBullet)
+        itb->refresh(detalTime);
     for(auto& itp:existEnemyPlane)
         itp->refresh(detalTime);
     for(auto& itb:heroBullet)
@@ -114,6 +130,8 @@ void Game::draw()
     for(auto& itp:existEnemyPlane)
         itp->draw();
     for(auto& itb:heroBullet)
+        itb->draw();
+    for(auto& itb:enemyBullet)
         itb->draw();
     for(auto itbp=bombingPlane.begin();itbp!=bombingPlane.end();itbp++)
         if(!(*itbp)->isBombing())
@@ -202,7 +220,27 @@ void Game::checkCollison()
         if(isHit)
             ithb=heroBullet.erase(ithb);
     }
-
+    if(hero->isBeHited())return ;
+    for(auto ithb=enemyBullet.begin();ithb!=enemyBullet.end();ithb++)
+    {
+        bool isHit=false;
+        if(hero->intersects((*ithb)->getSprite()))
+        {
+            printf("beHited!\n");
+            isHit=true;
+            hero->beHited();
+            //music->playBeHited();
+            if(!hero -> isAlive())
+            {
+                //printf("Add a Plane\n");
+                bombingPlane.push_back(hero->clone());
+                hero->playBombSound();
+            }
+            break;
+        }
+        if(isHit)
+            ithb=heroBullet.erase(ithb);
+    }
 }
 Game* Game::instance() {
     if(_instance==0)

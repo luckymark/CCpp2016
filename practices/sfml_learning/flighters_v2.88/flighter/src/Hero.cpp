@@ -26,12 +26,21 @@ void Hero::shootBullet()
 }
 void Hero::beHited()
 {
+    _isBeHited=true;
     --life;
 }
 void Hero::refresh(float detalTime)
 {
     changeStatus();
     //window->draw(getSprite());
+}
+bool Hero::isBeHited()
+{
+    return _isBeHited;
+}
+void Hero::recoverNormal()
+{
+    _isBeHited=false;
 }
 float Hero::getBottom()
 {

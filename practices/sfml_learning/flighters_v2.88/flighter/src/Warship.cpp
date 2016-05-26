@@ -30,7 +30,6 @@ void Warship::initializeSpeed()
 }
 void Warship::refresh(float detalTime)
 {
-    playFlyingSound();
     move(Direction*speed*detalTime);
 }
 void Warship::fire() {
@@ -70,7 +69,9 @@ void Warship::draw()
 }
 void Warship::playFlyingSound()
 {
-    music->playWarshipFlying();
+    //printf("play!\n");
+    if(isAlive())
+        music->playWarshipFlying();
 }
 void Warship::playBombSound()
 {

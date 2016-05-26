@@ -59,6 +59,8 @@ public:
     void draw();
 
     void checkInside();
+
+    void doPlayFlyingSound();
 protected:
     Game();
 private:
@@ -71,10 +73,13 @@ private:
     sf::Clock* gameClock;
     sf::Clock* heroShootClock;
     sf::Clock* makeEnemyClock;
+    sf::Clock* playFlyingSound;
+    sf::Clock* flashClock;
     sf::Time minElapsedTime;
     sf::Time detalMakeEnemy;
     sf::Time heroShootElapsed;
-    //
+    sf::Time detalPlayFlyingSound;
+    sf::Time flashTime;
 };
 
 #endif //_GAME_H

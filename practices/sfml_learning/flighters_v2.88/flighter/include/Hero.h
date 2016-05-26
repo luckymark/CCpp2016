@@ -38,10 +38,15 @@ public:
     virtual Plane* clone();
 
     virtual void playBombSound();
+
+    virtual bool isBeHited();
+
+    virtual void recoverNormal();
 protected:
     Hero(const sf::Vector2f&);
 private:
     static Hero* _instance;
+    bool _isBeHited;
 };
 
 #endif //_HERO_H
