@@ -8,6 +8,7 @@ Hero* Hero::_instance=0;
 Hero::Hero(const sf::Vector2f& iniPosition)
 {
     initializePlane(iniPosition);
+    maxFlashTime = 5;
 }
 Hero* Hero::instance(const sf::Vector2f& u)
 {
@@ -27,20 +28,13 @@ void Hero::shootBullet()
 void Hero::beHited()
 {
     _isBeHited=true;
+    _flash=0;
     --life;
 }
 void Hero::refresh(float detalTime)
 {
     changeStatus();
     //window->draw(getSprite());
-}
-bool Hero::isBeHited()
-{
-    return _isBeHited;
-}
-void Hero::recoverNormal()
-{
-    _isBeHited=false;
 }
 float Hero::getBottom()
 {
@@ -87,4 +81,17 @@ Plane* Hero::clone()
 void Hero::playBombSound()
 {
     music->playHeroBomb();
+}
+void Hero::draw()
+{
+    if(checkBeHited())
+    {
+        ++_flash;
+        if(_flash > maxFlashTime)
+        {
+            window->draw(getSprite());
+            _flash = 0;
+        }
+    }
+    else window->draw(getSprite());
 }

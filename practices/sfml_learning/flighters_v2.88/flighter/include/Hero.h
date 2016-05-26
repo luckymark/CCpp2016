@@ -1,8 +1,3 @@
-/**
- * Project Untitled
- */
-
-
 #ifndef _HERO_H
 #define _HERO_H
 
@@ -39,14 +34,12 @@ public:
 
     virtual void playBombSound();
 
-    virtual bool isBeHited();
-
-    virtual void recoverNormal();
+    virtual void draw();
 protected:
     Hero(const sf::Vector2f&);
 private:
     static Hero* _instance;
-    bool _isBeHited;
+    int _flash,maxFlashTime;
 };
 
 #endif //_HERO_H

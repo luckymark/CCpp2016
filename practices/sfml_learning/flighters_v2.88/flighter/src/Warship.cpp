@@ -58,10 +58,10 @@ void Warship::draw()
 {
     if(isAlive())
     {
-        if(isBeHited)
+        if(_isBeHited)
         {
             status = 2;
-            isBeHited = false;
+            _isBeHited = false;
         }
         else changeStatus();
     }

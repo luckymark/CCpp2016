@@ -56,15 +56,17 @@ bool Plane::isBombing()
     }
     return (status<u);
 }
-void Plane::setDirection(const sf::Vector2f& u)
+Plane* Plane::setDirection(const sf::Vector2f& u)
 {
     Direction=u;
+    return this;
 }
-void Plane::setPosition(const sf::Vector2f& u)
+Plane* Plane::setPosition(const sf::Vector2f& u)
 {
     position=u;
     for(auto& itp:planeSprite)
         itp.setPosition(u);
+    return this;
 }
 sf::Vector2f Plane::getDirection()
 {
@@ -171,11 +173,19 @@ void Plane::shootBullet()
 void Plane::beHited()
 {
     --life;
-    isBeHited=true;
+    _isBeHited=true;
 }
 void Plane::initializeSound()
 {
     music = GameMusic::instance();
+}
+bool Plane::checkBeHited()
+{
+    return _isBeHited;
+}
+void Plane::recoverNormal()
+{
+    _isBeHited=false;
 }
 void Plane::playFlyingSound()
 {

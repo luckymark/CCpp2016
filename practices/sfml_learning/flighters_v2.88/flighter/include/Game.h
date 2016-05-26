@@ -22,6 +22,8 @@ public:
 
     void GameStart();
 
+    void GameExit();
+
     void GameOver();
 
     static Game* instance();
@@ -50,7 +52,7 @@ public:
 
     void creatEnemy();
 
-    sf::Vector2f getRandomPosition();
+    sf::Vector2f getRandomPosition(Plane*);
 
     sf::Vector2f getRandomDirection();
 
@@ -61,6 +63,10 @@ public:
     void checkInside();
 
     void doPlayFlyingSound();
+
+    void heroFlash();
+
+    void getRandomCreatEnemyTime();
 protected:
     Game();
 private:
@@ -69,13 +75,13 @@ private:
     BackGround* background;
     Plane* hero;
     GameMusic* music;
-    sf::Clock* refreshClock;
+    //sf::Clock* drawClock;
     sf::Clock* gameClock;
     sf::Clock* heroShootClock;
     sf::Clock* makeEnemyClock;
     sf::Clock* playFlyingSound;
     sf::Clock* flashClock;
-    sf::Time minElapsedTime;
+    //sf::Time detalDrawTime;
     sf::Time detalMakeEnemy;
     sf::Time heroShootElapsed;
     sf::Time detalPlayFlyingSound;

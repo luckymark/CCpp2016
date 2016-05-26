@@ -42,7 +42,7 @@ public:
 
     virtual bool intersects(const sf::Sprite&) ;
 
-    virtual void setDirection(const sf::Vector2f&);
+    virtual Plane* setDirection(const sf::Vector2f&);
 
     virtual void setSpeed(const float&);
 
@@ -50,7 +50,7 @@ public:
 
     virtual sf::Vector2f getPosition();
 
-    virtual void setPosition(const sf::Vector2f& u);
+    virtual Plane* setPosition(const sf::Vector2f& u);
 
     virtual bool isInside();
 
@@ -86,6 +86,10 @@ public:
 
     virtual void playFlyingSound();
 
+    virtual bool checkBeHited();
+
+    virtual void recoverNormal();
+
     virtual void refresh(float) = 0;
 
     virtual void initializeSpeed() = 0;
@@ -103,7 +107,7 @@ public:
 protected:
     GameWindow* window;
     std::vector<sf::Sprite>planeSprite;
-    bool isBeHited=false;
+    bool _isBeHited=false;
     int status,life;
     float speed;
     int shootElapsed,limit=0;

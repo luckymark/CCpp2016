@@ -53,10 +53,10 @@ void Copter::draw()
     ++limit;
     if(isAlive())
     {
-        if(isBeHited)
+        if(_isBeHited)
         {
             status = 1;
-            isBeHited = false;
+            _isBeHited = false;
         }
         else status = 0;
     }

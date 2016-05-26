@@ -51,35 +51,51 @@ void Game::GameStart() {
         checkCollison();
         checkInside();
         refresh(detalTime);
+        heroFlash();
         if(playFlyingSound->getElapsedTime() > detalPlayFlyingSound)
         {
+            //printf("playFlyingMusic\n");
             doPlayFlyingSound();
             playFlyingSound->restart();
         }
-        if(refreshClock->getElapsedTime() > minElapsedTime)
-        {
-            draw();
-            window->display();
-            refreshClock->restart();
-        }
+        //if(drawClock->getElapsedTime() > detalDrawTime)
+        //{
+        draw();
+        window->display();
+         //   drawClock->restart();
+       // }
     }
 }
 void Game::loadTime()
 {
     gameClock    = new sf::Clock;
-    refreshClock = new sf::Clock;
+    drawClock = new sf::Clock;
     heroShootClock    = new sf::Clock;
     makeEnemyClock = new sf::Clock;
     playFlyingSound = new sf::Clock;
     flashClock   = new sf::Clock;
-    minElapsedTime = sf::seconds(0.01f);
-    detalMakeEnemy = sf::seconds(5.f);
+    detalDrawTime = sf::seconds(0.01f);
+    //detalMakeEnemy = sf::seconds(5.f);
     heroShootElapsed = sf::seconds(0.2f);
     detalPlayFlyingSound = sf::seconds(2.5f);
-    flashTime    = sf::seconds(2.5f);
+    getRandomCreatEnemyTime();
+    flashTime    = sf::seconds(1.5f);
 }
-void Game::GameOver() {
+void Game::getRandomCreatEnemyTime()
+{
+    detalMakeEnemy = sf::seconds((100+rand()%201)/100.f);
+}
+void Game::GameExit() {
     window->close();
+}
+void Game::GameOver()
+{
+    sf::Clock gameoverClock();
+}
+void Game::heroFlash()
+{
+    if(hero->checkBeHited() && flashClock->getElapsedTime() > flashTime)
+        hero->recoverNormal();
 }
 void Game::getKeyBoard(float detalTime)
 {
@@ -177,20 +193,25 @@ void Game::creatEnemy()
     if(makeEnemyClock -> getElapsedTime() > detalMakeEnemy)
     {
         int type=getRandomType();
-        printf("creat %dth plane\n",type);
-        //sf::Vector2f nowPosition = getRandomPosition();
+        //printf("creat %dth plane\n",type);
+        sf::Vector2f nowPosition = getRandomPosition(originEnemyPlane[type]);
        // sf::Vector2f nowDirection = getRandomDirection();
-        existEnemyPlane.push_back(originEnemyPlane[type]->clone());
+        existEnemyPlane.push_back(originEnemyPlane[type]->clone()->setPosition(nowPosition));
         makeEnemyClock->restart();
+        getRandomCreatEnemyTime();
     }
 }
 int Game::getRandomType()
 {
-    return rand() % 3;
+    int u = rand() % 12;
+    if(u<7)return 0;
+    if(u<11)return 1;
+    return 2;
 }
-sf::Vector2f Game::getRandomPosition()
+sf::Vector2f Game::getRandomPosition(Plane* aEnemy)
 {
-    return sf::Vector2f(GameWindow::iniWidth,0.f);
+    int x =rand()% (GameWindow::windowWidth - 100);
+    return sf::Vector2f(x,aEnemy->getTop());
 }
 sf::Vector2f Game::getRandomDirection()
 {
@@ -210,7 +231,7 @@ void Game::checkCollison()
                 music->playBeHited();
                 if(!(*itep) -> isAlive())
                 {
-                    printf("Add a Plane\n");
+                    //printf("Add a Plane\n");
                     bombingPlane.push_back((*itep)->clone());
                     (*itep)->playBombSound();
                     itep=existEnemyPlane.erase(itep);
@@ -220,26 +241,52 @@ void Game::checkCollison()
         if(isHit)
             ithb=heroBullet.erase(ithb);
     }
-    if(hero->isBeHited())return ;
+    if(hero->checkBeHited())return ;
     for(auto ithb=enemyBullet.begin();ithb!=enemyBullet.end();ithb++)
     {
         bool isHit=false;
         if(hero->intersects((*ithb)->getSprite()))
         {
-            printf("beHited!\n");
-            isHit=true;
-            hero->beHited();
-            //music->playBeHited();
             if(!hero -> isAlive())
             {
                 //printf("Add a Plane\n");
                 bombingPlane.push_back(hero->clone());
                 hero->playBombSound();
+                GameOver();
+                return ;
             }
+            printf("beHited!\n");
+            isHit=true;
+            hero->beHited();
+            flashClock->restart();
+            //music->playBeHited();
+
             break;
         }
         if(isHit)
-            ithb=heroBullet.erase(ithb);
+        {
+            ithb=enemyBullet.erase(ithb);
+            return ;
+        }
+    }
+    for(auto ithb=existEnemyPlane.begin();ithb!=existEnemyPlane.end();ithb++)
+    {
+        if(hero->intersects((*ithb)->getSprite()))
+        {
+            if(!hero -> isAlive())
+            {
+                //printf("Add a Plane\n");
+                bombingPlane.push_back(hero->clone());
+                hero->playBombSound();
+                GameOver();
+            }
+            //printf("beHited!\n");
+            hero->beHited();
+            flashClock->restart();
+            //music->playBeHited();
+
+            break;
+        }
     }
 }
 Game* Game::instance() {
