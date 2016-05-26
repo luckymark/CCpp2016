@@ -30,6 +30,7 @@ void Warship::initializeSpeed()
 }
 void Warship::refresh(float detalTime)
 {
+    limit+=detalTime;
     move(Direction*speed*detalTime);
 }
 void Warship::fire() {

@@ -19,7 +19,7 @@ void Warplane::initializeSprite()
 }
 void Warplane::initializeShootElapsed()
 {
-    shootElapsed=30000;
+    shootElapsed=1.8f;
 }
 void Warplane::initializeLife()
 {
@@ -31,6 +31,7 @@ void Warplane::initializeSpeed()
 }
 void Warplane::refresh(float detalTime)
 {
+    limit+=detalTime;
     fire();
     if(isAlive())
         move(Direction*speed*detalTime);
@@ -39,10 +40,8 @@ void Warplane::fire() {
     if(limit>shootElapsed)
     {
         shootBullet();
-        limit = 0;
+        limit = 0.f;
     }
-    else ++limit;
-    return;
 }
 Plane* Warplane::clone()
 {

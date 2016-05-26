@@ -129,6 +129,7 @@ void Plane::initializePlane(const sf::Vector2f& nowPosition,const sf::Vector2f& 
 void Plane::initializeTime()
 {
     //clock=new sf::Clock;
+    limit = shootElapsed - 0.2f;
 }
 void Plane::initializeWindow()
 {

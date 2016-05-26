@@ -67,6 +67,8 @@ public:
     void heroFlash();
 
     void getRandomCreatEnemyTime();
+
+    void updateSumTime();
 protected:
     Game();
 private:
@@ -77,15 +79,18 @@ private:
     GameMusic* music;
     //sf::Clock* drawClock;
     sf::Clock* gameClock;
-    sf::Clock* heroShootClock;
-    sf::Clock* makeEnemyClock;
-    sf::Clock* playFlyingSound;
-    sf::Clock* flashClock;
-    //sf::Time detalDrawTime;
-    sf::Time detalMakeEnemy;
-    sf::Time heroShootElapsed;
-    sf::Time detalPlayFlyingSound;
-    sf::Time flashTime;
+    float tick;
+    float detalPlayFlyingSoundTime;
+    float detalHeroFire;
+    float detalFlash;
+    float detalMakeEnemy;
+    float detalDraw;
+
+    float sumPlayFlyingSound;
+    float sumHeroFire;
+    float sumFlash;
+    float sumMakeEnemy;
+    float sumDraw;
 };
 
 #endif //_GAME_H

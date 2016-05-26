@@ -110,7 +110,7 @@ protected:
     bool _isBeHited=false;
     int status,life;
     float speed;
-    int shootElapsed,limit=0;
+    float shootElapsed,limit;
     sf::Vector2f position,Direction;
     GameMusic* music;
 };

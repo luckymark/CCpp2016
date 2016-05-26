@@ -31,6 +31,7 @@ void Copter::initializeSpeed()
 }
 void Copter::refresh(float detalTime)
 {
+    limit+=detalTime;
     move(Direction*speed*detalTime);
 }
 void Copter::fire() {

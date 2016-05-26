@@ -45,45 +45,54 @@ void Game::GameStart() {
                 GameOver();
         }
 
-        float detalTime = gameClock->restart().asSeconds();
-        getKeyBoard(detalTime);
+        updateSumTime();
+        getKeyBoard(tick);
         creatEnemy();
         checkCollison();
         checkInside();
-        refresh(detalTime);
+        refresh(tick);
         heroFlash();
-        if(playFlyingSound->getElapsedTime() > detalPlayFlyingSound)
+        if(sumPlayFlyingSound > detalPlayFlyingSoundTime)
         {
             //printf("playFlyingMusic\n");
             doPlayFlyingSound();
-            playFlyingSound->restart();
+            sumPlayFlyingSound = 0.f;
         }
-        //if(drawClock->getElapsedTime() > detalDrawTime)
-        //{
-        draw();
-        window->display();
-         //   drawClock->restart();
-       // }
+        if(sumDraw > detalDraw)
+        {
+            draw();
+            window->display();
+            sumDraw = 0.f;
+        }
     }
+}
+void Game::updateSumTime()
+{
+    tick = gameClock->restart().asSeconds();
+    sumPlayFlyingSound +=tick;
+    sumHeroFire        +=tick;
+    sumFlash           +=tick;
+    sumMakeEnemy       +=tick;
+    sumDraw            +=tick;
 }
 void Game::loadTime()
 {
     gameClock    = new sf::Clock;
-    drawClock = new sf::Clock;
-    heroShootClock    = new sf::Clock;
-    makeEnemyClock = new sf::Clock;
-    playFlyingSound = new sf::Clock;
-    flashClock   = new sf::Clock;
-    detalDrawTime = sf::seconds(0.01f);
-    //detalMakeEnemy = sf::seconds(5.f);
-    heroShootElapsed = sf::seconds(0.2f);
-    detalPlayFlyingSound = sf::seconds(2.5f);
+    detalPlayFlyingSoundTime = 2.5f;
+    detalHeroFire            = 0.2f;
+    detalFlash               = 1.5f;
+    detalDraw                = 0.01f;
     getRandomCreatEnemyTime();
-    flashTime    = sf::seconds(1.5f);
+
+    sumPlayFlyingSound       = 0.f;
+    sumHeroFire              = 0.f;
+    sumFlash                 = 0.f;
+    sumMakeEnemy             = 0.f;
+    sumDraw                  = 0.f;
 }
 void Game::getRandomCreatEnemyTime()
 {
-    detalMakeEnemy = sf::seconds((100+rand()%201)/100.f);
+    detalMakeEnemy = (100+rand()%201)/100.f;
 }
 void Game::GameExit() {
     window->close();
@@ -94,7 +103,7 @@ void Game::GameOver()
 }
 void Game::heroFlash()
 {
-    if(hero->checkBeHited() && flashClock->getElapsedTime() > flashTime)
+    if(hero->checkBeHited() && sumFlash > detalFlash)
         hero->recoverNormal();
 }
 void Game::getKeyBoard(float detalTime)
@@ -107,11 +116,11 @@ void Game::getKeyBoard(float detalTime)
         hero->moveUp(detalTime);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         hero->moveDown(detalTime);
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::X) && heroShootClock->getElapsedTime() > heroShootElapsed)
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::X) && sumHeroFire > detalHeroFire)
     {
         hero->fire();
         music->playShoot();
-        heroShootClock->restart();
+        sumHeroFire = 0.f;
     }
 
 }
@@ -124,7 +133,7 @@ void Game::refresh(float detalTime)
 {
    // if(refreshClock->getElapsedTime() < minElapsedTime) return ;
 
-   // background->refresh(detalTime);
+    //background->refresh(detalTime);
     hero->refresh(detalTime);
     /*
     for(auto& it:enemyBullet)
@@ -141,7 +150,7 @@ void Game::refresh(float detalTime)
 void Game::draw()
 {
     window->clear(sf::Color::White);
-   // background -> draw();
+    //background -> draw();
     hero ->draw();
     for(auto& itp:existEnemyPlane)
         itp->draw();
@@ -190,14 +199,14 @@ void Game::loadWindow()
 }
 void Game::creatEnemy()
 {
-    if(makeEnemyClock -> getElapsedTime() > detalMakeEnemy)
+    if(sumMakeEnemy > detalMakeEnemy)
     {
         int type=getRandomType();
         //printf("creat %dth plane\n",type);
         sf::Vector2f nowPosition = getRandomPosition(originEnemyPlane[type]);
        // sf::Vector2f nowDirection = getRandomDirection();
         existEnemyPlane.push_back(originEnemyPlane[type]->clone()->setPosition(nowPosition));
-        makeEnemyClock->restart();
+        sumMakeEnemy = 0.f;
         getRandomCreatEnemyTime();
     }
 }
@@ -258,7 +267,7 @@ void Game::checkCollison()
             printf("beHited!\n");
             isHit=true;
             hero->beHited();
-            flashClock->restart();
+            sumFlash = 0.f;
             //music->playBeHited();
 
             break;
@@ -282,7 +291,7 @@ void Game::checkCollison()
             }
             //printf("beHited!\n");
             hero->beHited();
-            flashClock->restart();
+            sumFlash = 0.f;
             //music->playBeHited();
 
             break;

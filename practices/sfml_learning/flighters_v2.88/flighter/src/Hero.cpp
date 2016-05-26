@@ -28,7 +28,7 @@ void Hero::shootBullet()
 void Hero::beHited()
 {
     _isBeHited=true;
-    _flash=0;
+    _flash=0.f;
     --life;
 }
 void Hero::refresh(float detalTime)
