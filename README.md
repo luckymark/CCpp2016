@@ -38,6 +38,12 @@
 	
 5. 请求老师review代码的方法：在github网页上发起一个PR（pull request）即可
 
+## [作业](https://github.com/luckymark/CCpp2016/tree/master/practices)
+
+1. level0 可选，用于还不够熟练的同学练手（嫌题目太少的同学，那就刷刷咱[神技大学的OJ](http://acm.uestc.edu.cn/#/)吧，从低到高地刷哈）
+2. level1 必做，课堂＋课后练习
+3. level2 可选，供精力旺盛到变态的大神们发泄之用
+
 ## 参考
 
 ### GIT
