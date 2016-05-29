@@ -9,23 +9,22 @@ BackGround::BackGround()
 
 }
 void BackGround::load() {
-    //IniBackGround=*GameSprite::background;
     window=GameWindow::instance();
     topBackGround.setTexture(GameTexture::background);
     bottomBackGround.setTexture(GameTexture::background);
-    //topBackGround.setColor(sf::Color::Black);
-    //bottomBackGround.setColor(sf::Color::Black);
+    setIniPosition();
     speed=100.f;
-    partline=GameWindow::windowHeight;
 }
-
+void BackGround::setIniPosition()
+{
+    topBackGround.setPosition(0,-GameWindow::windowHeight);
+    bottomBackGround.setPosition(0,0);
+}
 void BackGround::refresh(float detalTime) {
-    partline-=speed*detalTime;
-    if(partline < 0)
-        partline+=GameWindow::windowHeight;
-    //topBackGround.setTextureRect(0.f,)
-    topBackGround.move(sf::Vector2f(0.f,-partline));
-    bottomBackGround.move(sf::Vector2f(0.f,GameWindow::windowHeight-partline));
+    topBackGround.move(sf::Vector2f(0,speed*detalTime));
+    bottomBackGround.move(sf::Vector2f(0,speed*detalTime));
+    if(topBackGround.getPosition().y >= 0 )
+        setIniPosition();
 }
 void BackGround::draw()
 {

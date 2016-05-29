@@ -17,12 +17,14 @@ public:
     void draw();
 
     static BackGround* instance();
+
+    void setIniPosition();
 protected:
     BackGround();
 private:
     static BackGround* _instance;
     float speed;
-    float partline;
+    //float partline;
     GameWindow* window;
     //sf::Sprite IniBackGround;
     sf::Sprite topBackGround;
