@@ -103,4 +103,34 @@ void Load::load()
 		std::cout << "open the file Deng.ttf failed!" << std::endl;
 		system("pause");
 	}
+	if (!bgm.openFromFile("Resource/Sunburst.ogg"))
+	{
+		std::cout << "open the file Sunburst.ogg failed!" << std::endl;
+		system("pause");
+	}
+	if (!buffer.loadFromFile("Resource/shoot.wav"))
+	{
+		std::cout << "open the file shoot.wav failed!" << std::endl;
+		system("pause");
+	}
+	if (!bossshootSound.loadFromFile("Resource/bossshoot.wav"))
+	{
+		std::cout << "open the file bossshoot.wav failed!" << std::endl;
+		system("pause");
+	}
+	if (!myshootSound.loadFromFile("Resource/myshoot.wav"))
+	{
+		std::cout << "open the file myshoot.wav failed!" << std::endl;
+		system("pause");
+	}
+	if (!enemyBoom.loadFromFile("Resource/enemyboom.wav"))
+	{
+		std::cout << "open the file enemyboom.wav failed!" << std::endl;
+		system("pause");
+	}
+	if (!enemyBoom.loadFromFile("Resource/enemyboom.wav"))
+	{
+		std::cout << "open the file enemyboom.wav failed!" << std::endl;
+		system("pause");
+	}
 }

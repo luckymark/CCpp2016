@@ -25,9 +25,12 @@ public:
 	void giveTexture();
 	void drawall(sf::RenderWindow &window);
 	void collision();
+	template<typename T>
+	void ifalpha(T *t[], int i);
 	void deletethem();
 	template<typename T>
 	void ifdelete(T *t[], int i);
+	void countingdown();
 	void keyboardManager(sf::Window &window);
 	void mouseManager(sf::Window &window);
 	template <typename T>
@@ -51,18 +54,70 @@ private:
 	sf::Time invicible_time;
 	Type gameover;
 	Type tryagain;
+	sf::Sound shootSound;
+	sf::Sound bossShootSound;
+	sf::Sound myShootSound;
+	sf::Sound enemyBoom;
+	bool customspassing;
+	int score;
+	int lastscore;
+	int customspass;
+	float multiple;
+	Type *customspasstype[10];
+	sf::Time passing_time;
+	std::string str[10];
 
 };
 
 template<typename T>
-inline void Game::ifdelete(T * t[], int i)
+inline void Game::ifalpha(T * t[], int i)
 {
 	for (size_t j = 0; j < i; j++)
 	{
-		if (t[j] != NULL && (t[j]->times <= 0 || t[j]->getX() <= -43 || t[j]->getX() >= 643 || t[j]->getY() <= -200 || t[j]->getY() >= 843))
+		if (t[j] != NULL&&t[j]->getColor() == sf::Color(255, 255, 255, 80))
 		{
-			delete t[j];
-			t[j] = NULL;
+			t[j]->setColor(sf::Color(255, 255, 255, 255));
+		}
+	}
+}
+
+template<typename T>
+inline void Game::ifdelete(T * t[], int i)
+{
+	if (i < 100)
+	{
+		for (size_t j = 0; j < i; j++)
+		{
+			if (t[j] != NULL && t[j]->getIfboom() == 0 && (t[j]->times <= 0 || t[j]->getX() <= -43 || t[j]->getX() >= 643 || t[j]->getY() <= -200 || t[j]->getY() >= 843))
+			{
+				if (t[j]->times <= 0)
+				{
+					enemyBoom.play();
+					if (i < 10)
+					{
+						score += 100;
+					}
+					else
+					{
+						score += 20;
+					}
+				}
+				t[j]->setIfboom(1);
+				t[j]->setCountdown(t[j]->gettimeNow());
+				/*delete t[j];
+				t[j] = NULL;*/
+			}
+		}
+	}
+	else
+	{
+		for (size_t j = 0; j < i; j++)
+		{
+			if (t[j] != NULL && (t[j]->times <= 0 || t[j]->getX() <= -43 || t[j]->getX() >= 643 || t[j]->getY() <= -200 || t[j]->getY() >= 843))
+			{
+				delete t[j];
+				t[j] = NULL;
+			}
 		}
 	}
 }
@@ -75,7 +130,7 @@ int Game::create(T *t[], int i)
 	{
 		if (t[j] == NULL)
 		{
-			t[j]=new T(m_rand);
+			t[j] = new T(m_rand, 1.5);
 			return j;
 		}
 	}

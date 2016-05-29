@@ -24,6 +24,10 @@ public:
 	float getX();
 	void move();
 	float getRadius();
+	sf::Time getCountdown();
+	void setCountdown(sf::Time time);
+	bool getIfboom();
+	void setIfboom(bool ifboom);
 	
 private:
 	float x;
@@ -35,5 +39,6 @@ private:
 	float accelerationy;
 	float acceleration;
 	float radius;
-
+	sf::Time boomcountdown;
+	bool ifboom;
 };

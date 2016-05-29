@@ -31,12 +31,13 @@ inline void Myplane::collision(T * t[], int i)
 {
 	for (size_t j = 0; j < i; j++)
 	{
-		if (t[j] != NULL)
+		if (t[j] != NULL && (t[j]->getIfboom() == 0))
 		{
 			if (ifcollide<T>(t[j]))
 			{
+				t[j]->setColor(sf::Color(255, 255, 255, 80));
 				this->times -= t[j]->times;
-				t[j]->times -= 50;
+				t[j]->times -= 100;
 			}
 		}
 	}

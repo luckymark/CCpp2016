@@ -11,6 +11,7 @@ Flying::Flying(float x, float y,float speedx,float speedy,float originx,float or
 	accelerationx = 0;
 	accelerationy = 0;
 	setPosition(x, y);
+	ifboom = 0;
 }
 
 Flying::~Flying()
@@ -92,4 +93,24 @@ void Flying::move()
 float Flying::getRadius()
 {
 	return radius;
+}
+
+sf::Time Flying::getCountdown()
+{
+	return boomcountdown;
+}
+
+void Flying::setCountdown(sf::Time time)
+{
+	boomcountdown = time;
+}
+
+bool Flying::getIfboom()
+{
+	return ifboom;
+}
+
+void Flying::setIfboom(bool ifboom)
+{
+	Flying::ifboom = ifboom;
 }

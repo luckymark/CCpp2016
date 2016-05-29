@@ -13,6 +13,7 @@ public:
 	template<typename T>
 	bool ifcollide(T *t);
 	int times;
+	sf::Time gettimeNow();
 
 private:
 
@@ -23,10 +24,11 @@ inline void Myshoot::collision(T * t[], int i)
 {
 	for (size_t j = 0; j < i; j++)
 	{
-		if (t[j] != NULL)
+		if (t[j] != NULL && (t[j]->getIfboom() == 0))
 		{
 			if (ifcollide<T>(t[j]))
 			{
+				t[j]->setColor(sf::Color(255, 255, 255, 80));
 				t[j]->times -= 1;
 				this->times = 0;
 			}

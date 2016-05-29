@@ -8,3 +8,8 @@ Enemyshoot::Enemyshoot(float x, float y, float speedx, float speedy):Flying(x,y,
 Enemyshoot::~Enemyshoot()
 {
 }
+
+sf::Time Enemyshoot::gettimeNow()
+{
+	return sf::Time();
+}

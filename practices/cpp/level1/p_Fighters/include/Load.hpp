@@ -3,6 +3,7 @@
 #include"SFML\Graphics.hpp"
 #include<iostream>
 #include<string>
+#include"SFML\Audio.hpp"
 
 class Load
 {
@@ -27,5 +28,10 @@ public:
 	sf::Texture gun2;
 	sf::Texture gun3;
 	sf::Font font;
+	sf::Music bgm;
+	sf::SoundBuffer buffer;
+	sf::SoundBuffer bossshootSound;
+	sf::SoundBuffer myshootSound;
+	sf::SoundBuffer enemyBoom;
 	void load();
 };

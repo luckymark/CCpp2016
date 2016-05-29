@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include"Game.hpp"
 #include<time.h>
 
@@ -11,11 +13,38 @@ Game::Game()
 	gameover("Game Over"),
 	tryagain("Try Again")
 {
+	str[0] = "Level  1";
+	str[1] = "Level  2";
+	str[2] = "Level  3";
+	str[3] = "Level  4";
+	str[4] = "Level  5";
+	str[5] = "Level  6";
+	str[6] = "Level  7";
+	str[7] = "Level  8";
+	str[8] = "Level  9";
+	str[9] = "Level  10";
+
+	for (size_t i = 0; i < 10; i++)
+	{
+		customspasstype[i] = new Type(str[i]);
+		customspasstype[i]->setPosition(200, 320);
+		customspasstype[i]->setCharacterSize(60);
+	}
+	for (size_t i = 0; i < 10; i++)
+	{
+		customspasstype[i]->setFont(load.font);
+	}
+	multiple = 1;
+	customspass = 1;
+	customspassing = 1;
+	score = 0;
+	lastscore = 0;
 	srand(time(0));
 	timeNow = sf::seconds(0.00f);
 	type.setPosition(270, 350);
 	gameover.setPosition(250, 350);
 	tryagain.setPosition(250, 420);
+
 	for (size_t i = 0; i < 300; i++)
 	{
 		myshoot[i] = NULL;
@@ -67,10 +96,18 @@ void Game::loop()
 	sf::RenderWindow window(sf::VideoMode(600, 800), "My window");
 
 	window.setFramerateLimit(400);
+
+	load.bgm.setLoop(1);
+	load.bgm.setVolume(50);/*
+	load.bgm.play();*/
+
+	shootSound.setBuffer(load.buffer);
+	bossShootSound.setBuffer(load.bossshootSound);
+	myShootSound.setBuffer(load.myshootSound);
+	enemyBoom.setBuffer(load.enemyBoom);
 	
 	while (window.isOpen())
 	{
-
 		giveTexture();
 		record_time();
 		sf::Event event;
@@ -83,6 +120,7 @@ void Game::loop()
 
 			if (event.type == sf::Event::LostFocus)
 			{
+				continue;
 			}
 		}
 
@@ -94,10 +132,58 @@ void Game::loop()
 		{
 			if (type.getifConceled())//create enemies autoly
 			{
-				createenemy();
-				shootall();
-				collision();
-				deletethem();
+				if (customspassing)
+				{
+					if (clock.getElapsedTime() - passing_time >= sf::seconds(1))
+					{
+						customspassing = 0;
+					}
+				}
+				else
+				{
+					if (score >= (200 * multiple) + lastscore)
+					{
+						passing_time = clock.getElapsedTime();
+						lastscore = score;
+						customspass += 1;
+						multiple *= 1.1;
+						customspassing = 1;
+						for (size_t i = 0; i < 200; i++)
+						{
+							if (enemyshoot[i] != NULL)
+							{
+								delete enemyshoot[i];
+								enemyshoot[i] = NULL;
+							}
+						}
+						for (size_t i = 0; i < 20; i++)
+						{
+							if (enemy[i] != NULL)
+							{
+								delete enemy[i];
+								enemy[i] = NULL;
+							}
+						}
+						for (size_t i = 0; i < 5; i++)
+						{
+							if (boss[i] != NULL)
+							{
+								delete boss[i];
+								boss[i] = NULL;
+							}
+						}
+					}
+					else
+					{
+						ifalpha<Enemy>(enemy, 20);
+						ifalpha<Boss>(boss, 5);
+						createenemy();
+						shootall();
+						collision();
+						deletethem();
+						countingdown();
+					}
+				}
 			}
 
 			window.clear();
@@ -121,7 +207,7 @@ void Game::giveTexture()
 	myplane.setTexture(load.myplane);
 	for (size_t i = 0; i < 20; i++)
 	{
-		if (enemy[i] != NULL)
+		if (enemy[i] != NULL && enemy[i]->getIfboom() == 0)
 		{
 			enemy[i]->setTexture(load.enemy);
 		}
@@ -142,7 +228,7 @@ void Game::giveTexture()
 	}
 	for (size_t i = 0; i < 5; i++)
 	{
-		if (boss[i] != NULL)
+		if (boss[i] != NULL && boss[i]->getIfboom() == 0)
 		{
 			boss[i]->setTexture(load.boss);
 		}
@@ -167,14 +253,6 @@ void Game::drawall(sf::RenderWindow &window)
 	}
 	else
 	{
-
-		if (myplane.life <= 0)
-		{
-			window.draw(gameover);
-			window.draw(tryagain);
-			return;
-		}
-
 		myplane.moveMe();//myplane
 		window.draw(myplane);
 
@@ -187,37 +265,51 @@ void Game::drawall(sf::RenderWindow &window)
 			}
 		}
 
-		for (size_t i = 0; i < 200; i++)
+		if (customspassing)
 		{
-			if (enemyshoot[i] != NULL)
-			{
-				enemyshoot[i]->move();
-				window.draw(*enemyshoot[i]);
-			}
+			window.draw(*customspasstype[customspass - 1]);
 		}
-
-		for (size_t i = 0; i < 20; i++)
+		else
 		{
-			if (enemy[i] != NULL)
+			if (myplane.life <= 0)
 			{
-				enemy[i]->move();
-				window.draw(*enemy[i]);
+				window.draw(gameover);
+				window.draw(tryagain);
+				return;
 			}
-		}
 
-		for (size_t i = 0; i < 5; i++)
-		{
-			if (boss[i] != NULL)
+			for (size_t i = 0; i < 200; i++)
 			{
-				if (!(boss[i]->getSpeedy() <= 0))
+				if (enemyshoot[i] != NULL)
 				{
-					boss[i]->move();
-					window.draw(*boss[i]);
+					enemyshoot[i]->move();
+					window.draw(*enemyshoot[i]);
 				}
-				else
+			}
+
+			for (size_t i = 0; i < 20; i++)
+			{
+				if (enemy[i] != NULL)
 				{
-					boss[i]->setSpeed();
-					window.draw(*boss[i]);
+					enemy[i]->move();
+					window.draw(*enemy[i]);
+				}
+			}
+
+			for (size_t i = 0; i < 5; i++)
+			{
+				if (boss[i] != NULL)
+				{
+					if (!(boss[i]->getSpeedy() <= 0))
+					{
+						boss[i]->move();
+						window.draw(*boss[i]);
+					}
+					else
+					{
+						boss[i]->setSpeed();
+						window.draw(*boss[i]);
+					}
 				}
 			}
 		}
@@ -284,6 +376,34 @@ void Game::deletethem()
 	}
 }
 
+void Game::countingdown()
+{
+	for (size_t i = 0; i < 20; i++)
+	{
+		if (enemy[i] != NULL && enemy[i]->getIfboom())
+		{
+			enemy[i]->countdown(load);
+			if (enemy[i]->gettimeNow() - enemy[i]->getCountdown() > sf::seconds(0.75))
+			{
+				delete enemy[i];
+				enemy[i] = NULL;
+			}
+		}
+	}
+	for (size_t i = 0; i < 5; i++)
+	{
+		if (boss[i] != NULL && boss[i]->getIfboom())
+		{
+			boss[i]->countdown(load);
+			if (boss[i]->gettimeNow() - boss[i]->getCountdown() > sf::seconds(0.75))
+			{
+				delete boss[i];
+				boss[i] = NULL;
+			}
+		}
+	}
+}
+
 void Game::keyboardManager(sf::Window &window)
 {
 	//shoot的时间间隔
@@ -318,6 +438,7 @@ void Game::keyboardManager(sf::Window &window)
 			static sf::Time shoot_time = sf::seconds(0);
 			if (clock.getElapsedTime() - shoot_time >= sf::seconds(0.1))
 			{
+				myShootSound.play();
 				shoot_time = clock.getElapsedTime();
 				myplane.shoot(myshoot, 300);
 			}
@@ -334,6 +455,7 @@ void Game::mouseManager(sf::Window &window)
 		{
 			type.setifConceled(1);
 			invicible_time = clock.getElapsedTime();
+			passing_time = clock.getElapsedTime();
 		}
 		if (myplane.life <= 0 && localPosition.x < 400 && localPosition.x > 250 && localPosition.y < 480 && localPosition.y > 420)
 		{
@@ -366,6 +488,7 @@ void Game::createenemy()
 	if (timeNow % sf::seconds(5) < sf::seconds(0.01))
 	{
 		int i = create<Enemy>(enemy, 20);
+		enemy[i]->setSpeed(0, 1.5*multiple);
 	}
 
 	if (timeNow % sf::seconds(30) < sf::seconds(0.01))
@@ -378,18 +501,17 @@ void Game::shootall()
 {
 	for (size_t i = 0; i < 20; i++)
 	{
-		if (enemy[i] != NULL)
+		if (enemy[i] != NULL && enemy[i]->getIfboom() == 0)
 		{
-			enemy[i]->shoot(enemyshoot, 200, myplane.getX(), myplane.getY());
+			enemy[i]->shoot(enemyshoot, 200, myplane.getX(), myplane.getY(), shootSound);
 		}
 	}
 
 	for (size_t i = 0; i < 5; i++)
 	{
-		if (boss[i] != NULL)
+		if (boss[i] != NULL && boss[i]->getIfboom() == 0)
 		{
-			boss[i]->shoot(enemyshoot, 200);
+			boss[i]->shoot(enemyshoot, 200, bossShootSound);
 		}
 	}
 }
-

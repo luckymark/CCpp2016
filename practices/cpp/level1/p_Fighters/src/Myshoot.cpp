@@ -8,3 +8,8 @@ Myshoot::Myshoot(float x, float y) :Flying(x, y, 0, -5, 5, 5, 5)
 Myshoot::~Myshoot()
 {
 }
+
+sf::Time Myshoot::gettimeNow()
+{
+	return sf::Time();
+}
