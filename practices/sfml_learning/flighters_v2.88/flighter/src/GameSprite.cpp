@@ -23,6 +23,7 @@ std::vector<sf::Sprite>GameSprite::ufo;
 sf::Sprite GameSprite::background;
 sf::Sprite GameSprite::gameover;
 
+sf::Sprite GameSprite::bomb;
 //std::list<sf::Sprite>GameSprite::plane;
 //std::list<sf::Sprite>GameSprite::bullet;
 void GameSprite::load()
@@ -30,13 +31,13 @@ void GameSprite::load()
     Hero.push_back(sf::Sprite(GameTexture::shoot,sf::IntRect(0, 99, 102,126)));
     Hero.push_back(sf::Sprite(GameTexture::shoot,sf::IntRect(165, 360, 102, 126)));
     for(auto& c:Hero)
-        c.setColor(sf::Color::Red);
+        c.setColor(sf::Color(255, 64, 64));
     HeroBomb.push_back(sf::Sprite(GameTexture::shoot,sf::IntRect(165, 234, 102, 126)));
     HeroBomb.push_back(sf::Sprite(GameTexture::shoot,sf::IntRect(330, 624, 102, 126)));
     HeroBomb.push_back( sf::Sprite(GameTexture::shoot,sf::IntRect(330, 498, 102 ,126)));
     HeroBomb.push_back( sf::Sprite(GameTexture::shoot,sf::IntRect(432, 624, 102, 126)));
     for(auto& c:HeroBomb)
-        c.setColor(sf::Color::Red);
+        c.setColor(sf::Color(255, 64, 64));
 
     HeroBullet= sf::Sprite(GameTexture::shoot,sf::IntRect(1004, 987, 9, 21));
     HeroBullet.setColor(sf::Color::Red);
@@ -84,6 +85,7 @@ void GameSprite::load()
 
    // background= sf::Sprite(GameTexture::background);
     gameover= sf::Sprite(GameTexture::gameover);
+    bomb    = sf::Sprite(GameTexture::shoot,sf::IntRect(810, 691, 63, 57));
 }
 /*
 GameSprite::~GameSprite()

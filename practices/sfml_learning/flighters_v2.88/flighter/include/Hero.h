@@ -10,7 +10,7 @@ public:
 
     virtual void fire();
 
-    virtual void beHited();
+    virtual void beHited(int);
 
     virtual void refresh(float);
 
@@ -21,6 +21,8 @@ public:
     virtual void appendToGame();
 
     virtual void shootBullet();
+
+    virtual void initializeBullet();
 
     virtual void initializeLife();
 
@@ -35,6 +37,8 @@ public:
     virtual void playBombSound();
 
     virtual void draw();
+
+    virtual Plane* setCollisonArea();
 protected:
     Hero(const sf::Vector2f&);
 private:

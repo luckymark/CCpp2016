@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "GameWindow.h"
 #include "GameMusic.h"
+#include "Shader.h"
 class Plane {
 public:
 
@@ -32,7 +33,7 @@ public:
 
     virtual bool isBombing();
 
-    virtual void beHited() ;
+    virtual void beHited(int) ;
 
     virtual sf::Sprite& getSprite();
 
@@ -90,6 +91,28 @@ public:
 
     virtual void recoverNormal();
 
+    virtual void initializeHarm();
+
+    virtual void initializeBullet();
+
+    virtual void initializeShader();
+
+    virtual Plane* setBullet(Plane*);
+
+    virtual Plane* getBullet();
+
+    virtual Plane* setHarm(int);
+
+    virtual int getHarm();
+
+    virtual void getSkill(Plane*);
+
+    virtual Plane* setCollisonArea();
+
+    virtual Plane* rotate(float);
+
+    virtual sf::Color getLightColor();
+
     virtual void refresh(float) = 0;
 
     virtual void initializeSpeed() = 0;
@@ -103,14 +126,16 @@ public:
     virtual Plane* clone() = 0;
 
     virtual void playBombSound() = 0;
-
 protected:
     GameWindow* window;
     std::vector<sf::Sprite>planeSprite;
     bool _isBeHited=false;
-    int status,life;
+    int status,life,harm;
     float speed;
     float shootElapsed,limit;
+    Plane* bullet;
+    Shader* shader;
+    sf::ConvexShape collisonArea;
     sf::Vector2f position,Direction;
     GameMusic* music;
 };

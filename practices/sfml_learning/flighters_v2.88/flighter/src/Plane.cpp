@@ -25,6 +25,10 @@ float Plane::getY()
 {
     return (getTop()+getBottom())/2.f;
 }
+Plane* Plane::setCollisonArea()
+{
+    return this;
+}
 void Plane::move(const float& offsetX,const float& offsetY)
 {
     position.x+=offsetX;
@@ -32,7 +36,7 @@ void Plane::move(const float& offsetX,const float& offsetY)
 
     for(auto& sp:planeSprite)
         sp.move(offsetX,offsetY);
-
+    collisonArea.move(offsetX,offsetY);
 }
 void Plane::move(const sf::Vector2f offset)
 {
@@ -66,6 +70,7 @@ Plane* Plane::setPosition(const sf::Vector2f& u)
     position=u;
     for(auto& itp:planeSprite)
         itp.setPosition(u);
+    collisonArea.setPosition(u);
     return this;
 }
 sf::Vector2f Plane::getDirection()
@@ -120,15 +125,31 @@ void Plane::initializePlane(const sf::Vector2f& nowPosition,const sf::Vector2f& 
     initializeSound();
     setPosition(nowPosition);
     setDirection(nowDirection);
+    setCollisonArea();
+    initializeHarm();
     initializeLife();
     initializeStatus();
     initializeSpeed();
     initializeShootElapsed();
+    initializeBullet();
     initializeTime();
+    initializeShader();
+}
+void Plane::initializeShader()
+{
+    shader = Shader::instance();
+    //shader->load();
+}
+void Plane::initializeHarm()
+{
+    harm=1;
+}
+void Plane::getSkill(Plane*)
+{
+
 }
 void Plane::initializeTime()
 {
-    //clock=new sf::Clock;
     limit = shootElapsed - 0.2f;
 }
 void Plane::initializeWindow()
@@ -171,9 +192,9 @@ void Plane::shootBullet()
 {
 
 }
-void Plane::beHited()
+void Plane::beHited(int harm)
 {
-    --life;
+    life-=harm;
     _isBeHited=true;
 }
 void Plane::initializeSound()
@@ -187,6 +208,39 @@ bool Plane::checkBeHited()
 void Plane::recoverNormal()
 {
     _isBeHited=false;
+}
+Plane* Plane::setBullet(Plane* _bullet)
+{
+    bullet = _bullet;
+    return this;
+}
+Plane* Plane::getBullet()
+{
+    return bullet;
+}
+Plane* Plane::setHarm(int _harm)
+{
+    harm=_harm;
+    return this;
+}
+int Plane::getHarm()
+{
+    return harm;
+}
+Plane* Plane::rotate(float angle)
+{
+    for(auto&c :planeSprite)
+        c.rotate(angle);
+    collisonArea.rotate(angle);
+    return this;
+}
+sf::Color Plane::getLightColor()
+{
+    return sf::Color::Transparent;
+}
+void Plane::initializeBullet()
+{
+
 }
 void Plane::playFlyingSound()
 {

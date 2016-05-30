@@ -1,18 +1,13 @@
-/**
- * Project Untitled
- */
+#ifndef BOMBUFO_H
+#define BOMBUFO_H
 
-
-#ifndef _ENEMYBULLET_H
-#define _ENEMYBULLET_H
 
 #include "Plane.h"
-
-
-class EnemyBullet: public Plane {
+#include <SFML/Graphics.hpp>
+class BombUfo : public Plane
+{
 public:
-
-    EnemyBullet(const sf::Vector2f&,const sf::Vector2f& iniDirection=sf::Vector2f(0,1.f));
+    BombUfo(const sf::Vector2f&,const sf::Vector2f& iniDirection=sf::Vector2f(0,-1.f));;
 
     virtual void refresh(float);
 
@@ -32,9 +27,8 @@ public:
 
     virtual void playBombSound();
 
-    virtual Plane* setCollisonArea();
+    virtual void getSkill(Plane*);
 
-    virtual sf::Color getLightColor();
+private:
 };
-
-#endif //_ENEMYBULLET_H
+#endif // BOMBUFO_H

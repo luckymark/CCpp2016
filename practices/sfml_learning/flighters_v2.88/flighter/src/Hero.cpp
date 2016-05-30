@@ -23,13 +23,17 @@ void Hero::fire() {
 }
 void Hero::shootBullet()
 {
-    Game::heroBullet.push_back(new HeroBullet(sf::Vector2f(getX(),getTop())));
+
+    sf::Vector2f nowPositon = sf::Vector2f(getX(),getTop());
+    Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositon));
+    printf("shoot\n");
+    //Game::heroBullet.push_back(new HeroBullet(sf::Vector2f(getX(),getTop())));
 }
-void Hero::beHited()
+void Hero::beHited(int _harm)
 {
     _isBeHited=true;
     _flash=0.f;
-    --life;
+    life-=_harm;
 }
 void Hero::refresh(float detalTime)
 {
@@ -55,6 +59,11 @@ void Hero::changeStatus()
 void Hero::appendToGame()
 {
     //Game::plane.push_back(this);
+}
+void Hero::initializeBullet()
+{
+    bullet = new HeroBullet();
+    //printf("initail")
 }
 void Hero::initializeSprite()
 {
@@ -82,6 +91,16 @@ void Hero::playBombSound()
 {
     music->playHeroBomb();
 }
+Plane* Hero::setCollisonArea()
+{
+    //collisonArea.setOrigin((getRight()-getLeft())/2.f,(getBottom()-getTop())/2.f);
+    collisonArea.setPointCount(3);
+    collisonArea.setPoint(0, sf::Vector2f(53, 5));
+	collisonArea.setPoint(1, sf::Vector2f(24, 85));
+	collisonArea.setPoint(2, sf::Vector2f(80, 85));
+	collisonArea.setFillColor(sf::Color(255, 0, 0, 100));
+	return this;
+}
 void Hero::draw()
 {
     if(checkBeHited())
@@ -90,8 +109,13 @@ void Hero::draw()
         if(_flash > maxFlashTime)
         {
             window->draw(getSprite());
+            window->draw(collisonArea);
             _flash = 0;
         }
     }
-    else window->draw(getSprite());
+    else
+    {
+        window->draw(getSprite());
+        window->draw(collisonArea);
+    }
 }

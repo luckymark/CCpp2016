@@ -8,8 +8,8 @@ Shader::Shader()
 Shader* Shader::instance()
 {
     if(_instance == 0)
-        return new Shader;
-    else return _instance;
+        _instance = new Shader;
+    return _instance;
 }
 void Shader::load()
 {
@@ -21,6 +21,7 @@ void Shader::load()
         printf("load OK!\n");
     }
     else printf("Can't load shader!\n");
+
 }
 sf::Shader* Shader::getInvertShader()
 {

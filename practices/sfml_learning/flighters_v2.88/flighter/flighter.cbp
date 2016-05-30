@@ -48,6 +48,7 @@
 			<Add directory="E:/SFML-2.0/lib" />
 		</Linker>
 		<Unit filename="include/BackGround.h" />
+		<Unit filename="include/BombUfo.h" />
 		<Unit filename="include/Copter.h" />
 		<Unit filename="include/EnemyBullet.h" />
 		<Unit filename="include/Game.h" />
@@ -59,10 +60,12 @@
 		<Unit filename="include/HeroBullet.h" />
 		<Unit filename="include/Plane.h" />
 		<Unit filename="include/Shader.h" />
+		<Unit filename="include/ShootUfo.h" />
 		<Unit filename="include/Warplane.h" />
 		<Unit filename="include/Warship.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/BackGround.cpp" />
+		<Unit filename="src/BombUfo.cpp" />
 		<Unit filename="src/Copter.cpp" />
 		<Unit filename="src/EnemyBullet.cpp" />
 		<Unit filename="src/Game.cpp" />
@@ -74,6 +77,7 @@
 		<Unit filename="src/HeroBullet.cpp" />
 		<Unit filename="src/Plane.cpp" />
 		<Unit filename="src/Shader.cpp" />
+		<Unit filename="src/ShootUfo.cpp" />
 		<Unit filename="src/Warplane.cpp" />
 		<Unit filename="src/Warship.cpp" />
 		<Extensions>

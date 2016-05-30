@@ -16,6 +16,7 @@ std::list<Plane*>Game::bombingPlane;
 std::list<Plane*>Game::existEnemyPlane;
 std::list<Plane*>Game::heroBullet;
 std::list<Plane*>Game::enemyBullet;
+std::list<Plane*>Game::ufo;
 std::vector<Plane*>Game::originEnemyPlane;
 Game* Game::_instance=0;
 enum EnemyFlighterNum
@@ -31,6 +32,7 @@ void Game::initializeGame() {
     loadWindow();
     loadTexture();
     loadSprite();
+    loadLightShader();
     loadBackGround();
     loadHero();
     loadEnemyFlighter();
@@ -131,14 +133,8 @@ void Game::doPlayFlyingSound()
 }
 void Game::refresh(float detalTime)
 {
-   // if(refreshClock->getElapsedTime() < minElapsedTime) return ;
-
     background->refresh(detalTime);
     hero->refresh(detalTime);
-    /*
-    for(auto& it:enemyBullet)
-        it->refresh(detalTime);
-        */
     for(auto& itb:enemyBullet)
         itb->refresh(detalTime);
     for(auto& itp:existEnemyPlane)
@@ -151,18 +147,34 @@ void Game::draw()
 {
     window->clear();
     background->draw();
-    hero ->draw();
+    hero -> draw();
     for(auto& itp:existEnemyPlane)
         itp->draw();
     for(auto& itb:heroBullet)
+    {
+        drawLight(sf::Vector2f(itb->getX(),itb->getY()),itb->getLightColor(),100);
         itb->draw();
+    }
     for(auto& itb:enemyBullet)
+    {
+        drawLight(sf::Vector2f(itb->getX(),itb->getY()),itb->getLightColor(),100);
         itb->draw();
+    }
     for(auto itbp=bombingPlane.begin();itbp!=bombingPlane.end();itbp++)
         if(!(*itbp)->isBombing())
             itbp=bombingPlane.erase(itbp);
     for(auto& itbp:bombingPlane)
         itbp->draw();
+
+    window->draw(lightSprite,sf::BlendAdd);
+    lightRenderTexture.clear(sf::Color::Transparent);
+}
+void Game::drawLight(const sf::Vector2f& lightPosition,sf::Color color,float lightAttenuation)
+{
+    lightShader->setParameter("frag_LightAttenuation", lightAttenuation);
+    lightShader->setParameter("frag_LightOrigin", lightPosition);
+    lightShader->setParameter("frag_LightColor", color.r, color.g, color.b, color.a);
+    lightRenderTexture.draw(lightSprite, lightRenderState);
 }
 void Game::loadBackGround()
 {
@@ -188,6 +200,15 @@ void Game::loadSprite()
 {
     GameSprite::load();
 }
+void Game::loadLightShader()
+{
+    lightTexture.create(GameWindow::windowWidth,GameWindow::windowHeight);
+    lightShader = shader->getLightShader();
+    lightRenderState.shader = lightShader;
+    lightRenderState.blendMode = sf::BlendAdd;
+    lightRenderTexture.create(GameWindow::windowWidth,GameWindow::windowHeight);
+    lightSprite.setTexture(lightRenderTexture.getTexture());
+}
 void Game::loadHero()
 {
     hero = Hero::instance(sf::Vector2f(GameWindow::iniWidth,GameWindow::iniHeight));
@@ -200,7 +221,7 @@ void Game::loadWindow()
 void Game::loadShader()
 {
     shader=Shader::instance();
-    shader->load();
+    //shader->load();
 }
 void Game::creatEnemy()
 {
@@ -241,7 +262,7 @@ void Game::checkCollison()
             {
                 printf("beHited!\n");
                 isHit=true;
-                (*itep)->beHited();
+                (*itep)->beHited((*ithb)->getHarm());
                 music->playBeHited();
                 if(!(*itep) -> isAlive())
                 {
@@ -271,7 +292,7 @@ void Game::checkCollison()
             }
             printf("beHited!\n");
             isHit=true;
-            hero->beHited();
+            hero->beHited((*ithb)->getHarm());
             sumFlash = 0.f;
             //music->playBeHited();
 
@@ -295,7 +316,7 @@ void Game::checkCollison()
                 GameOver();
             }
             //printf("beHited!\n");
-            hero->beHited();
+            hero->beHited((*ithb)->getHarm());
             sumFlash = 0.f;
             //music->playBeHited();
 

@@ -30,6 +30,7 @@ public:
 
     static sf::Sprite background;
     static sf::Sprite gameover;
+    static sf::Sprite bomb;
     static void load();
 };
 

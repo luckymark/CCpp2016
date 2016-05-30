@@ -6,6 +6,7 @@
 #include "Plane.h"
 #include "GameMusic.h"
 #include "Shader.h"
+#include <SFML/Graphics.hpp>
 #include <list>
 class Game {
 public:
@@ -18,6 +19,8 @@ public:
     static std::list<Plane*>heroBullet;
 
     static std::list<Plane*>enemyBullet;
+
+    static std::list<Plane*>ufo;
 
     void initializeGame();
 
@@ -72,6 +75,10 @@ public:
     void getRandomCreatEnemyTime();
 
     void updateSumTime();
+
+    void loadLightShader();
+
+    void drawLight(const sf::Vector2f& lightPosition,sf::Color,float lightAttenuation);
 protected:
     Game();
 private:
@@ -81,6 +88,11 @@ private:
     Plane* hero;
     GameMusic* music;
     Shader* shader;
+    sf::Texture lightTexture;
+    sf::Sprite lightSprite;
+    sf::Shader* lightShader;
+    sf::RenderStates lightRenderState;
+    sf::RenderTexture lightRenderTexture;
     //sf::Clock* drawClock;
     sf::Clock* gameClock;
     float tick;
