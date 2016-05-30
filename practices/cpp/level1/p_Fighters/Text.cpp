@@ -27,3 +27,25 @@ void Text::iniText()
 	text.setColor(sf::Color::Red);
 	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 }
+
+void Text::drawBeginText()
+{
+	std::string s, s1;
+	s = "welcome to Fighters\nmove:Up(up) Down(down) Left(left) Right(right) \nFire:Space(fight) Alt(Bigboom)\n Click Space to begin the game!";
+	text.setFont(font);
+	text.setString(s);
+	text.setCharacterSize(24);
+	text.setColor(sf::Color::Red);
+	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+}
+
+void Text::drawFail()
+{
+	std::string s;
+	s = "You have dead!!!";
+	text.setFont(font);
+	text.setString(s);
+	text.setCharacterSize(48);
+	text.setColor(sf::Color::Red);
+	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+}

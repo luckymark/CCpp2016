@@ -12,4 +12,6 @@ public:
 	sf::Text text;
 	Text();
 	void iniText();
+	void drawBeginText();
+	void drawFail();
 };

@@ -65,4 +65,5 @@ public:
 	void randomMove();
 	bool godCollision();
 	void drawExplode();
+	void drawBegin();
 };

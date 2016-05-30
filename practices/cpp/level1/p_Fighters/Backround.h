@@ -10,6 +10,6 @@ public:
 	sf::Sprite sbackround;
 	Backround();
 	void inibackround();
-
+	void drawBeginBackround();
 
 };

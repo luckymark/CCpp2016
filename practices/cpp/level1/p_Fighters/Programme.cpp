@@ -1,6 +1,31 @@
 #include "Programme.h"
 void Programme::run()
 {
+	int isDead = 0;
+	sf::RenderWindow begin(sf::VideoMode(580,320),"begin");
+	iniBackround();
+	
+	backround->drawBeginBackround();
+	begin.draw(backround->sbackround);
+	text->drawBeginText();
+	begin.draw(text->text);
+	begin.display();
+	while (begin.isOpen())
+	{
+		sf::Event event;
+		while (begin.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				begin.close();
+			}
+			if (event.type == sf::Event::KeyPressed)
+			{
+				begin.close();
+			}
+		}
+	}
+	sf::Event event;
 	isDraw = 0;
 	bigBoom = 3;
 	afterCollision = 2 * AFTERBOOM;
@@ -11,90 +36,111 @@ void Programme::run()
 	plane->iniPlane();
 	while (window.isOpen())
 	{
-		
-		sf::Event event;
-		isCreateEnemy++;
-		isCreateEnemy %= 700;
-		window.clear();
-		drawBackround();
-		while (window.pollEvent(event))
+		if ((life+1))
 		{
-			if (afterCollision > AFTERBOOM)
+			isCreateEnemy++;
+			isCreateEnemy %= 700;
+			window.clear();
+			drawBackround();
+			while (window.pollEvent(event))
 			{
-				switch (event.type)
+				if (afterCollision > AFTERBOOM)
 				{
-				case sf::Event::Closed:
-					window.close();
-					break;
-				case sf::Event::KeyPressed:
-					plane->move();
-					if (boom->isBoom())
+					switch (event.type)
 					{
-						iniBoom();
-						addBoom(boom);
+					case sf::Event::Closed:
+						window.close();
+						break;
+					case sf::Event::KeyPressed:
+						plane->move();
+						if (boom->isBoom())
+						{
+							iniBoom();
+							addBoom(boom);
 
+						}
+						if (boom->BigBoom() && bigBoom > 0)
+						{
+							bigBoom--;
+							n += lenemy.size();
+							lenemy.clear();
+							lBoom.clear();
+							lEnemyBoom.clear();
+							window.clear();
+							window.draw(backround->sbackround);
+							window.draw(plane->shost);
+						}
+						break;
+					default:
+						break;
 					}
-					if (boom->BigBoom() && bigBoom > 0)
-					{
-						bigBoom--;
-						n += lenemy.size();
-						lenemy.clear();
-						lBoom.clear();
-						lEnemyBoom.clear();
-						window.clear();
-						window.draw(backround->sbackround);
-						window.draw(plane->shost);
-					}
-					break;
-				default:
-					break;
+				}
+
+
+			}
+			if (!isCreateEnemy)
+			{
+				iniEnemy();
+			}
+			if ((!lBoom.empty()) && (!lenemy.empty()))
+			{
+				collision();
+			}
+			if (afterCollision > 2 * AFTERBOOM)
+			{
+				if (godCollision())
+				{
+					bigBoom = 3;
+					godBuffer.loadFromFile("D://Heaven.ogg");
+					godSound.setBuffer(godBuffer);
+					godSound.play();
+					afterCollision = 0;
+					isDraw = 0;
+					plane->getini();
 				}
 			}
-			
-			
-		}
-		if (!isCreateEnemy)
-		{
-			iniEnemy();
-		}
-		if ((!lBoom.empty()) && (!lenemy.empty()))
-		{
-			collision();
-		}
-		if (afterCollision > 2*AFTERBOOM)
-		{
-			if (godCollision())
+			afterCollision++;
+			drawBoom();
+			if (afterCollision > AFTERBOOM&&afterCollision < 2 * AFTERBOOM)
 			{
-				bigBoom = 3;
-				godBuffer.loadFromFile("D://Heaven.ogg");
-				godSound.setBuffer(godBuffer);
-				godSound.play();
-				afterCollision = 0;
-				isDraw = 0;
-				plane->getini();
+				if (isDraw > 50)
+					drawPlane();
+				if (isDraw == 100)
+					isDraw = 0;
+				isDraw++;
+			}
+			else if (afterCollision > 2 * AFTERBOOM)
+			{
+				drawPlane();
+				addEnemyBoom();
+			}
+			drawExplode();
+			drawEnemyBoom();
+			drawEnemy();
+			drawText();
+			window.display();
+		}
+		else
+		{
+			window.clear();
+			drawBackround();
+			window.draw(backround->sbackround);
+			text->drawFail();
+			window.draw(text->text);
+			window.display();
+			while (window.pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+				{
+					window.close();
+				}
+				if (event.type == sf::Event::KeyPressed)
+				{
+					window.close();
+				}
 			}
 		}
-		afterCollision++;
-		drawBoom();
-		if (afterCollision > AFTERBOOM&&afterCollision < 2 * AFTERBOOM)
-		{
-			if (isDraw >50)
-				drawPlane();
-			if (isDraw == 100)
-				isDraw = 0;
-			isDraw++;
-		}
-		else if (afterCollision > 2*AFTERBOOM)
-		{
-			drawPlane();
-			addEnemyBoom();
-		}
-		drawExplode();
-		drawEnemyBoom();
-		drawEnemy();
-		drawText();
 		
-		window.display();
 	}
 }
 
@@ -270,5 +316,11 @@ void Programme::drawExplode()
 			window.draw(middle->sExplode);
 		}
 	}
+}
+
+void Programme::drawBegin()
+{
+	backround->drawBeginBackround();
+	
 }
 
