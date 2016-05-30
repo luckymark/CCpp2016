@@ -27,6 +27,7 @@ enum EnemyFlighterNum
 void Game::initializeGame() {
     std::srand(static_cast<unsigned int>(std::time(NULL)));
     loadBGM();
+    loadShader();
     loadWindow();
     loadTexture();
     loadSprite();
@@ -44,7 +45,6 @@ void Game::GameStart() {
             if(event.type == sf::Event::Closed)
                 GameOver();
         }
-
         updateSumTime();
         getKeyBoard(tick);
         creatEnemy();
@@ -149,8 +149,8 @@ void Game::refresh(float detalTime)
 }
 void Game::draw()
 {
-    window->clear(sf::Color::White);
-    background -> draw();
+    window->clear();
+    window->draw(*background);
     hero ->draw();
     for(auto& itp:existEnemyPlane)
         itp->draw();
@@ -196,6 +196,11 @@ void Game::loadWindow()
 {
     window=GameWindow::instance();
     window->initializeWindow();
+}
+void Game::loadShader()
+{
+    shader=Shader::instance();
+    shader->load();
 }
 void Game::creatEnemy()
 {

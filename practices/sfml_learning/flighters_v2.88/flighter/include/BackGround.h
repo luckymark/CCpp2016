@@ -7,28 +7,30 @@
 #define _BACKGROUND_H
 #include <SFML/Graphics.hpp>
 #include "GameWindow.h"
-class BackGround {
+#include "Shader.h"
+class BackGround : public sf::Drawable{
 public:
 
     void load();
 
     void refresh(float);
 
-    void draw();
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
     static BackGround* instance();
 
     void setIniPosition();
+
+    void setColor();
 protected:
     BackGround();
 private:
     static BackGround* _instance;
     float speed;
-    //float partline;
     GameWindow* window;
-    //sf::Sprite IniBackGround;
     sf::Sprite topBackGround;
     sf::Sprite bottomBackGround;
+    Shader* shader;
 };
 
 #endif //_BACKGROUND_H

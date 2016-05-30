@@ -5,6 +5,7 @@
 #include "BackGround.h"
 #include "Plane.h"
 #include "GameMusic.h"
+#include "Shader.h"
 #include <list>
 class Game {
 public:
@@ -50,6 +51,8 @@ public:
 
     void loadTime();
 
+    void loadShader();
+
     void creatEnemy();
 
     sf::Vector2f getRandomPosition(Plane*);
@@ -77,6 +80,7 @@ private:
     BackGround* background;
     Plane* hero;
     GameMusic* music;
+    Shader* shader;
     //sf::Clock* drawClock;
     sf::Clock* gameClock;
     float tick;

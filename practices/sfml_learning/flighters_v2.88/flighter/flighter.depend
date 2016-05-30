@@ -2,24 +2,26 @@
 1463556860 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\main.cpp
 	<Game.h>
 
-1464279588 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\game.h
+1464499750 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\game.h
 	"GameWindow.h"
 	"BackGround.h"
 	"Plane.h"
 	"GameMusic.h"
+	"Shader.h"
 	<list>
 
-1464004717 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\background.cpp
+1464573789 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\background.cpp
 	"BackGround.h"
 	"GameTexture.h"
 	<SFML/Window.hpp>
 	"GameWindow.h"
 
-1464493919 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\background.h
+1464573721 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\background.h
 	<SFML/Graphics.hpp>
 	"GameWindow.h"
+	"Shader.h"
 
-1464493086 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\game.cpp
+1464573881 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\game.cpp
 	"Game.h"
 	<SFML/Audio.hpp>
 	<SFML/Graphics.hpp>
@@ -534,4 +536,10 @@
 
 1464223563 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\enemybullet.h
 	"Plane.h"
+
+1464510444 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\shader.h
+	<SFML/Graphics/Shader.hpp>
+
+1464574014 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\shader.cpp
+	"Shader.h"
 

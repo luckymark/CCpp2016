@@ -58,6 +58,7 @@
 		<Unit filename="include/Hero.h" />
 		<Unit filename="include/HeroBullet.h" />
 		<Unit filename="include/Plane.h" />
+		<Unit filename="include/Shader.h" />
 		<Unit filename="include/Warplane.h" />
 		<Unit filename="include/Warship.h" />
 		<Unit filename="main.cpp" />
@@ -72,6 +73,7 @@
 		<Unit filename="src/Hero.cpp" />
 		<Unit filename="src/HeroBullet.cpp" />
 		<Unit filename="src/Plane.cpp" />
+		<Unit filename="src/Shader.cpp" />
 		<Unit filename="src/Warplane.cpp" />
 		<Unit filename="src/Warship.cpp" />
 		<Extensions>
