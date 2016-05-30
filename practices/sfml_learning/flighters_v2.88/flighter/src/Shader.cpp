@@ -8,7 +8,7 @@ Shader::Shader()
 Shader* Shader::instance()
 {
     if(_instance == 0)
-        return new Shader();
+        return new Shader;
     else return _instance;
 }
 void Shader::load()

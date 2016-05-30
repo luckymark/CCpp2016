@@ -16,7 +16,7 @@
 	<SFML/Window.hpp>
 	"GameWindow.h"
 
-1464573721 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\background.h
+1464574799 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\background.h
 	<SFML/Graphics.hpp>
 	"GameWindow.h"
 	"Shader.h"
@@ -540,6 +540,6 @@
 1464510444 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\shader.h
 	<SFML/Graphics/Shader.hpp>
 
-1464574014 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\shader.cpp
+1464574562 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\shader.cpp
 	"Shader.h"
 

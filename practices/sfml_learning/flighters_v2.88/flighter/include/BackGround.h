@@ -8,14 +8,14 @@
 #include <SFML/Graphics.hpp>
 #include "GameWindow.h"
 #include "Shader.h"
-class BackGround : public sf::Drawable{
+class BackGround{
 public:
 
     void load();
 
     void refresh(float);
 
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    void draw();
 
     static BackGround* instance();
 

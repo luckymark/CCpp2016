@@ -150,7 +150,7 @@ void Game::refresh(float detalTime)
 void Game::draw()
 {
     window->clear();
-    window->draw(*background);
+    background->draw();
     hero ->draw();
     for(auto& itp:existEnemyPlane)
         itp->draw();

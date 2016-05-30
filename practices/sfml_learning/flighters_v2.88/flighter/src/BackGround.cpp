@@ -35,12 +35,11 @@ void BackGround::refresh(float detalTime) {
     if(topBackGround.getPosition().y >= 0 )
         setIniPosition();
 }
-void BackGround::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void BackGround::draw()
 {
-    target.draw(topBackGround, shader->getInvertShader());
-    target.draw(bottomBackGround, shader->getInvertShader());
+    window->draw(topBackGround,shader->getInvertShader());
+    window->draw(bottomBackGround,shader->getInvertShader());
 }
-
 BackGround* BackGround::instance() {
     if(_instance==0)
         _instance=new BackGround;
