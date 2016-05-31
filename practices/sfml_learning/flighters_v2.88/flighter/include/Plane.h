@@ -41,7 +41,7 @@ public:
 
     virtual float getTop();
 
-    virtual bool intersects(const sf::Sprite&) ;
+    virtual bool intersects(const sf::FloatRect&) ;
 
     virtual Plane* setDirection(const sf::Vector2f&);
 
@@ -110,6 +110,8 @@ public:
     virtual Plane* setCollisonArea();
 
     virtual Plane* rotate(float);
+
+    virtual sf::FloatRect getCollisionArea();
 
     virtual sf::Color getLightColor();
 

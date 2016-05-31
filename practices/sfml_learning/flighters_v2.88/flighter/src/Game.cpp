@@ -258,7 +258,7 @@ void Game::checkCollison()
     {
         bool isHit=false;
         for(auto itep=existEnemyPlane.begin();itep!=existEnemyPlane.end();itep++)
-            if((*ithb) -> intersects((*itep)->getSprite()))
+            if((*ithb) -> intersects((*itep)->getCollisionArea()))
             {
                 printf("beHited!\n");
                 isHit=true;
@@ -280,7 +280,7 @@ void Game::checkCollison()
     for(auto ithb=enemyBullet.begin();ithb!=enemyBullet.end();ithb++)
     {
         bool isHit=false;
-        if(hero->intersects((*ithb)->getSprite()))
+        if(hero->intersects((*ithb)->getCollisionArea()))
         {
             if(!hero -> isAlive())
             {
@@ -306,7 +306,7 @@ void Game::checkCollison()
     }
     for(auto ithb=existEnemyPlane.begin();ithb!=existEnemyPlane.end();ithb++)
     {
-        if(hero->intersects((*ithb)->getSprite()))
+        if(hero->intersects((*ithb)->getCollisionArea()))
         {
             if(!hero -> isAlive())
             {

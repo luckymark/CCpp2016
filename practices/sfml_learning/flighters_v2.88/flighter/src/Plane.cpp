@@ -91,9 +91,13 @@ void Plane::setSpeed(const float& u)
 {
     speed=u;
 }
-bool Plane::intersects(const sf::Sprite& rhs)
+sf::FloatRect Plane::getCollisionArea()
 {
-    return getSprite().getGlobalBounds().intersects(rhs.getGlobalBounds());
+    return collisonArea.getGlobalBounds();
+}
+bool Plane::intersects(const sf::FloatRect& rhs)
+{
+    return collisonArea.getGlobalBounds().intersects(rhs);
 }
 bool Plane::isInside()
 {
