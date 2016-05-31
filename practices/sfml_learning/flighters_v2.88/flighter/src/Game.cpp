@@ -161,7 +161,7 @@ void Game::draw()
         itb->draw();
     }
     for(auto itbp=bombingPlane.begin();itbp!=bombingPlane.end();itbp++)
-        if(!(*itbp)->isBombing())
+        if(!(*itbp)->isBombing(tick))
             itbp=bombingPlane.erase(itbp);
     for(auto& itbp:bombingPlane)
         itbp->draw();

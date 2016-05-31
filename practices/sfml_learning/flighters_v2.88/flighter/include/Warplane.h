@@ -29,7 +29,11 @@ public:
 
     Plane* clone();
 
+    Plane* setCollisonArea();
+
     void playBombSound();
+
+    void draw();
 private:
     static sf::Vector2f _iniPosition;
     static sf::Vector2f _iniDirection;

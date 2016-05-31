@@ -12,7 +12,7 @@ void EnemyBullet::refresh(float detalTime)
 void EnemyBullet::draw()
 {
     window->draw(getSprite());
-    window->draw(collisonArea);
+    //window->draw(collisonArea);
 }
 void EnemyBullet::appendToGame()
 {
@@ -33,7 +33,7 @@ Plane* EnemyBullet::setCollisonArea()
 	collisonArea.setPoint(1, sf::Vector2f(2, 20));
 	collisonArea.setPoint(2, sf::Vector2f(7, 20));
 	collisonArea.setPoint(3, sf::Vector2f(7, 0));
-	collisonArea.setFillColor(sf::Color(255, 0, 0, 100));
+	//collisonArea.setFillColor(sf::Color::Blue);
 	return this;
 }
 Plane* EnemyBullet::clone()

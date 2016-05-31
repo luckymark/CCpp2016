@@ -45,6 +45,16 @@ Plane* Copter::clone()
 {
     return new Copter(*this);
 }
+Plane* Copter::setCollisonArea()
+{
+    collisonArea.setPointCount(4);
+    collisonArea.setPoint(0, sf::Vector2f(35, 35));
+    collisonArea.setPoint(1, sf::Vector2f(4, 47));
+    collisonArea.setPoint(2, sf::Vector2f(35, 92));
+    collisonArea.setPoint(3, sf::Vector2f(66, 47));
+    collisonArea.setFillColor(sf::Color(140,98,251,100));
+    return this;
+}
 void Copter::playBombSound()
 {
     music->playCopterBomb();
@@ -62,4 +72,5 @@ void Copter::draw()
         else status = 0;
     }
     window->draw(getSprite());
+    //window->draw(collisonArea);
 }

@@ -37,7 +37,12 @@ void Hero::beHited(int _harm)
 }
 void Hero::refresh(float detalTime)
 {
-    changeStatus();
+    sumChangeStatusTime+=detalTime;
+    if(sumChangeStatusTime >= detalChangeStatusTime)
+    {
+        changeStatus();
+        sumChangeStatusTime = 0.f;
+    }
     //window->draw(getSprite());
 }
 float Hero::getBottom()

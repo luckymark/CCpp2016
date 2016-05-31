@@ -43,9 +43,23 @@ void Warplane::fire() {
         limit = 0.f;
     }
 }
+void Warplane::draw()
+{
+    window->draw(getSprite());
+    //window->draw(collisonArea);
+}
 Plane* Warplane::clone()
 {
     return new Warplane(*this);
+}
+Plane* Warplane::setCollisonArea()
+{
+    collisonArea.setPointCount(3);
+    collisonArea.setPoint(0, sf::Vector2f(10, 17));
+    collisonArea.setPoint(1, sf::Vector2f(31, 38));
+    collisonArea.setPoint(2, sf::Vector2f(52, 17));
+    collisonArea.setFillColor(sf::Color(140,98,251,100));
+    return this;
 }
 void Warplane::playBombSound()
 {

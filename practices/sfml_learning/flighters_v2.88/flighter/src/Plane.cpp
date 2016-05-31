@@ -51,12 +51,14 @@ bool Plane::isAlive()
 {
     return (life > 0);
 }
-bool Plane::isBombing()
+bool Plane::isBombing(float detalTime)
 {
     int u=planeSprite.size();
-    if(status<u)
+    sumChangeStatusTime += detalTime;
+    if(status<u && sumChangeStatusTime >detalChangeStatusTime)
     {
         ++status;
+        sumChangeStatusTime = 0.f;
     }
     return (status<u);
 }
@@ -151,6 +153,8 @@ void Plane::getSkill(Plane*)
 void Plane::initializeTime()
 {
     limit = shootElapsed - 0.2f;
+    detalChangeStatusTime = 0.05f;
+    sumChangeStatusTime   = 0;
 }
 void Plane::initializeWindow()
 {

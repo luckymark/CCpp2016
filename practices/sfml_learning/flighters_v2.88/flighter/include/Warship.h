@@ -27,6 +27,8 @@ public:
 
     Plane* clone();
 
+    Plane* setCollisonArea();
+
     void changeStatus();
 
     void draw();

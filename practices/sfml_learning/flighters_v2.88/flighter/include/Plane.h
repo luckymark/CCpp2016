@@ -31,7 +31,7 @@ public:
 
     virtual bool isAlive();
 
-    virtual bool isBombing();
+    virtual bool isBombing(float);
 
     virtual void beHited(int) ;
 
@@ -132,7 +132,7 @@ protected:
     bool _isBeHited=false;
     int status,life,harm;
     float speed;
-    float shootElapsed,limit;
+    float shootElapsed,limit,detalChangeStatusTime,sumChangeStatusTime;
     Plane* bullet;
     Shader* shader;
     sf::ConvexShape collisonArea;

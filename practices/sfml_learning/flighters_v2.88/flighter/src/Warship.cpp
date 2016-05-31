@@ -31,7 +31,35 @@ void Warship::initializeSpeed()
 void Warship::refresh(float detalTime)
 {
     limit+=detalTime;
+    sumChangeStatusTime+=detalTime;
+    if(isAlive())
+    {
+        if(_isBeHited)
+        {
+            status = 2;
+            _isBeHited = false;
+        }
+        else if(sumChangeStatusTime > detalChangeStatusTime)
+        {
+            changeStatus();
+            sumChangeStatusTime = 0.f;
+        }
+    }
     move(Direction*speed*detalTime);
+}
+Plane* Warship::setCollisonArea()
+{
+    collisonArea.setPointCount(8);
+    collisonArea.setPoint(0, sf::Vector2f(26, 130));
+    collisonArea.setPoint(1, sf::Vector2f(26, 214));
+    collisonArea.setPoint(2, sf::Vector2f(40, 230));
+    collisonArea.setPoint(3, sf::Vector2f(130, 230));
+    collisonArea.setPoint(4, sf::Vector2f(144, 214));
+    collisonArea.setPoint(5, sf::Vector2f(144, 130));
+    collisonArea.setPoint(6, sf::Vector2f(135, 120));
+    collisonArea.setPoint(7, sf::Vector2f(35, 120));
+    collisonArea.setFillColor(sf::Color(140,98,251,100));
+    return this;
 }
 void Warship::fire() {
     return;
@@ -57,16 +85,9 @@ void Warship::changeStatus()
 }
 void Warship::draw()
 {
-    if(isAlive())
-    {
-        if(_isBeHited)
-        {
-            status = 2;
-            _isBeHited = false;
-        }
-        else changeStatus();
-    }
+
     window->draw(getSprite());
+
 }
 void Warship::playFlyingSound()
 {
