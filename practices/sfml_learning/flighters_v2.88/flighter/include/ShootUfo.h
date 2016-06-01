@@ -6,7 +6,7 @@
 class ShootUfo : public Plane
 {
 public:
-    ShootUfo(const sf::Vector2f&,const sf::Vector2f& iniDirection=sf::Vector2f(0,-1.f));;
+    ShootUfo(const sf::Vector2f&iniPosition = sf::Vector2f(0,-88),const sf::Vector2f& iniDirection=sf::Vector2f(0,1.f));;
 
     virtual void refresh(float);
 
@@ -27,6 +27,8 @@ public:
     virtual void playBombSound();
 
     virtual void getSkill(Plane*);
+
+    virtual Plane* setCollisonArea();
 private:
 };
 

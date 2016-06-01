@@ -7,7 +7,7 @@
 class BombUfo : public Plane
 {
 public:
-    BombUfo(const sf::Vector2f&,const sf::Vector2f& iniDirection=sf::Vector2f(0,-1.f));;
+    BombUfo(const sf::Vector2f&iniPosition=sf::Vector2f(0,-107),const sf::Vector2f& iniDirection=sf::Vector2f(0,1.f));;
 
     virtual void refresh(float);
 
@@ -29,6 +29,7 @@ public:
 
     virtual void getSkill(Plane*);
 
+    virtual Plane* setCollisonArea();
 private:
 };
 #endif // BOMBUFO_H

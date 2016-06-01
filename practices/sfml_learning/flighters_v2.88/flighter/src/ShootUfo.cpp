@@ -15,7 +15,7 @@ void ShootUfo::draw()
 }
 void ShootUfo::appendToGame()
 {
-    Game::ufo.push_back(this);
+    Game::existUfo.push_back(this);
 }
 void ShootUfo::getSkill(Plane*)
 {
@@ -32,6 +32,15 @@ void ShootUfo::initializeSprite()
 Plane* ShootUfo::clone()
 {
     return new ShootUfo(*this);
+}
+Plane* ShootUfo::setCollisonArea()
+{
+    collisonArea.setPointCount(4);
+    collisonArea.setPoint(0, sf::Vector2f(15, 65));
+    collisonArea.setPoint(1, sf::Vector2f(20, 85));
+    collisonArea.setPoint(2, sf::Vector2f(54, 75));
+    collisonArea.setPoint(3, sf::Vector2f(49, 55));
+    return this;
 }
 void ShootUfo::initializeShootElapsed()
 {

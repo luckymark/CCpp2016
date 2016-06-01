@@ -14,13 +14,15 @@ public:
 
     static std::vector<Plane*>originEnemyPlane;
 
+    static std::vector<Plane*>originUfo;
+
     static std::list<Plane*>existEnemyPlane;
 
     static std::list<Plane*>heroBullet;
 
     static std::list<Plane*>enemyBullet;
 
-    static std::list<Plane*>ufo;
+    static std::list<Plane*>existUfo;
 
     void initializeGame();
 
@@ -52,6 +54,8 @@ public:
 
     void loadEnemyFlighter();
 
+    void loadUfo();
+
     void loadTime();
 
     void loadShader();
@@ -79,6 +83,10 @@ public:
     void loadLightShader();
 
     void drawLight(const sf::Vector2f& lightPosition,sf::Color,float lightAttenuation);
+
+    void creatUfo();
+
+    void getRandomCreatUfoTime();
 protected:
     Game();
 private:
@@ -101,12 +109,14 @@ private:
     float detalFlash;
     float detalMakeEnemy;
     float detalDraw;
+    float detalMakeUfo;
 
     float sumPlayFlyingSound;
     float sumHeroFire;
     float sumFlash;
     float sumMakeEnemy;
     float sumDraw;
+    float sumMakeUfo;
 };
 
 #endif //_GAME_H
