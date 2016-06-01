@@ -21,6 +21,10 @@ void Hero::fire() {
     //printf("shoot!\n");
     shootBullet();
 }
+void Hero::useSkill()
+{
+    Game::useBomb();
+}
 void Hero::shootBullet()
 {
 

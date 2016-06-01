@@ -22,6 +22,9 @@ std::list<Plane*>Game::existUfo;
 std::vector<Plane*>Game::originEnemyPlane;
 std::vector<Plane*>Game::originUfo;
 Game* Game::_instance=0;
+int Game::sumBomb    =0;
+float Game::detalUseBomb;
+float Game::sumUseBomb;
 enum EnemyFlighterNum
 {
     _WarPlane,
@@ -82,6 +85,7 @@ void Game::updateSumTime()
     sumMakeEnemy       +=tick;
     sumDraw            +=tick;
     sumMakeUfo         +=tick;
+    sumUseBomb         +=tick;
 }
 void Game::loadTime()
 {
@@ -90,6 +94,7 @@ void Game::loadTime()
     detalHeroFire            = 0.2f;
     detalFlash               = 1.5f;
     detalDraw                = 0.01f;
+    detalUseBomb             = 3.f;
     getRandomCreatEnemyTime();
     getRandomCreatUfoTime();
 
@@ -99,6 +104,7 @@ void Game::loadTime()
     sumMakeEnemy             = 0.f;
     sumDraw                  = 0.f;
     sumMakeUfo               = 0.f;
+    sumUseBomb               = detalUseBomb;
 }
 void Game::getRandomCreatEnemyTime()
 {
@@ -136,9 +142,23 @@ void Game::getKeyBoard(float detalTime)
         music->playShoot();
         sumHeroFire = 0.f;
     }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+        hero->useSkill();
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
         system("pause");
 
+}
+void Game::getBomb()
+{
+    ++sumBomb;
+}
+void Game::useBomb()
+{
+    if(sumUseBomb > detalUseBomb && sumBomb > 0)
+    {
+        sumUseBomb = 0.f;
+        --sumBomb;
+    }
 }
 void Game::doPlayFlyingSound()
 {
@@ -177,16 +197,20 @@ void Game::draw()
         itb->draw();
     }
     for(auto& itu:existUfo)
-    {
-        drawLight(sf::Vector2f(itu->getX(),itu->getY()),itu->getLightColor(),200);
         itu->draw();
-    }
     for(auto itbp=bombingPlane.begin();itbp!=bombingPlane.end();itbp++)
         if(!(*itbp)->isBombing(tick))
             itbp=bombingPlane.erase(itbp);
     for(auto& itbp:bombingPlane)
         itbp->draw();
-
+    sf::Sprite tempBomb(GameSprite::bomb);
+    int bombHeight=tempBomb.getTextureRect().height;
+    int bombWidth =tempBomb.getTextureRect().width;
+    for(int i=0;i<sumBomb;i++)
+    {
+        tempBomb.setPosition(10+i*(bombWidth+20),GameWindow::windowHeight-bombHeight-5);
+        window->draw(tempBomb);
+    }
     window->draw(lightSprite,sf::BlendAdd);
     lightRenderTexture.clear(sf::Color::Transparent);
 }
@@ -268,16 +292,16 @@ void Game::creatUfo()
     if(sumMakeUfo > detalMakeUfo)
     {
         int type=rand() % 2;
-        printf("creatUfo_1!\n");
+  //      printf("creatUfo_1!\n");
         //printf("creat %dth plane\n",type);
         sf::Vector2f nowPosition = getRandomPosition(originUfo[type]);
-        printf("creatUfo_2!\n");
+//        printf("creatUfo_2!\n");
        // sf::Vector2f nowDirection = getRandomDirection();
         existUfo.push_back(originUfo[type]->clone()->setPosition(nowPosition));
-        printf("creatUfo_3!\n");
+    //    printf("creatUfo_3!\n");
         sumMakeUfo = 0.f;
         getRandomCreatUfoTime();
-        printf("creatUfo_4!\n");
+      //  printf("creatUfo_4!\n");
     }
 }
 int Game::getRandomType()
@@ -348,6 +372,15 @@ void Game::checkCollison()
             return ;
         }
     }
+    for(auto ithb=existUfo.begin();ithb!=existUfo.end();ithb++)
+    {
+        if(hero->intersects((*ithb)->getCollisionArea()))
+        {
+            (*ithb)->playBombSound();
+            (*ithb)->getSkill(hero);
+            ithb = existUfo.erase(ithb);
+        }
+    }
     for(auto ithb=existEnemyPlane.begin();ithb!=existEnemyPlane.end();ithb++)
     {
         if(hero->intersects((*ithb)->getCollisionArea()))
@@ -376,16 +409,16 @@ Game* Game::instance() {
 void Game::checkInside()
 {
     for(auto it=existEnemyPlane.begin();it!=existEnemyPlane.end();it++)
-        if(!(*it)->isInside())
+        if((*it)->getTop() > GameWindow::windowHeight)
             it=existEnemyPlane.erase(it);
     for(auto it=enemyBullet.begin();it!=enemyBullet.end();it++)
-        if(!(*it)->isInside())
+        if((*it)->getTop() > GameWindow::windowHeight)
             it=existEnemyPlane.erase(it);
     for(auto it=heroBullet.begin();it!=heroBullet.end();it++)
-        if(!(*it)->isInside())
+        if((*it)->getBottom() < 0)
             it=heroBullet.erase(it);
     for(auto it=existUfo.begin();it!=existUfo.end();it++)
-        if(!(*it)->isInside())
+        if((*it)->getTop() > GameWindow::windowHeight)
             it=heroBullet.erase(it);
 }
 Game::Game()

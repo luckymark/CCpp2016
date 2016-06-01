@@ -39,6 +39,8 @@ public:
     virtual void draw();
 
     virtual Plane* setCollisonArea();
+
+    virtual void useSkill();
 protected:
     Hero(const sf::Vector2f&);
 private:

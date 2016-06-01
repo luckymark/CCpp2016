@@ -17,13 +17,17 @@ void BombUfo::appendToGame()
 {
     Game::existUfo.push_back(this);
 }
-void BombUfo::getSkill(Plane*)
+void BombUfo::getSkill(Plane* plane)
 {
-
+    Game::getBomb();
+}
+sf::Color BombUfo::getLightColor()
+{
+    return sf::Color::Blue;
 }
 void BombUfo::initializeSpeed()
 {
-    speed = 200.f;
+    speed = 100.f;
 }
 void BombUfo::initializeSprite()
 {
@@ -53,6 +57,6 @@ void BombUfo::initializeLife()
 }
 void BombUfo::playBombSound()
 {
-
+    music->playGetBomb();
 }
 

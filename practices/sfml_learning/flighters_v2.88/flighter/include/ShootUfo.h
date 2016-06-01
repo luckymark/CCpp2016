@@ -29,6 +29,8 @@ public:
     virtual void getSkill(Plane*);
 
     virtual Plane* setCollisonArea();
+
+    virtual sf::Color getLightColor();
 private:
 };
 

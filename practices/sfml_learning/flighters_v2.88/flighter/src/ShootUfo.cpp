@@ -23,7 +23,7 @@ void ShootUfo::getSkill(Plane*)
 }
 void ShootUfo::initializeSpeed()
 {
-    speed = 200.f;
+    speed = 100.f;
 }
 void ShootUfo::initializeSprite()
 {
@@ -32,6 +32,10 @@ void ShootUfo::initializeSprite()
 Plane* ShootUfo::clone()
 {
     return new ShootUfo(*this);
+}
+sf::Color ShootUfo::getLightColor()
+{
+    return sf::Color::Red;
 }
 Plane* ShootUfo::setCollisonArea()
 {
@@ -52,5 +56,5 @@ void ShootUfo::initializeLife()
 }
 void ShootUfo::playBombSound()
 {
-
+    music ->playGetWeapon();
 }

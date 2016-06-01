@@ -27,9 +27,11 @@ public:
 
     virtual void playBombSound();
 
-    virtual void getSkill(Plane*);
-
     virtual Plane* setCollisonArea();
+
+    virtual sf::Color getLightColor();
+
+    virtual void getSkill(Plane*);
 private:
 };
 #endif // BOMBUFO_H

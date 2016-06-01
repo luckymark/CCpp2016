@@ -4,6 +4,7 @@
 #include "GameWindow.h"
 #include "GameMusic.h"
 #include "Shader.h"
+//#include "Game.h"
 class Plane {
 public:
     static void initializeAngle();
@@ -52,7 +53,7 @@ public:
 
     virtual sf::Vector2f getPosition();
 
-    virtual Plane* setPosition(const sf::Vector2f& u);
+    virtual Plane* setPosition(const sf::Vector2f&u);
 
     virtual bool isInside();
 
@@ -116,6 +117,8 @@ public:
 
     virtual sf::Color getLightColor();
 
+    virtual void useSkill();
+
     virtual void refresh(float) = 0;
 
     virtual void initializeSpeed() = 0;
@@ -133,7 +136,7 @@ protected:
     GameWindow* window;
     std::vector<sf::Sprite>planeSprite;
     bool _isBeHited=false;
-    int status,life,harm;
+    int status,life,harm,sumBomb;
     float speed;
     float shootElapsed,limit,detalChangeStatusTime,sumChangeStatusTime;
     Plane* bullet;

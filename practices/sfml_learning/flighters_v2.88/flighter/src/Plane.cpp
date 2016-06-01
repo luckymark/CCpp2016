@@ -172,6 +172,10 @@ void Plane::initializeStatus()
 {
     status = 0;
 }
+void Plane::useSkill()
+{
+
+}
 void Plane::setStatus(int u)
 {
     status = u;

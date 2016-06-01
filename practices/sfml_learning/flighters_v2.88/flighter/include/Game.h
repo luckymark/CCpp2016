@@ -24,6 +24,10 @@ public:
 
     static std::list<Plane*>existUfo;
 
+    static void getBomb();
+
+    static void useBomb();
+
     void initializeGame();
 
     void GameStart();
@@ -87,6 +91,7 @@ public:
     void creatUfo();
 
     void getRandomCreatUfoTime();
+
 protected:
     Game();
 private:
@@ -103,6 +108,7 @@ private:
     sf::RenderTexture lightRenderTexture;
     //sf::Clock* drawClock;
     sf::Clock* gameClock;
+    static int sumBomb;
     float tick;
     float detalPlayFlyingSoundTime;
     float detalHeroFire;
@@ -110,6 +116,7 @@ private:
     float detalMakeEnemy;
     float detalDraw;
     float detalMakeUfo;
+    static float detalUseBomb;
 
     float sumPlayFlyingSound;
     float sumHeroFire;
@@ -117,6 +124,7 @@ private:
     float sumMakeEnemy;
     float sumDraw;
     float sumMakeUfo;
+    static float sumUseBomb;
 };
 
 #endif //_GAME_H

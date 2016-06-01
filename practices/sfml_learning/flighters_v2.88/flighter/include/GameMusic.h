@@ -23,6 +23,12 @@ public:
     void playHeroBomb();
 
     void playBeHited();
+
+    void playGetWeapon();
+
+    void playGetBomb();
+
+    void playUseBomb();
 protected:
     GameMusic();
 private:
@@ -37,6 +43,9 @@ private:
     sf::SoundBuffer WarShipBomb;
     sf::SoundBuffer HeroBomb;
     sf::SoundBuffer BeHited;
+    sf::SoundBuffer getWeapon;
+    sf::SoundBuffer getBomb;
+    sf::SoundBuffer useBomb;
 
     sf::Sound s_Shoot;
     sf::Sound s_WarPlaneBomb;
@@ -45,6 +54,9 @@ private:
     sf::Sound s_WarShipBomb;
     sf::Sound s_HeroBomb;
     sf::Sound s_BeHited;
+    sf::Sound s_getWeapon;
+    sf::Sound s_getBomb;
+    sf::Sound s_useBomb;
 };
 
 #endif // GAMEMUSIC_H

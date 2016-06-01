@@ -19,13 +19,20 @@ void GameMusic::load()
     WarShipFlying.loadFromFile(path+"big_spaceship_flying.ogg");
     HeroBomb.loadFromFile(path+"game_over.ogg");
     BeHited.loadFromFile(path+"button.ogg");
+    getWeapon.loadFromFile(path+"get_double_laser.ogg");
+    getBomb.loadFromFile(path+"get_bomb.ogg");
+    useBomb.loadFromFile(path+ "use_bomb.ogg");
+
     s_CopterBomb.setBuffer(CopterBomb);
     s_Shoot.setBuffer(Shoot);
     s_WarPlaneBomb.setBuffer(WarPlaneBomb);
-    s_WarShipBomb.setBuffer(WarPlaneBomb);
+    s_WarShipBomb.setBuffer(WarShipBomb);
     s_WarShipFlying.setBuffer(WarShipFlying);
     s_HeroBomb.setBuffer(HeroBomb);
     s_BeHited.setBuffer(BeHited);
+    s_getWeapon.setBuffer(getWeapon);
+    s_getBomb.setBuffer(getBomb);
+    s_useBomb.setBuffer(useBomb);
     //BGM.play();
     //BGM.setLoop(true);
 }
@@ -56,6 +63,18 @@ void GameMusic::playCopterBomb()
 void GameMusic::playBeHited()
 {
     s_BeHited.play();
+}
+void GameMusic::playGetWeapon()
+{
+    s_getWeapon.play();
+}
+void GameMusic::playGetBomb()
+{
+    s_getBomb.play();
+}
+void GameMusic::playUseBomb()
+{
+    s_useBomb.play();
 }
 GameMusic::GameMusic()
 {
