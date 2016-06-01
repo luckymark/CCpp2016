@@ -7,8 +7,11 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 
 void hanoi(char A,char B,char C,int n);
+void Move(int ,char ,char );
+
 
 int main(int argc, const char * argv[]) {
     int n;
@@ -22,15 +25,22 @@ void hanoi(char A,char B,char C,int n)
 {
     if(n==1)
     {
-        printf("把第 %d 块从 %c 移到 %c\n",n,A,C);
+       Move(n,A,C);
     }
     else
     {
         hanoi(A,C,B,n-1);
-        printf("把第 %d 块从 %c 移到 %c\n",n,A,C);
+        Move(n,A,C);
         hanoi(B,A,C,n-1);
     }
 }
+
+void Move(int a,char b,char c)
+{
+    printf("把第 %d 块从 %c 移到 %c\n",a,b,c);
+    return;
+}
+
 
     
 
