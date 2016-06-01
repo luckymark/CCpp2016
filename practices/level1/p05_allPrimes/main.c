@@ -1,8 +1,8 @@
 //
 //  main.c
-//  打印素数
+//  allPrimes
 //
-//  Created by Ferris on 16/3/3.
+//  Created by Ferris on 16/6/1.
 //  Copyright © 2016年 Ferris. All rights reserved.
 //
 
@@ -18,7 +18,6 @@ int sushu(int N)
         for(i=2;i<N;i++){
             if(N%i==0){
                 return 0;
-                break;
             }
         }
         if(N==i){
@@ -30,18 +29,16 @@ int sushu(int N)
 }
 
 int main(int argc, const char * argv[]) {
-    int j,k;
+    clock_t t1 , t2;
+    t1 = clock();
+    int j;
     for (j=2; j<=1000; j++) {
         if (sushu(j) == 1) {
             printf("%d\n",j);
         }
         
     }
-    
-    clock_t t1 , t2;
-    t1 = clock();
-    for (k=0;k<1000000000;k++);
     t2 = clock();
-    printf("运算时间%d \n", t2-t1);
+    printf("运算时间:%dms\n", t2-t1);
     return 0;
 }
