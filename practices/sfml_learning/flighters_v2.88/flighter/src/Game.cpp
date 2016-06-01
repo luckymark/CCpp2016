@@ -124,6 +124,8 @@ void Game::getKeyBoard(float detalTime)
         music->playShoot();
         sumHeroFire = 0.f;
     }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+        system("pause");
 
 }
 void Game::doPlayFlyingSound()
@@ -212,6 +214,7 @@ void Game::loadLightShader()
 void Game::loadHero()
 {
     hero = Hero::instance(sf::Vector2f(GameWindow::iniWidth,GameWindow::iniHeight));
+    //hero->rotate(350);
 }
 void Game::loadWindow()
 {
@@ -260,7 +263,7 @@ void Game::checkCollison()
         for(auto itep=existEnemyPlane.begin();itep!=existEnemyPlane.end();itep++)
             if((*ithb) -> intersects((*itep)->getCollisionArea()))
             {
-                printf("beHited!\n");
+                //printf("beHited!\n");
                 isHit=true;
                 (*itep)->beHited((*ithb)->getHarm());
                 music->playBeHited();
@@ -290,7 +293,7 @@ void Game::checkCollison()
                 GameOver();
                 return ;
             }
-            printf("beHited!\n");
+            //printf("beHited!\n");
             isHit=true;
             hero->beHited((*ithb)->getHarm());
             sumFlash = 0.f;
@@ -332,6 +335,9 @@ Game* Game::instance() {
 void Game::checkInside()
 {
     for(auto it=existEnemyPlane.begin();it!=existEnemyPlane.end();it++)
+        if((*it)->getTop() > GameWindow::windowHeight)
+            it=existEnemyPlane.erase(it);
+    for(auto it=enemyBullet.begin();it!=enemyBullet.end();it++)
         if((*it)->getTop() > GameWindow::windowHeight)
             it=existEnemyPlane.erase(it);
     for(auto it=heroBullet.begin();it!=heroBullet.end();it++)

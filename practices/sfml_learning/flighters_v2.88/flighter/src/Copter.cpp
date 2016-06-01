@@ -3,9 +3,11 @@
 #include "GameSprite.h"
 #include "SFML/Graphics.hpp"
 #include <cmath>
+#include "Game.h"
+#include "EnemyBullet.h"
 sf::Vector2f Copter::_iniPosition = sf::Vector2f(GameWindow::iniWidth,-99.f);
 sf::Vector2f Copter::_iniDirection =sf::Vector2f(0.f,1.f);
-const float sqrt_3=sqrt(3.0);
+const float PI = acos(-1.0);
 Copter::Copter(sf::Vector2f iniPosition,sf::Vector2f iniDirection)
 {
     initializePlane(iniPosition,iniDirection);
@@ -19,7 +21,7 @@ void Copter::initializeSprite()
 }
 void Copter::initializeShootElapsed()
 {
-    shootElapsed= 50;
+    shootElapsed= 3.f;
 }
 void Copter::initializeLife()
 {
@@ -27,19 +29,34 @@ void Copter::initializeLife()
 }
 void Copter::initializeSpeed()
 {
-    speed = 100.f;
+    speed = 80.f;
 }
 void Copter::refresh(float detalTime)
 {
     limit+=detalTime;
+    //printf("detalImte=%f limit=%f\n",detalTime,limit);
+    fire();
     move(Direction*speed*detalTime);
+}
+void Copter::initializeBullet()
+{
+    setBullet(new EnemyBullet);
 }
 void Copter::fire() {
     if(limit>shootElapsed)
     {
-
+        shootBullet();
+        limit=0.f;
     }
-    return;
+}
+void Copter::shootBullet()
+{
+    //printf("shoot\n");
+    for(int i = 0;i<3;i++)
+    {
+        float angle = (165+i*15)/180.f*PI;
+        Game::enemyBullet.push_back(bullet->clone()->setPosition(sf::Vector2f(getX(),getBottom()))->rotate(angle));
+    }
 }
 Plane* Copter::clone()
 {
@@ -61,7 +78,6 @@ void Copter::playBombSound()
 }
 void Copter::draw()
 {
-    ++limit;
     if(isAlive())
     {
         if(_isBeHited)

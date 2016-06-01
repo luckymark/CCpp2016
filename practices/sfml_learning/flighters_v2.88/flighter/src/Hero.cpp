@@ -26,7 +26,7 @@ void Hero::shootBullet()
 
     sf::Vector2f nowPositon = sf::Vector2f(getX(),getTop());
     Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositon));
-    printf("shoot\n");
+    //printf("shoot\n");
     //Game::heroBullet.push_back(new HeroBullet(sf::Vector2f(getX(),getTop())));
 }
 void Hero::beHited(int _harm)

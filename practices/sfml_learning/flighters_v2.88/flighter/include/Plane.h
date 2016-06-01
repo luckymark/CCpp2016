@@ -6,6 +6,7 @@
 #include "Shader.h"
 class Plane {
 public:
+    static void initializeAngle();
 
     virtual float getLeft();
 

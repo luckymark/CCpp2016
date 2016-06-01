@@ -12,7 +12,7 @@ void HeroBullet::refresh(float detalTime)
 void HeroBullet::draw()
 {
     window->draw(getSprite());
-    window->draw(collisonArea);
+    //window->draw(collisonArea);
 }
 void HeroBullet::appendToGame()
 {

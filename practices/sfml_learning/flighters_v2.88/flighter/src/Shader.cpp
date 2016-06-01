@@ -18,7 +18,7 @@ void Shader::load()
         invertShader.loadFromFile(path+"invert.frag",sf::Shader::Fragment);
         invertShader.setParameter("texture",invertShader.CurrentTexture);
         lightShader.loadFromFile(path+"light.frag",sf::Shader::Fragment);
-        printf("load OK!\n");
+        //printf("load OK!\n");
     }
     else printf("Can't load shader!\n");
 

@@ -5,8 +5,10 @@
 #include "EnemyBullet.h"
 #include "Game.h"
 #include "SFML/Graphics.hpp"
+#include "cmath"
 sf::Vector2f Warplane::_iniPosition = sf::Vector2f(GameWindow::iniWidth,-43.f);
 sf::Vector2f Warplane::_iniDirection =sf::Vector2f(0.f,1.f);
+const float PI=acos(-1.0);
 Warplane::Warplane(sf::Vector2f iniPosition,sf::Vector2f iniDirection)
 {
     initializePlane(iniPosition,iniDirection);
@@ -61,11 +63,15 @@ Plane* Warplane::setCollisonArea()
     collisonArea.setFillColor(sf::Color(140,98,251,100));
     return this;
 }
+void Warplane::initializeBullet()
+{
+    setBullet(new EnemyBullet);
+}
 void Warplane::playBombSound()
 {
     music->playWarPlaneBomb();
 }
 void Warplane::shootBullet()
 {
-    Game::enemyBullet.push_back(new EnemyBullet(sf::Vector2f(getX(),getBottom())));
+    Game::enemyBullet.push_back(bullet->clone()->setPosition(sf::Vector2f(getX(),getBottom()))->rotate(PI));
 }

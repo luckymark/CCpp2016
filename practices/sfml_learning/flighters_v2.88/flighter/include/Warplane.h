@@ -34,6 +34,8 @@ public:
     void playBombSound();
 
     void draw();
+
+    void initializeBullet();
 private:
     static sf::Vector2f _iniPosition;
     static sf::Vector2f _iniDirection;

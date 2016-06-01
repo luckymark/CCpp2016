@@ -1,13 +1,15 @@
 #include "EnemyBullet.h"
 #include "GameSprite.h"
 #include "Game.h"
+#include <cmath>
 EnemyBullet::EnemyBullet(const sf::Vector2f& iniPosition,const sf::Vector2f& iniDirection)
 {
     initializePlane(iniPosition,iniDirection);
 }
 void EnemyBullet::refresh(float detalTime)
 {
-    move(Direction*speed*detalTime);
+
+    move(Direction*detalTime);
 }
 void EnemyBullet::draw()
 {
@@ -20,7 +22,7 @@ void EnemyBullet::appendToGame()
 }
 void EnemyBullet::initializeSpeed()
 {
-    speed = 400.f;
+    speed = 250.f;
 }
 void EnemyBullet::initializeSprite()
 {
@@ -39,6 +41,12 @@ Plane* EnemyBullet::setCollisonArea()
 Plane* EnemyBullet::clone()
 {
     return new EnemyBullet(*this);
+}
+Plane* EnemyBullet::setDirection(const sf::Vector2f&u)
+{
+    Direction = u ;
+    //rotate();
+    return this;
 }
 sf::Color EnemyBullet::getLightColor()
 {

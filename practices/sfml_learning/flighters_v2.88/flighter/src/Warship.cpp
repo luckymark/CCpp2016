@@ -1,10 +1,14 @@
 #include "Warship.h"
 #include "GameWindow.h"
 #include "GameSprite.h"
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
+#include "EnemyBullet.h"
+#include <cmath>
+#include <Game.h>
 sf::Vector2f Warship::_iniPosition = sf::Vector2f(GameWindow::iniWidth,-258.f);
 sf::Vector2f Warship::_iniDirection =sf::Vector2f(0.f,1.f);
 bool Warship::isPlayFlyingSound=false;
+const float PI = acos(-1.0);
 Warship::Warship(sf::Vector2f iniPosition,sf::Vector2f iniDirection)
 {
     initializePlane(iniPosition,iniDirection);
@@ -18,7 +22,7 @@ void Warship::initializeSprite()
 }
 void Warship::initializeShootElapsed()
 {
-    shootElapsed=0.6f;
+    shootElapsed=3.f;
 }
 void Warship::initializeLife()
 {
@@ -32,6 +36,7 @@ void Warship::refresh(float detalTime)
 {
     limit+=detalTime;
     sumChangeStatusTime+=detalTime;
+    fire();
     if(isAlive())
     {
         if(_isBeHited)
@@ -46,6 +51,10 @@ void Warship::refresh(float detalTime)
         }
     }
     move(Direction*speed*detalTime);
+}
+void Warship::initializeBullet()
+{
+    setBullet(new EnemyBullet);
 }
 Plane* Warship::setCollisonArea()
 {
@@ -62,7 +71,19 @@ Plane* Warship::setCollisonArea()
     return this;
 }
 void Warship::fire() {
-    return;
+    if(limit>shootElapsed)
+    {
+        shootBullet();
+        limit=0.f;
+    }
+}
+void Warship::shootBullet()
+{
+    for(int i=0;i<5;i++)
+    {
+        float angle = (160+i*10)/180.f*PI;
+        Game::enemyBullet.push_back(bullet->clone()->setPosition(sf::Vector2f(getX(),getBottom()))->rotate(angle));
+    }
 }
 Plane* Warship::clone()
 {

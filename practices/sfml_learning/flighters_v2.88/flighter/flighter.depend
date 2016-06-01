@@ -22,7 +22,7 @@
 	"GameWindow.h"
 	"Shader.h"
 
-1464704566 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\game.cpp
+1464744636 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\game.cpp
 	"Game.h"
 	<SFML/Audio.hpp>
 	<SFML/Graphics.hpp>
@@ -469,7 +469,7 @@
 
 1463665182 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\bullet.h
 
-1464704281 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\hero.cpp
+1464713546 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\hero.cpp
 	"Hero.h"
 	<SFML/Graphics.hpp>
 	"GameSprite.h"
@@ -481,16 +481,17 @@
 	"Plane.h"
 	<SFML/Graphics.hpp>
 
-1464705105 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\plane.h
+1464718953 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\plane.h
 	<SFML/Graphics.hpp>
 	"GameWindow.h"
 	"GameMusic.h"
 	"Shader.h"
 
-1464704445 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\plane.cpp
+1464746542 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\plane.cpp
 	"Plane.h"
+	<cmath>
 
-1464615302 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\herobullet.cpp
+1464718716 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\herobullet.cpp
 	"HeroBullet.h"
 	"GameSprite.h"
 	"Game.h"
@@ -498,45 +499,52 @@
 1464615202 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\herobullet.h
 	"Plane.h"
 
-1464703871 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\copter.cpp
+1464746068 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\copter.cpp
 	"Copter.h"
 	"GameWindow.h"
 	"GameSprite.h"
 	"SFML/Graphics.hpp"
 	<cmath>
+	"Game.h"
+	"EnemyBullet.h"
 
-1464702983 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\copter.h
+1464712280 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\copter.h
 	"Plane.h"
 	<SFML/Graphics.hpp>
 
-1464703192 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\warplane.h
+1464717889 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\warplane.h
 	"Plane.h"
 	<SFML/Graphics.hpp>
 
-1464702946 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\warship.h
+1464746040 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\warship.h
 	"Plane.h"
 	<SFML/Graphics.hpp>
 
-1464703871 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\warplane.cpp
+1464745844 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\warplane.cpp
 	"Warplane.h"
 	"GameWindow.h"
 	"GameSprite.h"
 	"EnemyBullet.h"
 	"Game.h"
 	"SFML/Graphics.hpp"
+	"cmath"
 
-1464704718 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\warship.cpp
+1464746464 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\warship.cpp
 	"Warship.h"
 	"GameWindow.h"
 	"GameSprite.h"
-	"SFML/Graphics.hpp"
+	<SFML/Graphics.hpp>
+	"EnemyBullet.h"
+	<cmath>
+	<Game.h>
 
-1464703649 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\enemybullet.cpp
+1464745984 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\enemybullet.cpp
 	"EnemyBullet.h"
 	"GameSprite.h"
 	"Game.h"
+	<cmath>
 
-1464615249 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\enemybullet.h
+1464745542 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\enemybullet.h
 	"Plane.h"
 
 1464510444 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\shader.h
