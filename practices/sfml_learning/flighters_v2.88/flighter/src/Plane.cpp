@@ -139,12 +139,21 @@ void Plane::initializePlane(const sf::Vector2f& nowPosition,const sf::Vector2f& 
     initializeBullet();
     initializeTime();
     initializeShader();
+    initializeShootType();
     setDirection(nowDirection);
 }
 void Plane::initializeShader()
 {
     shader = Shader::instance();
     //shader->load();
+}
+void Plane::intensifyFire()
+{
+
+}
+void Plane::initializeShootType()
+{
+
 }
 void Plane::initializeHarm()
 {
@@ -248,25 +257,6 @@ Plane* Plane::rotate(float angle)
     collisonArea.setRotation(angle);
     return this;
 }
-/*
-Plane* Plane::rotate()
-{
-    float angle = 0;
-    float x = getDirection().x;
-    float y = getDirection().y;
-    float L = sqrt(x*x+y*y);
-    if(y==0)
-        angle = (x>0)?270:90;
-    else angle = atan(x/y)*180.f;
-    printf("x=%f y=%f angle=%f\n",x,y,angle);
-    Direction=sf::Vector2f(speed*x/L,speed*y/L);
-    //printf("life=%d X=%f Y=%f\n",life,Direction.x,Direction.y);
-    for(auto&c :planeSprite)
-        c.setRotation(angle);
-    collisonArea.setRotation(angle);
-    return this;
-}
-*/
 sf::Color Plane::getLightColor()
 {
     return sf::Color::Transparent;

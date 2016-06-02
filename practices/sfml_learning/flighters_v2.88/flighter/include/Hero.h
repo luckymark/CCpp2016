@@ -41,11 +41,16 @@ public:
     virtual Plane* setCollisonArea();
 
     virtual void useSkill();
+
+    virtual void intensifyFire();
+
+    virtual void initializeShootType();
 protected:
     Hero(const sf::Vector2f&);
 private:
     static Hero* _instance;
     int _flash,maxFlashTime;
+    int shootType=0;
 };
 
 #endif //_HERO_H

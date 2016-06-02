@@ -119,6 +119,10 @@ public:
 
     virtual void useSkill();
 
+    virtual void initializeShootType();
+
+    virtual void intensifyFire();
+
     virtual void refresh(float) = 0;
 
     virtual void initializeSpeed() = 0;

@@ -17,9 +17,9 @@ void ShootUfo::appendToGame()
 {
     Game::existUfo.push_back(this);
 }
-void ShootUfo::getSkill(Plane*)
+void ShootUfo::getSkill(Plane* plane)
 {
-
+    plane->intensifyFire();
 }
 void ShootUfo::initializeSpeed()
 {

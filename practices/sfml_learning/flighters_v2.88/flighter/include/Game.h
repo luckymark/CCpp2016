@@ -26,7 +26,7 @@ public:
 
     static void getBomb();
 
-    static void useBomb();
+    void useBomb();
 
     void initializeGame();
 
@@ -92,6 +92,15 @@ public:
 
     void getRandomCreatUfoTime();
 
+    void checkHeroBulletAndEnemyCollision();
+
+    void checkHeroAndUfoCollision();
+
+    void checkEnemyBulletAndHeroCollision();
+
+    void checkEnemyAndHeroCollision();
+
+    void clearScreen();
 protected:
     Game();
 private:
@@ -109,6 +118,8 @@ private:
     //sf::Clock* drawClock;
     sf::Clock* gameClock;
     static int sumBomb;
+    bool isBombing = false;
+
     float tick;
     float detalPlayFlyingSoundTime;
     float detalHeroFire;
@@ -116,7 +127,7 @@ private:
     float detalMakeEnemy;
     float detalDraw;
     float detalMakeUfo;
-    static float detalUseBomb;
+    float bombTime;
 
     float sumPlayFlyingSound;
     float sumHeroFire;
@@ -124,7 +135,7 @@ private:
     float sumMakeEnemy;
     float sumDraw;
     float sumMakeUfo;
-    static float sumUseBomb;
+    float sumBombingTime;
 };
 
 #endif //_GAME_H

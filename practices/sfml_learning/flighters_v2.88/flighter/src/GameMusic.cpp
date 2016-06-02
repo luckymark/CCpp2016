@@ -36,6 +36,11 @@ void GameMusic::load()
     //BGM.play();
     //BGM.setLoop(true);
 }
+void GameMusic::playBGM()
+{
+    BGM.play();
+    BGM.setLoop(true);
+}
 void GameMusic::playShoot()
 {
     s_Shoot.play();

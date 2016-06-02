@@ -16,20 +16,38 @@ Hero* Hero::instance(const sf::Vector2f& u)
         _instance = new Hero(u);
     return _instance;
 }
+void Hero::initializeShootType()
+{
+    shootType = 0;
+}
 void Hero::fire() {
 
     //printf("shoot!\n");
     shootBullet();
 }
+void Hero::intensifyFire()
+{
+    if(shootType<1)
+        ++shootType;
+}
 void Hero::useSkill()
 {
-    Game::useBomb();
+    //Game::isUseBomb=true;
 }
 void Hero::shootBullet()
 {
-
-    sf::Vector2f nowPositon = sf::Vector2f(getX(),getTop());
-    Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositon));
+    if(shootType == 0)
+    {
+        sf::Vector2f nowPositon = sf::Vector2f(getX(),getTop());
+        Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositon));
+    }
+    else if(shootType == 1)
+    {
+        sf::Vector2f nowPositionLeft = sf::Vector2f(getLeft(),getY());
+        sf::Vector2f nowPositionRight = sf::Vector2f(getRight(),getY());
+        Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositonLeft));
+        Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositonRight));
+    }
     //printf("shoot\n");
     //Game::heroBullet.push_back(new HeroBullet(sf::Vector2f(getX(),getTop())));
 }

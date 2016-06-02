@@ -29,6 +29,8 @@ public:
     void playGetBomb();
 
     void playUseBomb();
+
+    void playBGM();
 protected:
     GameMusic();
 private:
