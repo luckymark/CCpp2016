@@ -177,13 +177,13 @@ void Game::refresh(float detalTime)
     hero->refresh(detalTime);
     if (isBombing)
 	{
+	    clearScreen();
 		if (sumBombingTime < bombTime)
 		{
 			drawLight(sf::Vector2f(GameWindow::windowWidth / 2, GameWindow::windowHeight / 2), sf::Color(255, 128, 128), 0.2 / sumBombingTime);
 		}
 		else if (sumBombingTime < bombTime*1.5)
 		{
-			clearScreen();
 			drawLight(sf::Vector2f(GameWindow::windowWidth / 2, GameWindow::windowHeight / 2), sf::Color(255, 128, 128), 0.2 / (bombTime * 3 - sumBombingTime * 2));
 		}
 		else

@@ -27,7 +27,7 @@ void Hero::fire() {
 }
 void Hero::intensifyFire()
 {
-    if(shootType<1)
+    if(shootType<3)
         ++shootType;
 }
 void Hero::useSkill()
@@ -38,15 +38,34 @@ void Hero::shootBullet()
 {
     if(shootType == 0)
     {
-        sf::Vector2f nowPositon = sf::Vector2f(getX(),getTop());
-        Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositon));
+        sf::Vector2f nowPosition = sf::Vector2f(getX()-3,getY());
+        Game::heroBullet.push_back(bullet->clone()->setPosition(nowPosition));
     }
     else if(shootType == 1)
     {
-        sf::Vector2f nowPositionLeft = sf::Vector2f(getLeft(),getY());
-        sf::Vector2f nowPositionRight = sf::Vector2f(getRight(),getY());
-        Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositonLeft));
-        Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositonRight));
+        sf::Vector2f nowPositionLeft = sf::Vector2f(getLeft()+15,getY());
+        sf::Vector2f nowPositionRight = sf::Vector2f(getRight()-22,getY());
+        Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositionLeft));
+        Game::heroBullet.push_back(bullet->clone()->setPosition(nowPositionRight));
+    }
+    else if(shootType == 2)
+    {
+        std::vector<sf::Vector2f>nowposition;
+        nowposition.push_back(sf::Vector2f(getLeft()+15,getY()));
+        nowposition.push_back(sf::Vector2f(getX()-3,getY()));
+        nowposition.push_back(sf::Vector2f(getRight()-22,getY()));
+        for(auto c:nowposition)
+            Game::heroBullet.push_back(bullet->clone()->setPosition(c));
+    }
+    else if(shootType == 3)
+    {
+        std::vector<sf::Vector2f>nowposition;
+        float x0 = getLeft()+15,xn=getRight()-22;
+        float dx = (xn-x0)/4.f;
+        for(int i=0;i<5;i++)
+            nowposition.push_back(sf::Vector2f(x0+i*dx,getY()));
+        for(auto c:nowposition)
+            Game::heroBullet.push_back(bullet->clone()->setPosition(c));
     }
     //printf("shoot\n");
     //Game::heroBullet.push_back(new HeroBullet(sf::Vector2f(getX(),getTop())));
