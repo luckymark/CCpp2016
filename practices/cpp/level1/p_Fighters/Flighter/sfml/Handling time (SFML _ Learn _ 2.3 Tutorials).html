@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0053)http://www.sfml-dev.org/tutorials/2.3/system-time.php -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Handling time (SFML / Learn / 2.3 Tutorials)</title>
+        <meta http-equiv="Content-Type" content="text/html">
+        
+        <link rel="icon" type="image/ico" href="http://www.sfml-dev.org/images/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="./Handling time (SFML _ Learn _ 2.3 Tutorials)_files/css">
+        <link rel="stylesheet" type="text/css" href="./Handling time (SFML _ Learn _ 2.3 Tutorials)_files/style.css" title="default" media="screen,print">
+        <link rel="stylesheet" type="text/css" href="./Handling time (SFML _ Learn _ 2.3 Tutorials)_files/github.css">
+        <!--[if (gte IE 9)|!(IE)]>
+<!-->
+        <script type="text/javascript" defer="" async="" src="./Handling time (SFML _ Learn _ 2.3 Tutorials)_files/piwik.js"></script><script type="text/javascript" async="" src="./Handling time (SFML _ Learn _ 2.3 Tutorials)_files/ga.js"></script><script type="text/javascript" src="./Handling time (SFML _ Learn _ 2.3 Tutorials)_files/highlight.pack.js"></script>
+        <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+<!--<![endif]-->
+    </head>
+    <body id="top">
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1839559-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+        <div id="page">
+            <div id="banner-container">
+                <div id="banner">
+                    <a href="http://www.sfml-dev.org/index.php"><img id="logo" src="./Handling time (SFML _ Learn _ 2.3 Tutorials)_files/logo.png" alt="SFML logo"></a>
+                    <ul id="menu">
+                        <li><a href="http://www.sfml-dev.org/learn.php">Learn</a></li>
+                        <li><a href="http://www.sfml-dev.org/download.php">Download</a></li>
+                        <li><a href="http://www.sfml-dev.org/community.php">Community</a></li>
+                        <li><a href="http://www.sfml-dev.org/development.php">Development</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="navigation-container">
+                <div id="navigation">
+                    <ul id="breadcrumbs">
+                    <li><a href="http://www.sfml-dev.org/index.php">Home</a></li><li>»<a href="http://www.sfml-dev.org/learn.php">Learn</a></li><li>»<a href="http://www.sfml-dev.org/tutorials/2.3">2.3 Tutorials</a></li><li>»<a href="http://www.sfml-dev.org/tutorials/2.3/system-time.php">Handling time</a></li>                    </ul>
+                    <ul id="buttons">
+                        <li><a id="language-fr" href="http://www.sfml-dev.org/tutorials/2.3/system-time-fr.php" title="Site en français">Français</a></li>
+                        <li><a id="donate" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=2C8CG2AGYSBT4&amp;lc=US" title="Make a donation">Donate</a></li>
+                        <li><a id="flattr" href="https://flattr.com/thing/38063/SFML-multimedia-library" title="Flattr SFML">Flattr</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content">
+
+<h1>Handling time</h1>
+
+<h2 id="time-in-sfml"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/system-time.php#time-in-sfml">Time in SFML</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/system-time.php#top" title="Top of the page"></a></h2><p>
+    Unlike many other libraries where time is a uint32 number of milliseconds, or a float number of seconds, SFML doesn't impose any specific unit or
+    type for time values. Instead it leaves this choice to the user through a flexible class: <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Time.php" title="sf::Time documentation"><code>sf::Time</code></a>. All SFML classes and functions
+    that manipulate time values use this class.
+</p>
+<p>
+    <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Time.php" title="sf::Time documentation"><code>sf::Time</code></a> represents a time period (in other words, the time that elapses between two events). It is <em>not</em> a date-time class which would represent the
+    current year/month/day/hour/minute/second as a timestamp, it's just a value that represents a certain amount of time, and how to interpret it depends on the context
+    where it is used.
+</p>
+
+<h2 id="converting-time"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/system-time.php#converting-time">Converting time</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/system-time.php#top" title="Top of the page"></a></h2><p>
+    A <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Time.php" title="sf::Time documentation"><code>sf::Time</code></a> value can be constructed from different source units: seconds, milliseconds and microseconds. There is a (non-member)
+    function to turn each of them into a <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Time.php" title="sf::Time documentation"><code>sf::Time</code></a>:
+</p>
+<pre><code class="cpp">sf::Time t1 = sf::microseconds(<span class="number">10000</span>);
+sf::Time t2 = sf::milliseconds(<span class="number">10</span>);
+sf::Time t3 = sf::seconds(<span class="number">0.01f</span>);
+</code></pre>
+<p>
+    Note that these three times are all equal.
+</p>
+<p>
+    Similarly, a <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Time.php" title="sf::Time documentation"><code>sf::Time</code></a> can be converted back to either seconds, milliseconds or microseconds:
+</p>
+<pre><code class="cpp">sf::Time time = ...;
+
+sf::Int64 usec = time.asMicroseconds();
+sf::Int32 msec = time.asMilliseconds();
+<span class="keyword">float</span>     sec  = time.asSeconds();
+</code></pre>
+
+<h2 id="playing-with-time-values"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/system-time.php#playing-with-time-values">Playing with time values</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/system-time.php#top" title="Top of the page"></a></h2><p>
+    <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Time.php" title="sf::Time documentation"><code>sf::Time</code></a> is just an amount of time, so it supports arithmetic operations such as addition, subtraction, comparison, etc.
+    Times can also be negative.
+</p>
+<pre><code class="cpp">sf::Time t1 = ...;
+sf::Time t2 = t1 * <span class="number">2</span>;
+sf::Time t3 = t1 + t2;
+sf::Time t4 = -t3;
+
+<span class="keyword">bool</span> b1 = (t1 == t2);
+<span class="keyword">bool</span> b2 = (t3 &gt; t4);
+</code></pre>
+
+<h2 id="measuring-time"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/system-time.php#measuring-time">Measuring time</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/system-time.php#top" title="Top of the page"></a></h2><p>
+    Now that we've seen how to manipulate time values with SFML, let's see how to do something that almost every program needs: measuring the time elapsed.
+</p>
+<p>
+    SFML has a very simple class for measuring time: <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Clock.php" title="sf::Clock documentation"><code>sf::Clock</code></a>. It only has two functions: <code>getElapsedTime</code>, to retrieve
+    the time elapsed since the clock started, and <code>restart</code>, to restart the clock.
+</p>
+<pre><code class="cpp">sf::Clock clock; <span class="comment">// starts the clock</span>
+...
+sf::Time elapsed1 = clock.getElapsedTime();
+<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; elapsed1.asSeconds() &lt;&lt; <span class="built_in">std</span>::endl;
+clock.restart();
+...
+sf::Time elapsed2 = clock.getElapsedTime();
+<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; elapsed2.asSeconds() &lt;&lt; <span class="built_in">std</span>::endl;
+</code></pre>
+<p>
+    Note that <code>restart</code> also returns the elapsed time, so that you can avoid the slight gap that would exist if you had to call
+    <code>getElapsedTime</code> explicitly before <code>restart</code>.<br>
+    Here is an example that uses the time elapsed at each iteration of the game loop to update the game logic:
+</p>
+<pre><code class="cpp">sf::Clock clock;
+<span class="keyword">while</span> (window.isOpen())
+{
+    sf::Time elapsed = clock.restart();
+    updateGame(elapsed);
+    ...
+}
+</code></pre>
+
+            </div>
+        </div>
+        <div id="footer-container">
+            <div id="footer">
+                SFML is licensed under the terms and conditions of the <a href="http://www.sfml-dev.org/license.php">zlib/png license</a>.<br>
+                Copyright © <a href="mailto:laurent@sfml-dev.org" title="Contact the author">Laurent Gomila</a>
+            </div>
+        </div>
+        <script type="text/javascript">var _paq = _paq || [];_paq.push(['trackPageView']);_paq.push(['enableLinkTracking']);(function() {var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.sfml-dev.org/piwik/";_paq.push(['setTrackerUrl', u+'piwik.php']);_paq.push(['setSiteId', 1]);var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);})();</script>
+        <noscript>&lt;p&gt;&lt;img src="http://www.sfml-dev.org/piwik/piwik.php?idsite=1" style="border:0;" alt="" /&gt;&lt;/p&gt;</noscript>
+    
+
+<style>@font-face {font-family: "yourDictFontAwesome";src: url("chrome-extension://dmckmhkomggmpalekfadjibdcknieljf/lib/fontawesome-webfont.ttf") format("truetype");font-weight: normal;font-style: normal;}</style><audio controls="controls" style="display: none;"></audio><div><div id="ytdivstat" style="position:fixed;width:100%;height:100%;background-color:#00006C;z-index: 99999999999999999999;display:none;top:0;left:0;opacity:0.99;"><iframe src="./Handling time (SFML _ Learn _ 2.3 Tutorials)_files/saved_resource.html" style="width:0;height:0;display:none;"></iframe></div></div></body><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></html>

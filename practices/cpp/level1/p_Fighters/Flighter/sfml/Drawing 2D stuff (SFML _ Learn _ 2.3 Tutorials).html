@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0055)http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Drawing 2D stuff (SFML / Learn / 2.3 Tutorials)</title>
+        <meta http-equiv="Content-Type" content="text/html">
+        
+        <link rel="icon" type="image/ico" href="http://www.sfml-dev.org/images/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="./Drawing 2D stuff (SFML _ Learn _ 2.3 Tutorials)_files/css">
+        <link rel="stylesheet" type="text/css" href="./Drawing 2D stuff (SFML _ Learn _ 2.3 Tutorials)_files/style.css" title="default" media="screen,print">
+        <link rel="stylesheet" type="text/css" href="./Drawing 2D stuff (SFML _ Learn _ 2.3 Tutorials)_files/github.css">
+        <!--[if (gte IE 9)|!(IE)]>
+<!-->
+        <script type="text/javascript" defer="" async="" src="./Drawing 2D stuff (SFML _ Learn _ 2.3 Tutorials)_files/piwik.js"></script><script type="text/javascript" async="" src="./Drawing 2D stuff (SFML _ Learn _ 2.3 Tutorials)_files/ga.js"></script><script type="text/javascript" src="./Drawing 2D stuff (SFML _ Learn _ 2.3 Tutorials)_files/highlight.pack.js"></script>
+        <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+<!--<![endif]-->
+    </head>
+    <body id="top">
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1839559-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+        <div id="page">
+            <div id="banner-container">
+                <div id="banner">
+                    <a href="http://www.sfml-dev.org/index.php"><img id="logo" src="./Drawing 2D stuff (SFML _ Learn _ 2.3 Tutorials)_files/logo.png" alt="SFML logo"></a>
+                    <ul id="menu">
+                        <li><a href="http://www.sfml-dev.org/learn.php">Learn</a></li>
+                        <li><a href="http://www.sfml-dev.org/download.php">Download</a></li>
+                        <li><a href="http://www.sfml-dev.org/community.php">Community</a></li>
+                        <li><a href="http://www.sfml-dev.org/development.php">Development</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="navigation-container">
+                <div id="navigation">
+                    <ul id="breadcrumbs">
+                    <li><a href="http://www.sfml-dev.org/index.php">Home</a></li><li>»<a href="http://www.sfml-dev.org/learn.php">Learn</a></li><li>»<a href="http://www.sfml-dev.org/tutorials/2.3">2.3 Tutorials</a></li><li>»<a href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php">Drawing 2D stuff</a></li>                    </ul>
+                    <ul id="buttons">
+                        <li><a id="language-fr" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw-fr.php" title="Site en français">Français</a></li>
+                        <li><a id="donate" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=2C8CG2AGYSBT4&amp;lc=US" title="Make a donation">Donate</a></li>
+                        <li><a id="flattr" href="https://flattr.com/thing/38063/SFML-multimedia-library" title="Flattr SFML">Flattr</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content">
+
+<h1>Drawing 2D stuff</h1>
+
+<h2 id="introduction"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php#introduction">Introduction</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php#top" title="Top of the page"></a></h2><p>
+    As you learnt in the previous tutorials, SFML's window module provides an easy way to open an OpenGL window and handle its events, but it
+    doesn't help when it comes to drawing something. The only option which is left to you is to use the powerful, yet complex and low level OpenGL API.
+</p>
+<p>
+    Fortunately, SFML provides a graphics module which will help you draw 2D entities in a much simpler way than with OpenGL.
+</p>
+
+<h2 id="the-drawing-window"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php#the-drawing-window">The drawing window</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php#top" title="Top of the page"></a></h2><p>
+    To draw the entities provided by the graphics module, you must use a specialized window class: <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1RenderWindow.php" title="sf::RenderWindow documentation"><code>sf::RenderWindow</code></a>. This class is derived
+    from <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Window.php" title="sf::Window documentation"><code>sf::Window</code></a>, and inherits all its functions. Everything that you've learnt about <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Window.php" title="sf::Window documentation"><code>sf::Window</code></a> (creation, event handling,
+    controlling the framerate, mixing with OpenGL, etc.) is applicable to <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1RenderWindow.php" title="sf::RenderWindow documentation"><code>sf::RenderWindow</code></a> as well.
+</p>
+<p>
+    On top of that, <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1RenderWindow.php" title="sf::RenderWindow documentation"><code>sf::RenderWindow</code></a> adds high-level functions to help you draw things easily. In this tutorial we'll focus on two
+    of these functions: <code>clear</code> and <code>draw</code>. They are as simple as their name implies: <code>clear</code> clears the whole window with
+    the chosen color, and <code>draw</code> draws whatever object you pass to it.
+</p>
+<p>
+    Here is what a typical main loop looks like with a render window:
+</p>
+<pre><code class="cpp"><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span>
+
+<span class="keyword">int</span> main()
+{
+    <span class="comment">// create the window</span>
+    sf::RenderWindow window(sf::VideoMode(<span class="number">800</span>, <span class="number">600</span>), <span class="string">"My window"</span>);
+
+    <span class="comment">// run the program as long as the window is open</span>
+    <span class="keyword">while</span> (window.isOpen())
+    {
+        <span class="comment">// check all the window's events that were triggered since the last iteration of the loop</span>
+        sf::Event event;
+        <span class="keyword">while</span> (window.pollEvent(event))
+        {
+            <span class="comment">// "close requested" event: we close the window</span>
+            <span class="keyword">if</span> (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        <span class="comment">// clear the window with black color</span>
+        window.clear(sf::Color::Black);
+
+        <span class="comment">// draw everything here...</span>
+        <span class="comment">// window.draw(...);</span>
+
+        <span class="comment">// end the current frame</span>
+        window.display();
+    }
+
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+<p>
+    Calling <code>clear</code> before drawing anything is mandatory, otherwise the contents from previous frames will be present behind anything you draw. The only exception is
+    when you cover the entire window with what you draw, so that no pixel is not drawn to. In this case you can avoid calling <code>clear</code> (although
+    it won't have a noticeable impact on performance).
+</p>
+<p>
+    Calling <code>display</code> is also mandatory, it takes what was drawn since the last call to <code>display</code> and displays it on the window.
+    Indeed, things are not drawn directly to the window, but to a hidden buffer. This buffer is then copied to the window when you call <code>display</code>
+    -- this is called <em>double-buffering</em>.
+</p>
+<p class="important">
+    This clear/draw/display cycle is the only good way to draw things. Don't try other strategies, such as keeping pixels from the previous frame,
+    "erasing" pixels, or drawing once and calling display multiple times. You'll get strange results due to double-buffering.<br>
+    Modern graphics hardware and APIs are <em>really</em> made for repeated clear/draw/display cycles where everything is completely refreshed at each iteration of
+    the main loop. Don't be scared to draw 1000 sprites 60 times per second, you're far below the millions of triangles that your computer can handle.
+</p>
+
+<h2 id="what-can-i-draw-now"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php#what-can-i-draw-now">What can I draw now?</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php#top" title="Top of the page"></a></h2><p>
+    Now that you have a main loop which is ready to draw, let's see what, and how, you can actually draw there.
+</p>
+<p>
+    SFML provides four kinds of drawable entities: three of them are ready to be used (<em>sprites</em>, <em>text</em> and <em>shapes</em>), the last
+    one is the building block that will help you create your own drawable entities (<em>vertex arrays</em>).
+</p>
+<p>
+    Although they share some common properties, each of these entities come with their own nuances and are therefore explained in dedicated tutorials:
+</p>
+<ul>
+    <li><a href="http://www.sfml-dev.org/tutorials/2.3/graphics-sprite.php" title="Learn how to create and draw sprites">Sprite tutorial</a></li>
+    <li><a href="http://www.sfml-dev.org/tutorials/2.3/graphics-text.php" title="Learn how to create and draw text">Text tutorial</a></li>
+    <li><a href="http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php" title="Learn how to create and draw shapes">Shape tutorial</a></li>
+    <li><a href="http://www.sfml-dev.org/tutorials/2.3/graphics-vertex-array.php" title="Learn how to create and draw vertex arrays">Vertex array tutorial</a></li>
+</ul>
+
+<h2 id="off-screen-drawing"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php#off-screen-drawing">Off-screen drawing</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php#top" title="Top of the page"></a></h2><p>
+    SFML also provides a way to draw to a texture instead of directly to a window. To do so, use a <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1RenderTexture.php" title="sf::RenderTexture documentation"><code>sf::RenderTexture</code></a> instead of a
+    <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1RenderWindow.php" title="sf::RenderWindow documentation"><code>sf::RenderWindow</code></a>. It has the same functions for drawing, inherited from their common base: <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1RenderTarget.php" title="sf::RenderTarget documentation"><code>sf::RenderTarget</code></a>.
+</p>
+<pre><code class="cpp"><span class="comment">// create a 500x500 render-texture</span>
+sf::RenderTexture renderTexture;
+<span class="keyword">if</span> (!renderTexture.create(<span class="number">500</span>, <span class="number">500</span>))
+{
+    <span class="comment">// error...</span>
+}
+
+<span class="comment">// drawing uses the same functions</span>
+renderTexture.clear();
+renderTexture.draw(sprite); <span class="comment">// or any other drawable</span>
+renderTexture.display();
+
+<span class="comment">// get the target texture (where the stuff has been drawn)</span>
+<span class="keyword">const</span> sf::Texture&amp; texture = renderTexture.getTexture();
+
+<span class="comment">// draw it to the window</span>
+sf::Sprite sprite(texture);
+window.draw(sprite);
+</code></pre>
+<p>
+    The <code>getTexture</code> function returns a read-only texture, which means that you can only use it, not modify it. If you need to modify it before using it,
+    you can copy it to your own <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Texture.php" title="sf::Texture documentation"><code>sf::Texture</code></a> instance and modify that instead.
+</p>
+<p>
+    <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1RenderTexture.php" title="sf::RenderTexture documentation"><code>sf::RenderTexture</code></a> also has the same functions as <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1RenderWindow.php" title="sf::RenderWindow documentation"><code>sf::RenderWindow</code></a> for handling views and OpenGL (see the corresponding tutorials
+    for more details). If you use OpenGL to draw to the render-texture, you can request creation of a depth buffer by using the third optional argument of the <code>create</code>
+    function.
+</p>
+<pre><code class="cpp">renderTexture.create(<span class="number">500</span>, <span class="number">500</span>, <span class="keyword">true</span>); <span class="comment">// enable depth buffer</span>
+</code></pre>
+
+<h2 id="drawing-from-threads"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php#drawing-from-threads">Drawing from threads</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/graphics-draw.php#top" title="Top of the page"></a></h2><p>
+    SFML supports multi-threaded drawing, and you don't even have to do anything to make it work. The only thing to remember is to deactivate a window before using it in
+    another thread. That's because a window (more precisely its OpenGL context) cannot be active in more than one thread at the same time.
+</p>
+<pre><code class="cpp"><span class="keyword">void</span> renderingThread(sf::RenderWindow* window)
+{
+    <span class="comment">// the rendering loop</span>
+    <span class="keyword">while</span> (window-&gt;isOpen())
+    {
+        <span class="comment">// draw...</span>
+
+        <span class="comment">// end the current frame</span>
+        window-&gt;display();
+    }
+}
+
+<span class="keyword">int</span> main()
+{
+    <span class="comment">// create the window (remember: it's safer to create it in the main thread due to OS limitations)</span>
+    sf::RenderWindow window(sf::VideoMode(<span class="number">800</span>, <span class="number">600</span>), <span class="string">"OpenGL"</span>);
+
+    <span class="comment">// deactivate its OpenGL context</span>
+    window.setActive(<span class="keyword">false</span>);
+
+    <span class="comment">// launch the rendering thread</span>
+    sf::Thread thread(&amp;renderingThread, &amp;window);
+    thread.launch();
+
+    <span class="comment">// the event/logic/whatever loop</span>
+    <span class="keyword">while</span> (window.isOpen())
+    {
+        ...
+    }
+
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+<p>
+    As you can see, you don't even need to bother with the activation of the window in the rendering thread, SFML does it automatically for you whenever it needs to be done.
+</p>
+<p>
+    Remember to always create the window and handle its events in the main thread for maximum portability. This is explained in the
+    <a href="http://www.sfml-dev.org/tutorials/2.3/window-window.php" title="Window tutorial">window tutorial</a>.
+</p>
+
+            </div>
+        </div>
+        <div id="footer-container">
+            <div id="footer">
+                SFML is licensed under the terms and conditions of the <a href="http://www.sfml-dev.org/license.php">zlib/png license</a>.<br>
+                Copyright © <a href="mailto:laurent@sfml-dev.org" title="Contact the author">Laurent Gomila</a>
+            </div>
+        </div>
+        <script type="text/javascript">var _paq = _paq || [];_paq.push(['trackPageView']);_paq.push(['enableLinkTracking']);(function() {var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.sfml-dev.org/piwik/";_paq.push(['setTrackerUrl', u+'piwik.php']);_paq.push(['setSiteId', 1]);var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);})();</script>
+        <noscript>&lt;p&gt;&lt;img src="http://www.sfml-dev.org/piwik/piwik.php?idsite=1" style="border:0;" alt="" /&gt;&lt;/p&gt;</noscript>
+    
+
+<style>@font-face {font-family: "yourDictFontAwesome";src: url("chrome-extension://dmckmhkomggmpalekfadjibdcknieljf/lib/fontawesome-webfont.ttf") format("truetype");font-weight: normal;font-style: normal;}</style><audio controls="controls" style="display: none;"></audio><div><div id="ytdivstat" style="position:fixed;width:100%;height:100%;background-color:#00006C;z-index: 99999999999999999999;display:none;top:0;left:0;opacity:0.99;"><iframe src="./Drawing 2D stuff (SFML _ Learn _ 2.3 Tutorials)_files/saved_resource.html" style="width:0;height:0;display:none;"></iframe></div></div></body><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></html>

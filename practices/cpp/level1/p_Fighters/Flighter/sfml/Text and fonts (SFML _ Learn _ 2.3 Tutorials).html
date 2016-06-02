@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0055)http://www.sfml-dev.org/tutorials/2.3/graphics-text.php -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Text and fonts (SFML / Learn / 2.3 Tutorials)</title>
+        <meta http-equiv="Content-Type" content="text/html">
+        
+        <link rel="icon" type="image/ico" href="http://www.sfml-dev.org/images/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="./Text and fonts (SFML _ Learn _ 2.3 Tutorials)_files/css">
+        <link rel="stylesheet" type="text/css" href="./Text and fonts (SFML _ Learn _ 2.3 Tutorials)_files/style.css" title="default" media="screen,print">
+        <link rel="stylesheet" type="text/css" href="./Text and fonts (SFML _ Learn _ 2.3 Tutorials)_files/github.css">
+        <!--[if (gte IE 9)|!(IE)]>
+<!-->
+        <script type="text/javascript" defer="" async="" src="./Text and fonts (SFML _ Learn _ 2.3 Tutorials)_files/piwik.js"></script><script type="text/javascript" async="" src="./Text and fonts (SFML _ Learn _ 2.3 Tutorials)_files/ga.js"></script><script type="text/javascript" src="./Text and fonts (SFML _ Learn _ 2.3 Tutorials)_files/highlight.pack.js"></script>
+        <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+<!--<![endif]-->
+    </head>
+    <body id="top">
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1839559-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+        <div id="page">
+            <div id="banner-container">
+                <div id="banner">
+                    <a href="http://www.sfml-dev.org/index.php"><img id="logo" src="./Text and fonts (SFML _ Learn _ 2.3 Tutorials)_files/logo.png" alt="SFML logo"></a>
+                    <ul id="menu">
+                        <li><a href="http://www.sfml-dev.org/learn.php">Learn</a></li>
+                        <li><a href="http://www.sfml-dev.org/download.php">Download</a></li>
+                        <li><a href="http://www.sfml-dev.org/community.php">Community</a></li>
+                        <li><a href="http://www.sfml-dev.org/development.php">Development</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="navigation-container">
+                <div id="navigation">
+                    <ul id="breadcrumbs">
+                    <li><a href="http://www.sfml-dev.org/index.php">Home</a></li><li>»<a href="http://www.sfml-dev.org/learn.php">Learn</a></li><li>»<a href="http://www.sfml-dev.org/tutorials/2.3">2.3 Tutorials</a></li><li>»<a href="http://www.sfml-dev.org/tutorials/2.3/graphics-text.php">Text and fonts</a></li>                    </ul>
+                    <ul id="buttons">
+                        <li><a id="language-fr" href="http://www.sfml-dev.org/tutorials/2.3/graphics-text-fr.php" title="Site en français">Français</a></li>
+                        <li><a id="donate" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=2C8CG2AGYSBT4&amp;lc=US" title="Make a donation">Donate</a></li>
+                        <li><a id="flattr" href="https://flattr.com/thing/38063/SFML-multimedia-library" title="Flattr SFML">Flattr</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content">
+
+<h1>Text and fonts</h1>
+
+<h2 id="loading-a-font"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/graphics-text.php#loading-a-font">Loading a font</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/graphics-text.php#top" title="Top of the page"></a></h2><p>
+    Before drawing any text, you need to have an available font, just like any other program that prints text. Fonts are encapsulated in the <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Font.php" title="sf::Font documentation"><code>sf::Font</code></a>    class, which provides three main features: loading a font, getting glyphs (i.e. visual characters) from it, and reading its attributes. In a typical
+    program, you'll only have to make use of the first feature, loading the font, so let's focus on that first.
+</p>
+<p>
+    The most common way of loading a font is from a file on disk, which is done with the <code>loadFromFile</code> function.
+</p>
+<pre><code class="cpp">sf::Font font;
+<span class="keyword">if</span> (!font.loadFromFile(<span class="string">"arial.ttf"</span>))
+{
+    <span class="comment">// error...</span>
+}
+</code></pre>
+<p>
+    Note that SFML won't load your system fonts automatically, i.e. <code>font.loadFromFile("Courier New")</code> won't work. Firstly, because SFML requires
+    <em>file names</em>, not font names, and secondly because SFML doesn't have magical access to your system's font folder. If you want to load a
+    font, you will need to include the font file with your application, just like every other resource (images, sounds, ...).
+</p>
+<p class="important">
+    The <code>loadFromFile</code> function can sometimes fail with no obvious reason. First, check the error message that SFML prints to the standard
+    output (check the console). If the message is <q>unable to open file</q>, make sure that the <em>working directory</em> (which is the directory
+    that any file path will be interpreted relative to) is what you think it is:
+    When you run the application from your desktop environment, the working directory is the executable folder. However, when you launch your program from your IDE
+    (Visual Studio, Code::Blocks, ...) the working directory might sometimes be set to the <em>project</em> directory instead. This can usually be changed
+    quite easily in the project settings.
+</p>
+<p>
+    You can also load a font file from memory (<code>loadFromMemory</code>), or from a
+    <a class="internal" href="http://www.sfml-dev.org/tutorials/2.3/system-stream.php" title="Input streams tutorial">custom input stream</a> (<code>loadFromStream</code>).
+</p>
+<p>
+    SFML supports most common font formats. The full list is available in the API documentation.
+</p>
+<p>
+    That's all you need to do. Once your font is loaded, you can start drawing text.
+</p>
+<h2 id="drawing-text"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/graphics-text.php#drawing-text">Drawing text</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/graphics-text.php#top" title="Top of the page"></a></h2><p>
+    To draw text, you will be using the <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Text.php" title="sf::Text documentation"><code>sf::Text</code></a> class. It's very simple to use:
+</p>
+<pre><code class="cpp">sf::Text text;
+
+<span class="comment">// select the font</span>
+text.setFont(font); <span class="comment">// font is a sf::Font</span>
+
+<span class="comment">// set the string to display</span>
+text.setString(<span class="string">"Hello world"</span>);
+
+<span class="comment">// set the character size</span>
+text.setCharacterSize(<span class="number">24</span>); <span class="comment">// in pixels, not points!</span>
+
+<span class="comment">// set the color</span>
+text.setColor(sf::Color::Red);
+
+<span class="comment">// set the text style</span>
+text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+...
+
+<span class="comment">// inside the main loop, between window.clear() and window.display()</span>
+window.draw(text);
+</code></pre>
+<img class="screenshot" src="./Text and fonts (SFML _ Learn _ 2.3 Tutorials)_files/graphics-text-draw.png" title="Drawing text">
+<p>
+    Text can also be transformed: They have a position, an orientation and a scale. The functions involved are the same as for the
+    <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Sprite.php" title="sf::Sprite documentation"><code>sf::Sprite</code></a> class and other SFML entities. They are explained in the
+    <a href="http://www.sfml-dev.org/tutorials/2.3/graphics-transform.php" title="&#39;Transforming entities&#39; tutorial">Transforming entities</a> tutorial.
+</p>
+
+<h2 id="how-to-avoid-problems-with-non-ascii-characters"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/graphics-text.php#how-to-avoid-problems-with-non-ascii-characters">How to avoid problems with non-ASCII characters?</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/graphics-text.php#top" title="Top of the page"></a></h2><p>
+    Handling non-ASCII characters (such as accented European, Arabic, or Chinese characters) correctly can be tricky. It requires a good understanding
+    of the various encodings involved in the process of interpreting and drawing your text. To avoid having to bother with these encodings, there's
+    a simple solution: Use <em>wide literal strings</em>.
+</p>
+<pre><code class="cpp">text.setString(L<span class="string">"יטאח"</span>);
+</code></pre>
+<p>
+    It is this simple "L" prefix in front of the string that makes it work by telling the compiler to produce a wide string. Wide strings are a strange beast
+    in C++: the standard doesn't say anything about their size (16-bit? 32-bit?), nor about the encoding that they use (UTF-16? UTF-32?). However
+    we know that on most platforms, if not all, they'll produce Unicode strings, and SFML knows how to handle them correctly.
+</p>
+<p>
+    Note that the C++11 standard supports new character types and prefixes to build UTF-8, UTF-16 and UTF-32 string literals, but SFML doesn't support
+    them yet.
+</p>
+<p>
+    It may seem obvious, but you also have to make sure that the font that you use contains the characters that you want to draw. Indeed, fonts
+    don't contain glyphs for all possible characters (there are more than 100000 in the Unicode standard!), and an Arabic font won't be able to display Japanese
+    text, for example.
+</p>
+
+<h2 id="making-your-own-text-class"><a class="h2-link" href="http://www.sfml-dev.org/tutorials/2.3/graphics-text.php#making-your-own-text-class">Making your own text class</a><a class="back-to-top" href="http://www.sfml-dev.org/tutorials/2.3/graphics-text.php#top" title="Top of the page"></a></h2><p>
+    If <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Text.php" title="sf::Text documentation"><code>sf::Text</code></a> is too limited, or if you want to do something else with pre-rendered glyphs, <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Font.php" title="sf::Font documentation"><code>sf::Font</code></a> provides
+    everything that you need.
+</p>
+<p>
+    You can retrieve the texture which contains all the pre-rendered glyphs of a certain size:
+</p>
+<pre><code class="cpp"><span class="keyword">const</span> sf::Texture&amp; texture = font.getTexture(characterSize);
+</code></pre>
+<p>
+    It is important to note that glyphs are added to the texture when they are requested. There are so many characters (remember, more than 100000) that they can't all
+    be generated when you load the font. Instead, they are rendered on the fly when you call the <code>getGlyph</code> function (see below).
+</p>
+<p>
+    To do something meaningful with the font texture, you must get the texture coordinates of glyphs that are contained in it:
+</p>
+<pre><code class="cpp">sf::Glyph glyph = font.getGlyph(character, characterSize, bold);
+</code></pre>
+<p>
+    <code>character</code> is the UTF-32 code of the character whose glyph that you want to get. You must also specify the character size, and whether you want the bold
+    or the regular version of the glyph.
+</p>
+<p>
+    The <a href="http://www.sfml-dev.org/documentation/2.3/classsf_1_1Glyph.php" title="sf::Glyph documentation"><code>sf::Glyph</code></a> structure contains three members:
+</p>
+<ul>
+    <li><code>textureRect</code> contains the texture coordinates of the glyph within the texture</li>
+    <li><code>bounds</code> contains the bounding rectangle of the glyph, which helps position it relative to the baseline of the text</li>
+    <li><code>advance</code> is the horizontal offset to apply to get the starting position of the next glyph in the text</li>
+</ul>
+<p>
+    You can also get some of the font's other metrics, such as the kerning between two characters or the line spacing (always for a certain character size):
+</p>
+<pre><code class="cpp"><span class="keyword">int</span> lineSpacing = font.getLineSpacing(characterSize);
+
+<span class="keyword">int</span> kerning = font.getKerning(character1, character2, characterSize);
+</code></pre>
+
+            </div>
+        </div>
+        <div id="footer-container">
+            <div id="footer">
+                SFML is licensed under the terms and conditions of the <a href="http://www.sfml-dev.org/license.php">zlib/png license</a>.<br>
+                Copyright © <a href="mailto:laurent@sfml-dev.org" title="Contact the author">Laurent Gomila</a>
+            </div>
+        </div>
+        <script type="text/javascript">var _paq = _paq || [];_paq.push(['trackPageView']);_paq.push(['enableLinkTracking']);(function() {var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.sfml-dev.org/piwik/";_paq.push(['setTrackerUrl', u+'piwik.php']);_paq.push(['setSiteId', 1]);var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);})();</script>
+        <noscript>&lt;p&gt;&lt;img src="http://www.sfml-dev.org/piwik/piwik.php?idsite=1" style="border:0;" alt="" /&gt;&lt;/p&gt;</noscript>
+    
+
+<style>@font-face {font-family: "yourDictFontAwesome";src: url("chrome-extension://dmckmhkomggmpalekfadjibdcknieljf/lib/fontawesome-webfont.ttf") format("truetype");font-weight: normal;font-style: normal;}</style><audio controls="controls" style="display: none;"></audio><div><div id="ytdivstat" style="position:fixed;width:100%;height:100%;background-color:#00006C;z-index: 99999999999999999999;display:none;top:0;left:0;opacity:0.99;"><iframe src="./Text and fonts (SFML _ Learn _ 2.3 Tutorials)_files/saved_resource.html" style="width:0;height:0;display:none;"></iframe></div></div></body><style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style></html>

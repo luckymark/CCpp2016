@@ -1,0 +1,232 @@
+﻿  main.cpp
+  old.cpp
+  Background.cpp
+  Boss.cpp
+src\Boss.cpp(4): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+src\Boss.cpp(6): warning C4305: “参数”: 从“double”到“float”截断
+src\Boss.cpp(36): warning C4305: “参数”: 从“double”到“float”截断
+src\Boss.cpp(41): warning C4018: “<”: 有符号/无符号不匹配
+src\Boss.cpp(45): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+src\Boss.cpp(49): warning C4018: “<”: 有符号/无符号不匹配
+src\Boss.cpp(53): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+src\Boss.cpp(57): warning C4018: “<”: 有符号/无符号不匹配
+src\Boss.cpp(61): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+src\Boss.cpp(65): warning C4018: “<”: 有符号/无符号不匹配
+src\Boss.cpp(69): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+src\Boss.cpp(73): warning C4018: “<”: 有符号/无符号不匹配
+src\Boss.cpp(77): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+  Bossshoot.cpp
+  Enemy.cpp
+src\Enemy.cpp(4): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+src\Enemy.cpp(20): warning C4305: “参数”: 从“double”到“float”截断
+src\Enemy.cpp(28): warning C4018: “<”: 有符号/无符号不匹配
+src\Enemy.cpp(37): warning C4018: “<”: 有符号/无符号不匹配
+  Enemyshoot.cpp
+  Flying.cpp
+  Game.cpp
+src\Game.cpp(42): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+src\Game.cpp(149): warning C4305: “*=”: 从“double”到“float”截断
+src\Game.cpp(439): warning C4305: “参数”: 从“double”到“float”截断
+src\Game.cpp(488): warning C4305: “参数”: 从“double”到“float”截断
+src\Game.cpp(491): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+src\Game.cpp(494): warning C4305: “参数”: 从“double”到“float”截断
+E:\git\Flighter\Flighter\include\Game.hpp(75): warning C4018: “<”: 有符号/无符号不匹配
+  src\Game.cpp(178): note: 参见对正在编译的函数 模板 实例化“void Game::ifalpha<Enemy>(T *[],int)”的引用
+          with
+          [
+              T=Enemy
+          ]
+e:\git\flighter\flighter\include\Myshoot.hpp(25): warning C4018: “<”: 有符号/无符号不匹配
+  src\Game.cpp(328): note: 参见对正在编译的函数 模板 实例化“void Myshoot::collision<Enemy>(T *[],int)”的引用
+          with
+          [
+              T=Enemy
+          ]
+e:\git\flighter\flighter\include\Myplane.hpp(32): warning C4018: “<”: 有符号/无符号不匹配
+  src\Game.cpp(334): note: 参见对正在编译的函数 模板 实例化“void Myplane::collision<Enemy>(T *[],int)”的引用
+          with
+          [
+              T=Enemy
+          ]
+E:\git\Flighter\Flighter\include\Game.hpp(89): warning C4018: “<”: 有符号/无符号不匹配
+  src\Game.cpp(364): note: 参见对正在编译的函数 模板 实例化“void Game::ifdelete<Enemy>(T *[],int)”的引用
+          with
+          [
+              T=Enemy
+          ]
+E:\git\Flighter\Flighter\include\Game.hpp(114): warning C4018: “<”: 有符号/无符号不匹配
+  Load.cpp
+  Myplane.cpp
+src\Myplane.cpp(7): warning C4305: “=”: 从“double”到“float”截断
+src\Myplane.cpp(29): warning C4018: “<”: 有符号/无符号不匹配
+src\Myplane.cpp(37): warning C4018: “<”: 有符号/无符号不匹配
+  Myshoot.cpp
+  Type.cpp
+sfml-graphics-s-d.lib(Texture.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(Texture.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(Font.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(Font.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(Sprite.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(Sprite.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(Transformable.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(Transformable.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(RenderStates.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(RenderStates.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(RenderWindow.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(RenderWindow.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(Color.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(Color.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(RenderTarget.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(RenderTarget.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(Text.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(Text.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(Image.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(Image.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(GLExtensions.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(GLExtensions.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(GLCheck.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(GLCheck.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(GLLoader.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(GLLoader.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(Transform.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(Transform.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(View.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(View.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(Shader.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(Shader.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(VertexArray.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(VertexArray.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-graphics-s-d.lib(ImageLoader.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-graphics-s-d.lib(ImageLoader.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(Window.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(Window.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(VideoMode.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(VideoMode.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(Mouse.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(Mouse.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(GlContext.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(GlContext.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(WindowImpl.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(WindowImpl.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(InputImpl.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(InputImpl.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(VideoModeImpl.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(VideoModeImpl.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(WglContext.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(WglContext.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(JoystickManager.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(JoystickManager.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(SensorManager.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(SensorManager.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(WindowImplWin32.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(WindowImplWin32.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(WglExtensions.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(WglExtensions.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(Joystick.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(Joystick.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-window-s-d.lib(JoystickImpl.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-window-s-d.lib(JoystickImpl.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-system-s-d.lib(String.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-system-s-d.lib(String.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-system-s-d.lib(Err.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-system-s-d.lib(Err.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-system-s-d.lib(ThreadLocal.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-system-s-d.lib(ThreadLocal.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(SoundBuffer.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(SoundBuffer.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(Sound.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(Sound.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(Music.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(Music.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(SoundStream.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(SoundStream.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(AlResource.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(AlResource.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(InputSoundFile.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(InputSoundFile.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(OutputSoundFile.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(OutputSoundFile.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(AudioDevice.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(AudioDevice.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(ALCheck.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(ALCheck.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileFactory.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileFactory.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileReaderFlac.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileReaderFlac.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileWriterFlac.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileWriterFlac.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileReaderOgg.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileReaderOgg.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileWriterOgg.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileWriterOgg.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileReaderWav.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileReaderWav.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileWriterWav.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-audio-s-d.lib(SoundFileWriterWav.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-system-s-d.lib(Thread.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-system-s-d.lib(Thread.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-system-s-d.lib(FileInputStream.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-system-s-d.lib(FileInputStream.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-system-s-d.lib(MemoryInputStream.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-system-s-d.lib(MemoryInputStream.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+sfml-system-s-d.lib(ThreadImpl.cpp.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“2”不匹配值“0”(main.obj 中)
+sfml-system-s-d.lib(ThreadImpl.cpp.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MDd_DynamicDebug”不匹配值“MD_DynamicRelease”(main.obj 中)
+LINK : warning LNK4098: 默认库“MSVCRTD”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+sfml-audio-s-d.lib(SoundFileReaderFlac.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundFileWriterFlac.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundFileWriterOgg.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundFileWriterWav.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-audio-s-d.lib(Music.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-audio-s-d.lib(AudioDevice.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-audio-s-d.lib(ALCheck.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundFileFactory.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-window-s-d.lib(WindowImplWin32.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-window-s-d.lib(JoystickImpl.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-system-s-d.lib(String.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundBuffer.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-window-s-d.lib(WindowImpl.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-window-s-d.lib(VideoModeImpl.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-window-s-d.lib(WglContext.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-window-s-d.lib(JoystickManager.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-graphics-s-d.lib(ImageLoader.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-window-s-d.lib(Window.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-window-s-d.lib(VideoMode.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-window-s-d.lib(GlContext.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-graphics-s-d.lib(Image.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-graphics-s-d.lib(GLCheck.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-graphics-s-d.lib(Shader.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-graphics-s-d.lib(VertexArray.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-graphics-s-d.lib(Texture.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-graphics-s-d.lib(Font.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-graphics-s-d.lib(RenderWindow.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-graphics-s-d.lib(Text.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+sfml-audio-s-d.lib(SoundFileReaderFlac.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-audio-s-d.lib(SoundFileWriterFlac.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-audio-s-d.lib(SoundFileWriterOgg.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-audio-s-d.lib(SoundFileWriterWav.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-audio-s-d.lib(Music.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-audio-s-d.lib(AudioDevice.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-audio-s-d.lib(ALCheck.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-audio-s-d.lib(SoundFileFactory.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-window-s-d.lib(WindowImplWin32.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-window-s-d.lib(JoystickImpl.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-system-s-d.lib(String.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-audio-s-d.lib(SoundBuffer.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-window-s-d.lib(WindowImpl.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-window-s-d.lib(VideoModeImpl.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-window-s-d.lib(WglContext.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-window-s-d.lib(JoystickManager.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-graphics-s-d.lib(ImageLoader.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-window-s-d.lib(Window.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-window-s-d.lib(VideoMode.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-window-s-d.lib(GlContext.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-graphics-s-d.lib(Image.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-graphics-s-d.lib(GLCheck.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-graphics-s-d.lib(Shader.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-graphics-s-d.lib(VertexArray.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-graphics-s-d.lib(Texture.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-graphics-s-d.lib(Font.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-graphics-s-d.lib(RenderWindow.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+sfml-graphics-s-d.lib(Text.cpp.obj) : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReportW
+E:\git\Flighter\Release\Flighter.exe : fatal error LNK1120: 2 个无法解析的外部命令

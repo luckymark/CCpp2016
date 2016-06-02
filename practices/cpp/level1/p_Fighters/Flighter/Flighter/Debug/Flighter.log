@@ -1,0 +1,6 @@
+﻿  Myplane.cpp
+e:\git\flighter\flighter\src\myplane.cpp(7): warning C4305: “=”: 从“double”到“float”截断
+e:\git\flighter\flighter\src\myplane.cpp(31): warning C4018: “<”: 有符号/无符号不匹配
+e:\git\flighter\flighter\src\myplane.cpp(39): warning C4018: “<”: 有符号/无符号不匹配
+  Flighter.vcxproj -> E:\git\Flighter\Debug\Flighter.exe
+  Flighter.vcxproj -> E:\git\Flighter\Debug\Flighter.pdb (Partial PDB)
