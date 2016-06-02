@@ -40,6 +40,8 @@ public:
     void initializeBullet();
 
     void shootBullet();
+
+    void initializeScore();
 private:
     static sf::Vector2f _iniPosition;
     static sf::Vector2f _iniDirection;

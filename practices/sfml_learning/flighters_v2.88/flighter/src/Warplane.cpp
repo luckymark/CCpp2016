@@ -19,6 +19,10 @@ void Warplane::initializeSprite()
     for(auto& c:GameSprite::WarplaneBomb)
         planeSprite.push_back(c);
 }
+void Warplane::initializeScore()
+{
+    score = 100;
+}
 void Warplane::initializeShootElapsed()
 {
     shootElapsed=1.8f;

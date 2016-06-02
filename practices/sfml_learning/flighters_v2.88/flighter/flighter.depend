@@ -2,7 +2,7 @@
 1463556860 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\main.cpp
 	<Game.h>
 
-1464864181 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\game.h
+1464885653 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\game.h
 	"GameWindow.h"
 	"BackGround.h"
 	"Plane.h"
@@ -471,7 +471,7 @@
 
 1463665182 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\bullet.h
 
-1464883508 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\hero.cpp
+1464883806 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\hero.cpp
 	"Hero.h"
 	<SFML/Graphics.hpp>
 	"GameSprite.h"
@@ -483,7 +483,7 @@
 	"Plane.h"
 	<SFML/Graphics.hpp>
 
-1464881964 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\plane.h
+1464885041 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\plane.h
 	<SFML/Graphics.hpp>
 	"GameWindow.h"
 	"GameMusic.h"

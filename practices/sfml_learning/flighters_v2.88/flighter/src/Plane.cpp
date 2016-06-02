@@ -140,7 +140,12 @@ void Plane::initializePlane(const sf::Vector2f& nowPosition,const sf::Vector2f& 
     initializeTime();
     initializeShader();
     initializeShootType();
+    initializeScore();
     setDirection(nowDirection);
+}
+void Plane::initializeScore()
+{
+
 }
 void Plane::initializeShader()
 {
@@ -162,6 +167,10 @@ void Plane::initializeHarm()
 void Plane::getSkill(Plane*)
 {
 
+}
+int Plane::getScore()
+{
+    return score;
 }
 void Plane::initializeTime()
 {

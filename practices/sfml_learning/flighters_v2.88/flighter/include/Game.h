@@ -100,6 +100,8 @@ public:
 
     void checkEnemyAndHeroCollision();
 
+    void kill_a_plane(Plane*);
+
     void clearScreen();
 protected:
     Game();
@@ -118,6 +120,7 @@ private:
     //sf::Clock* drawClock;
     sf::Clock* gameClock;
     static int sumBomb;
+    int score = 0;
     bool isBombing = false;
 
     float tick;

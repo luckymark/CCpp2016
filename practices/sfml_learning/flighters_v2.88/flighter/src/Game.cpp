@@ -163,6 +163,8 @@ void Game::useBomb()
 }
 void Game::clearScreen()
 {
+    for(auto c:existEnemyPlane)
+        kill_a_plane(c);
     enemyBullet.clear();
     existEnemyPlane.clear();
 }
@@ -293,6 +295,10 @@ void Game::loadWindow()
     window=GameWindow::instance();
     window->initializeWindow();
 }
+void Game::kill_a_plane(Plane* plane)
+{
+    score+=plane->getScore();
+}
 void Game::loadShader()
 {
     shader=Shader::instance();
@@ -360,6 +366,7 @@ void Game::checkHeroBulletAndEnemyCollision()
                     //printf("Add a Plane\n");
                     bombingPlane.push_back((*itep)->clone());
                     (*itep)->playBombSound();
+                    kill_a_plane((*itep));
                     itep=existEnemyPlane.erase(itep);
                 }
                 break;

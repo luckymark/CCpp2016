@@ -123,6 +123,10 @@ public:
 
     virtual void intensifyFire();
 
+    virtual void initializeScore();
+
+    virtual int getScore();
+
     virtual void refresh(float) = 0;
 
     virtual void initializeSpeed() = 0;
@@ -140,7 +144,7 @@ protected:
     GameWindow* window;
     std::vector<sf::Sprite>planeSprite;
     bool _isBeHited=false;
-    int status,life,harm,sumBomb;
+    int status,life,harm,sumBomb,score;
     float speed;
     float shootElapsed,limit,detalChangeStatusTime,sumChangeStatusTime;
     Plane* bullet;

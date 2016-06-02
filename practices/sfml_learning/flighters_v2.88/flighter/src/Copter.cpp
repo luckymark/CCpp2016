@@ -42,6 +42,10 @@ void Copter::initializeBullet()
 {
     setBullet(new EnemyBullet);
 }
+void Copter::initializeScore()
+{
+    score = 300;
+}
 void Copter::fire() {
     if(limit>shootElapsed)
     {

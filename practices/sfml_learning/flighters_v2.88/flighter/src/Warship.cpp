@@ -20,6 +20,10 @@ void Warship::initializeSprite()
     for(auto& c:GameSprite::WarshipBomb)
         planeSprite.push_back(c);
 }
+void Warship::initializeScore()
+{
+    score = 500;
+}
 void Warship::initializeShootElapsed()
 {
     shootElapsed=3.f;
