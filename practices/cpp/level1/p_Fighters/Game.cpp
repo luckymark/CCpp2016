@@ -122,7 +122,7 @@ void Game::add_enemy_bullet()
     {
         int a = random() % tot;
         if (enemy.all_enemy[a].health>=2) return;
-        sf::Vector2f speed(0.0f,enemy.all_enemy[a].enemy_speed+2.0);
+        sf::Vector2f speed(0.0f,enemy.all_enemy[a].speed+2.0);
         bullet.add_bullet(enemy.all_enemy[a].sprite.getPosition(), speed,false, false);
     }
 }
@@ -135,7 +135,7 @@ void Game::update()
     check_bound();  //判断碰撞
     enemy.add_enemy();
     add_enemy_bullet();
-    enemy.enemy_move();
+    enemy.move();
 }
 void Game::check_bound()
 {

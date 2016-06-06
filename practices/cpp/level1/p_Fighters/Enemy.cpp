@@ -10,9 +10,9 @@
 #include "Texture.hpp"
 int Enemy::tot_enemy = 0;
 int Enemy::escape_enemy = 0;
-Enemy::Enemy(double speed, sf::Vector2f p, int hp, int score_)
+Enemy::Enemy(double _speed, sf::Vector2f p, int hp, int score_)
 {
-    enemy_speed = speed;
+    speed = _speed;
     health = hp;
     score = score_;
     pos = p;
@@ -38,13 +38,13 @@ void Enemy::add_enemy()
         else all_enemy.push_back(Enemy(a,pos,hp, enemy_score));
     enemy_time = 0;
 }
-void Enemy::enemy_move()
+void Enemy::move()
 {
     enemy_time = fmin(enemy_time+1, 1000);
     int tot = all_enemy.size();
     for (int i = 0 ; i < tot; i++)
     {
-        all_enemy[i].pos.y += all_enemy[i].enemy_speed;
+        all_enemy[i].pos.y += all_enemy[i].speed;
     }
     for (int i = tot-1 ;i >=0 ;i--)
     {

@@ -18,8 +18,6 @@ public:
     Player(double speed);
     friend class Game;
 private:
-    int player_speed;
-    int health = 4;
     int health_time =  150; //控制一闪一闪的时间
     bool hit = false;
 };

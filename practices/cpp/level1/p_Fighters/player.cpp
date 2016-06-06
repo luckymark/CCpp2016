@@ -12,12 +12,12 @@
 #include <cmath>
 #include "bullet.hpp"
 #include "Texture.hpp"
-Player::Player(double speed)
+Player::Player(double _speed)
 {
-    player_speed = speed;
+    speed = _speed;
     sprite.setTexture(Texture::player_texture);
     sprite.setPosition(425,1200);
-    
+    health = 4;
 }
 
 

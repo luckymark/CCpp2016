@@ -21,7 +21,7 @@ public:
     Enemy(double speed, sf::Vector2f pos, int hp, int score);
     std::vector <Enemy> all_enemy;
     void add_enemy();
-    void enemy_move();
+    void move();
     friend class Game;
 private:
     sf::Vector2f pos;
@@ -32,8 +32,6 @@ private:
     int enemy_score = 5;
     int enemy_boss_score = 50;
     static int escape_enemy;
-    double enemy_speed;
-    int health ;
     int score;
 };
 #endif /* Enemy_hpp */

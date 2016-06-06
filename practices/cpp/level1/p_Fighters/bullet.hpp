@@ -18,7 +18,6 @@ public:
     Bullet(sf::Vector2f speed, double x, double y);
     void add_bullet(sf::Vector2f pos, sf::Vector2f speed, bool direction, bool is_boss);
     void move_bullet();
-    void fire();
     friend class Game;
 private:
     sf::Vector2f bullet_speed;

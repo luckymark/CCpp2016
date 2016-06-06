@@ -17,5 +17,7 @@ public:
     virtual void move(double speed);
     //sf:: Texture texture;
     sf:: Sprite sprite;
+    double speed;
+    int health;
 };
 #endif /* Plane_hpp */
