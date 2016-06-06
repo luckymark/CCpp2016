@@ -15,20 +15,22 @@ Safe_array::Safe_array(int capbility)
 }
 void Safe_array::set(int n, int value)
 {
-    if (n>=all)
-    {
-        std::cout<<"数组访问越界！"<<std::endl;
-        return ;
-    }
+    check_index(n);
     data[n] = value;
     std::cout<<"赋值成功!"<<std::endl;
 }
 void Safe_array::get(int n )
 {
-    if (n>=all)
-    {
-        std::cout<<"数组访问越界！"<<std::endl;
-        return ;
-    }
+    check_index(n);
     std::cout<<"值为"<<data[n]<<std::endl;
+}
+void Safe_array::check_index(int n)
+{
+    if (n>=all || n<0)
+        throw "数组访问越界！";
+}
+int &Safe_array::operator[](int a)
+{
+    check_index(a);
+    return data[a];
 }

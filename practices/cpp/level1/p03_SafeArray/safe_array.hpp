@@ -14,9 +14,14 @@ class Safe_array
 {
 public:
     Safe_array(int capbility);
+    ~Safe_array()
+    {
+        delete data;
+    }
     void set(int n ,int value);
     void get(int n);
-    
+    void check_index(int n );
+    int &operator [] (int a);
 private:
     int all;
     int *data;
