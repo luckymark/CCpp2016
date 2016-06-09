@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1463556860 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\main.cpp
+1465461929 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\main.cpp
 	<Game.h>
 
-1464885653 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\game.h
+1465464294 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\game.h
 	"GameWindow.h"
 	"BackGround.h"
 	"Plane.h"
@@ -10,6 +10,7 @@
 	"Shader.h"
 	<SFML/Graphics.hpp>
 	<list>
+	"GameText.h"
 
 1464574721 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\background.cpp
 	"BackGround.h"
@@ -22,7 +23,7 @@
 	"GameWindow.h"
 	"Shader.h"
 
-1464883646 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\game.cpp
+1465463797 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\game.cpp
 	"Game.h"
 	<SFML/Audio.hpp>
 	<SFML/Graphics.hpp>
@@ -489,7 +490,7 @@
 	"GameMusic.h"
 	"Shader.h"
 
-1464881991 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\plane.cpp
+1464885056 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\plane.cpp
 	"Plane.h"
 	<cmath>
 
@@ -501,7 +502,7 @@
 1464615202 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\herobullet.h
 	"Plane.h"
 
-1464746068 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\copter.cpp
+1464885082 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\copter.cpp
 	"Copter.h"
 	"GameWindow.h"
 	"GameSprite.h"
@@ -510,19 +511,19 @@
 	"Game.h"
 	"EnemyBullet.h"
 
-1464712280 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\copter.h
+1464885115 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\copter.h
 	"Plane.h"
 	<SFML/Graphics.hpp>
 
-1464717889 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\warplane.h
+1464885128 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\warplane.h
 	"Plane.h"
 	<SFML/Graphics.hpp>
 
-1464746040 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\warship.h
+1464885141 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\warship.h
 	"Plane.h"
 	<SFML/Graphics.hpp>
 
-1464745844 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\warplane.cpp
+1464885160 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\warplane.cpp
 	"Warplane.h"
 	"GameWindow.h"
 	"GameSprite.h"
@@ -531,7 +532,7 @@
 	"SFML/Graphics.hpp"
 	"cmath"
 
-1464746464 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\warship.cpp
+1464885271 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\warship.cpp
 	"Warship.h"
 	"GameWindow.h"
 	"GameSprite.h"
@@ -572,4 +573,19 @@
 1464780842 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\shootufo.h
 	"Plane.h"
 	<SFML/Graphics.hpp>
+
+1464885692 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\gameinfor.cpp
+	"GameInfor.h"
+
+1464885692 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\gameinfor.h
+
+1465178915 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\gametext.h
+	<SFML/Graphics.hpp>
+	"GameWindow.h"
+	<sstream>
+
+1465463866 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\gametext.cpp
+	"GameText.h"
+	<SFML/Graphics.hpp>
+	"GameWindow.h"
 

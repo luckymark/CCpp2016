@@ -23,6 +23,8 @@ std::vector<Plane*>Game::originEnemyPlane;
 std::vector<Plane*>Game::originUfo;
 Game* Game::_instance=0;
 int Game::sumBomb    =0;
+bool Game::isPlaying  =true;
+bool Game::isExitGame =false;
 enum EnemyFlighterNum
 {
     _WarPlane,
@@ -42,19 +44,23 @@ void Game::initializeGame() {
     loadEnemyFlighter();
     loadUfo();
     loadTime();
+    loadText();
 }
 void Game::GameStart() {
-    while(window->isOpen())
+    while(window->isOpen() && !isExitGame)
     {
-        sf::Event event;
         while(window->pollEvent(event))
         {
             if(event.type == sf::Event::Closed)
-                GameOver();
+                exitGame();
+        }
+        if(!isPlaying)
+        {
+            GameOver();
+            continue;
         }
         updateSumTime();
         getKeyBoard(tick);
-
         creatEnemy();
         creatUfo();
         checkCollison();
@@ -85,6 +91,12 @@ void Game::updateSumTime()
     sumDraw            +=tick;
     sumMakeUfo         +=tick;
     sumBombingTime     +=tick;
+}
+void Game::loadText()
+{
+    text=GameText::instance();
+    text->loadFont();
+    //text->showGameInfo(0,3);
 }
 void Game::loadTime()
 {
@@ -118,7 +130,42 @@ void Game::GameExit() {
 }
 void Game::GameOver()
 {
-    sf::Clock gameoverClock();
+    //printf("GameOver\n");
+    tick     = gameClock->restart().asSeconds();
+    sumDraw +=tick;
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        exitGame();
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+    {
+        if(hero->getLife() <= 0)
+            restartGame();
+        isPlaying = true;
+    }
+    background->refresh(tick);
+    if(sumDraw > detalDraw)
+    {
+        window->clear();
+        background->draw();
+        text->showGameOverInfo(score);
+        window->display();
+        sumDraw = 0.f;
+    }
+}
+void Game::restartGame()
+{
+    heroBullet.clear();
+    enemyBullet.clear();
+    bombingPlane.clear();
+    existEnemyPlane.clear();
+    existUfo.clear();
+    hero -> initializePlane(sf::Vector2f(GameWindow::iniWidth,GameWindow::iniHeight));
+}
+void Game::exitGame()
+{
+    printf("Exit!\n");
+    window->close();
+    isExitGame = true;
 }
 void Game::heroFlash()
 {
@@ -144,12 +191,14 @@ void Game::getKeyBoard(float detalTime)
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
         useBomb();
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-        system("pause");
-
+        isPlaying = false;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        isExitGame= true;
 }
 void Game::getBomb()
 {
-    ++sumBomb;
+    if(sumBomb<3)
+        ++sumBomb;
 }
 void Game::useBomb()
 {
@@ -208,6 +257,7 @@ void Game::draw()
     window->clear();
     background->draw();
     hero -> draw();
+    text->showGameInfo(score,hero->getLife());
     for(auto& itp:existEnemyPlane)
         itp->draw();
     for(auto& itb:heroBullet)
@@ -345,6 +395,7 @@ void Game::checkCollison()
 {
     checkHeroBulletAndEnemyCollision();
     checkHeroAndUfoCollision();
+    checkHeroAlive();
     if(hero->checkBeHited())return ;
     checkEnemyBulletAndHeroCollision();
     checkEnemyAndHeroCollision();
@@ -394,13 +445,6 @@ void Game::checkEnemyBulletAndHeroCollision()
         bool isHit=false;
         if(hero->intersects((*ithb)->getCollisionArea()))
         {
-            if(!hero -> isAlive())
-            {
-                bombingPlane.push_back(hero->clone());
-                hero->playBombSound();
-                GameOver();
-                return ;
-            }
             isHit=true;
             hero->beHited((*ithb)->getHarm());
             sumFlash = 0.f;
@@ -419,13 +463,6 @@ void Game::checkEnemyAndHeroCollision()
     {
         if(hero->intersects((*ithb)->getCollisionArea()))
         {
-            if(!hero -> isAlive())
-            {
-                //printf("Add a Plane\n");
-                bombingPlane.push_back(hero->clone());
-                hero->playBombSound();
-                GameOver();
-            }
             //printf("beHited!\n");
             hero->beHited((*ithb)->getHarm());
             sumFlash = 0.f;
@@ -433,6 +470,16 @@ void Game::checkEnemyAndHeroCollision()
 
             break;
         }
+    }
+}
+void Game::checkHeroAlive()
+{
+    if(!hero -> isAlive())
+    {
+        isPlaying = false;
+        bombingPlane.push_back(hero->clone());
+        hero->playBombSound();
+        return ;
     }
 }
 Game* Game::instance() {

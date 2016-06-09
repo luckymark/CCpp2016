@@ -4,4 +4,5 @@ int main()
     Game* aGame=Game::instance();
     aGame->initializeGame();
     aGame->GameStart();
+    return 0;
 }

@@ -8,6 +8,7 @@
 #include "Shader.h"
 #include <SFML/Graphics.hpp>
 #include <list>
+#include "GameText.h"
 class Game {
 public:
     static std::list<Plane*>bombingPlane;
@@ -26,6 +27,12 @@ public:
 
     static void getBomb();
 
+    static bool isPlaying;
+
+    static bool isExitGame;
+
+    void exitGame();
+
     void useBomb();
 
     void initializeGame();
@@ -35,6 +42,8 @@ public:
     void GameExit();
 
     void GameOver();
+
+    void restartGame();
 
     static Game* instance();
 
@@ -55,6 +64,8 @@ public:
     void loadBackGround();
 
     void loadHero();
+
+    void loadText();
 
     void loadEnemyFlighter();
 
@@ -92,6 +103,8 @@ public:
 
     void getRandomCreatUfoTime();
 
+    void checkHeroAlive();
+
     void checkHeroBulletAndEnemyCollision();
 
     void checkHeroAndUfoCollision();
@@ -119,9 +132,12 @@ private:
     sf::RenderTexture lightRenderTexture;
     //sf::Clock* drawClock;
     sf::Clock* gameClock;
+    sf::Event event;
+    GameText* text;
     static int sumBomb;
     int score = 0;
     bool isBombing = false;
+
 
     float tick;
     float detalPlayFlyingSoundTime;
