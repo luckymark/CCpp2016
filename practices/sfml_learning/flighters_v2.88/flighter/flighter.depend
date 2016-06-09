@@ -23,7 +23,7 @@
 	"GameWindow.h"
 	"Shader.h"
 
-1465463797 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\game.cpp
+1465465244 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\src\game.cpp
 	"Game.h"
 	<SFML/Audio.hpp>
 	<SFML/Graphics.hpp>
@@ -435,7 +435,7 @@
 	<string>
 	<vector>
 
-1463619650 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\gamewindow.h
+1465466009 c:\users\admin\documents\ccpp2016\ccpp2016\practices\sfml_learning\flighters_v2.88\flighter\include\gamewindow.h
 	<SFML/Window.hpp>
 	<SFML/Graphics.hpp>
 

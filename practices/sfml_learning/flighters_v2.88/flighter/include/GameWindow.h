@@ -16,6 +16,7 @@ protected:
     GameWindow();
 private:
     static GameWindow* _instance;
+    sf::View myView;
 
 };
 

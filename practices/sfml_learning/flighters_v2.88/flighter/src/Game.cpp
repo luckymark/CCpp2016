@@ -154,6 +154,8 @@ void Game::GameOver()
 }
 void Game::restartGame()
 {
+    score   = 0;
+    sumBomb = 0;
     heroBullet.clear();
     enemyBullet.clear();
     bombingPlane.clear();
