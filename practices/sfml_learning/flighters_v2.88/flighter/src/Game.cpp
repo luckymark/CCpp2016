@@ -5,7 +5,7 @@
 #include <list>
 #include "GameWindow.h"
 #include "GameMusic.h"
-#include "GameTexture.h"
+//#include "GameTexture.h"
 #include "GameSprite.h"
 #include "BackGround.h"
 #include "Hero.h"
