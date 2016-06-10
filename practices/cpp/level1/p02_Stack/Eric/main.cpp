@@ -2,11 +2,11 @@
 //author : Eric
 
 #include <iostream>
-#include "IntStack.h"
+#include "StackTemplate.hpp"
 
 int main()
 {
-    IntStack stack(1000);
+    StackTemplate<int> stack(1000);
     if(stack.isEmpty())
     {
         std::cout << "Stack is empty." << std::endl;
