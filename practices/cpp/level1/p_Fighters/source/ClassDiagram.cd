@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Aircraft">
+    <Position X="8.25" Y="15.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Aircraft::Type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Aircraft.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ACAAAQASAAAAAIAAQCAAABSAAAFiogAABKBAIAAAAFI=</HashCode>
+      <FileName>Aircraft.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application">
+    <Position X="16.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAgACABAIAABEAAIAACIAQACAAAAAACAAAEAUAAA=</HashCode>
+      <FileName>Application.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CommandQueue">
+    <Position X="14" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAIAABAQAA=</HashCode>
+      <FileName>CommandQueue.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entity">
+    <Position X="9.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAhIAAgEAIIAAAAAAAAgAAABhAAAAAAAA=</HashCode>
+      <FileName>Entity.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameState">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAQAAABAAAAIAAAAAAAAAAAAAAAAAAAAEIAA=</HashCode>
+      <FileName>GameState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadState">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQABAAAQIIAAgAAAACAAAAAIAAAAAEAAA=</HashCode>
+      <FileName>LoadState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuState">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="MenuState::OptionNames" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MenuState.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAIABAABgIAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>MenuState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParallelTask">
+    <Position X="18.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAgAAAIAAgAAEAAAAAAAAAAQAwAACA=</HashCode>
+      <FileName>ParallelTask.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseState">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAIABAAAAIAAAAAAAAAABAAAAAAAAAEAAA=</HashCode>
+      <FileName>PauseState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="14" Y="7" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Player::Action" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Player.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAACAAAABkAAABAAAAAAgAAAEAAAAAAAQAAAAA=</HashCode>
+      <FileName>Player.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projectile">
+    <Position X="10.5" Y="15.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Projectile::Type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Projectile.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAQAABAhAAAAAAAgAAEIAAAAAAIHA=</HashCode>
+      <FileName>Projectile.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceHolder&lt;Resource, Identifier&gt;">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAACAAQAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceHolder.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneNode" Collapsed="true">
+    <Position X="9.25" Y="9.75" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="SceneNode::Ptr" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SceneNode.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQCBAAAAEACAAAAABIAAAUAAABAAgAAAIAAAAAEABA=</HashCode>
+      <FileName>SceneNode.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettingState">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAIEhAAAAIAAAACAAAAAQAAAAAAAAAEQAA=</HashCode>
+      <FileName>SettingState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpriteNode">
+    <Position X="12.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAABA=</HashCode>
+      <FileName>SpriteNode.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="State" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.75" />
+    <NestedTypes>
+      <Typedef Name="State::Ptr" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>State.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="State::Context" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>State.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAABAAAAIAAAAAAAAQAISAAAAABBAkAAA=</HashCode>
+      <FileName>State.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateStack">
+    <Position X="16.25" Y="11.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="StateStack::Action" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Struct Name="StateStack::PendingChange" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAABAAQAKABIEAAgARAAQAAAAAIAAEQAA=</HashCode>
+      <FileName>StateStack.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextNode">
+    <Position X="6" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAABCAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>TextNode.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TitleState">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAIEBAABAIAAAACAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>TitleState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="World">
+    <Position X="18.5" Y="7" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="World::Layer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>World.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Struct Name="World::SpawnPoint" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>World.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QgAAIAQABBAiQABAEgIAAAIAAECIAABAAAAAAAAkCQA=</HashCode>
+      <FileName>World.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUI::Button">
+    <Position X="2.75" Y="7" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="GUI::Button::Ptr" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Button.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="GUI::Button::Callback" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Button.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AFAIgEAAAAAAQBAARAIAQAGCIAAAAARAAAAAAAAAAAA=</HashCode>
+      <FileName>Button.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUI::Component" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="GUI::Component::Ptr" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Component.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAgoEIQAAAAABAAAAAAQAAAIAAAAARAAABAAAAAAAA=</HashCode>
+      <FileName>Component.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUI::Container">
+    <Position X="5" Y="7" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="GUI::Container::Ptr" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Container.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAAAAAQAAAAAABAAAAIEAAQAAAACAAxAAAAAAAAAAAA=</HashCode>
+      <FileName>Container.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUI::Label">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="GUI::Label::Ptr" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Label.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAABAAAAIAAACCAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Label.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="AircraftMover" Collapsed="true">
+    <Position X="16.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAEAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Player.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Command">
+    <Position X="18.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Command.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Direction" Collapsed="true">
+    <Position X="14.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAEAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>DataTables.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="AircraftData" Collapsed="true">
+    <Position X="14.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAwAEAAAAAAAAAAA=</HashCode>
+      <FileName>DataTables.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ProjectileData" Collapsed="true">
+    <Position X="16.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAARAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataTables.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="TextureHolder" Collapsed="true">
+    <Position X="12.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceIdentifies.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="FontHolder" Collapsed="true">
+    <Position X="9.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceIdentifies.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="Category::Type" Collapsed="true">
+    <Position X="14.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgACCAABAAAAgAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Category.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Textures::ID" Collapsed="true">
+    <Position X="14.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACABAEAAAAAAABAAgAAAAIAAgAgAAAQAAAAAAAARA=</HashCode>
+      <FileName>ResourceIdentifies.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Fonts::ID" Collapsed="true">
+    <Position X="16.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>ResourceIdentifies.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="States::ID" Collapsed="true">
+    <Position X="18.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAEAAAAAAAIAAAAgIAAAAAAAAAAFAAAA=</HashCode>
+      <FileName>StateIdentifiers.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

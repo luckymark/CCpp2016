@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Application">
+    <Position X="1.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AgAAAgACABAIAABEAAIAACIAQACAAAAAACAAAEAUAAA=</HashCode>
+      <FileName>Application.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverState">
+    <Position X="7.5" Y="8" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAIgAAAAIAAAAAAAAAAAQAAEAAA=</HashCode>
+      <FileName>GameOverState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameState">
+    <Position X="9.75" Y="8" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAQAAABAAAAIAAAAAAAAAAAAAAAAAAAAEIAA=</HashCode>
+      <FileName>GameState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadState">
+    <Position X="12" Y="8" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQABAAAQIIAAgAAAACAAAAAIAAAAAEAAA=</HashCode>
+      <FileName>LoadState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuState">
+    <Position X="14.25" Y="8" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="MenuState::OptionNames" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MenuState.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAIABAABgIAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>MenuState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseState">
+    <Position X="3" Y="8" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAIABAAAAIAAAAAAAAAABAAAAAAAAAEAAA=</HashCode>
+      <FileName>PauseState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="10" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Player::Action" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Player.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Player::MissionStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Player.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EAgAAAAACAAAABkAAADgAAAAAgAAAEAAAAAAAQgAgAA=</HashCode>
+      <FileName>Player.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettingState">
+    <Position X="5.25" Y="8" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAIEhAAAAIAAAACAAAAAQAAAAAAAAAEQAA=</HashCode>
+      <FileName>SettingState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="State">
+    <Position X="7" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Typedef Name="State::Ptr" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>State.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="State::Context">
+        <TypeIdentifier>
+          <NewMemberFileName>State.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAABAAAAIAAAAAAAAQAISAAAAABBAkAAA=</HashCode>
+      <FileName>State.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateStack">
+    <Position X="4" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="StateStack::Action" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Struct Name="StateStack::PendingChange" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAABAAQAKABIEAAgARAAQAAAAAIAAEQAA=</HashCode>
+      <FileName>StateStack.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TitleState">
+    <Position X="0.75" Y="8" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAIEBAABAIAAAACAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>TitleState.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="World">
+    <Position X="12.75" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="World::Layer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>World.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Struct Name="World::SpawnPoint" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>World.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QgAAIgQABBAiQAJAEgIAAAIAAECIABBBAAAAAQAkCYA=</HashCode>
+      <FileName>World.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
