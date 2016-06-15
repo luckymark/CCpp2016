@@ -8,6 +8,7 @@ set(SOURCE_FILES
         Door.h
         Fan.h
         Button.h
+        Button.cpp
         SwitchAble.h
     README.md)
 
