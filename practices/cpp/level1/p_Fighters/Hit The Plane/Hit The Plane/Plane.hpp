@@ -13,14 +13,16 @@
 #include "Ghost.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
+#include "Gun.hpp"
 using std::cout;
 using std::endl;
 
 class Plane:public Ghost{
 public:
     void fire();
-protected:
+    bool isOutOfWindow(sf::Vector2f nextStep);
     
+protected:
+    Gun gun;
 };
 #endif /* Plane_hpp */
