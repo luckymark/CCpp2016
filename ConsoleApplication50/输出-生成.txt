@@ -1,0 +1,28 @@
+﻿1>------ 已启动生成: 项目: ConsoleApplication50, 配置: Debug Win32 ------
+1>  Sky.cpp
+1>  正在生成代码...
+1>  正在编译...
+1>  Sprite.cpp
+1>  LaunchToolPoint.cpp
+1>  Gun.cpp
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(61): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(64): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(70): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(73): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(79): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(82): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(88): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(91): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(99): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(102): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(105): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(108): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(111): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(114): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(117): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(129): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+1>c:\users\hj\documents\visual studio 2015\projects\consoleapplication50\consoleapplication50\gun.cpp(141): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+1>  ConsoleApplication50.cpp
+1>  正在生成代码...
+1>  ConsoleApplication50.vcxproj -> C:\Users\hj\documents\visual studio 2015\Projects\ConsoleApplication50\Debug\ConsoleApplication50.exe
+========== 生成: 成功 1 个，失败 0 个，最新 0 个，跳过 0 个 ==========
