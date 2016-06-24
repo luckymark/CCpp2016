@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+	int n, ye = 1;
+	scanf("%d", &n);
+	for (int q = 2; q*q <= n; q++)
+	{
+		if (n%q == 0)
+		{
+			ye = 0;
+			break;
+		}
+	}
+	if (ye == 1)
+		printf("isprime\n");
+	else
+		printf(":(\n");
+	return 0;
+
+}
+

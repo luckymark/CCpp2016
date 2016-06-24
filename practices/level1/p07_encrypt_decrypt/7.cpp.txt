@@ -1,0 +1,32 @@
+°æº”√‹°ø
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	char ch;
+	while ((ch = getchar()) != EOF)
+	{
+		if (ch != 127)
+			putchar(ch + 1);
+		else
+			putchar('!');
+	}
+	return 0;
+}
+
+
+°æΩ‚√‹°ø
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	char ch;
+	while ((ch = getchar()) != EOF)
+	{
+		if (ch != '!')
+			putchar(ch -1);
+		else
+			putchar('~');
+	}
+	return 0;
+}

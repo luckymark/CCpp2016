@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main()
+{
+	int fa, so = 0;
+	for (fa = 12;; fa += 12)
+	{
+		if (fa % 6 != 0 || fa % 7 != 0)
+			continue;
+		so = fa*17/28 - 9;//典型问题 因为会先算 17/28 算出来等于0，导致so=-9
+		if (so == fa/2)//同理，1/2放前面就会蛋疼
+		{
+			printf("%d\n", fa);
+			break;
+		}
+	
+	}
+		return 0;
+	
+}
+

@@ -1,0 +1,30 @@
+#include "stdafx.h"
+#include<stdio.h>
+int show(int n);
+int main()
+{
+	int n = 1;
+	while (++n <= 2000)
+	{
+		if (show(n))
+			printf("%d\n", n);
+
+	}
+	return 0;
+}
+int show(int n)
+{
+	int ye = 1;
+	for (int q = 2; q*q <= n; q++)
+	{
+		if (n%q == 0)
+		{
+			ye = 0;
+			break;
+		}
+	}
+	if (ye)
+		return 1;
+	else
+		return 0;
+}
