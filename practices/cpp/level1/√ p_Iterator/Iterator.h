@@ -11,11 +11,16 @@ private:
     int a;
     int s[];
 public:
-    Iterator(queue<int> queue,int m);
+    Iterator(queue<int> queue, int m);
+
     ~Iterator();
+
     int GetData(int);
-    int SetData(int,int);
+
+    int SetData(int, int);
+
     int Ahead();
+
     int Back();
 
 };
