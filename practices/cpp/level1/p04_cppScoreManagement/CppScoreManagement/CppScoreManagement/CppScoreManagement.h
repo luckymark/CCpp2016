@@ -9,7 +9,7 @@ public:
 	CppScoreManagement* changeState(State* _state);
 	void showInformation();
 	void getInformation();
-	//void inputAllStudent();
+	void inputStudent();
 	~CppScoreManagement();
 protected:
 	CppScoreManagement();
@@ -17,6 +17,5 @@ private:
 	static CppScoreManagement* _instance;
 	State* _state;
 	std::map<Student, int>studentList;
-	std::map<Student, int>allStudent;
 };
 

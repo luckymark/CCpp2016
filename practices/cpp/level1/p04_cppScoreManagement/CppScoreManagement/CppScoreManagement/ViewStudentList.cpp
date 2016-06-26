@@ -31,11 +31,15 @@ void ViewStudentList::showInformation(std::map<Student, int>&studentList)
 
 void ViewStudentList::getInformation(std::map<Student, int>&studentList,State*& nowState)
 {
+	if (isActive)return;
 	int op = getch();
 	if (op == KeyBoardValue::_num5)
 	{
 		nowState = Mainmenu::instance();
 		nowState->setActive(true);
+	}
 }
+ViewStudentList::~ViewStudentList()
+{
 
-	ViewStudentList::~ViewStudentList();
+}

@@ -18,6 +18,7 @@ void Mainmenu::showInformation(std::map<Student,int>&studentList)
 			<< "2:添加学生\n"
 			<< "3:删除学生\n"
 			<< "4:录入成绩\n";
+			<< "5:退出\n"
 		isActive = false;
 	}
 	
@@ -25,6 +26,7 @@ void Mainmenu::showInformation(std::map<Student,int>&studentList)
 
 void Mainmenu::getInformation(std::map<Student, int>&)
 {
+	if (isActive)return;
 	int op
 }
 

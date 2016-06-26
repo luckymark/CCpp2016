@@ -35,3 +35,9 @@
 *.obj
 *.log
 *.opensdf
+*.tlog
+*.aps
+*.rc
+*.idb
+*.lastbuildstate
+unsuccessfulbuild
