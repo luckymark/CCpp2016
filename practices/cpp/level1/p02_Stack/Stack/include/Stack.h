@@ -12,6 +12,11 @@ class Stack
         ~Stack()
         {
             delete head;
+            while(head!=NULL)
+            {
+                head=head->next;
+                delete head->pre;
+            }
         }
         void push(int v);
         int pop();
