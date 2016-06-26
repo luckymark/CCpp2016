@@ -25,4 +25,13 @@
 *.out
 *.app
 *.db
-
+*.sdf
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.suo
+*.ilk
+*.pdb
+*.obj
+*.log
+*.opensdf
