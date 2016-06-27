@@ -3,6 +3,7 @@
 #include <string>
 #include "Student.h"
 #include "Mainmenu.h"
+#include <conio.h>
 AddStudent* AddStudent::_instance = 0;
 AddStudent::AddStudent()
 {
@@ -20,6 +21,7 @@ void AddStudent::showInformation(std::map<Student, int>&studentList)
 {
 	if (isActive)
 	{
+		system("cls");
 		std::cout << "请输入学号，姓名和性别，用空格隔开,输入back回到主菜单\n";
 		isActive = false;
 	}
@@ -40,7 +42,7 @@ void AddStudent::getInformation(std::map<Student, int>&studentList,State*&nowSta
 	Student stu(stuID, sex, name);
 	studentList.insert(std::pair<Student,int>(stu,1));
 	std::cout << "加入成功，按任意键继续\n";
-	getchar();
+	_getch();
 	setActive(true);
 }
 

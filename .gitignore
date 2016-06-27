@@ -41,3 +41,6 @@
 *.idb
 *.lastbuildstate
 unsuccessfulbuild
+*.res
+*.iobj
+*.ipdb

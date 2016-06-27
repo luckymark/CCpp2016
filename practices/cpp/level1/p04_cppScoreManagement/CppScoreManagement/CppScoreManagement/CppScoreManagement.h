@@ -2,6 +2,8 @@
 #include "Student.h"
 #include "State.h"
 #include <map>
+#include <fstream>
+#include <sstream>
 class CppScoreManagement
 {
 public:
@@ -15,6 +17,7 @@ protected:
 	CppScoreManagement();
 private:
 	static CppScoreManagement* _instance;
+	std::ifstream inputData;
 	State* _state;
 	std::map<Student, int>studentList;
 };

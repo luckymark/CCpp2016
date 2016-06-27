@@ -2,6 +2,7 @@
 #include "State.h"
 #include "Student.h"
 #include <map>
+#include <fstream>
 class InputScore :
 	public State
 {
@@ -15,5 +16,6 @@ protected:
 private:
 	static InputScore* _instance;
 	bool isInputScoreFinish = false;
+	Student nowStudent;
 };
 

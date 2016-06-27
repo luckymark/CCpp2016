@@ -7,7 +7,8 @@ class DeleteStudent :
 {
 public:
 	static DeleteStudent* instance();
-	void showInformation()
+	void showInformation(std::map<Student,int>&);
+	void getInformation(std::map<Student, int>&, State*&);
 	~DeleteStudent();
 protected:
 	DeleteStudent();
