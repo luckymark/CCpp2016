@@ -40,7 +40,8 @@
 *.rc
 *.idb
 *.lastbuildstate
-unsuccessfulbuild
+*.cd
 *.res
 *.iobj
 *.ipdb
+*.mdj
