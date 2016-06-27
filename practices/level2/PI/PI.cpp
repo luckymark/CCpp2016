@@ -6,8 +6,8 @@
 
 int main()
 {
-	double start,finsh;
-	start=clock();
+    double start,finsh;
+    start=clock();
     freopen("out.txt","w",stdout);
     int x[SIZE],ans[SIZE];
     memset(x,0,sizeof(x));
