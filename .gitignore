@@ -25,6 +25,7 @@
 *.out
 *.app
 *.db
+<<<<<<< HEAD
 *.sdf
 *.sln
 *.vcxproj
@@ -45,3 +46,19 @@
 *.iobj
 *.ipdb
 *.mdj
+=======
+
+*.sdf
+*.sln
+*.opensdf
+*.vcxproj
+*.vcxproj.filters
+*.obj
+*.log
+*.idb
+*.pdb
+*.tlog
+*.lastbuildstate
+*.suo
+*.ilk
+>>>>>>> upstream/Akemi-Homura-master

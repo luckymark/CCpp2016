@@ -2,8 +2,6 @@
 #include "State.h"
 #include <map>
 #include "Student.h"
-#include <vector>
-#include <fstream>
 class Mainmenu :
 	public State
 {

@@ -49,8 +49,6 @@ void CppScoreManagement::inputStudent()
 	}
 }
 
-
-
 CppScoreManagement::~CppScoreManagement()
 {
 }

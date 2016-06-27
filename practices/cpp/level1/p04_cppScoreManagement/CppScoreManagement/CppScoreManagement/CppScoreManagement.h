@@ -12,6 +12,7 @@ public:
 	void showInformation();
 	void getInformation();
 	void inputStudent();
+	//void inputAllStudent();
 	~CppScoreManagement();
 protected:
 	CppScoreManagement();

@@ -3,6 +3,7 @@
 #include <vector>
 int main()
 {
+
 	CppScoreManagement* manager=CppScoreManagement::instance();
 	manager->inputStudent();
 	while (1)

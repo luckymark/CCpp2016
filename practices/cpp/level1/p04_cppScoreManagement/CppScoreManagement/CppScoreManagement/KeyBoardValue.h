@@ -1,4 +1,5 @@
 #pragma once
+
 const int _num1 = 49;
 const int _num2 = 50;
 const int _num3 = 51;
