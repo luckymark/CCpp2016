@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1461063676 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p02\building\main.cpp
+	<iostream>
+	<string>
+	"Building.h"
+	"DormBuilding.h"
+	"TeachBuilding.h"
+
+1461063296 c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p02\building\include\building.h
+	<string>
+
+1461063689 c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p02\building\include\dormbuilding.h
+	"Building.h"
+	<string>
+
+1461063707 c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p02\building\include\teachbuilding.h
+	"Building.h"
+	<string>
+
+1461063721 source:c:\users\admin\documents\ccpp2016\ccpp2016\practices\cpp\myown\继承与派生\p02\building\src\building.cpp
+	"Building.h"
+	<string>
+

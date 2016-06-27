@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="flighter" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/flighter" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add library="sfml-graphics-d" />
+					<Add library="sfml-audio-d" />
+					<Add library="sfml-window-d" />
+					<Add library="sfml-system-d" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/flighter" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-audio" />
+					<Add library="sfml-window" />
+					<Add library="sfml-system" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="E:/SFML-2.0/include" />
+		</Compiler>
+		<Linker>
+			<Add directory="E:/SFML-2.0/lib" />
+		</Linker>
+		<Unit filename="include/BackGround.h" />
+		<Unit filename="include/BombUfo.h" />
+		<Unit filename="include/Copter.h" />
+		<Unit filename="include/EnemyBullet.h" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/GameInfor.h" />
+		<Unit filename="include/GameMusic.h" />
+		<Unit filename="include/GameSprite.h" />
+		<Unit filename="include/GameText.h" />
+		<Unit filename="include/GameTexture.h" />
+		<Unit filename="include/GameWindow.h" />
+		<Unit filename="include/Hero.h" />
+		<Unit filename="include/HeroBullet.h" />
+		<Unit filename="include/Plane.h" />
+		<Unit filename="include/Shader.h" />
+		<Unit filename="include/ShootUfo.h" />
+		<Unit filename="include/Warplane.h" />
+		<Unit filename="include/Warship.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/BackGround.cpp" />
+		<Unit filename="src/BombUfo.cpp" />
+		<Unit filename="src/Copter.cpp" />
+		<Unit filename="src/EnemyBullet.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/GameInfor.cpp" />
+		<Unit filename="src/GameMusic.cpp" />
+		<Unit filename="src/GameSprite.cpp" />
+		<Unit filename="src/GameText.cpp" />
+		<Unit filename="src/GameTexture.cpp" />
+		<Unit filename="src/GameWindow.cpp" />
+		<Unit filename="src/Hero.cpp" />
+		<Unit filename="src/HeroBullet.cpp" />
+		<Unit filename="src/Plane.cpp" />
+		<Unit filename="src/Shader.cpp" />
+		<Unit filename="src/ShootUfo.cpp" />
+		<Unit filename="src/Warplane.cpp" />
+		<Unit filename="src/Warship.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

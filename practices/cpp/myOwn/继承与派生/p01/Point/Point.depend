@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1460894162 source:c:\users\admin\documents\point\main.cpp
+	<iostream>
+	<cstdio>
+	<cmath>
+	"Point.h"
+	"Rectangle.h"
+
+1460892338 c:\users\admin\documents\point\include\point.h
+
+1460892544 c:\users\admin\documents\point\include\rectangle.h
+	"Point.h"
+
+1460892278 source:c:\users\admin\documents\point\src\point.cpp
+	"Point.h"
+	<cstdio>
+
+1460894195 source:c:\users\admin\documents\point\src\circle.cpp
+	"Circle.h"
+	"Point.h"
+	<cmath>
+	<cstdio>
+
+1460894175 c:\users\admin\documents\point\include\circle.h
+	"Point.h"
+
+1460892543 source:c:\users\admin\documents\point\src\rectangle.cpp
+	"Rectangle.h"
+	<cstdio>
+

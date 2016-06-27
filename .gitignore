@@ -26,3 +26,16 @@
 *.app
 *.db
 
+*.sdf
+*.sln
+*.opensdf
+*.vcxproj
+*.vcxproj.filters
+*.obj
+*.log
+*.idb
+*.pdb
+*.tlog
+*.lastbuildstate
+*.suo
+*.ilk
