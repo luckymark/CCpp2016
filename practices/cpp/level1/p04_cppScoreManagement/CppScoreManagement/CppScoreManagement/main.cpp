@@ -3,11 +3,13 @@
 #include <vector>
 int main()
 {
-	CppScoreManagement* builder=CppScoreManagement::instance();
+
+	CppScoreManagement* manager=CppScoreManagement::instance();
+	manager->inputStudent();
 	while (1)
 	{
-		builder->showInformation();
-		builder->getInformation();
+		manager->showInformation();
+		manager->getInformation();
 	}
 	return 0;
 }

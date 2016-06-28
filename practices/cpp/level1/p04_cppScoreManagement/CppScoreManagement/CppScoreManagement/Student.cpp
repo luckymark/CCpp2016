@@ -24,6 +24,26 @@ Student* Student::setScore(double _score)
 	return this;
 }
 
+std::string Student::getStuID() const
+{
+	return studyNumber;
+}
+
+std::string Student::getSex() const
+{
+	return sex;
+}
+
+std::string Student::getName() const
+{
+	return name;
+}
+
+double Student::getScore() const
+{
+	return score;
+}
+
 Student::~Student()
 {
 }

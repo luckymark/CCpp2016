@@ -10,6 +10,7 @@ public:
 	}
 	virtual void showInformation(std::map<Student,int>&) = 0;
 	virtual void getInformation(std::map<Student, int>&,State*&) = 0;
+	void setActive(bool);
 	virtual ~State()
 	{
 	}

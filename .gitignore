@@ -25,6 +25,28 @@
 *.out
 *.app
 *.db
+<<<<<<< HEAD
+*.sdf
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.suo
+*.ilk
+*.pdb
+*.obj
+*.log
+*.opensdf
+*.tlog
+*.aps
+*.rc
+*.idb
+*.lastbuildstate
+*.cd
+*.res
+*.iobj
+*.ipdb
+*.mdj
+=======
 
 *.sdf
 *.sln
@@ -39,3 +61,4 @@
 *.lastbuildstate
 *.suo
 *.ilk
+>>>>>>> upstream/Akemi-Homura-master
