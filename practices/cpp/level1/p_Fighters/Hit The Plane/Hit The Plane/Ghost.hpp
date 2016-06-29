@@ -14,7 +14,7 @@
 
 class Ghost:public sf::Sprite{
 public:
-    virtual void heartBeat(){};
+    virtual void refresh(){};
     void draw();
     bool intersects(Ghost *other);
 };

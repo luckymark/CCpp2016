@@ -9,5 +9,11 @@
 #include "Plane.hpp"
 
 void Plane::fire(){
-    cout<<"fire"<<endl;
+    this->gun.shoot();
+}
+
+bool Plane::isOutOfWindow(sf::Vector2f nextStep){
+    sf::Vector2f position=this->getPosition();
+    position=position+nextStep;
+    return position.x>450||position.x<-30||position.y>700||position.y<-20;
 }

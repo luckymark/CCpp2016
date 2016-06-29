@@ -7,3 +7,12 @@
 //
 
 #include "Ghost.hpp"
+#include "Sky.hpp"
+void Ghost::draw(){
+    Sky::getInstance()->getWindow()->draw(*this);
+}
+
+bool Ghost::intersects(Ghost *other){
+    bool t=this->getGlobalBounds().intersects(other->getGlobalBounds());
+    return t;
+}

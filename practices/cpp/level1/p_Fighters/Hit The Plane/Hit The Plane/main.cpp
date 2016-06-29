@@ -20,78 +20,89 @@
 // Here is a small helper for you ! Have a look.
 #include "ResourcePath.hpp"
 
+#include "Sky.hpp"
+#include "Player.hpp"
+#include "ViewManagement.hpp"
+
 int main(int, char const**)
 {
-    // Create the main window
-    sf::RenderWindow window(sf::VideoMode(562, 749), "Hit The Plane");
-
-    // Set the Icon
-    sf::Image icon;
-    if (!icon.loadFromFile(resourcePath() + "icon.JPG")) {
-        return EXIT_FAILURE;
-    }
-    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
-
-    // Load a sprite to display
-    sf::Texture texture;
-    if (!texture.loadFromFile(resourcePath() + "bg.JPG")) {
-        return EXIT_FAILURE;
-    }
-    sf::Sprite sprite(texture);
-
-    // Create a graphical text to display
-    sf::Font font;
-    if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
-        return EXIT_FAILURE;
-    }
-    sf::Text text("Hello SFML", font, 50);
-    text.setColor(sf::Color::Black);
-
-    sf::Text hello("hit the plane",font,20);
-    hello.setColor(sf::Color::Red);
-    
     // Load a music to play
-    sf::Music music;
-    if (!music.openFromFile(resourcePath() + "Radioactive.ogg")) {
+    sf::Music backgroundMusic;
+    if (!backgroundMusic.openFromFile(resourcePath() + "RUOK.ogg")) {
         return EXIT_FAILURE;
     }
-
     // Play the music
-    music.play();
-
+    backgroundMusic.play();
+    
+    ViewManagement ::load();
+    Sky *sky=Sky::getInstance();
+    sf::RenderWindow *window=sky->getWindow();
+    
+    Player player;
+    sky->addPlayer(&player);
+    
     // Start the game loop
-    while (window.isOpen())
+    while (window->isOpen())
     {
+        
         // Process events
         sf::Event event;
-        while (window.pollEvent(event))
+        while (window->pollEvent(event))
         {
             // Close window: exit
             if (event.type == sf::Event::Closed) {
-                window.close();
+                window->close();
             }
 
             // Escape pressed: exit
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-                window.close();
+                window->close();
             }
-            
-            
+            if (event.key.code==sf::Keyboard::Space) {
+                player.fire();
+            }
         }
-
         
-        // Clear screen
-        window.clear();
-
-        // Draw the sprite
-        window.draw(sprite);
-
-        // Draw the string
-        window.draw(text);
-        window.draw(hello);
-        
-        // Update the window
-        window.display();
+        if (!player.isDead()) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+                player.moveToLeft();
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+                player.moveToRight();
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+                player.moveToUp();
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+                player.moveToDown();
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)) {
+                player.openShield();
+            }else{
+                player.closeShield();
+            }
+        }else{
+            int chosserPosition;
+            sky->clearAll();
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+                sky->moveChosser(0);
+                chosserPosition=0;
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+                sky->moveChosser(1);
+                chosserPosition=1;
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+                if (chosserPosition==0) {
+                    player.reborn();
+                    sky->restartGame();
+                    // Play the music
+                    backgroundMusic.play();
+                }else if (chosserPosition==1)
+                    window->close();
+            }
+        }
+        sky->refresh();
     }
 
     return EXIT_SUCCESS;
