@@ -1,0 +1,40 @@
+<game width="8" height="8" man="(4,4)">
+    <walls lineNum="8">
+        <line id="0" num="3">
+            3 4 5
+        </line>
+        <line id="1" num="2">
+            3 5
+        </line>
+        <line id="2" num="5">
+            0 1 2 3 5
+        </line>
+        <line id="3" num="4">
+            0 5 6 7
+        </line>
+        <line id="4" num="4">
+            0 1 2 7
+        </line>
+        <line id="5" num="5">
+            2 4 5 6 7
+        </line>
+        <line id="6" num="2">
+            2 4
+        </line>
+        <line id="7" num="3">
+            2 3 4
+        </line>
+    </walls>
+    <boxs num="4">
+        <box>3 3</box>
+        <box>3 4</box>
+        <box>5 3</box>
+        <box>4 5</box>
+    </boxs>
+    <finishPoints num="4">
+        <finishPoint>3 1</finishPoint>
+        <finishPoint>1 4</finishPoint>
+        <finishPoint>6 3</finishPoint>
+        <finishPoint>4 6</finishPoint>
+    </finishPoints>
+</game>
