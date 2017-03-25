@@ -1,2 +1,7 @@
 slides/.idea
 
+*.cbp
+*.depend
+*.layout
+*.o
+*.exe
